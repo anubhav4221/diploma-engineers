@@ -10,29 +10,32 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
+
+/* GLOBAL */
 body{
     margin:0;
     font-family: 'Segoe UI';
-    background: #000;
-    color:white;
+    background:#fff;
+    color:#000;
 }
 
+/* NAVBAR */
 .navbar{
-    background:#000;
-    border-bottom:1px solid #333;
+    background:#fff;
+    border-bottom:1px solid #ddd;
 }
 .navbar-brand{
-    color:#ffb703 !important;
+    color:#ff7b00 !important;
     font-weight:bold;
 }
 .nav-link{
-    color:white !important;
+    color:#000 !important;
 }
 
+/* HERO */
 .hero{
     text-align:center;
     padding:80px 20px;
-    animation: fadeIn 2s;
 }
 .hero h1{
     font-size:40px;
@@ -45,20 +48,23 @@ body{
     color:white;
 }
 
+/* SLIDER */
 .slider{
     display:flex;
     overflow-x:auto;
     gap:20px;
     padding:10px;
+    justify-content:center;
 }
 .slider::-webkit-scrollbar{
     display:none;
 }
 
+/* CARD */
 .card-custom{
     min-width:260px;
-    background:#111;
-    color:white;
+    background:#f5f5f5;
+    color:#000;
     border-radius:15px;
     padding:20px;
     text-align:center;
@@ -69,10 +75,15 @@ body{
     transform:scale(1.05);
 }
 
+/* TEAM */
+.team-wrapper{
+    display:flex;
+    justify-content:center;
+}
 .team-card{
     min-width:300px;
-    background:#111;
-    color:white;
+    background:#f5f5f5;
+    color:#000;
     border-radius:15px;
     padding:20px;
     text-align:center;
@@ -83,6 +94,7 @@ body{
     border:2px solid #ff7b00;
 }
 
+/* ICON */
 i{
     margin:5px;
     font-size:20px;
@@ -92,10 +104,11 @@ i:hover{
     color:#ff7b00;
 }
 
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(30px);}
-    to{opacity:1;}
+/* BUTTON HOVER */
+button:hover{
+    transform:scale(1.05);
 }
+
 </style>
 </head>
 
@@ -116,8 +129,8 @@ i:hover{
 <li class="nav-item"><a class="nav-link" href="notes.html">Notes</a></li>
 <li class="nav-item"><a class="nav-link" href="syllabus.html">Syllabus</a></li>
 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-<li class="nav-item"><a class="nav-link" href="contact.html">about</a></li>
-<li class="nav-item"><a class="nav-link" href="contact.html">result</a></li>
+<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+<li class="nav-item"><a class="nav-link" href="result.html">Result</a></li>
 </ul>
 </div>
 </div>
@@ -132,62 +145,74 @@ i:hover{
 </a>
 </section>
 
-<!-- BRANCH SLIDER -->
+<!-- WHATSAPP + TELEGRAM -->
+<section style="padding:40px; text-align:center;">
+<h2>📢 Join Our Community</h2>
+
+<div style="display:flex; justify-content:center; margin-top:20px; gap:20px; flex-wrap:wrap;">
+
+<div style="background:#f5f5f5; padding:25px; border-radius:15px; width:260px;">
+<h4 style="color:#25D366;">WhatsApp</h4>
+<p>Notes & Updates</p>
+<a href="https://whatsapp.com/channel/0029Vay8k8CAojYkBQWr1s1w" target="_blank">
+<button style="background:#25D366; color:white; border:none; padding:10px 20px; border-radius:25px;">
+Join Now
+</button>
+</a>
+</div>
+
+<div style="background:#f5f5f5; padding:25px; border-radius:15px; width:260px;">
+<h4 style="color:#0088cc;">Telegram</h4>
+<p>Study Materials</p>
+<a href="https://t.me/diploma_engineers7" target="_blank">
+<button style="background:#0088cc; color:white; border:none; padding:10px 20px; border-radius:25px;">
+Join Now
+</button>
+</a>
+</div>
+
+</div>
+</section>
+
+<!-- BRANCH -->
 <section class="container my-5">
 <h3 class="text-center mb-3">Engineering Branches</h3>
 
 <div class="slider">
-
 <a href="civil.html" class="card-custom">🏗 Civil Engineering</a>
-
 <a href="mechanical.html" class="card-custom">⚙ Mechanical</a>
-
-<a href="mechanical.html" class="card-custom">🌾 Agricultural Engineering</a>
-
-<a href="mechanical.html" class="card-custom">💻 Information Technology</a>
-    
+<a href="agriculture.html" class="card-custom">🌾 Agricultural</a>
+<a href="it.html" class="card-custom">💻 Information Technology</a>
 <a href="electrical.html" class="card-custom">⚡ Electrical</a>
-
 <a href="computer.html" class="card-custom">💻 Computer</a>
-
 <a href="electronics.html" class="card-custom">📡 Electronics</a>
-
 </div>
-</section> 
+</section>
 
-
-div::-webkit-scrollbar{
-    display:none;
-}
-
-button:hover{
-    transform:scale(1.05);
-}
-
-<!-- TEAM SLIDER -->
+<!-- TEAM -->
 <section class="container my-5">
 <h3 class="text-center mb-3">Our Team</h3>
 
+<div class="team-wrapper">
 <div class="slider">
 
 <div class="team-card">
-<img src="https://via.placeholder.com/100">
+<img src="images/anubhav.jpg">
 <h4>Anubhav Gangwar</h4>
 <p>Civil Engineer</p>
-
 <a href="#"><i class="fab fa-instagram"></i></a>
 <a href="#"><i class="fab fa-linkedin"></i></a>
 </div>
 
 <div class="team-card">
-<img src="https://via.placeholder.com/100">
-<h4>Second Person</h4>
-<p>Engineer</p>
-
+<img src="images/mukesh.jpg">
+<h4>Mukesh Singh</h4>
+<p>Electronics Engineer</p>
 <a href="#"><i class="fab fa-instagram"></i></a>
 <a href="#"><i class="fab fa-linkedin"></i></a>
 </div>
 
+</div>
 </div>
 </section>
 
