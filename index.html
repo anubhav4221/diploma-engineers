@@ -169,6 +169,7 @@ Focused on practical learning and real-world engineering solutions.
 <span style="background:#ddd; padding:5px 10px; border-radius:5px; margin:5px;">Surveying</span>
 <span style="background:#ddd; padding:5px 10px; border-radius:5px; margin:5px;">AutoCAD</span>
 <span style="background:#ddd; padding:5px 10px; border-radius:5px; margin:5px;">Estimation</span>
+    
 <span style="background:#ddd; padding:5px 10px; border-radius:5px; margin:5px;">Construction</span>
 <span style="background:#ddd; padding:5px 10px; border-radius:5px; margin:5px;">Structural Design</span>
 </div>
@@ -185,3 +186,14 @@ Contact Me
 </div>
 
 </section>
+
+<div id="footer"></div>
+
+<script>
+fetch("footer.html")
+.then(res => res.text())
+.then(data => {
+  document.getElementById("footer").innerHTML = data;
+});
+</script>
+
