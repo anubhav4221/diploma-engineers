@@ -6,15 +6,10 @@
 
 <title>Diploma Engineers</title>
 
-<!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-
-/* GLOBAL */
 body{
     margin:0;
     font-family: 'Segoe UI';
@@ -22,7 +17,6 @@ body{
     color:white;
 }
 
-/* NAVBAR */
 .navbar{
     background:#000;
     border-bottom:1px solid #333;
@@ -35,7 +29,6 @@ body{
     color:white !important;
 }
 
-/* HERO */
 .hero{
     text-align:center;
     padding:80px 20px;
@@ -52,7 +45,6 @@ body{
     color:white;
 }
 
-/* SLIDER */
 .slider{
     display:flex;
     overflow-x:auto;
@@ -63,7 +55,6 @@ body{
     display:none;
 }
 
-/* CARD */
 .card-custom{
     min-width:260px;
     background:#111;
@@ -72,12 +63,12 @@ body{
     padding:20px;
     text-align:center;
     transition:0.3s;
+    text-decoration:none;
 }
 .card-custom:hover{
     transform:scale(1.05);
 }
 
-/* TEAM */
 .team-card{
     min-width:300px;
     background:#111;
@@ -92,7 +83,6 @@ body{
     border:2px solid #ff7b00;
 }
 
-/* ICON STYLE */
 i{
     margin:5px;
     font-size:20px;
@@ -102,12 +92,10 @@ i:hover{
     color:#ff7b00;
 }
 
-/* ANIMATION */
 @keyframes fadeIn{
     from{opacity:0; transform:translateY(30px);}
     to{opacity:1;}
 }
-
 </style>
 </head>
 
@@ -116,7 +104,7 @@ i:hover{
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg">
 <div class="container">
-<a class="navbar-brand">🎓 Diploma Engineers</a>
+<a class="navbar-brand" href="index.html">🎓 Diploma Engineers</a>
 
 <button class="navbar-toggler bg-light" data-bs-toggle="collapse" data-bs-target="#menu">
 ☰
@@ -124,10 +112,10 @@ i:hover{
 
 <div class="collapse navbar-collapse" id="menu">
 <ul class="navbar-nav ms-auto">
-<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-<li class="nav-item"><a class="nav-link" href="#">Notes</a></li>
-<li class="nav-item"><a class="nav-link" href="#">Syllabus</a></li>
-<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="notes.html">Notes</a></li>
+<li class="nav-item"><a class="nav-link" href="syllabus.html">Syllabus</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
 </ul>
 </div>
 </div>
@@ -137,7 +125,9 @@ i:hover{
 <section class="hero">
 <h1>Welcome Diploma Engineers</h1>
 <p>Study Notes | PYQ | Projects</p>
+<a href="notes.html">
 <button class="btn-main">Explore Now</button>
+</a>
 </section>
 
 <!-- BRANCH SLIDER -->
@@ -145,11 +135,17 @@ i:hover{
 <h3 class="text-center mb-3">Engineering Branches</h3>
 
 <div class="slider">
-<div class="card-custom">🏗 Civil Engineering</div>
-<div class="card-custom">⚙ Mechanical</div>
-<div class="card-custom">⚡ Electrical</div>
-<div class="card-custom">💻 Computer</div>
-<div class="card-custom">📡 Electronics</div>
+
+<a href="civil.html" class="card-custom">🏗 Civil Engineering</a>
+
+<a href="mechanical.html" class="card-custom">⚙ Mechanical</a>
+
+<a href="electrical.html" class="card-custom">⚡ Electrical</a>
+
+<a href="computer.html" class="card-custom">💻 Computer</a>
+
+<a href="electronics.html" class="card-custom">📡 Electronics</a>
+
 </div>
 </section>
 
@@ -163,16 +159,18 @@ i:hover{
 <img src="https://via.placeholder.com/100">
 <h4>Anubhav Gangwar</h4>
 <p>Civil Engineer</p>
-<i class="fab fa-instagram"></i>
-<i class="fab fa-linkedin"></i>
+
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-linkedin"></i></a>
 </div>
 
 <div class="team-card">
 <img src="https://via.placeholder.com/100">
 <h4>Second Person</h4>
 <p>Engineer</p>
-<i class="fab fa-instagram"></i>
-<i class="fab fa-linkedin"></i>
+
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-linkedin"></i></a>
 </div>
 
 </div>
