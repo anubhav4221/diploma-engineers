@@ -3,50 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Diploma Engineers</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
+:root {
+    --primary: #1a4b8c;
+    --secondary: #2e7d32;
+    --accent: #ff6f00;
+    --light: #f5f9ff;
+    --dark: #0d2a4d;
+}
+
 body {
+    margin: 0;
     font-family: Arial;
-}
-
-.navbar {
-    background: #1d3557;
-}
-
-.navbar-brand {
-    color: #ffb703 !important;
-    font-weight: bold;
-}
-
-.nav-link {
-    color: white !important;
-}
-
-.hero {
-    background: linear-gradient(to right, #1d3557, #457b9d);
+    background: linear-gradient(to right, #0f2027, #2c5364);
     color: white;
-    padding: 80px 20px;
+}
+
+/* Navbar */
+header {
+    background: var(--primary);
+    padding: 10px;
+    position: sticky;
+    top: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    margin: 10px;
+    text-decoration: none;
+}
+
+/* Hero */
+.hero {
     text-align: center;
+    padding: 60px 20px;
 }
 
 .btn-main {
-    background: #ff7b00;
-    color: white;
-    border-radius: 30px;
+    background: var(--accent);
     padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    color: white;
 }
 
-.stats {
-    text-align: center;
-    padding: 40px;
-}
-
+/* Cards */
 .card {
-    border-radius: 15px;
-    padding: 20px;
+    background: white;
+    color: black;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+/* Footer */
+footer {
+    background: #111;
+    text-align: center;
+    padding: 10px;
 }
 </style>
 
@@ -54,80 +79,59 @@ body {
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg">
-<div class="container">
-<a class="navbar-brand" href="#">🎓 Diploma Engineers</a>
-
-<button class="navbar-toggler bg-light" data-bs-toggle="collapse" data-bs-target="#menu">
-☰
-</button>
-
-<div class="collapse navbar-collapse" id="menu">
-<ul class="navbar-nav ms-auto">
-<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-<li class="nav-item"><a class="nav-link" href="#">Books</a></li>
-<li class="nav-item"><a class="nav-link" href="#">Syllabus</a></li>
-<li class="nav-item"><a class="nav-link" href="#">Result</a></li>
-</ul>
-</div>
+<!-- HEADER -->
+<header>
+<nav>
+<h2>🎓 Diploma Engineers</h2>
+<div>
+<a href="#">Home</a>
+<a href="#">Notes</a>
+<a href="#">Syllabus</a>
+<a href="#">Contact</a>
 </div>
 </nav>
+</header>
 
 <!-- HERO -->
 <section class="hero">
 <h1>Diploma Engineers</h1>
 <p>Study Notes | PYQ | Projects</p>
-<button class="btn btn-main">Find Notes</button>
-</section>
-
-<!-- STATS -->
-<section class="stats container">
-<div class="row">
-<div class="col-md-3"><h2>6</h2><p>Branches</p></div>
-<div class="col-md-3"><h2>200+</h2><p>PYQ Papers</p></div>
-<div class="col-md-3"><h2>5</h2><p>Years Data</p></div>
-<div class="col-md-3"><h2>6</h2><p>Semesters</p></div>
-</div>
+<button class="btn-main">Explore</button>
 </section>
 
 <!-- SUBJECTS -->
-<section class="container">
-<h3 class="text-center mb-4">Subjects</h3>
+<section style="padding:20px;">
+<h3 style="text-align:center;">Subjects</h3>
 
-<div class="row">
-<div class="col-md-3">
+<div style="display:flex; flex-wrap:wrap; justify-content:center;">
+
 <div class="card">
-<h5>Applied Mathematics</h5>
+<h4>Applied Mathematics</h4>
 <p>Semester 1 Notes</p>
 </div>
-</div>
 
-<div class="col-md-3">
 <div class="card">
-<h5>Applied Physics</h5>
+<h4>Applied Physics</h4>
 <p>Semester 1 Notes</p>
 </div>
-</div>
 
-<div class="col-md-3">
 <div class="card">
-<h5>Applied Chemistry</h5>
+<h4>Applied Chemistry</h4>
 <p>Semester 1 Notes</p>
 </div>
-</div>
 
-<div class="col-md-3">
 <div class="card">
-<h5>Communication Skills</h5>
+<h4>Communication Skills</h4>
 <p>Semester 1 Notes</p>
-</div>
 </div>
 
 </div>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- FOOTER -->
+<footer>
+<p>© 2026 Diploma Engineers | All Rights Reserved</p>
+</footer>
 
 </body>
 </html>
