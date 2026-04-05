@@ -1,104 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<section style="padding:50px; text-align:center;">
 
-<title>Result - Diploma Engineers</title>
+<h2>🎓 Check Your Result</h2>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<form onsubmit="goToResult(event)">
+    
+    <input type="text" id="roll" placeholder="Enter Enrollment No"
+    style="padding:10px; margin:10px; width:250px; border-radius:10px; border:1px solid #ccc;" required>
 
-<style>
-body{
-    background:#000;
-    color:white;
-    font-family:'Segoe UI';
-    text-align:center;
-}
+    <br>
 
-/* NAVBAR */
-.navbar{
-    background:#000;
-    border-bottom:1px solid #333;
-}
+    <input type="text" id="dob" placeholder="DD/MM/YYYY"
+    style="padding:10px; margin:10px; width:250px; border-radius:10px; border:1px solid #ccc;" required>
 
-/* BOX */
-.result-box{
-    background:#111;
-    padding:30px;
-    margin:40px auto;
-    max-width:400px;
-    border-radius:15px;
-}
+    <br>
 
-/* INPUT */
-input, select{
-    width:100%;
-    padding:10px;
-    margin:10px 0;
-    border-radius:10px;
-    border:none;
-}
-
-/* BUTTON */
-.btn-main{
-    background:#ff7b00;
-    border:none;
-    padding:10px;
-    border-radius:20px;
-    color:white;
-    width:100%;
-}
-</style>
-
-</head>
-
-<body>
-
-<!-- NAVBAR -->
-<nav class="navbar p-2">
-<a href="index.html" style="color:white; text-decoration:none;">⬅ Back to Home</a>
-</nav>
-
-<!-- TITLE -->
-<h1 style="margin-top:30px;">📊 Check Your Result</h1>
-
-<!-- FORM -->
-<div class="result-box">
-
-<form>
-
-<select>
-<option>Select Branch</option>
-<option>Civil Engineering</option>
-<option>Mechanical</option>
-<option>Electrical</option>
-<option>Electronics</option>
-<option>Computer Science</option>
-<option>IT</option>
-<option>Agricultural</option>
-</select>
-
-<select>
-<option>Select Semester</option>
-<option>1st Semester</option>
-<option>2nd Semester</option>
-<option>3rd Semester</option>
-<option>4th Semester</option>
-<option>5th Semester</option>
-<option>6th Semester</option>
-</select>
-
-<input type="text" placeholder="Enter Roll Number">
-
-<button class="btn-main">Check Result</button>
+    <button type="submit" style="
+        background:#ff7b00;
+        color:white;
+        padding:12px 25px;
+        border:none;
+        border-radius:25px;
+        cursor:pointer;">
+        Show Result
+    </button>
 
 </form>
 
-</div>
+</section>
 
-<!-- NOTE -->
-<p style="color:#aaa;">* This is demo UI. Link your official result site.</p>
+<script>
+function goToResult(event){
+    event.preventDefault();
 
-</body>
-</html>
+    let roll = document.getElementById("roll").value;
+    let dob = document.getElementById("dob").value;
+
+    // Direct official result page open
+    window.open("http://result.bteupexam.in/odd_result/ROLLNO.aspx", "_blank");
+
+    alert("👉 Please enter your details again on official website for result.");
+}
+</script>
