@@ -6,29 +6,26 @@
 
 <title>Diploma Engineers</title>
 
-<!-- Font Awesome -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 
-/* GLOBAL */
+/* BODY */
 body{
     margin:0;
     font-family:'Segoe UI', sans-serif;
 }
 
-/* HEADER */
+/* HEADER (SAME) */
 .pro-header{
     background: rgba(29,53,87,0.95);
-    backdrop-filter: blur(10px);
     padding:15px 0;
     position:sticky;
     top:0;
     z-index:1000;
-    box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* LOGO */
 .logo a{
     color:white;
     font-size:24px;
@@ -39,7 +36,6 @@ body{
     color:#ffb703;
 }
 
-/* DESKTOP MENU */
 .nav-menu{
     display:flex;
     gap:25px;
@@ -48,7 +44,6 @@ body{
     color:white;
     text-decoration:none;
     position:relative;
-    font-weight:500;
 }
 
 .nav-menu a::after{
@@ -66,7 +61,7 @@ body{
     width:100%;
 }
 
-/* MOBILE ICON */
+/* MOBILE MENU */
 .menu-toggle{
     display:none;
     color:white;
@@ -74,7 +69,6 @@ body{
     cursor:pointer;
 }
 
-/* OVERLAY */
 .overlay{
     position:fixed;
     width:100%;
@@ -84,15 +78,12 @@ body{
     left:0;
     opacity:0;
     visibility:hidden;
-    transition:0.3s;
-    z-index:1500;
 }
 .overlay.show{
     opacity:1;
     visibility:visible;
 }
 
-/* SIDE MENU */
 .side-menu{
     position:fixed;
     top:0;
@@ -100,77 +91,75 @@ body{
     width:260px;
     height:100%;
     background:#1d3557;
-    display:flex;
-    flex-direction:column;
     padding-top:60px;
     transition:0.4s;
-    z-index:2000;
 }
-
 .side-menu a{
     color:white;
     padding:15px;
+    display:block;
     text-decoration:none;
-    border-bottom:1px solid rgba(255,255,255,0.1);
 }
-
-.side-menu a:hover{
-    background:#2a4d75;
-}
-
 .close-btn{
     position:absolute;
     top:15px;
     right:15px;
-    font-size:22px;
     color:white;
     cursor:pointer;
+}
+
+@media(max-width:768px){
+    .nav-menu{display:none;}
+    .menu-toggle{display:block;}
 }
 
 /* HERO */
 .hero{
     text-align:center;
     padding:70px 20px;
+    background:#fff7f0;
 }
+.hero h1{font-size:40px;}
 .btn-main{
     background:#ff7b00;
     border:none;
-    padding:10px 25px;
+    padding:12px 30px;
     border-radius:30px;
     color:white;
 }
 
-/* SLIDER */
-.slider{
-    display:flex;
-    overflow-x:auto;
-    gap:15px;
-    padding:15px;
-    scroll-snap-type:x mandatory;
-}
-.slider::-webkit-scrollbar{
-    display:none;
+/* CENTER SECTION */
+.section-title{
+    text-align:center;
+    margin:40px 0 20px;
 }
 
-/* CARD */
-.card-custom, .team-card{
-    flex:0 0 auto;
-    width:260px;
+.center-grid{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+    padding:10px;
+}
+
+.card-box{
+    width:220px;
     background:#f5f5f5;
     border-radius:15px;
     padding:20px;
     text-align:center;
-    scroll-snap-align:start;
+    transition:0.3s;
     text-decoration:none;
     color:black;
-    transition:0.3s;
 }
-.card-custom:hover{
-    transform:scale(1.05);
+
+.card-box:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 20px rgba(0,0,0,0.15);
 }
 
 /* TEAM IMAGE */
-.team-card img{
+.card-box img{
     width:90px;
     height:90px;
     border-radius:50%;
@@ -186,19 +175,6 @@ footer{
     text-align:center;
     padding:15px;
     margin-top:40px;
-}
-
-/* MOBILE */
-@media (max-width:768px){
-    .nav-menu{
-        display:none;
-    }
-    .menu-toggle{
-        display:block;
-    }
-    .card-custom, .team-card{
-        width:85%;
-    }
 }
 
 </style>
@@ -256,38 +232,47 @@ footer{
 </a>
 </section>
 
-<!-- BRANCH -->
-<section class="container my-5">
-<h3 class="text-center">Engineering Branches</h3>
+<!-- BRANCHES (CENTER) -->
+<section>
+<h2 class="section-title">Engineering Branches</h2>
 
-<div class="slider">
-<a href="civil.html" class="card-custom">🏗 Civil</a>
-<a href="mechanical.html" class="card-custom">⚙ Mechanical</a>
-<a href="it.html" class="card-custom">💻 IT</a>
-<a href="electrical.html" class="card-custom">⚡ Electrical</a>
-<a href="electronics.html" class="card-custom">📡 Electronics</a>
-<a href="agriculture.html" class="card-custom">🌾 Agriculture</a>
+<div class="center-grid">
+
+<a href="civil.html" class="card-box">🏗 Civil</a>
+<a href="mechanical.html" class="card-box">⚙ Mechanical</a>
+<a href="it.html" class="card-box">💻 IT</a>
+<a href="electrical.html" class="card-box">⚡ Electrical</a>
+<a href="electronics.html" class="card-box">📡 Electronics</a>
+<a href="agriculture.html" class="card-box">🌾 Agriculture</a>
+
 </div>
 </section>
 
-<!-- TEAM -->
-<section class="container my-5">
-<h3 class="text-center">Our Team</h3>
+<!-- TEAM (CENTER) -->
+<section>
+<h2 class="section-title">Our Team</h2>
 
-<div class="slider">
+<div class="center-grid">
 
-<div class="team-card">
-<img src="https://anubhavfinance.wordpress.com/wp-content/uploads/2026/02/cropped-1000261069-1.png">
+<div class="card-box">
+<img src="https://randomuser.me/api/portraits/men/32.jpg">
 <h4>Anubhav Gangwar</h4>
 <p>Civil Engineer</p>
 <small>Founder</small>
 </div>
 
-<div class="team-card">
-<img src="https://anubhavfinance.wordpress.com/wp-content/uploads/2026/02/cropped-1000261069-1.png">
+<div class="card-box">
+<img src="https://randomuser.me/api/portraits/men/45.jpg">
 <h4>Mukesh Singh</h4>
 <p>Electronics Engineer</p>
 <small>Co-Founder</small>
+</div>
+
+<div class="card-box">
+<img src="https://randomuser.me/api/portraits/men/12.jpg">
+<h4>Amit Kumar</h4>
+<p>Computer Engineer</p>
+<small>Developer</small>
 </div>
 
 </div>
@@ -299,15 +284,14 @@ footer{
 <p>© 2026 All Rights Reserved</p>
 </footer>
 
-<!-- SCRIPT -->
+<!-- JS -->
 <script>
 function openMenu(){
-    document.getElementById("sideMenu").style.right = "0";
+    document.getElementById("sideMenu").style.right="0";
     document.getElementById("overlay").classList.add("show");
 }
-
 function closeMenu(){
-    document.getElementById("sideMenu").style.right = "-100%";
+    document.getElementById("sideMenu").style.right="-100%";
     document.getElementById("overlay").classList.remove("show");
 }
 </script>
