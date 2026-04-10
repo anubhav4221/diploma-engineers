@@ -1,1 +1,38 @@
+<!-- header.html -->
+<header class="pro-header">
+  <div class="container d-flex justify-content-between align-items-center">
 
+    <div class="logo">
+      <a href="index.html">Diploma<span>Engineers</span></a>
+    </div>
+
+    <nav class="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="notes.html">Notes</a>
+      <a href="civil.html">Civil</a>
+      <a href="mechanical.html">Mechanical</a>
+      <a href="it.html">IT</a>
+      <a href="electrical.html">Electrical</a>
+      <a href="electronics.html">Electronics</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <i class="fas fa-bars menu-toggle" onclick="openMenu()"></i>
+  </div>
+</header>
+
+<!-- SIDE MENU -->
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+<div class="side-menu" id="sideMenu">
+  <i class="fas fa-times close-btn" onclick="closeMenu()"></i>
+
+  <a href="index.html">Home</a>
+  <a href="notes.html">Notes</a>
+  <a href="civil.html">Civil</a>
+  <a href="mechanical.html">Mechanical</a>
+  <a href="it.html">IT</a>
+  <a href="electrical.html">Electrical</a>
+  <a href="electronics.html">Electronics</a>
+  <a href="contact.html">Contact</a>
+</div>
