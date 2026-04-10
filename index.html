@@ -17,7 +17,7 @@ body{
     font-family:'Segoe UI', sans-serif;
 }
 
-/* HEADER (SAME) */
+/* HEADER */
 .pro-header{
     background: rgba(29,53,87,0.95);
     padding:15px 0;
@@ -61,7 +61,7 @@ body{
     width:100%;
 }
 
-/* MOBILE MENU */
+/* MOBILE */
 .menu-toggle{
     display:none;
     color:white;
@@ -108,11 +108,6 @@ body{
     cursor:pointer;
 }
 
-@media(max-width:768px){
-    .nav-menu{display:none;}
-    .menu-toggle{display:block;}
-}
-
 /* HERO */
 .hero{
     text-align:center;
@@ -128,44 +123,44 @@ body{
     color:white;
 }
 
-/* CENTER SECTION */
-.section-title{
-    text-align:center;
-    margin:40px 0 20px;
-}
-
-.center-grid{
+/* SLIDER */
+.slider{
     display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:20px;
+    gap:15px;
+    overflow-x:auto;
     padding:10px;
 }
 
-.card-box{
-    width:220px;
-    background:#f5f5f5;
-    border-radius:15px;
-    padding:20px;
+/* BRANCH CARDS */
+.card-custom{
+    min-width:160px;
+    background:#1d3557;
+    color:white;
+    padding:15px;
+    border-radius:12px;
     text-align:center;
-    transition:0.3s;
     text-decoration:none;
-    color:black;
+    flex-shrink:0;
+    transition:0.3s;
+}
+.card-custom:hover{
+    background:#ff7b00;
+    transform:scale(1.05);
 }
 
-.card-box:hover{
-    transform:translateY(-5px);
-    box-shadow:0 10px 20px rgba(0,0,0,0.15);
+/* TEAM CARD */
+.team-card{
+    min-width:220px;
+    background:#f5f5f5;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    flex-shrink:0;
 }
-
-/* TEAM IMAGE */
-.card-box img{
+.team-card img{
     width:90px;
     height:90px;
     border-radius:50%;
-    object-fit:cover;
-    border:2px solid #ff7b00;
-    margin-bottom:10px;
 }
 
 /* FOOTER */
@@ -175,6 +170,11 @@ footer{
     text-align:center;
     padding:15px;
     margin-top:40px;
+}
+
+@media(max-width:768px){
+    .nav-menu{display:none;}
+    .menu-toggle{display:block;}
 }
 
 </style>
@@ -197,7 +197,7 @@ footer{
       <a href="mechanical.html">Mechanical</a>
       <a href="it.html">IT</a>
       <a href="electrical.html">Electrical</a>
-      <a href="electronics.html">result</a>
+      <a href="electronics.html">Result</a>
       <a href="contact.html">Contact</a>
     </nav>
 
@@ -218,7 +218,7 @@ footer{
   <a href="mechanical.html">Mechanical</a>
   <a href="it.html">IT</a>
   <a href="electrical.html">Electrical</a>
-  <a href="electronics.html">result</a>
+  <a href="electronics.html">Result</a>
   <a href="contact.html">Contact</a>
 </div>
 
@@ -226,7 +226,6 @@ footer{
 <section class="hero">
 <h1>Welcome Diploma Engineers</h1>
 <p>Study Notes | PYQ | Projects</p>
-
 <a href="notes.html">
 <button class="btn-main">Explore Now</button>
 </a>
@@ -255,14 +254,14 @@ footer{
 
 <div class="team-card">
 <img src="https://anubhavfinance.wordpress.com/wp-content/uploads/2026/02/cropped-1000261069-1.png">
-<h4 class="mt-3">Anubhav Gangwar</h4>
+<h4>Anubhav Gangwar</h4>
 <p>Civil Engineer</p>
 <small>Founder</small>
 </div>
 
 <div class="team-card">
 <img src="https://anubhavfinance.wordpress.com/wp-content/uploads/2026/02/cropped-1000261069-1.png">
-<h4 class="mt-3">Mukesh Singh</h4>
+<h4>Mukesh Singh</h4>
 <p>Electronics Engineer</p>
 <small>Co-Founder</small>
 </div>
@@ -270,8 +269,20 @@ footer{
 </div>
 </section>
 
+<!-- FOOTER -->
+<div id="footer"></div>
 
-</div>
-</section>
+<script>
+// MENU
+function openMenu(){
+    document.getElementById("sideMenu").style.right="0";
+    document.getElementById("overlay").classList.add("show");
+}
 
+function closeMenu(){
+    document.getElementById("sideMenu").style.right="-100%";
+    document.getElementById("overlay").classList.remove("show");
+}
+
+// FOOTER
 <div id="footer"></div>
