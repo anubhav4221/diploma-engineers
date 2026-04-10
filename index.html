@@ -40,6 +40,7 @@ body{
     display:flex;
     gap:25px;
 }
+
 .nav-menu a{
     color:white;
     text-decoration:none;
@@ -56,6 +57,7 @@ body{
     bottom:0;
     transition:0.3s;
 }
+
 .nav-menu a:hover::after,
 .nav-menu .active::after{
     width:100%;
@@ -69,21 +71,25 @@ body{
     cursor:pointer;
 }
 
+/* OVERLAY */
 .overlay{
     position:fixed;
     width:100%;
     height:100%;
-    background:rgba(0,0,0,0.5);
     top:0;
     left:0;
+    background:rgba(0,0,0,0.5);
     opacity:0;
     visibility:hidden;
+    transition:0.3s;
 }
+
 .overlay.show{
     opacity:1;
     visibility:visible;
 }
 
+/* SIDE MENU */
 .side-menu{
     position:fixed;
     top:0;
@@ -94,12 +100,14 @@ body{
     padding-top:60px;
     transition:0.4s;
 }
+
 .side-menu a{
-    color:white;
-    padding:15px;
     display:block;
+    padding:15px;
+    color:white;
     text-decoration:none;
 }
+
 .close-btn{
     position:absolute;
     top:15px;
@@ -114,7 +122,11 @@ body{
     padding:70px 20px;
     background:#fff7f0;
 }
-.hero h1{font-size:40px;}
+
+.hero h1{
+    font-size:40px;
+}
+
 .btn-main{
     background:#ff7b00;
     border:none;
@@ -131,7 +143,7 @@ body{
     padding:10px;
 }
 
-/* BRANCH CARDS */
+/* CARDS */
 .card-custom{
     min-width:160px;
     background:#1d3557;
@@ -143,12 +155,13 @@ body{
     flex-shrink:0;
     transition:0.3s;
 }
+
 .card-custom:hover{
     background:#ff7b00;
     transform:scale(1.05);
 }
 
-/* TEAM CARD */
+/* TEAM */
 .team-card{
     min-width:220px;
     background:#f5f5f5;
@@ -157,6 +170,7 @@ body{
     text-align:center;
     flex-shrink:0;
 }
+
 .team-card img{
     width:90px;
     height:90px;
@@ -172,6 +186,7 @@ footer{
     margin-top:40px;
 }
 
+/* RESPONSIVE */
 @media(max-width:768px){
     .nav-menu{display:none;}
     .menu-toggle{display:block;}
@@ -187,17 +202,17 @@ footer{
   <div class="container d-flex justify-content-between align-items-center">
 
     <div class="logo">
-      <a href="#">Diploma<span>Engineers</span></a>
+      <a href="index.html">Diploma<span>Engineers</span></a>
     </div>
 
     <nav class="nav-menu">
-      <a href="index.html" class="active">Home</a>
+      <a href="index.html">Home</a>
       <a href="notes.html">Notes</a>
       <a href="civil.html">Civil</a>
       <a href="mechanical.html">Mechanical</a>
       <a href="it.html">IT</a>
       <a href="electrical.html">Electrical</a>
-      <a href="electronics.html">Result</a>
+      <a href="electronics.html" class="active">Result</a>
       <a href="contact.html">Contact</a>
     </nav>
 
@@ -206,9 +221,10 @@ footer{
   </div>
 </header>
 
-<!-- SIDE MENU -->
+<!-- OVERLAY -->
 <div class="overlay" id="overlay" onclick="closeMenu()"></div>
 
+<!-- SIDE MENU -->
 <div class="side-menu" id="sideMenu">
   <i class="fas fa-times close-btn" onclick="closeMenu()"></i>
 
@@ -226,9 +242,8 @@ footer{
 <section class="hero">
 <h1>Welcome Diploma Engineers</h1>
 <p>Study Notes | PYQ | Projects</p>
-<a href="notes.html">
+
 <button class="btn-main">Explore Now</button>
-</a>
 </section>
 
 <!-- BRANCH -->
@@ -241,8 +256,7 @@ footer{
 <a href="agriculture.html" class="card-custom">🌾 Agriculture</a>
 <a href="it.html" class="card-custom">💻 IT</a>
 <a href="electrical.html" class="card-custom">⚡ Electrical</a>
-<a href="computer.html" class="card-custom">💻 Computer</a>
-<a href="electronics.html" class="card-custom">📡 Electronics</a>
+<a href="electronics.html" class="card-custom">📡 Result</a>
 </div>
 </section>
 
@@ -270,10 +284,12 @@ footer{
 </section>
 
 <!-- FOOTER -->
-<div id="footer"></div>
+<footer>
+© 2026 Diploma Engineers | All Rights Reserved
+</footer>
 
 <script>
-// MENU
+
 function openMenu(){
     document.getElementById("sideMenu").style.right="0";
     document.getElementById("overlay").classList.add("show");
@@ -284,5 +300,7 @@ function closeMenu(){
     document.getElementById("overlay").classList.remove("show");
 }
 
-// FOOTER
-<div id="footer"></div>
+</script>
+
+</body>
+</html>
