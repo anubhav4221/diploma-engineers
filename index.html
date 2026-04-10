@@ -6,15 +6,12 @@
 
 <title>Diploma Engineers</title>
 
-<!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 
-/* BODY */
+/* GLOBAL */
 body{
     margin:0;
     font-family:'Segoe UI', sans-serif;
@@ -23,12 +20,15 @@ body{
 /* HEADER */
 .pro-header{
     background: rgba(29,53,87,0.95);
+    backdrop-filter: blur(10px);
     padding:15px 0;
     position:sticky;
     top:0;
     z-index:1000;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 
+/* LOGO */
 .logo a{
     color:white;
     font-size:24px;
@@ -39,6 +39,7 @@ body{
     color:#ffb703;
 }
 
+/* DESKTOP MENU */
 .nav-menu{
     display:flex;
     gap:25px;
@@ -47,6 +48,7 @@ body{
     color:white;
     text-decoration:none;
     position:relative;
+    font-weight:500;
 }
 
 .nav-menu a::after{
@@ -64,6 +66,7 @@ body{
     width:100%;
 }
 
+/* MOBILE ICON */
 .menu-toggle{
     display:none;
     color:white;
@@ -71,7 +74,7 @@ body{
     cursor:pointer;
 }
 
-/* MOBILE MENU */
+/* OVERLAY */
 .overlay{
     position:fixed;
     width:100%;
@@ -82,12 +85,14 @@ body{
     opacity:0;
     visibility:hidden;
     transition:0.3s;
+    z-index:1500;
 }
 .overlay.show{
     opacity:1;
     visibility:visible;
 }
 
+/* SIDE MENU */
 .side-menu{
     position:fixed;
     top:0;
@@ -95,25 +100,95 @@ body{
     width:260px;
     height:100%;
     background:#1d3557;
+    display:flex;
+    flex-direction:column;
     padding-top:60px;
     transition:0.4s;
+    z-index:2000;
 }
 
 .side-menu a{
     color:white;
     padding:15px;
-    display:block;
     text-decoration:none;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.side-menu a:hover{
+    background:#2a4d75;
 }
 
 .close-btn{
     position:absolute;
     top:15px;
     right:15px;
+    font-size:22px;
     color:white;
     cursor:pointer;
 }
 
+/* HERO */
+.hero{
+    text-align:center;
+    padding:70px 20px;
+}
+.btn-main{
+    background:#ff7b00;
+    border:none;
+    padding:10px 25px;
+    border-radius:30px;
+    color:white;
+}
+
+/* SLIDER */
+.slider{
+    display:flex;
+    overflow-x:auto;
+    gap:15px;
+    padding:15px;
+    scroll-snap-type:x mandatory;
+}
+.slider::-webkit-scrollbar{
+    display:none;
+}
+
+/* CARD */
+.card-custom, .team-card{
+    flex:0 0 auto;
+    width:260px;
+    background:#f5f5f5;
+    border-radius:15px;
+    padding:20px;
+    text-align:center;
+    scroll-snap-align:start;
+    text-decoration:none;
+    color:black;
+    transition:0.3s;
+}
+.card-custom:hover{
+    transform:scale(1.05);
+}
+
+/* TEAM IMAGE */
+.team-card img{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid #ff7b00;
+    margin-bottom:10px;
+}
+
+/* FOOTER */
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:40px;
+}
+
+/* MOBILE */
 @media (max-width:768px){
     .nav-menu{
         display:none;
@@ -121,41 +196,9 @@ body{
     .menu-toggle{
         display:block;
     }
-}
-
-/* HERO */
-.hero{
-    text-align:center;
-    padding:80px 20px;
-    background:#fff7f0;
-}
-.hero h1{
-    font-size:40px;
-}
-.btn-main{
-    background:#ff7b00;
-    border:none;
-    padding:12px 30px;
-    border-radius:30px;
-    color:white;
-}
-
-/* CARDS */
-.slider{
-    display:flex;
-    overflow-x:auto;
-    gap:15px;
-    padding:15px;
-}
-
-.card-custom{
-    min-width:250px;
-    background:#f8f9fa;
-    padding:20px;
-    border-radius:10px;
-    text-align:center;
-    text-decoration:none;
-    color:black;
+    .card-custom, .team-card{
+        width:85%;
+    }
 }
 
 </style>
@@ -172,12 +215,14 @@ body{
     </div>
 
     <nav class="nav-menu">
-      <a href="#" class="active">Home</a>
-      <a href="#">Notes</a>
-      <a href="#">Syllabus</a>
-      <a href="#">Result</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="notes.html">Notes</a>
+      <a href="civil.html">Civil</a>
+      <a href="mechanical.html">Mechanical</a>
+      <a href="it.html">IT</a>
+      <a href="electrical.html">Electrical</a>
+      <a href="electronics.html">Electronics</a>
+      <a href="contact.html">Contact</a>
     </nav>
 
     <i class="fas fa-bars menu-toggle" onclick="openMenu()"></i>
@@ -185,18 +230,20 @@ body{
   </div>
 </header>
 
-<!-- MOBILE -->
+<!-- SIDE MENU -->
 <div class="overlay" id="overlay" onclick="closeMenu()"></div>
 
 <div class="side-menu" id="sideMenu">
   <i class="fas fa-times close-btn" onclick="closeMenu()"></i>
 
-  <a href="#">Home</a>
-  <a href="#">Notes</a>
-  <a href="#">Syllabus</a>
-  <a href="#">Result</a>
-  <a href="#">About</a>
-  <a href="#">Contact</a>
+  <a href="index.html">Home</a>
+  <a href="notes.html">Notes</a>
+  <a href="civil.html">Civil</a>
+  <a href="mechanical.html">Mechanical</a>
+  <a href="it.html">IT</a>
+  <a href="electrical.html">Electrical</a>
+  <a href="electronics.html">Electronics</a>
+  <a href="contact.html">Contact</a>
 </div>
 
 <!-- HERO -->
@@ -204,46 +251,55 @@ body{
 <h1>Welcome Diploma Engineers</h1>
 <p>Study Notes | PYQ | Projects</p>
 
-<button class="btn-main mt-3">Explore Now</button>
-</section>
-
-<!-- COMMUNITY -->
-<section class="text-center p-5 bg-light">
-<h2>Join Our Community</h2>
-
-<div class="d-flex justify-content-center gap-4 flex-wrap mt-4">
-
-<div class="p-4 bg-white shadow rounded" style="width:250px;">
-<h4>WhatsApp</h4>
-<button class="btn btn-success w-100">Join</button>
-</div>
-
-<div class="p-4 bg-white shadow rounded" style="width:250px;">
-<h4>YouTube</h4>
-<button class="btn btn-danger w-100">Join</button>
-</div>
-
-<div class="p-4 bg-white shadow rounded" style="width:250px;">
-<h4>Telegram</h4>
-<button class="btn btn-primary w-100">Join</button>
-</div>
-
-</div>
+<a href="notes.html">
+<button class="btn-main">Explore Now</button>
+</a>
 </section>
 
 <!-- BRANCH -->
 <section class="container my-5">
-<h3 class="text-center mb-4">Branches</h3>
+<h3 class="text-center">Engineering Branches</h3>
 
 <div class="slider">
-<a href="#" class="card-custom">Civil</a>
-<a href="#" class="card-custom">Mechanical</a>
-<a href="#" class="card-custom">IT</a>
-<a href="#" class="card-custom">Electrical</a>
+<a href="civil.html" class="card-custom">🏗 Civil</a>
+<a href="mechanical.html" class="card-custom">⚙ Mechanical</a>
+<a href="it.html" class="card-custom">💻 IT</a>
+<a href="electrical.html" class="card-custom">⚡ Electrical</a>
+<a href="electronics.html" class="card-custom">📡 Electronics</a>
+<a href="agriculture.html" class="card-custom">🌾 Agriculture</a>
 </div>
 </section>
 
-<!-- JS -->
+<!-- TEAM -->
+<section class="container my-5">
+<h3 class="text-center">Our Team</h3>
+
+<div class="slider">
+
+<div class="team-card">
+<img src="https://anubhavfinance.wordpress.com/wp-content/uploads/2026/02/cropped-1000261069-1.png">
+<h4>Anubhav Gangwar</h4>
+<p>Civil Engineer</p>
+<small>Founder</small>
+</div>
+
+<div class="team-card">
+<img src="https://anubhavfinance.wordpress.com/wp-content/uploads/2026/02/cropped-1000261069-1.png">
+<h4>Mukesh Singh</h4>
+<p>Electronics Engineer</p>
+<small>Co-Founder</small>
+</div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<h4>🎓 Diploma Engineers</h4>
+<p>© 2026 All Rights Reserved</p>
+</footer>
+
+<!-- SCRIPT -->
 <script>
 function openMenu(){
     document.getElementById("sideMenu").style.right = "0";
