@@ -1,1262 +1,234 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Page - _1AD</title>
-    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/site.css?v=36oM5yFXzsGmCxOE6evEYUM5LynGs2rAwfBMQN_qAe0" />
-    
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Diploma Engineers</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+
+/* GLOBAL */
+body{
+    margin:0;
+    font-family: 'Segoe UI';
+    background:#fff;
+    color:#000;
+}
+
+/* NAVBAR */
+.navbar{
+    background:#fff;
+    border-bottom:1px solid #ddd;
+}
+.navbar-brand{
+    color:#ff7b00 !important;
+    font-weight:bold;
+}
+.nav-link{
+    color:#000 !important;
+}
+
+/* HERO */
+.hero{
+    text-align:center;
+    padding:80px 20px;
+}
+.hero h1{
+    font-size:40px;
+}
+.btn-main{
+    background:#ff7b00;
+    border:none;
+    padding:10px 25px;
+    border-radius:30px;
+    color:white;
+}
+
+/* SLIDER (COMMON) */
+.slider{
+    display:flex;
+    overflow-x:auto;
+    gap:20px;
+    padding:15px;
+    scroll-behavior:smooth;
+}
+.slider::-webkit-scrollbar{
+    display:none;
+}
+
+/* BRANCH CARD */
+.card-custom{
+    flex:0 0 auto;
+    width:260px;
+    background:#f5f5f5;
+    color:#000;
+    border-radius:15px;
+    padding:20px;
+    text-align:center;
+    text-decoration:none;
+    transition:0.3s;
+}
+.card-custom:hover{
+    transform:scale(1.05);
+}
+
+/* TEAM CARD */
+.team-card{
+    flex:0 0 auto;
+    width:260px;
+    background:#f5f5f5;
+    border-radius:15px;
+    padding:20px;
+    text-align:center;
+}
+.team-card img{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid #ff7b00;
+}
+
+/* ICON */
+i{
+    margin:5px;
+    font-size:20px;
+    cursor:pointer;
+}
+i:hover{
+    color:#ff7b00;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+    .team-card,
+    .card-custom{
+        width:85%;
+    }
+}
+
+</style>
 </head>
+
 <body>
-    <header b-4b8bl9ygcz>
-        <nav b-4b8bl9ygcz class="navbar navbar-expand-lg navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div b-4b8bl9ygcz class="container-fluid">
-                <a class="navbar-brand" href="/">_1AD</a>
-                <button b-4b8bl9ygcz class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span b-4b8bl9ygcz class="navbar-toggler-icon"></span>
-                </button>
-                <div b-4b8bl9ygcz class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul b-4b8bl9ygcz class="navbar-nav flex-grow-1">
-                        <li b-4b8bl9ygcz class="nav-item">
-                            <a class="nav-link text-dark" href="/">Home</a>
-                        </li>
-                         <li b-4b8bl9ygcz class="nav-item">
-                            <a class="nav-link text-dark" href="/Home/Registration">Registration</a>
-                        </li>
 
-                        <li b-4b8bl9ygcz class="nav-item">
-                            <a class="nav-link text-dark" href="/Home/Privacy">Privacy</a>
-                        </li>
-                        <li b-4b8bl9ygcz class="nav-item">
-                            <a class="nav-link btn-login-premium" href="/Account/Login">
-                                Login
-                            </a>
-                        </li>
-                        <li b-4b8bl9ygcz class="nav-item">
-                            <a b-4b8bl9ygcz href="https://www.instagram.com/1ad.co?igsh=MTQ4NnJuZHNwOGRhcA=="
-                               target="_blank"
-                               rel="noopener noreferrer"
-                               class="btn btn-outline-danger ms-2 instagram-btn-only">
-                                <i b-4b8bl9ygcz class="fab fa-instagram"></i>
-                            </a>
-                        </li>
-                       </ul>
-                    <div b-4b8bl9ygcz class="d-flex me-3">
-                        <input b-4b8bl9ygcz type="text"
-                               id="searchBox"
-                               class="form-control"
-                               placeholder="Search videos (e.g. Gym)..." />
-                    </div>
-                    
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div b-4b8bl9ygcz class="container">
-        <main b-4b8bl9ygcz role="main" class="pb-3">
-            
-<div id="mainContent">
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+<div class="container">
 
-    <!-- ===== TOP VIDEO - CINEMATIC ===== -->
-    <section class="top-video">
-        <video autoplay muted loop playsinline preload="auto" class="top-video-player">
-            <source src="/videos/whatsapp%20video%202026-04-09%20at%207.26.13%20pm.mp4" type="video/mp4">
-        </video>
-    </section>
+<a class="navbar-brand" href="#">🎓 Diploma Engineers</a>
 
-    <!-- ===== WE CREATE MAGIC - PREMIUM SECTION ===== -->
-    <section class="we-make-section">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <!-- Left Text with Premium Effects -->
-                <div class="col-lg-6">
-                    <div class="content-wrapper reveal">
-                        <h1 class="main-title">
-                            We Make Your
-                            <span class="highlight-text">Business</span>
-                            <span class="block-text">Impossible To Ignore</span>
-                        </h1>
-                        <p class="description-text">
-                            Premium photography & branding solutions that elevate your presence and drive real impact.
-                        </p>
-                        <div class="button-group">
-                            <a href="#" class="btn-primary">
-                                <span>Get Started</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                            <a href="#" class="btn-outline">
-                                <span>View Work</span>
-                                <i class="fas fa-play"></i>
-                            </a>
-                        </div>
-                        <!-- Trust Badges -->
-                        <div class="trust-badges">
-                            <div class="badge-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>500+ Projects</span>
-                            </div>
-                            <div class="badge-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>50+ Clients</span>
-                            </div>
-                            <div class="badge-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>4.9 Rating</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Right Image with Premium Effects -->
-                <div class="col-lg-6">
-                    <div class="image-wrapper reveal">
-                        <div class="image-container">
-                            <!-- Floating Elements -->
-                            <div class="floating-badge badge-1">
-                                <i class="fas fa-crown"></i>
-                                <span>Premium Quality</span>
-                            </div>
-                            <div class="floating-badge badge-2">
-                                <i class="fas fa-bolt"></i>
-                                <span>Fast Delivery</span>
-                            </div>
-                            <!-- Decorative Circles -->
-                            <div class="circle-1"></div>
-                            <div class="circle-2"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+<span class="navbar-toggler-icon"></span>
+</button>
 
-    <!-- ===== BRAND IDENTITY - PREMIUM SECTION ===== -->
-    <!-- CHANGE: container ko container-fluid kiya -->
-    <section class="brand-identity-section">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <!-- Left Content -->
-                <div class="col-lg-6">
-                    <div class="brand-content reveal">
-                        <span class="brand-badge">✦ OUR VISION</span>
-                        <h2 class="brand-title">
-                            We Make <span class="highlight-brand">Brands</span>
-                            <span class="block-brand">Stand Out</span>
-                        </h2>
-                        <p class="brand-description">
-                            We help businesses build a powerful identity through
-                            creative visuals and strategic storytelling that connects
-                            with your audience on a deeper level.
-                        </p>
-                        <!-- Feature List -->
-                        <div class="feature-list">
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="feature-text">
-                                    <h4>Creative Strategy</h4>
-                                    <p>Data-driven creative solutions</p>
-                                </div>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="feature-text">
-                                    <h4>Visual Identity</h4>
-                                    <p>Unique brand personality</p>
-                                </div>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="feature-text">
-                                    <h4>Storytelling</h4>
-                                    <p>Compelling brand narratives</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Right Image with Effects -->
-                <div class="col-lg-6">
-                    <div class="brand-image-wrapper reveal">
-                        <div class="image-frame">
-                            <div class="image-glow"></div>
-                            <!-- Floating Elements -->
-                            <div class="floating-element element-1">
-                                <i class="fas fa-chart-line"></i>
-                                <span>+250% Growth</span>
-                            </div>
-                            <div class="floating-element element-2">
-                                <i class="fas fa-users"></i>
-                                <span>50+ Brands</span>
-                            </div>
-                            <!-- Decorative Shapes -->
-                            <div class="shape shape-1"></div>
-                            <div class="shape shape-2"></div>
-                            <div class="shape shape-3"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== NUMBERS SECTION - ANIMATED ===== -->
-    <!-- CHANGE: container ko container-fluid kiya -->
-    <section class="numbers-section">
-        <div class="container-fluid">
-            <div class="row text-center">
-                <div class="col-md-3 col-6 number-box reveal">
-                    <h2><span class="counter" data-target="70">0</span>%</h2>
-                    <p>Growth Rate</p>
-                </div>
-                <div class="col-md-3 col-6 number-box reveal">
-                    <h2><span class="counter" data-target="50">0</span>+</h2>
-                    <p>Brands Worked</p>
-                </div>
-                <div class="col-md-3 col-6 number-box reveal">
-                    <h2><span class="counter" data-target="95">0</span>%</h2>
-                    <p>Client Satisfaction</p>
-                </div>
-                <div class="col-md-3 col-6 number-box reveal">
-                    <h2><span class="counter" data-target="500">0</span>+</h2>
-                    <p>Projects Completed</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== TRUSTED BY INDUSTRY LEADERS ===== -->
-    <!-- CHANGE: container ko container-fluid kiya -->
-    <section class="premium-clients-section">
-        <div class="container-fluid">
-            <!-- Section Header with Style -->
-            <div class="clients-header reveal">
-                <div class="premium-bar">
-                    <span class="bar-line"></span>
-                    <span class="bar-line"></span>
-                    <span class="bar-line"></span>
-                </div>
-                <div class="header-text">
-                    <span class="clients-subtitle">OUR HAPPY CLIENTS</span>
-                    <h2 class="clients-title">Trusted By Industry Leaders</h2>
-                    <p class="clients-description">Partnering with brands that believe in excellence</p>
-                </div>
-            </div>
-
-            <!-- Clients Slider with Premium Effects -->
-            <div class="clients-showcase reveal">
-                <button class="nav-btn prev-btn" onclick="slideClients('left')">
-                    <i class="fas fa-arrow-left"></i>
-                </button>
-
-                <div class="clients-track" id="clientsTrack">
-                    <!-- Client Card 1 -->
-                    <div class="client-card">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="client-logo-wrapper">
-                                    <img src="/images/apple abhi.jpg" loading="lazy" alt="Brand Nine">
-                                </div>
-                                <h3>Apple</h3>
-                                <p class="client-category">MOBILE INDUSTRY</p>
-                            </div>
-                            <div class="card-back">
-                                <div class="back-content">
-                                    <span class="quote-icon">"</span>
-                                    <p>Impressive service!</p>
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="since">Since 1990</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Client Card 2 -->
-                    <div class="client-card">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="client-logo-wrapper">
-                                    <img src="/images/toyota abhi.jpg" loading="lazy" alt="Brand Four">
-                                </div>
-                                <h3>Toyota</h3>
-                                <p class="client-category">AUTOMOBILE INDUSTRY</p>
-                            </div>
-                            <div class="card-back">
-                                <div class="back-content">
-                                    <span class="quote-icon">"</span>
-                                    <p>Incredible Work</p>
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="since">Since 1997</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Client Card 3-->
-                    <div class="client-card">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="client-logo-wrapper">
-                                    <img src="/images/tvs3.jpg" loading="lazy" alt="Brand Five">
-                                </div>
-                                <h3>TVS</h3>
-                                <p class="client-category">AUTOMOTIVE INDUSTRY</p>
-                            </div>
-                            <div class="card-back">
-                                <div class="back-content">
-                                    <span class="quote-icon">"</span>
-                                    <p>Fantastic Works</p>
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="since">Since 1978</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Client Card 4-->
-                    <div class="client-card">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="client-logo-wrapper">
-                                    <img src="/images/reliance abhi.jpg" loading="lazy" alt="Brand Three">
-                                </div>
-                                <h3>Reliance Digital</h3>
-                                <p class="client-category">DIGITAL & ELECTRONICS</p>
-                            </div>
-                            <div class="card-back">
-                                <div class="back-content">
-                                    <span class="quote-icon">"</span>
-                                    <p>Absolutely amazing!</p>
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="since">Since 2007</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Client Card 5 -->
-                    <div class="client-card">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="client-logo-wrapper">
-                                    <img src="/images/jaipuria abhi.jpg" loading="lazy" alt="Brand Seven">
-                                </div>
-                                <h3>Jaipuria School</h3>
-                                <p class="client-category">EDUCATION</p>
-                            </div>
-                            <div class="card-back">
-                                <div class="back-content">
-                                    <span class="quote-icon">"</span>
-                                    <p>Remarkable!</p>
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="since">Since 2010</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Client Card 6 -->
-                    <div class="client-card">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="client-logo-wrapper">
-                                    <img src="/images/got.jpg" loading="lazy" alt="Brand One">
-                                </div>
-                                <h3>Government of India</h3>
-                                <p class="client-category">INDIA</p>
-                            </div>
-                            <div class="card-back">
-                                <div class="back-content">
-                                    <span class="quote-icon">"</span>
-                                    <p>Outstanding Work!</p>
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="since">Since 1947</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Client Card 7 -->
-                    <div class="client-card">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="client-logo-wrapper">
-                                    <img src="/images/my protein abhi.jpg" loading="lazy" alt="Brand Ten">
-                                </div>
-                                <h3>My Protein</h3>
-                                <p class="client-category">GYM & SUPPLIMENT</p>
-                            </div>
-                            <div class="card-back">
-                                <div class="back-content">
-                                    <span class="quote-icon">"</span>
-                                    <p>ExtraOrdinary work</p>
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="since">Since 2020</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Client Card 8 -->
-                    <div class="client-card">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="client-logo-wrapper">
-                                    <img src="/images/gianis abhi.jpg" loading="lazy" alt="Brand Ten">
-                                </div>
-                                <h3>Gianis</h3>
-                                <p class="client-category">LOVE,LEGACY & ICECREAMS</p>
-                            </div>
-                            <div class="card-back">
-                                <div class="back-content">
-                                    <span class="quote-icon">"</span>
-                                    <p>Good Team Work</p>
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="since">Since 2014</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Client Card 9 -->
-                    <div class="client-card">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="client-logo-wrapper">
-                                    <img src="/images/mr idli abhi.jpg" loading="lazy" alt="Brand Ten">
-                                </div>
-                                <h3>Mr Idli</h3>
-                                <p class="client-category">RESTURANT & OURE VEG</p>
-                            </div>
-                            <div class="card-back">
-                                <div class="back-content">
-                                    <span class="quote-icon">"</span>
-                                    <p>Top-Notch Service</p>
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="since">Since 2019</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Client Card 10 -->
-                    <div class="client-card">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="client-logo-wrapper">
-                                    <img src="/images/burger singh abhi.jpg" loading="lazy" alt="Brand Ten">
-                                </div>
-                                <h3>Burger Singh</h3>
-                                <p class="client-category">FAST & STREET FOODS</p>
-                            </div>
-                            <div class="card-back">
-                                <div class="back-content">
-                                    <span class="quote-icon">"</span>
-                                    <p>Brilliant</p>
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="since">Since 2021</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Client Card 11 -->
-                    <div class="client-card">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="client-logo-wrapper">
-                                    <img src="/images/kashi 3.jpg" loading="lazy" alt="Brand Two">
-                                </div>
-                                <h3>Kashinath Jewellers</h3>
-                                <p class="client-category">JEWELLERS</p>
-                            </div>
-                            <div class="card-back">
-                                <div class="back-content">
-                                    <span class="quote-icon">"</span>
-                                    <p>Excellent service!</p>
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="since">Since 1864</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Client Card 12 -->
-                    <div class="client-card">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="client-logo-wrapper">
-                                    <img src="/images/children academy.png" loading="lazy" alt="Brand Eight">
-                                </div>
-                                <h3>Children Academy</h3>
-                                <p class="client-category">EDUCATION</p>
-                            </div>
-                            <div class="card-back">
-                                <div class="back-content">
-                                    <span class="quote-icon">"</span>
-                                    <p>Mind-blowing!</p>
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="since">Since 2014</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Client Card 13 -->
-                    <div class="client-card">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="client-logo-wrapper">
-                                    <img src="/images/sports club abhi.jpg" loading="lazy" alt="Brand Six">
-                                </div>
-                                <h3>Sports Club</h3>
-                                <p class="client-category">SPORTS</p>
-                            </div>
-                            <div class="card-back">
-                                <div class="back-content">
-                                    <span class="quote-icon">"</span>
-                                    <p>Outstanding</p>
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <span class="since">Since 2001</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="nav-btn next-btn" onclick="slideClients('right')">
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
-
-            <!-- Client Stats -->
-            <div class="client-stats reveal">
-                <div class="stat-item">
-                    <span class="stat-number">150+</span>
-                    <span class="stat-label">Happy Clients</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">98%</span>
-                    <span class="stat-label">Satisfaction Rate</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">5+ YEARS</span>
-                    <span class="stat-label">Into Business</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== FEEDBACK SECTION ===== -->
-    <!-- CHANGE: container ko container-fluid kiya -->
-    <section class="feedback-section">
-        <div class="container-fluid">
-            <h2 class="feedback-title text-center reveal">What Our Clients Say</h2>
-            <div class="feedback-wrapper">
-                <div class="feedback-card reveal">
-                    <p>"Amazing work! Completely transformed our brand identity."</p>
-                    <h6>- Rahul Sharma</h6>
-                    <div class="stars">★★★★★</div>
-                </div>
-                <div class="feedback-card reveal">
-                    <p>"Professional team and outstanding photography quality."</p>
-                    <h6>- Priya Verma</h6>
-                    <div class="stars">★★★★★</div>
-                </div>
-                <div class="feedback-card reveal">
-                    <p>"Highly recommended for premium branding solutions."</p>
-                    <h6>- Amit Singh</h6>
-                    <div class="stars">★★★★★</div>
-                </div>
-                <div class="feedback-card reveal">
-                    <p>"Amazing creativity. Every photo felt unique."</p>
-                    <h6>- Shashank Tiwari</h6>
-                    <div class="stars">★★★★★</div>
-                </div>
-                <div class="feedback-card reveal">
-                    <p>"Everything was smooth, best quality."</p>
-                    <h6>- Anubhav Verma</h6>
-                    <div class="stars">★★★★★</div>
-                </div>
-                <div class="feedback-card reveal">
-                    <p>"Clear communication , beautiful edits."</p>
-                    <h6>- Harshit Shukla</h6>
-                    <div class="stars">★★★★★</div>
-                </div>
-                <div class="feedback-card reveal">
-                    <p>"Great post-processing & Retouching."</p>
-                    <h6>- Shyam Mishra</h6>
-                    <div class="stars">★★★★★</div>
-                </div>
-                <div class="feedback-card reveal">
-                    <p>"Delivered more than promised."</p>
-                    <h6>- Abhishek Srivastava</h6>
-                    <div class="stars">★★★★★</div>
-                </div>
-                <div class="feedback-card reveal">
-                    <p>"Reasonable pricing for such premium quality."</p>
-                    <h6>- Adarsh Sharma</h6>
-                    <div class="stars">★★★★★</div>
-                </div>
-                <div class="feedback-card reveal">
-                    <p>"Excellent value for money, Delivered within 24 to 48 hours."</p>
-                    <h6>- Yash Thakur</h6>
-                    <div class="stars">★★★★★</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== SERVICES SECTION ===== -->
-    <!-- CHANGE: container ko container-fluid kiya -->
-    <section class="services-section">
-        <div class="container-fluid text-center">
-            <h2 class="section-title-white reveal">Our Services</h2>
-            <div class="row mt-5">
-                <div class="col-md-4 reveal">
-                    <div class="service-card">
-                        <h4>Brand Photography</h4>
-                        <p>Premium visuals that build authority.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 reveal">
-                    <div class="service-card">
-                        <h4>Video Production</h4>
-                        <p>High impact cinematic storytelling.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 reveal">
-                    <div class="service-card">
-                        <h4>Social Media Handling</h4>
-                        <p>Strategic content for growth.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== CINEMATIC STUDIOS - FIXED VERSION ===== -->
-    <!-- CHANGE: container ko container-fluid kiya -->
-    <section class="cinema-section py-5">
-        <div class="container-fluid">
-            <!-- Header -->
-            <div class="text-center mb-5 reveal">
-                <h2 class="text-white" style="font-size: 3rem; font-weight: 800;">Cinematic Storytelling</h2>
-                <div style="width: 80px; height: 4px; background: #e63946; margin: 20px auto;"></div>
-            </div>
-
-            <!-- Our Scroll Stopper Content CATEGORY -->
-            <div class="mb-5">
-                    <h3 class="text-white mb-4" style="font-size: 2rem; border-left: 5px solid #e63946; padding-left: 15px;">
-                        ⚽ Our Scroll Stopper Content
-                    </h3>
-                <div class="cinema-grid">
-                        <div class="cinema-card reveal">
-                            <div class="video-wrapper">
-                                <video class="cinema-video" controls preload="metadata" playsinline>
-                                    <source src="/videos/12f01ac1-1801-4145-bd11-a12be4440e22.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="video-info">
-                                <h4>sf</h4>
-                                <p>Sports • Action</p>
-                            </div>
-                        </div>
-                        <div class="cinema-card reveal">
-                            <div class="video-wrapper">
-                                <video class="cinema-video" controls preload="metadata" playsinline>
-                                    <source src="/Videos/518383ca-5085-4eca-a68c-b3f6949960f2.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="video-info">
-                                <h4>sf</h4>
-                                <p>Sports • Action</p>
-                            </div>
-                        </div>
-                        <div class="cinema-card reveal">
-                            <div class="video-wrapper">
-                                <video class="cinema-video" controls preload="metadata" playsinline>
-                                    <source src="/Videos/944bcb7f-7d5d-46ca-861e-07d4a99697ee.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="video-info">
-                                <h4>Gym</h4>
-                                <p>Sports • Action</p>
-                            </div>
-                        </div>
-                </div>
-            </div>
-
-            <!-- Our Premium Section CATEGORY -->
-            <div class="mb-5">
-                    <h3 class="text-white mb-4" style="font-size: 2rem; border-left: 5px solid #e63946; padding-left: 15px;">
-                        🧘 Our Premium Section
-                    </h3>
-                <div class="cinema-grid">
-                        <div class="cinema-card reveal">
-                            <div class="video-wrapper">
-                                <video class="cinema-video" controls preload="metadata" playsinline>
-                                    <source src="/Videos/9283f0ba-2c8b-4ed8-9f68-8e48f16fa73d.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="video-info">
-                                <h4>ooih</h4>
-                                <p>Premium • Serenity</p>
-                            </div>
-                        </div>
-                        <div class="cinema-card reveal">
-                            <div class="video-wrapper">
-                                <video class="cinema-video" controls preload="metadata" playsinline>
-                                    <source src="/Videos/301f83fe-c889-49f4-b7bc-a9f79241f818.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="video-info">
-                                <h4>nn</h4>
-                                <p>Premium • Serenity</p>
-                            </div>
-                        </div>
-                </div>
-            </div>
-
-            <!-- Our Fan Favorites CATEGORY -->
-            <div class="mb-5">
-                    <h3 class="text-white mb-4" style="font-size: 2rem; border-left: 5px solid #e63946; padding-left: 15px;">
-                        ⚙️ Our Best Videos
-                    </h3>
-                <div class="cinema-grid">
-                        <div class="cinema-card reveal">
-                            <div class="video-wrapper">
-                                <video class="cinema-video" controls preload="metadata" playsinline>
-                                    <source src="/Videos/d324f6ae-b7d3-475c-974c-223b754d7ac7.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="video-info">
-                                <h4>nn</h4>
-                                <p>Top-Notch • Pro</p>
-                            </div>
-                        </div>
-                </div>
-            </div>
-
-            <!-- Top Trending Picks CATEGORY -->
-            <div class="mb-5">
-                    <h3 class="text-white mb-4" style="font-size: 2rem; border-left: 5px solid #e63946; padding-left: 15px;">
-                        🔧 Top Trending Picks
-                    </h3>
-                <div class="cinema-grid">
-                        <div class="cinema-card reveal">
-                            <div class="video-wrapper">
-                                <video class="cinema-video" controls preload="metadata" playsinline>
-                                    <source src="/Videos/d5f981cf-d862-43e7-bf50-2221ba4508a5.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="video-info">
-                                <h4>nn</h4>
-                                <p>Trending • Best</p>
-                            </div>
-                        </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== VISUAL STORIES - PROFESSIONAL PHOTO GALLERY ===== -->
-    <!-- CHANGE: container ko container-fluid kiya -->
-    <section class="gallery-section py-5">
-        <div class="container-fluid">
-            <!-- Section Header with Style -->
-            <div class="gallery-header text-center reveal">
-                <span class="gallery-subtitle">OUR WORK</span>
-                <h2 class="gallery-title">Visual Stories</h2>
-                <div class="gallery-divider">
-                    <span class="divider-line"></span>
-                    <i class="fas fa-camera-retro"></i>
-                    <span class="divider-line"></span>
-                </div>
-                <p class="gallery-description">Every picture tells a story. Explore our curated collection.</p>
-            </div>
-
-            <!-- Photo Grid -->
-            <div class="gallery-grid">
-                    <div class="gallery-item reveal">
-                        <div class="gallery-card">
-                            <img src="/images/f523e50e-263a-4b12-a9f7-306777a91441.jpg" loading="lazy" class="gallery-image" alt="Photo">
-                            <div class="gallery-overlay">
-                                <div class="overlay-content">
-                                    <span class="overlay-icon">🔍</span>
-                                    <h4>View Gallery</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gallery-item reveal">
-                        <div class="gallery-card">
-                            <img src="/images/ff7483b1-776d-4eb3-8a2a-faf3d43eed99.jpg" loading="lazy" class="gallery-image" alt="Photo">
-                            <div class="gallery-overlay">
-                                <div class="overlay-content">
-                                    <span class="overlay-icon">🔍</span>
-                                    <h4>View Gallery</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gallery-item reveal">
-                        <div class="gallery-card">
-                            <img src="/images/56c0a6d6-03fe-478c-a062-fa112ce8509d.jpg" loading="lazy" class="gallery-image" alt="Photo">
-                            <div class="gallery-overlay">
-                                <div class="overlay-content">
-                                    <span class="overlay-icon">🔍</span>
-                                    <h4>View Gallery</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== DONE FOR YOU - PREMIUM RED SECTION ===== -->
-    <!-- CHANGE: container ko container-fluid kiya -->
-    <section class="premium-red-section">
-        <div class="container-fluid">
-            <!-- Floating Elements -->
-            <div class="floating-shape shape-1"></div>
-            <div class="floating-shape shape-2"></div>
-            <div class="floating-shape shape-3"></div>
-
-            <div class="premium-content">
-                <!-- Premium Badge with Icon -->
-                <div class="premium-badge-wrapper reveal">
-                    <div class="premium-badge">
-                        <i class="fas fa-crown"></i>
-                        <span>DONE FOR YOU SERVICES</span>
-                        <i class="fas fa-crown"></i>
-                    </div>
-                </div>
-
-                <!-- Main Heading with Stylish Effect -->
-                <h2 class="premium-heading reveal">
-                    Just <span class="gradient-text">2 Days</span>
-                    <span class="block-text">In A Month</span>
-                </h2>
-
-                <!-- Subtext with Icon -->
-                <div class="premium-subtext-wrapper reveal">
-                    <i class="fas fa-sparkles"></i>
-                    <p class="premium-subtext">
-                        for creating impactful personal brands
-                    </p>
-                    <i class="fas fa-sparkles"></i>
-                </div>
-
-                <!-- Highlight Box with Icons -->
-                <div class="premium-highlight reveal">
-                    <div class="highlight-item">
-                        <i class="fas fa-chart-line"></i>
-                        <span>Generate Revenue</span>
-                    </div>
-                    <div class="highlight-divider">·</div>
-                    <div class="highlight-item">
-                        <i class="fas fa-users"></i>
-                        <span>Increase Followers</span>
-                    </div>
-                    <div class="highlight-divider">·</div>
-                    <div class="highlight-item">
-                        <i class="fas fa-rocket"></i>
-                        <span>Gain Massive Reach</span>
-                    </div>
-                </div>
-
-                <!-- CTA Button -->
-                <div class="premium-cta-wrapper reveal">
-                    <a href="#" class="premium-cta">
-                        <span>Get Started Today</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="collapse navbar-collapse" id="menu">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="notes.html">Notes</a></li>
+<li class="nav-item"><a class="nav-link" href="syllabus.html">Syllabus</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+<li class="nav-item"><a class="nav-link" href="result.html">Result</a></li>
+</ul>
 </div>
 
+</div>
+</nav>v>
 
-<!-- Hidden Video Container for Search Results -->
-<div id="videoContainer" class="container-fluid py-5"></div>
+<!-- HERO -->
+<section class="hero">
+<h1>Welcome Diploma Engineers</h1>
+<p>Study Notes | PYQ | Projects</p>
 
-<!-- ===== ENHANCED JAVASCRIPT ===== -->
-<script>
-    // ============================================
-    // MAIN SCRIPT - SAB KUCH EK SAATH
-    // ============================================
-    document.addEventListener("DOMContentLoaded", function() {
+<a href="notes.html">
+<button class="btn-main">Explore Now</button>
+</a>
+</section>
 
-        // ----- COUNTER ANIMATION -----
-        const counters = document.querySelectorAll('.counter');
+<!-- COMMUNITY -->
+<section style="padding:40px; text-align:center;">
+<h2>📢 Join Our Community</h2>
 
-        const startCounter = (counter) => {
-            const updateCounter = () => {
-                const target = +counter.getAttribute('data-target');
-                const current = +counter.innerText;
-                const increment = target / 100;
+<div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-top:20px;">
 
-                if (current < target) {
-                    counter.innerText = Math.ceil(current + increment);
-                    setTimeout(updateCounter, 20);
-                } else {
-                    counter.innerText = target;
-                }
-            };
-            updateCounter();
-        };
+<div style="background:#f5f5f5; padding:25px; border-radius:15px; width:260px;">
+<h4 style="color:#25D366;">WhatsApp</h4>
+<p>Notes & Updates</p>
+<a href="https://whatsapp.com/channel/0029Vay8k8CAojYkBQWr1s1w" target="_blank">
+<button style="background:#25D366; color:white; border:none; padding:10px 20px; border-radius:25px;">Join</button>
+</a>
+</div>
 
-        // Counter Observer
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    startCounter(entry.target);
-                    counterObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
+<div style="background:#f5f5f5; padding:25px; border-radius:15px; width:260px;">
+<h4 style="color:#0088cc;">Telegram</h4>
+<p>Study Materials</p>
+<a href="https://t.me/diploma_engineers7" target="_blank">
+<button style="background:#0088cc; color:white; border:none; padding:10px 20px; border-radius:25px;">Join</button>
+</a>
+</div>
 
-        counters.forEach(counter => counterObserver.observe(counter));
+</div>
+</section>
 
-        // ----- SCROLL REVEAL ANIMATION -----
-        const revealElements = document.querySelectorAll('.reveal');
+<!-- BRANCH -->
+<section class="container my-5">
+<h3 class="text-center mb-3">Engineering Branches</h3>
 
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+<div class="slider">
+<a href="civil.html" class="card-custom">🏗 Civil Engineering</a>
+<a href="mechanical.html" class="card-custom">⚙ Mechanical</a>
+<a href="agriculture.html" class="card-custom">🌾 Agricultural</a>
+<a href="it.html" class="card-custom">💻 Information Technology</a>
+<a href="electrical.html" class="card-custom">⚡ Electrical</a>
+<a href="computer.html" class="card-custom">💻 Computer</a>
+<a href="electronics.html" class="card-custom">📡 Electronics</a>
+</div>
+</section>
 
-        revealElements.forEach(el => revealObserver.observe(el));
+<!-- TEAM -->
+<section class="container my-5">
+<h3 class="text-center mb-3">Our Team</h3>
 
-        // ----- SMOOTH SCROLL FOR ANCHOR LINKS -----
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
+<div class="slider">
 
-        // ----- VIDEO HOVER PLAY/PAUSE -----
-        document.querySelectorAll('.video-grid video').forEach(video => {
-            video.addEventListener('mouseenter', () => video.play());
-            video.addEventListener('mouseleave', () => {
-                video.pause();
-                video.currentTime = 0;
-            });
-        });
+<div class="team-card">
+<img src="images/anubhav.jpg">
+<h4>Anubhav Gangwar</h4>
+<p>Civil Engineer</p>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-linkedin"></i></a>
+</div>
 
-        // ----- LOADING ANIMATION -----
-        setTimeout(() => {
-            const loader = document.querySelector('.loading');
-            if (loader) loader.classList.add('hide');
-        }, 1000);
+<div class="team-card">
+<img src="images/mukesh.jpg">
+<h4>Mukesh Singh</h4>
+<p>Electronics Engineer</p>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-linkedin"></i></a>
+</div>
 
-        // ----- SEARCH FUNCTIONALITY -----
-        document.getElementById("searchBox").addEventListener("keyup", function () {
-            let query = this.value.trim();
-            let main = document.getElementById("mainContent");
-            let results = document.getElementById("videoContainer");
+</div>
+</section>
 
-            if (query.length > 0) {
-                // Main content chhupao, Results dikhao
-                main.style.display = "none";
-                results.style.display = "block";
 
-                fetch('/Home/Search?search=' + encodeURIComponent(query))
-                    .then(res => res.text())
-                    .then(data => {
-                        results.innerHTML = data;
-                    });
-            } else {
-                // Search khali hai toh wapas purana dikhao
-                main.style.display = "block";
-                results.style.display = "none";
-                results.innerHTML = "";
-            }
-        });
+<footer style="background:#111; color:white; text-align:center; padding:20px; margin-top:40px;">
 
-        // ----- PARALLAX EFFECT -----
-        window.addEventListener('scroll', () => {
-            const video = document.querySelector('.top-video-player');
-            if (video) {
-                const scrolled = window.pageYOffset;
-                video.style.transform = `scale(${1.02 + scrolled * 0.0005})`;
-            }
-        });
-    });
+<h4>🎓 Diploma Engineers</h4>
+<p>Study Notes | PYQ | Projects</p>
 
-    // ============================================
-    // SLIDER FUNCTIONS - GLOBAL (window pe)
-    // ============================================
+<div style="margin:10px;">
+<a href="#" style="color:white; margin:5px;"><i class="fab fa-instagram"></i></a>
+<a href="#" style="color:white; margin:5px;"><i class="fab fa-telegram"></i></a>
+<a href="#" style="color:white; margin:5px;"><i class="fab fa-youtube"></i></a>
+</div>
 
-    // Main slider function for premium clients
-    window.slideClients = function(direction) {
-        const track = document.getElementById('clientsTrack');
-        if (!track) {
-            console.log('clientsTrack not found');
-            return;
-        }
+<p>© 2026 Diploma Engineers | All Rights Reserved</p>
 
-        const scrollAmount = 260;
-        track.scrollBy({
-            left: direction === 'left' ? -scrollAmount : scrollAmount,
-            behavior: 'smooth'
-        });
-    };
-
-    // Backup functions for other sliders
-    window.slideLeft = function() {
-        const slider = document.getElementById('clientsTrack');
-        if (slider) {
-            slider.scrollBy({ left: -260, behavior: 'smooth' });
-        }
-    };
-
-    window.slideRight = function() {
-        const slider = document.getElementById('clientsTrack');
-        if (slider) {
-            slider.scrollBy({ left: 260, behavior: 'smooth' });
-        }
-    };
-
-    // Old slider functions (if needed)
-    window.slideLeftOld = function() {
-        const slider = document.getElementById('clientsSlider');
-        if (slider) slider.scrollBy({ left: 260, behavior: 'smooth' });
-    };
-
-    window.slideRightOld = function() {
-        const slider = document.getElementById('clientsSlider');
-        if (slider) slider.scrollBy({ left: 260, behavior: 'smooth' });
-    };
-
-    // Category filter function
-    window.showCategory = function(category, event) {
-        document.querySelectorAll('.video-category').forEach(el => {
-            el.classList.add('d-none');
-        });
-        document.getElementById(category).classList.remove('d-none');
-
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        event.target.classList.add('active');
-    };
-
-    // ----- AUTO SLIDE (with cleanup) -----
-    let autoSlideInterval;
-
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(() => {
-            const track = document.getElementById('clientsTrack');
-            if (track && document.hasFocus()) {
-                track.scrollBy({ left: 300, behavior: 'smooth' });
-            }
-        }, 600000);
-    }
-
-    function stopAutoSlide() {
-        if (autoSlideInterval) {
-            clearInterval(autoSlideInterval);
-        }
-    }
-
-    // Start auto slide when page loads
-    document.addEventListener('DOMContentLoaded', startAutoSlide);
-
-    // Stop when user interacts with slider
-    document.addEventListener('DOMContentLoaded', () => {
-        const track = document.getElementById('clientsTrack');
-        if (track) {
-            track.addEventListener('mouseenter', stopAutoSlide);
-            track.addEventListener('mouseleave', startAutoSlide);
-            track.addEventListener('touchstart', stopAutoSlide);
-            track.addEventListener('touchend', startAutoSlide);
-        }
-    });
-
-    // ----- MOUSE DRAG SCROLL -----
-    document.addEventListener('DOMContentLoaded', () => {
-        const slider = document.getElementById('clientsTrack');
-        if (!slider) return;
-
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        slider.addEventListener('mousedown', (e) => {
-            isDown = true;
-            slider.style.cursor = 'grabbing';
-            startX = e.pageX - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
-            stopAutoSlide(); // Stop auto slide during drag
-        });
-
-        slider.addEventListener('mouseleave', () => {
-            isDown = false;
-            slider.style.cursor = 'grab';
-            startAutoSlide(); // Restart auto slide
-        });
-
-        slider.addEventListener('mouseup', () => {
-            isDown = false;
-            slider.style.cursor = 'grab';
-            startAutoSlide(); // Restart auto slide
-        });
-
-        slider.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2;
-            slider.scrollLeft = scrollLeft - walk;
-        });
-
-        // Touch events for mobile
-        slider.addEventListener('touchstart', (e) => {
-            isDown = true;
-            startX = e.touches[0].pageX - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
-            stopAutoSlide();
-        });
-
-        slider.addEventListener('touchend', () => {
-            isDown = false;
-            startAutoSlide();
-        });
-
-        slider.addEventListener('touchmove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.touches[0].pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2;
-            slider.scrollLeft = scrollLeft - walk;
-        });
-    });
-
-    // Cleanup on page unload
-    window.addEventListener('beforeunload', () => {
-        if (autoSlideInterval) {
-            clearInterval(autoSlideInterval);
-        }
-    });
-</script>
-
-<!-- Loading Animation -->
-<div class="loading"></div>
-        </main>
-    </div>
-
-    <footer b-4b8bl9ygcz class="border-top footer text-muted">
-        <div b-4b8bl9ygcz class="container">
-            &copy; 2026 - _1AD - <a href="/Home/Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="/lib/jquery/dist/jquery.min.js"></script>
-    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo"></script>
-    
-</body>
-</html>
-<!--SCRIPT GENERATED BY SERVER! PLEASE REMOVE-->
-<center><a href="http://somee.com">Web hosting by Somee.com</a></center>
-</textarea></xml></script></noframes></noscript></object></layer></style></title></applet>
-<script lang="JavaScript">aScr = document.createElement('script');aScr.src = location.protocol + "//ads.mgmt.somee.com/serveimages/ad2/WholeInsert5.js";document.body.appendChild(aScr);</script>
-<!--SCRIPT GENERATED BY SERVER! PLEASE REMOVE-->
+</footer>
