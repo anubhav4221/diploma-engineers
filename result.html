@@ -11,24 +11,30 @@
 body{
     font-family: Arial;
     background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
     margin:0;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
 
+/* HEADER SPACE */
+#header{
+    width:100%;
+}
+
+/* CARD */
 .card{
     background:#fff;
     padding:25px;
     width:350px;
     border-radius:15px;
     box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    margin-top:80px;
 }
 
 h2{
     text-align:center;
-    margin-bottom:10px;
 }
 
 input{
@@ -47,30 +53,30 @@ button{
     color:white;
     border-radius:8px;
     cursor:pointer;
-    font-size:16px;
 }
 
 button:hover{
     background:#0056b3;
 }
 
-.loader{
+.loader, .success{
     display:none;
     text-align:center;
     margin-top:10px;
 }
 
 .success{
-    display:none;
     color:green;
-    text-align:center;
-    margin-top:10px;
 }
 </style>
 </head>
 
 <body>
 
+<!-- ✅ HEADER LOAD -->
+<div id="header"></div>
+
+<!-- ✅ RESULT CARD -->
 <div class="card">
     <h2><i class="fas fa-graduation-cap"></i> BTEUP Result</h2>
 
@@ -83,6 +89,7 @@ button:hover{
     <div class="success" id="success">✅ Opening Result...</div>
 </div>
 
+<!-- ✅ SCRIPT -->
 <script>
 function getResult(){
     let enroll = document.getElementById("enroll").value.trim();
@@ -96,7 +103,7 @@ function getResult(){
     document.getElementById("loader").style.display="block";
 
     setTimeout(()=>{
-        let id = btoa(enroll); // KEEP E
+        let id = btoa(enroll);
         let id2 = encodeURIComponent(btoa(dob));
 
         let url = `https://result.bteexam.com/Odd_Semester/reval/REVAL_RollNo.aspx?id=${id}&id2=${id2}`;
@@ -108,6 +115,15 @@ function getResult(){
 
     },1000);
 }
+</script>
+
+<!-- ✅ HEADER LOAD SCRIPT -->
+<script>
+fetch("./header.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("header").innerHTML = data;
+  });
 </script>
 
 </body>
