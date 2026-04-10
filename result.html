@@ -3,198 +3,110 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BTEUP Result Portal</title>
 
-<title>BTEUP Revaluation Result</title>
-
-<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+body{
+    font-family: Arial;
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
 }
 
-/* Card */
-.result-card {
-    background: #fff;
-    width: 400px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    overflow: hidden;
+.card{
+    background:#fff;
+    padding:25px;
+    width:350px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* Header */
-.card-header {
-    background: #007bff;
-    color: white;
-    text-align: center;
-    padding: 20px;
+h2{
+    text-align:center;
+    margin-bottom:10px;
 }
 
-.card-header h1 {
-    margin: 0;
-    font-size: 22px;
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
 }
 
-.developer-badge {
-    font-size: 13px;
-    margin-top: 8px;
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    background:#007bff;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
 }
 
-/* Body */
-.card-body {
-    padding: 20px;
+button:hover{
+    background:#0056b3;
 }
 
-.input-field {
-    margin-bottom: 15px;
+.loader{
+    display:none;
+    text-align:center;
+    margin-top:10px;
 }
 
-.input-field label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.input-field input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
-
-.helper-tip {
-    font-size: 12px;
-    color: #777;
-}
-
-.error-msg {
-    color: red;
-    font-size: 12px;
-    display: none;
-}
-
-/* Buttons */
-.btn-generate {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    background: #28a745;
-    color: white;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.btn-result {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    background: #007bff;
-    color: white;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 10px;
-    display: none;
-}
-
-/* Success */
-.success-area {
-    color: green;
-    text-align: center;
-    margin-top: 10px;
-    display: none;
+.success{
+    display:none;
+    color:green;
+    text-align:center;
+    margin-top:10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="result-card">
-    <div class="card-header">
-        <h1><i class="fas fa-link"></i> BTE Revaluation Result</h1>
-        <p>Fast & secure access to your result</p>
-        <div class="developer-badge">
-            Developed by <strong>Amit Kumar</strong>
-        </div>
-    </div>
+<div class="card">
+    <h2><i class="fas fa-graduation-cap"></i> BTEUP Result</h2>
 
-    <div class="card-body">
+    <input type="text" id="enroll" placeholder="Enrollment No (E251...)" />
+    <input type="text" id="dob" placeholder="DD/MM/YYYY" />
 
-        <div class="input-field">
-            <label>Enrollment Number</label>
-            <input type="text" id="enrollNo" placeholder="Enter Enrollment">
-            <div class="error-msg" id="enrollError">Enter Enrollment Number</div>
-        </div>
+    <button onclick="getResult()">Get Result</button>
 
-        <div class="input-field">
-            <label>Date of Birth</label>
-            <input type="text" id="dobInput" placeholder="DD/MM/YYYY">
-            <div class="error-msg" id="dobError">Enter valid DOB</div>
-        </div>
-
-        <button class="btn-generate" onclick="generateLink()">Generate Result Link</button>
-
-        <div class="success-area" id="successMsg">
-            ✅ Link Generated Successfully
-        </div>
-
-        <button class="btn-result" id="viewResultBtn" onclick="openResult()">
-            Open Result
-        </button>
-
-    </div>
+    <div class="loader" id="loader">⏳ Processing...</div>
+    <div class="success" id="success">✅ Opening Result...</div>
 </div>
 
 <script>
-let finalURL = "";
+function getResult(){
+    let enroll = document.getElementById("enroll").value.trim();
+    let dob = document.getElementById("dob").value.trim();
 
-function generateLink() {
-    let enroll = document.getElementById("enrollNo").value.trim();
-    let dob = document.getElementById("dobInput").value.trim();
-
-    let enrollError = document.getElementById("enrollError");
-    let dobError = document.getElementById("dobError");
-
-    enrollError.style.display = "none";
-    dobError.style.display = "none";
-
-    if (enroll === "") {
-        enrollError.style.display = "block";
+    if(enroll=="" || dob==""){
+        alert("Enter all details");
         return;
     }
 
-    if (!/^\d{2}\/\d{2}\/\d{4}$/.test(dob)) {
-        dobError.style.display = "block";
-        return;
-    }
+    document.getElementById("loader").style.display="block";
 
-    // Remove 'E' if present
-    enroll = enroll.replace(/^E/i, "");
+    setTimeout(()=>{
+        let id = btoa(enroll); // KEEP E
+        let id2 = encodeURIComponent(btoa(dob));
 
-    // Convert DOB format DD/MM/YYYY → DD-MM-YYYY
-    let dobFormatted = dob.replace(/\//g, "-");
+        let url = `https://result.bteexam.com/Odd_Semester/reval/REVAL_RollNo.aspx?id=${id}&id2=${id2}`;
 
-    // Example BTEUP Result URL (Modify if needed)
-    finalURL = `https://bteup.ac.in/result.aspx?enroll=${enroll}&dob=${dobFormatted}`;
+        document.getElementById("loader").style.display="none";
+        document.getElementById("success").style.display="block";
 
-    document.getElementById("successMsg").style.display = "block";
-    document.getElementById("viewResultBtn").style.display = "block";
-}
+        window.open(url, "_blank");
 
-function openResult() {
-    if (finalURL !== "") {
-        window.open(finalURL, "_blank");
-    }
+    },1000);
 }
 </script>
 
