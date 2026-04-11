@@ -36,6 +36,7 @@ body{
     color:#ffb703;
 }
 
+/* DESKTOP MENU */
 .nav-menu{
     display:flex;
     gap:25px;
@@ -63,7 +64,7 @@ body{
     width:100%;
 }
 
-/* MOBILE */
+/* MOBILE ICON */
 .menu-toggle{
     display:none;
     color:white;
@@ -93,12 +94,12 @@ body{
 .side-menu{
     position:fixed;
     top:0;
-    right:-100%;
+    right:-260px;
     width:260px;
     height:100%;
     background:#1d3557;
     padding-top:60px;
-    transition:0.4s;
+    transition:0.4s ease;
 }
 
 .side-menu a{
@@ -287,13 +288,21 @@ footer{
 <div id="footer"></div>
 
 <script>
+function openMenu() {
+    document.getElementById("sideMenu").style.right = "0";
+    document.getElementById("overlay").classList.add("show");
+}
+
+function closeMenu() {
+    document.getElementById("sideMenu").style.right = "-260px";
+    document.getElementById("overlay").classList.remove("show");
+}
+
 fetch("footer.html")
   .then(res => res.text())
   .then(data => {
     document.getElementById("footer").innerHTML = data;
   });
-</script>
-
 </script>
 
 </body>
