@@ -374,6 +374,100 @@ footer{
 </div>
 </section>
 
+<section style="background:#0b1b2b; color:white; padding:70px 20px;">
+  <div class="container">
+
+    <!-- TITLE -->
+    <div class="text-center mb-4">
+      <h2 style="font-weight:800;">What Students Say</h2>
+      <p style="opacity:0.7;">Swipe to see more reviews</p>
+    </div>
+
+    <!-- SLIDER WRAPPER -->
+    <div style="position:relative;">
+
+      <!-- LEFT BUTTON -->
+      <button onclick="scrollReviews(-1)"
+        style="position:absolute; left:0; top:40%; z-index:10;
+        background:#ff7b00; border:none; color:white;
+        width:40px; height:40px; border-radius:50%;">
+        <i class="fas fa-angle-left"></i>
+      </button>
+
+      <!-- SCROLL AREA -->
+      <div id="reviewTrack"
+        style="
+        display:flex;
+        gap:20px;
+        overflow-x:auto;
+        scroll-behavior:smooth;
+        padding:10px;
+        scrollbar-width:none;">
+
+        <!-- CARD 1 -->
+        <div style="min-width:280px; background:#1c2a3a; padding:20px; border-radius:15px;">
+          <div style="color:#ffb703;">★★★★★</div>
+          <p>Best website for diploma students. Very easy notes.</p>
+          <h6>- Rahul Sharma</h6>
+          <small>Mechanical</small>
+        </div>
+
+        <!-- CARD 2 -->
+        <div style="min-width:280px; background:#1c2a3a; padding:20px; border-radius:15px;">
+          <div style="color:#ffb703;">★★★★★</div>
+          <p>PYQ helped me score good marks in exams.</p>
+          <h6>- Priya Verma</h6>
+          <small>Electrical</small>
+        </div>
+
+        <!-- CARD 3 -->
+        <div style="min-width:280px; background:#1c2a3a; padding:20px; border-radius:15px;">
+          <div style="color:#ffb703;">★★★★★</div>
+          <p>Projects are very useful and practical.</p>
+          <h6>- Amit Singh</h6>
+          <small>Civil</small>
+        </div>
+
+        <!-- CARD 4 -->
+        <div style="min-width:280px; background:#1c2a3a; padding:20px; border-radius:15px;">
+          <div style="color:#ffb703;">★★★★★</div>
+          <p>Simple and easy learning platform.</p>
+          <h6>- Shubham Yadav</h6>
+          <small>IT</small>
+        </div>
+
+        <!-- CARD 5 -->
+        <div style="min-width:280px; background:#1c2a3a; padding:20px; border-radius:15px;">
+          <div style="color:#ffb703;">★★★★★</div>
+          <p>Best diploma study website in India.</p>
+          <h6>- Ankit Kumar</h6>
+          <small>Civil</small>
+        </div>
+
+      </div>
+
+      <!-- RIGHT BUTTON -->
+      <button onclick="scrollReviews(1)"
+        style="position:absolute; right:0; top:40%; z-index:10;
+        background:#ff7b00; border:none; color:white;
+        width:40px; height:40px; border-radius:50%;">
+        <i class="fas fa-angle-right"></i>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<script>
+function scrollReviews(dir){
+    const track = document.getElementById("reviewTrack");
+    track.scrollBy({
+        left: dir * 300,
+        behavior: "smooth"
+    });
+}
+</script>
+    
 <!-- FOOTER -->
 <div id="footer"></div>
 
