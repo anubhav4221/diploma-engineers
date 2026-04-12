@@ -1,200 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Diploma Engineers</title>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-
-/* BODY */
-body{
-    margin:0;
-    font-family:'Segoe UI', sans-serif;
-}
-
-/* HEADER */
-.pro-header{
-    background: rgba(29,53,87,0.95);
-    padding:15px 0;
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.logo a{
-    color:white;
-    font-size:24px;
-    font-weight:700;
-    text-decoration:none;
-}
-
-.logo span{
-    color:#ffb703;
-}
-
-/* DESKTOP MENU */
-.nav-menu{
-    display:flex;
-    gap:25px;
-}
-
-.nav-menu a{
-    color:white;
-    text-decoration:none;
-    position:relative;
-}
-
-.nav-menu a::after{
-    content:'';
-    position:absolute;
-    width:0%;
-    height:2px;
-    background:#ffb703;
-    left:0;
-    bottom:0;
-    transition:0.3s;
-}
-
-.nav-menu a:hover::after,
-.nav-menu .active::after{
-    width:100%;
-}
-
-/* MOBILE ICON */
-.menu-toggle{
-    display:none;
-    color:white;
-    font-size:24px;
-    cursor:pointer;
-}
-
-/* OVERLAY */
-.overlay{
-    position:fixed;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-    background:rgba(0,0,0,0.5);
-    opacity:0;
-    visibility:hidden;
-    transition:0.3s;
-}
-
-.overlay.show{
-    opacity:1;
-    visibility:visible;
-}
-
-/* SIDE MENU */
-.side-menu{
-    position:fixed;
-    top:0;
-    right:-260px;
-    width:260px;
-    height:100%;
-    background:#1d3557;
-    padding-top:60px;
-    transition:0.4s ease;
-}
-
-.side-menu.show{
-    right:0;
-}
-
-.side-menu a{
-    display:block;
-    padding:15px;
-    color:white;
-    text-decoration:none;
-}
-
-.close-btn{
-    position:absolute;
-    top:15px;
-    right:15px;
-    color:white;
-    cursor:pointer;
-}
-
-/* HERO */
-.hero{
-    text-align:center;
-    padding:70px 20px;
-    background:#fff7f0;
-}
-
-.hero h1{
-    font-size:40px;
-}
-
-.btn-main{
-    background:#ff7b00;
-    border:none;
-    padding:12px 30px;
-    border-radius:30px;
-    color:white;
-}
-
-/* SLIDER */
-.slider{
-    display:flex;
-    gap:15px;
-    overflow-x:auto;
-    padding:10px;
-}
-
-/* CARDS */
-.card-custom{
-    min-width:160px;
-    background:#1d3557;
-    color:white;
-    padding:15px;
-    border-radius:12px;
-    text-align:center;
-    text-decoration:none;
-    flex-shrink:0;
-    transition:0.3s;
-}
-
-.card-custom:hover{
-    background:#ff7b00;
-    transform:scale(1.05);
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-    .nav-menu{
-        display:none;
-    }
-    .menu-toggle{
-        display:block;
-    }
-}
-
-</style>
-</head>
-
-<body>
-
 <!-- HEADER -->
 <header class="pro-header">
 <div class="container d-flex justify-content-between align-items-center">
 
     <div class="logo">
-        <a href="#">Diploma <span>Engineers</span></a>
+        <a href="#home">Diploma <span>Engineers</span></a>
     </div>
 
     <nav class="nav-menu">
-        <a href="#" class="active">Home</a>
-        <a href="#">Notes</a>
-        <a href="#">Jobs</a>
-        <a href="#">Contact</a>
+        <a href="#home" class="active">Home</a>
+        <a href="#notes">Notes</a>
+        <a href="#result">Result</a>
+        <a href="#contact">Contact</a>
     </nav>
 
     <div class="menu-toggle" onclick="openMenu()">
@@ -213,10 +29,10 @@ body{
         <i class="fas fa-times"></i>
     </span>
 
-    <a href="#">Home</a>
-    <a href="#">Notes</a>
-    <a href="#">Jobs</a>
-    <a href="#">Contact</a>
+    <a href="#home" onclick="closeMenu()">Home</a>
+    <a href="#notes" onclick="closeMenu()">Notes</a>
+    <a href="#result" onclick="closeMenu()">Result</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
 </div>
 
 <!-- OUR VISION -->
