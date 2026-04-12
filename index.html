@@ -17,28 +17,27 @@ body{
     font-family:'Segoe UI', sans-serif;
 }
 
-/* HEADER FULL WIDTH */
+/* HEADER */
 .pro-header{
     background: rgba(29,53,87,0.95);
     padding:15px 0;
     position:sticky;
     top:0;
     z-index:1000;
-    width:100%;
 }
 
-/* LOGO */
 .logo a{
     color:white;
     font-size:24px;
     font-weight:700;
     text-decoration:none;
 }
+
 .logo span{
     color:#ffb703;
 }
 
-/* MENU */
+/* DESKTOP MENU */
 .nav-menu{
     display:flex;
     gap:25px;
@@ -66,7 +65,7 @@ body{
     width:100%;
 }
 
-/* MOBILE MENU */
+/* MOBILE ICON */
 .menu-toggle{
     display:none;
     color:white;
@@ -101,7 +100,11 @@ body{
     height:100%;
     background:#1d3557;
     padding-top:60px;
-    transition:0.4s;
+    transition:0.4s ease;
+}
+
+.side-menu.show{
+    right:0;
 }
 
 .side-menu a{
@@ -119,10 +122,59 @@ body{
     cursor:pointer;
 }
 
+/* HERO */
+.hero{
+    text-align:center;
+    padding:70px 20px;
+    background:#fff7f0;
+}
+
+.hero h1{
+    font-size:40px;
+}
+
+.btn-main{
+    background:#ff7b00;
+    border:none;
+    padding:12px 30px;
+    border-radius:30px;
+    color:white;
+}
+
+/* SLIDER */
+.slider{
+    display:flex;
+    gap:15px;
+    overflow-x:auto;
+    padding:10px;
+}
+
+/* CARDS */
+.card-custom{
+    min-width:160px;
+    background:#1d3557;
+    color:white;
+    padding:15px;
+    border-radius:12px;
+    text-align:center;
+    text-decoration:none;
+    flex-shrink:0;
+    transition:0.3s;
+}
+
+.card-custom:hover{
+    background:#ff7b00;
+    transform:scale(1.05);
+}
+
 /* RESPONSIVE */
 @media(max-width:768px){
-    .nav-menu{display:none;}
-    .menu-toggle{display:block;}
+    .nav-menu{
+        display:none;
+    }
+    .menu-toggle{
+        display:block;
+    }
 }
 
 </style>
@@ -132,267 +184,73 @@ body{
 
 <!-- HEADER -->
 <header class="pro-header">
-  <div style="display:flex; justify-content:space-between; align-items:center; padding:0 25px;">
+<div class="container d-flex justify-content-between align-items-center">
 
     <div class="logo">
-      <a href="#">Diploma<span>Engineers</span></a>
+        <a href="#">Diploma <span>Engineers</span></a>
     </div>
 
     <nav class="nav-menu">
-      <a href="#" class="active">Home</a>
-      <a href="#">Notes</a>
-      <a href="#">Result</a>
-      <a href="#">Contact</a>
+        <a href="#" class="active">Home</a>
+        <a href="#">Notes</a>
+        <a href="#">Jobs</a>
+        <a href="#">Contact</a>
     </nav>
 
-    <i class="fas fa-bars menu-toggle" onclick="openMenu()"></i>
+    <div class="menu-toggle" onclick="openMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
 
-  </div>
+</div>
 </header>
 
 <!-- OVERLAY -->
-<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+<div class="overlay" onclick="closeMenu()"></div>
 
 <!-- SIDE MENU -->
-<div class="side-menu" id="sideMenu">
-  <i class="fas fa-times close-btn" onclick="closeMenu()"></i>
-  <a href="#">Home</a>
-  <a href="#">Notes</a>
-  <a href="#">Result</a>
-  <a href="#">Contact</a>
+<div class="side-menu">
+    <span class="close-btn" onclick="closeMenu()">
+        <i class="fas fa-times"></i>
+    </span>
+
+    <a href="#">Home</a>
+    <a href="#">Notes</a>
+    <a href="#">Jobs</a>
+    <a href="#">Contact</a>
 </div>
 
-<!-- ===== OUR VISION SECTION ===== -->
-<section style="background:#fff; padding:70px 0; width:100%;">
-  
-  <div class="row align-items-center" style="margin:0;">
-
-    <!-- LEFT -->
-    <div class="col-lg-6 col-12" style="padding:40px;">
-
-      <span style="font-weight:700; letter-spacing:2px; color:#ff7b00;">
-        ✦ OUR VISION
-      </span>
-
-      <h2 style="font-size:42px; font-weight:900; margin-top:10px;">
-        Empowering <span style="color:#ff7b00;">Diploma Engineers</span><br>
-        For Strong Future
-      </h2>
-
-      <p style="opacity:0.8; margin-top:15px; line-height:1.8; max-width:500px;">
-        We provide quality study material, PYQ solutions, and practical engineering knowledge.
-      </p>
-
-    </div>
-
-    <!-- RIGHT -->
-    <div class="col-lg-6 col-12 text-center" style="padding:40px;">
-
-      <div style="position:relative; display:inline-block; max-width:450px; width:100%;">
-
-        <img src="https://picsum.photos/520/520"
-             style="width:100%; border-radius:18px; box-shadow:0 10px 40px rgba(0,0,0,0.2);">
-
-        <!-- BADGES -->
-        <div style="
-          position:absolute;
-          top:20px;
-          left:10px;
-          background:#ff7b00;
-          color:white;
-          padding:8px 12px;
-          border-radius:10px;
-          font-size:12px;">
-          🎯 Exam Focused
-        </div>
-
-        <div style="
-          position:absolute;
-          bottom:20px;
-          right:10px;
-          background:#111;
-          color:white;
-          padding:8px 12px;
-          border-radius:10px;
-          font-size:12px;">
-          📘 Free Notes
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
+<!-- HERO -->
+<section class="hero">
+    <h1>Welcome Diploma Engineers</h1>
+    <button class="btn-main">Get Started</button>
 </section>
 
+<!-- SLIDER -->
+<div class="slider">
+        <a href="#" class="card-custom">Civil Engineering</a>
+        <a href="#" class="card-custom">Mechanical Engineering</a>
+        <a href="#" class="card-custom">Electrical Engineering</a>
+        <a href="#" class="card-custom">Electronics Engineering</a>
+        <a href="#" class="card-custom">ECE</a>
+        <a href="#" class="card-custom">CSE</a>
+        <a href="#" class="card-custom">IT</a>
+</div>
+
 <script>
-// MENU
 function openMenu(){
- document.getElementById("sideMenu").style.right="0";
- document.getElementById("overlay").classList.add("show");
+    document.querySelector(".side-menu").classList.add("show");
+    document.querySelector(".overlay").classList.add("show");
 }
+
 function closeMenu(){
- document.getElementById("sideMenu").style.right="-260px";
- document.getElementById("overlay").classList.remove("show");
+    document.querySelector(".side-menu").classList.remove("show");
+    document.querySelector(".overlay").classList.remove("show");
 }
 </script>
 
 </body>
 </html>
 
-<!-- ===== STATS SECTION (SWIPE MOBILE + ORANGE BLACK THEME) ===== -->
-<section style="background:#; padding:70px 20px;">
-
-  <div class="container-fluid text-left">
-
-    <h2 style="font-weight:900; color:white;">
-      Diploma Engineers Resources
-    </h2>
-
-    
-    </p>
-
-    <!-- STATS WRAPPER -->
-    <div class="stats-wrapper">
-
-      <div class="stats-box">
-        <h1 class="counter" data-target="1500">0</h1>
-        <p>Students</p>
-      </div>
-
-      <div class="stats-box">
-        <h1 class="counter" data-target="200">0</h1>
-        <p>PDF Books</p>
-      </div>
-
-      <div class="stats-box">
-        <h1 class="counter" data-target="10">0</h1>
-        <p>Years PYQ</p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-
-<style>
-.stats-wrapper{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-  margin-top:30px;
-}
-
-.stats-box{
-  background:#ff7b00;
-  color:black;
-  padding:25px;
-  border-radius:15px;
-  text-align:left;
-  transition:0.3s;
-}
-
-.stats-box:hover{
-  transform:translateY(-5px);
-}
-
-.stats-box h1{
-  font-size:38px;
-  font-weight:900;
-  margin:0;
-}
-
-.stats-box p{
-  margin:0;
-  font-weight:600;
-}
-
-/* MOBILE SWIPE */
-@media(max-width:768px){
-  .stats-wrapper{
-    display:flex;
-    overflow-x:auto;
-    gap:15px;
-    scroll-snap-type:x mandatory;
-    padding-bottom:10px;
-  }
-
-  .stats-box{
-    min-width:220px;
-    flex-shrink:0;
-    scroll-snap-align:start;
-  }
-
-  .stats-wrapper::-webkit-scrollbar{
-    display:none;
-  }
-}
-</style>
-
-<script>
-const counters = document.querySelectorAll(".counter");
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      const counter = entry.target;
-      const target = +counter.getAttribute("data-target");
-
-      let current = 0;
-      const step = target / 100;
-
-      const update = () => {
-        if(current < target){
-          current += step;
-          counter.innerText = Math.ceil(current);
-          setTimeout(update, 20);
-        } else {
-          counter.innerText = target;
-        }
-      };
-
-      update();
-      observer.unobserve(counter);
-    }
-  });
-}, { threshold: 0.5 });
-
-counters.forEach(c => observer.observe(c));
-</script>
-
-    
-<section class="container-fluid px-4 px-lg-5 my-5">
-
-<h3 class="text-center mb-4">Engineering Branches</h3>
-
-<div class="slider-wrapper">
-
-  <button class="slide-btn left" onclick="scrollSlider(-1)">
-    <i class="fas fa-angle-left"></i>
-  </button>
-
-  <div class="slider" id="branchSlider">
-
-    <a href="#" class="card-custom">🏗 Civil</a>
-    <a href="#" class="card-custom">⚙ Mechanical</a>
-    <a href="#" class="card-custom">🌾 Agriculture</a>
-    <a href="#" class="card-custom">💻 IT</a>
-    <a href="#" class="card-custom">⚡ Electrical</a>
-    <a href="#" class="card-custom">📡 Electronics</a>
-
-  </div>
-
-  <button class="slide-btn right" onclick="scrollSlider(1)">
-    <i class="fas fa-angle-right"></i>
-  </button>
-
-</div>
-
-</section>
-
-<!-- TEAM -->
 <!-- TEAM -->
 <section class="container my-5">
 <h3 class="text-center mb-4">Our Team</h3>
@@ -433,131 +291,3 @@ counters.forEach(c => observer.observe(c));
 
 </div>
 </section>
-
-
-    
-<section style="background:#0b1b2b; color:white; padding:70px 20px;">
-  <div class="container">
-
-    <!-- TITLE -->
-    <div class="text-center mb-4">
-      <h2 style="font-weight:800;">What Students Say</h2>
-      <p style="opacity:0.7;">Swipe to see more reviews</p>
-    </div>
-
-    <!-- SLIDER WRAPPER -->
-    <div style="position:relative;">
-
-      <!-- LEFT BUTTON -->
-      <button onclick="scrollReviews(-1)"
-        style="position:absolute; left:0; top:40%; z-index:10;
-        background:; border:none; color:white;
-        width:40px; height:40px; border-radius:50%;">
-        <i class="fas fa-angle-left"></i>
-      </button>
-
-      <!-- SCROLL AREA -->
-      <div id="reviewTrack"
-        style="
-        display:flex;
-        gap:20px;
-        overflow-x:auto;
-        scroll-behavior:smooth;
-        padding:10px;
-        scrollbar-width:none;">
-
-        <!-- CARD 1 -->
-        <div style="min-width:280px; background:#1c2a3a; padding:20px; border-radius:15px;">
-          <div style="color:#ffb703;">★★★★★</div>
-          <p>Best website for diploma students. Very easy notes.</p>
-          <h6>- Rahul Sharma</h6>
-          <small>Mechanical</small>
-        </div>
-
-        <!-- CARD 2 -->
-        <div style="min-width:280px; background:#1c2a3a; padding:20px; border-radius:15px;">
-          <div style="color:#ffb703;">★★★★★</div>
-          <p>PYQ helped me score good marks in exams.</p>
-          <h6>- Priya Verma</h6>
-          <small>Electrical</small>
-        </div>
-
-        <!-- CARD 3 -->
-        <div style="min-width:280px; background:#1c2a3a; padding:20px; border-radius:15px;">
-          <div style="color:#ffb703;">★★★★★</div>
-          <p>Projects are very useful and practical.</p>
-          <h6>- Amit Singh</h6>
-          <small>Civil</small>
-        </div>
-
-        <!-- CARD 4 -->
-        <div style="min-width:280px; background:#1c2a3a; padding:20px; border-radius:15px;">
-          <div style="color:#ffb703;">★★★★★</div>
-          <p>Simple and easy learning platform.</p>
-          <h6>- Shubham Yadav</h6>
-          <small>IT</small>
-        </div>
-
-        <!-- CARD 5 -->
-        <div style="min-width:280px; background:#1c2a3a; padding:20px; border-radius:15px;">
-          <div style="color:#ffb703;">★★★★★</div>
-          <p>Best diploma study website in India.</p>
-          <h6>- Ankit Kumar</h6>
-          <small>Civil</small>
-        </div>
-
-      </div>
-
-      <!-- RIGHT BUTTON -->
-      <button onclick="scrollReviews(1)"
-        style="position:absolute; right:0; top:40%; z-index:10;
-        background:#ff7b00; border:none; color:white;
-        width:40px; height:40px; border-radius:50%;">
-        <i class="fas fa-angle-right"></i>
-      </button>
-
-    </div>
-  </div>
-</section>
-
-<script>
-function scrollReviews(dir){
-    const track = document.getElementById("reviewTrack");
-    track.scrollBy({
-        left: dir * 300,
-        behavior: "smooth"
-    });
-}
-</script>
-    
-
-<!-- FOOTER -->
-<div id="footer"></div>
-
-<script>
-// MENU FUNCTIONS
-function openMenu() {
-    document.getElementById("sideMenu").style.right = "0";
-    document.getElementById("overlay").classList.add("show");
-}
-
-function closeMenu() {
-    document.getElementById("sideMenu").style.right = "-260px";
-    document.getElementById("overlay").classList.remove("show");
-}
-
-// LOAD FOOTER SAFELY
-document.addEventListener("DOMContentLoaded", function () {
-    fetch("footer.html")
-    .then(res => {
-        if (!res.ok) throw new Error("Footer file not found");
-        return res.text();
-    })
-    .then(data => {
-        document.getElementById("footer").innerHTML = data;
-    })
-    .catch(err => {
-        console.log("Footer load error:", err);
-    });
-});
-</script>
