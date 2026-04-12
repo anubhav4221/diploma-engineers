@@ -363,18 +363,33 @@ counters.forEach(c => observer.observe(c));
 </script>
 
     
-<!-- BRANCH -->
-<section class="container my-5">
+<section class="container-fluid px-4 px-lg-5 my-5">
+
 <h3 class="text-center mb-4">Engineering Branches</h3>
 
-<div class="slider">
-<a href="civil.html" class="card-custom">🏗 Civil</a>
-<a href="mechanical.html" class="card-custom">⚙ Mechanical</a>
-<a href="agriculture.html" class="card-custom">🌾 Agriculture</a>
-<a href="it.html" class="card-custom">💻 IT</a>
-<a href="electrical.html" class="card-custom">⚡ Electrical</a>
-<a href="electronics.html" class="card-custom">📡 Electronic </a>
+<div class="slider-wrapper">
+
+  <button class="slide-btn left" onclick="scrollSlider(-1)">
+    <i class="fas fa-angle-left"></i>
+  </button>
+
+  <div class="slider" id="branchSlider">
+
+    <a href="#" class="card-custom">🏗 Civil</a>
+    <a href="#" class="card-custom">⚙ Mechanical</a>
+    <a href="#" class="card-custom">🌾 Agriculture</a>
+    <a href="#" class="card-custom">💻 IT</a>
+    <a href="#" class="card-custom">⚡ Electrical</a>
+    <a href="#" class="card-custom">📡 Electronics</a>
+
+  </div>
+
+  <button class="slide-btn right" onclick="scrollSlider(1)">
+    <i class="fas fa-angle-right"></i>
+  </button>
+
 </div>
+
 </section>
 
 <!-- TEAM -->
