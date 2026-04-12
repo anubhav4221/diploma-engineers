@@ -232,13 +232,12 @@ footer{
 </div>
 
 <!-- ===== OUR VISION SECTION ===== -->
-<!-- ===== OUR VISION SECTION ===== -->
 <section style="background:#fff; padding:70px 20px;">
   <div class="container-fluid px-4">
 
     <div class="container-fluid px-4 text-start">
 
-      <!-- LEFT CONTENT -->
+ <!-- LEFT CONTENT -->
       <div class="col-lg-6 col-12" style="padding-left:40px;">
 
         <span style="font-weight:700; letter-spacing:2px; color:#ff7b00;">
@@ -582,26 +581,12 @@ function scrollReviews(dir){
 }
 </script>
     
-<!-- FOOTER -->
-<div id="footer"></div>
+<div id="header"></div>
 
 <script>
-function openMenu() {
-    document.getElementById("sideMenu").style.right = "0";
-    document.getElementById("overlay").classList.add("show");
-}
-
-function closeMenu() {
-    document.getElementById("sideMenu").style.right = "-260px";
-    document.getElementById("overlay").classList.remove("show");
-}
-
-fetch("footer.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("footer").innerHTML = data;
-  });
+fetch("header.html")
+.then(res => res.text())
+.then(data => {
+  document.getElementById("header").innerHTML = data;
+});
 </script>
-
-</body>
-</html>
