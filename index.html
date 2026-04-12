@@ -1,40 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diploma Engineers</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+body{
+  margin:0;
+  font-family:'Segoe UI', sans-serif;
+}
+
+/* HEADER */
+.pro-header{
+  background: rgba(29,53,87,0.95);
+  padding:15px 0;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.logo a{
+  color:white;
+  font-size:24px;
+  font-weight:700;
+  text-decoration:none;
+}
+
+.logo span{
+  color:#ffb703;
+}
+
+/* MENU */
+.nav-menu{
+  display:flex;
+  gap:25px;
+}
+
+.nav-menu a{
+  color:white;
+  text-decoration:none;
+}
+
+/* MOBILE ICON */
+.menu-toggle{
+  display:none;
+  color:white;
+  font-size:24px;
+  cursor:pointer;
+}
+
+/* OVERLAY */
+.overlay{
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  background:rgba(0,0,0,0.5);
+  opacity:0;
+  visibility:hidden;
+  transition:0.3s;
+}
+
+.overlay.show{
+  opacity:1;
+  visibility:visible;
+}
+
+/* SIDE MENU */
+.side-menu{
+  position:fixed;
+  top:0;
+  right:-260px;
+  width:260px;
+  height:100%;
+  background:#1d3557;
+  padding-top:60px;
+  transition:0.4s;
+  z-index:1001;
+}
+
+.side-menu.active{
+  right:0;
+}
+
+.side-menu a{
+  display:block;
+  padding:15px;
+  color:white;
+  text-decoration:none;
+}
+
+.close-btn{
+  position:absolute;
+  top:15px;
+  right:15px;
+  color:white;
+  cursor:pointer;
+  font-size:22px;
+}
+
+/* SECTIONS */
+section{
+  padding:60px 20px;
+}
+
+.hero{
+  text-align:center;
+  background:#fff7f0;
+}
+
+.hero h1{
+  font-size:40px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-menu{
+    display:none;
+  }
+  .menu-toggle{
+    display:block;
+  }
+}
+</style>
+</head>
+
+<body>
+
 <!-- HEADER -->
 <header class="pro-header">
-<div class="container d-flex justify-content-between align-items-center">
+  <div class="container d-flex justify-content-between align-items-center">
 
     <div class="logo">
-        <a href="#home">Diploma <span>Engineers</span></a>
+      <a href="#home">Diploma <span>Engineers</span></a>
     </div>
 
     <nav class="nav-menu">
-        <a href="#home" class="active">Home</a>
-        <a href="#notes">Notes</a>
-        <a href="#result">Result</a>
-        <a href="#contact">Contact</a>
+      <a href="#home">Home</a>
+      <a href="#notes">Notes</a>
+      <a href="#result">Result</a>
+      <a href="#contact">Contact</a>
     </nav>
 
-    <div class="menu-toggle" onclick="openMenu()">
-        <i class="fas fa-bars"></i>
+    <div class="menu-toggle" id="openMenu">
+      <i class="fa fa-bars"></i>
     </div>
 
-</div>
+  </div>
 </header>
 
 <!-- OVERLAY -->
-<div class="overlay" onclick="closeMenu()"></div>
+<div class="overlay" id="overlay"></div>
 
 <!-- SIDE MENU -->
-<div class="side-menu">
-    <span class="close-btn" onclick="closeMenu()">
-        <i class="fas fa-times"></i>
-    </span>
+<div class="side-menu" id="sideMenu">
 
-    <a href="#home" onclick="closeMenu()">Home</a>
-    <a href="#notes" onclick="closeMenu()">Notes</a>
-    <a href="#result" onclick="closeMenu()">Result</a>
-    <a href="#contact" onclick="closeMenu()">Contact</a>
+  <div class="close-btn" id="closeMenu">
+    <i class="fa fa-times"></i>
+  </div>
+
+  <a href="#home" onclick="closeNav()">Home</a>
+  <a href="#notes" onclick="closeNav()">Notes</a>
+  <a href="#result" onclick="closeNav()">Result</a>
+  <a href="#contact" onclick="closeNav()">Contact</a>
+
 </div>
 
+<!-- HOME -->
+<section id="home" class="hero">
+  <h1>Welcome to Diploma Engineers</h1>
+  <p>Best platform for students</p>
+</section>
+
+<!-- NOTES -->
+<section id="notes">
+  <h2>Notes</h2>
+  <p>All branch notes available here.</p>
+</section>
+
+<!-- RESULT -->
+<section id="result" style="background:#f5f5f5;">
+  <h2>Result</h2>
+  <p>Latest exam results will be shown here.</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: info@diplomaengineers.com</p>
+</section>
+
+<script>
+const sideMenu = document.getElementById("sideMenu");
+const overlay = document.getElementById("overlay");
+const openMenu = document.getElementById("openMenu");
+const closeMenu = document.getElementById("closeMenu");
+
+function openNav(){
+  sideMenu.classList.add("active");
+  overlay.classList.add("show");
+}
+
+function closeNav(){
+  sideMenu.classList.remove("active");
+  overlay.classList.remove("show");
+}
+
+openMenu.addEventListener("click", openNav);
+closeMenu.addEventListener("click", closeNav);
+overlay.addEventListener("click", closeNav);
+</script>
+
+</body>
+</html>
 <!-- OUR VISION -->
 <section class="container my-5">
 
