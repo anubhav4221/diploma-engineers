@@ -605,12 +605,34 @@ function scrollReviews(dir){
 }
 </script>
     
-<div id="header"></div>
+
+<!-- FOOTER -->
+<div id="footer"></div>
 
 <script>
-fetch("header.html")
-.then(res => res.text())
-.then(data => {
-  document.getElementById("header").innerHTML = data;
+// MENU FUNCTIONS
+function openMenu() {
+    document.getElementById("sideMenu").style.right = "0";
+    document.getElementById("overlay").classList.add("show");
+}
+
+function closeMenu() {
+    document.getElementById("sideMenu").style.right = "-260px";
+    document.getElementById("overlay").classList.remove("show");
+}
+
+// LOAD FOOTER SAFELY
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("footer.html")
+    .then(res => {
+        if (!res.ok) throw new Error("Footer file not found");
+        return res.text();
+    })
+    .then(data => {
+        document.getElementById("footer").innerHTML = data;
+    })
+    .catch(err => {
+        console.log("Footer load error:", err);
+    });
 });
 </script>
