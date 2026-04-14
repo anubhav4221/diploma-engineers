@@ -124,40 +124,85 @@ fetch("header.html")
 </section>
 
 <!-- STATS SECTION -->
-<section class="container my-5 text-center">
+<!-- ACHIEVEMENTS SECTION -->
+<section class="container my-5">
 
-    <h2 style="font-weight:800; margin-bottom:30px;">
+    <!-- CENTER HEADING -->
+    <h2 style="font-weight:800; margin-bottom:30px; text-align:center;">
         Our <span style="color:#ff7b00;">Achievements</span>
     </h2>
 
-    <div class="row">
+    <!-- HORIZONTAL ROW -->
+    <div class="achievements-row">
 
-        <!-- STUDENTS -->
-        <div class="col-md-4 col-6 mb-4">
-            <div class="count-box">
-                <h1 class="counter" data-target="0">1500</h1>
-                <p>STUDENTS</p>
-            </div>
+        <div class="count-box">
+            <h1 class="counter" data-target="1500">0</h1>
+            <p>STUDENTS</p>
         </div>
 
-        <!-- PYQ -->
-        <div class="col-md-4 col-6 mb-4">
-            <div class="count-box">
-                <h1 class="counter" data-target="0">10</h1>
-                <p>YEARS PYQ</p>
-            </div>
+        <div class="count-box">
+            <h1 class="counter" data-target="10">0</h1>
+            <p>YEARS PYQ</p>
         </div>
 
-        <!-- NOTES -->
-        <div class="col-md-4 col-6 mb-4">
-            <div class="count-box">
-                <h1 class="counter" data-target="0">200</h1>
-                <p>NOTES</p>
-            </div>
+        <div class="count-box">
+            <h1 class="counter" data-target="200">0</h1>
+            <p>NOTES</p>
         </div>
 
     </div>
 </section>
+
+<!-- STYLE -->
+<style>
+.achievements-row {
+    display: flex;
+    justify-content: center; /* center align */
+    gap: 40px;
+    flex-wrap: nowrap; /* IMPORTANT: ek hi line me rakhega */
+}
+
+.count-box {
+    min-width: 150px;
+    text-align: center;
+}
+
+.counter {
+    font-size: 42px;
+    font-weight: 800;
+    color: #ff7b00;
+}
+
+.count-box p {
+    margin-top: 5px;
+    font-weight: 600;
+    color: #555;
+}
+</style>
+
+<!-- SCRIPT (AUTO COUNT) -->
+<script>
+const counters = document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+    counter.innerText = '0';
+    const target = +counter.getAttribute('data-target');
+
+    const updateCounter = () => {
+        const current = +counter.innerText;
+        const increment = target / 100;
+
+        if (current < target) {
+            counter.innerText = Math.ceil(current + increment);
+            setTimeout(updateCounter, 20);
+        } else {
+            counter.innerText = target;
+        }
+    };
+
+    updateCounter();
+});
+</script>
 
 <!-- JOIN SECTION -->
 <section class="container-fluid my-5 text-center px-4">
