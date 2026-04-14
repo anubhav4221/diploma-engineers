@@ -470,60 +470,33 @@ body {
                         <a href="#"><i class="fab fa-whatsapp"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
+                
+        </section>
 
- 
-
+</main>
 
 <!-- FOOTER -->
 <footer>
-<div class="container">
-<div class="row">
-
-<div class="col-md-3">
-<h5>Diploma Engineers</h5>
-<p>Notes, PYQ and updates platform.</p>
-</div>
-
-<div class="col-md-3">
-<h5>Links</h5>
-<p>Home<br>Notes<br>Syllabus</p>
-</div>
-
-<div class="col-md-3">
-<h5>Branches</h5>
-<p>Civil<br>Mechanical<br>Electrical</p>
-</div>
-
-<div class="col-md-3">
-<h5>Contact</h5>
-<p>Lucknow<br>Email<br>Phone</p>
-</div>
-
-</div>
-
-<hr>
-<p class="text-center">© 2026 Diploma Engineers</p>
+<div class="container text-center">
+<p>© 2026 Diploma Engineers</p>
 </div>
 </footer>
 
-<!-- COUNTER SCRIPT -->
+<!-- COUNTER -->
 <script>
-const counters = document.querySelectorAll('.counter');
-
-counters.forEach(counter => {
-    const update = () => {
-        const target = +counter.getAttribute('data-target');
-        const current = +counter.innerText;
-        const increment = Math.ceil(target / 40);
-
-        if(current < target){
-            counter.innerText = current + increment;
-            setTimeout(update, 40);
-        } else {
-            counter.innerText = target;
-        }
-    };
-    update();
+document.querySelectorAll('.counter').forEach(counter=>{
+let update=()=>{
+let target=+counter.dataset.target;
+let current=+counter.innerText;
+let inc=Math.ceil(target/40);
+if(current<target){
+counter.innerText=current+inc;
+setTimeout(update,40);
+}else{
+counter.innerText=target;
+}
+};
+update();
 });
 </script>
 
@@ -531,3 +504,4 @@ counters.forEach(counter => {
 
 </body>
 </html>
+                    
