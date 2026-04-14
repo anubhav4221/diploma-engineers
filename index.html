@@ -463,46 +463,137 @@ overlay.addEventListener("click", closeNav);
 </div>
 
 <!-- TEAM SECTION -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <section class="container my-5 text-center">
 
-  <h2 class="mb-4">
-    Our <span style="color:#ff7b00;">Team</span>
-  </h2>
 
-  <div class="row g-4">
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- MEMBER 1 -->
-    <div class="col-md-4 col-12">
-      <div class="team-card">
-        <img src="https://i.pravatar.cc/150?img=12" class="team-img">
-        <h5>Rahul Kumar</h5>
-        <p>Founder</p>
-      </div>
+<!-- Font Awesome (BEST for icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+
+body {
+    background: #f5f7fa;
+}
+
+/* Card */
+.team-card {
+    background: #fff;
+    border-radius: 15px;
+    max-width: 300px;
+    margin: auto;
+    transition: 0.3s;
+}
+
+.team-card:hover {
+    transform: scale(1.05);
+}
+
+/* Image */
+.team-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #0d6efd;
+}
+
+/* Icons */
+.social-icons a {
+    margin: 0 10px;
+    color: #333;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #0d6efd;
+}
+
+/* Carousel Buttons */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #000;
+    border-radius: 50%;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container my-5">
+    <h2 class="text-center fw-bold mb-4">Our Team</h2>
+
+    <div id="teamCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500">
+
+        <div class="carousel-inner text-center">
+
+            <!-- Founder -->
+            <div class="carousel-item active">
+                <div class="team-card p-4 shadow-sm">
+
+                    <img src="https://via.placeholder.com/100" class="team-img mb-3">
+
+                    <h5 class="fw-bold">Anubhav</h5>
+                    <p class="text-muted">Founder</p>
+
+                    <div class="social-icons">
+                        <a href="tel:1234567890"><i class="fas fa-phone"></i></a>
+                        <a href="mailto:example@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Co-Founder -->
+            <div class="carousel-item">
+                <div class="team-card p-4 shadow-sm">
+
+                    <img src="https://via.placeholder.com/100" class="team-img mb-3">
+
+                    <h5 class="fw-bold">Abhi</h5>
+                    <p class="text-muted">Co-Founder</p>
+
+                    <div class="social-icons">
+                        <a href="tel:9876543210"><i class="fas fa-phone"></i></a>
+                        <a href="mailto:example2@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#teamCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#teamCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+
     </div>
+</div>
 
-    <!-- MEMBER 2 -->
-    <div class="col-md-4 col-12">
-      <div class="team-card">
-        <img src="https://i.pravatar.cc/150?img=32" class="team-img">
-        <h5>Amit Singh</h5>
-        <p>Content Manager</p>
-      </div>
-    </div>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- MEMBER 3 -->
-    <div class="col-md-4 col-12">
-      <div class="team-card">
-        <img src="https://i.pravatar.cc/150?img=45" class="team-img">
-        <h5>Neha Sharma</h5>
-        <p>Designer</p>
-      </div>
-    </div>
-
-  </div>
-</section>  
-
-
-
+</body>
+</html>
 <!-- STUDENT FEEDBACK -->
 <section class="container my-5 text-center">
 
