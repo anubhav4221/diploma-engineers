@@ -18,15 +18,27 @@
     box-sizing:border-box;
 }
 
-/* STICKY FOOTER LAYOUT */
+/* STICKY FOOTER + FULL WIDTH FIX */
 html, body{
     height:100%;
+    margin:0;
     font-family:Arial, sans-serif;
 }
 
 body{
     display:flex;
     flex-direction:column;
+}
+
+/* main content pushes footer down */
+main{
+    flex:1;
+}
+
+/* FULL WIDTH FOOTER */
+footer{
+    width:100%;
+    margin-top:auto;
 }
 
 main{
