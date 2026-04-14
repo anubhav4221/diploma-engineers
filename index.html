@@ -124,121 +124,141 @@ fetch("header.html")
 </section>
 
 <!-- STATS SECTION -->
+<!-- ===== ACHIEVEMENTS SECTION START ===== -->
+<section class="achievements-section">
+
+    <h2 class="title">
+        Our <span>Achievements</span>
+    </h2>
+
+    <div class="achievements-row">
+
+        <div class="count-box">
+            <h1 class="counter" data-target="1500">0</h1>
+            <p>Students</p>
+        </div>
+
+        <div class="count-box">
+            <h1 class="counter" data-target="120">0</h1>
+            <p>Teachers</p>
+        </div>
+
+        <div class="count-box">
+            <h1 class="counter" data-target="350">0</h1>
+            <p>Notes</p>
+        </div>
+
+        <div class="count-box">
+            <h1 class="counter" data-target="50">0</h1>
+            <p>Institutes</p>
+        </div>
+
+    </div>
+</section>
+<!-- ===== ACHIEVEMENTS SECTION END ===== -->
+
+
 <style>
-/* ROW STYLE */
+/* SECTION */
+.achievements-section{
+    padding:40px 20px;
+    text-align:center;
+    background:#f9f9f9;
+}
+
+/* TITLE */
+.title{
+    font-size:28px;
+    font-weight:800;
+    margin-bottom:30px;
+}
+
+.title span{
+    color:#ff7b00;
+}
+
+/* ROW */
 .achievements-row{
     display:flex;
     justify-content:center;
-    gap:20px;
+    gap:40px;
     flex-wrap:wrap;
-    text-align:center;
-    padding:10px;
 }
 
-/* BOX STYLE */
+/* BOX */
 .count-box{
-    flex:1;
     min-width:160px;
     max-width:220px;
-    padding:20px;
+    padding:25px;
     border-radius:12px;
     background:#fff;
     box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
-/* NUMBER STYLE */
+/* NUMBER */
 .counter{
-    font-size:2.2rem;
+    font-size:42px;
     font-weight:800;
+    color:#ff7b00;
     margin:0;
 }
 
-/* TEXT STYLE */
+/* TEXT */
 .count-box p{
-    margin:5px 0 0;
+    margin-top:5px;
     font-weight:600;
+    color:#555;
 }
 
-/* 📱 MOBILE RESPONSIVE */
-@media (max-width: 768px){
-    .achievements-row{
-        gap:15px;
-    }
-
+/* TABLET */
+@media (max-width:768px){
     .count-box{
-        flex: 1 1 45%;
+        flex:1 1 45%;
         max-width:45%;
     }
-
     .counter{
-        font-size:1.8rem;
+        font-size:32px;
     }
 }
 
-/* 📱 SMALL MOBILE */
-@media (max-width: 480px){
+/* MOBILE */
+@media (max-width:480px){
     .count-box{
-        flex: 1 1 100%;
+        flex:1 1 100%;
         max-width:100%;
     }
-
     .counter{
-        font-size:1.6rem;
+        font-size:28px;
     }
 }
 </style>
 
-<!-- STYLE -->
-<style>
-.achievements-row {
-    display: flex;
-    justify-content: center; /* center align */
-    gap: 40px;
-    flex-wrap: nowrap; /* IMPORTANT: ek hi line me rakhega */
-}
 
-.count-box {
-    min-width: 150px;
-    text-align: center;
-}
-
-.counter {
-    font-size: 42px;
-    font-weight: 800;
-    color: #ff7b00;
-}
-
-.count-box p {
-    margin-top: 5px;
-    font-weight: 600;
-    color: #555;
-}
-</style>
-
-<!-- SCRIPT (AUTO COUNT) -->
 <script>
+// COUNTER ANIMATION
 const counters = document.querySelectorAll('.counter');
 
 counters.forEach(counter => {
-    counter.innerText = '0';
+    counter.innerText = "0";
+
     const target = +counter.getAttribute('data-target');
+    const speed = 30;
 
-    const updateCounter = () => {
+    const update = () => {
         const current = +counter.innerText;
-        const increment = target / 100;
+        const increment = Math.ceil(target / speed);
 
-        if (current < target) {
-            counter.innerText = Math.ceil(current + increment);
-            setTimeout(updateCounter, 20);
+        if(current < target){
+            counter.innerText = current + increment;
+            setTimeout(update, 40);
         } else {
             counter.innerText = target;
         }
     };
 
-    updateCounter();
+    update();
 });
 </script>
-
 <!-- JOIN SECTION -->
 
 
