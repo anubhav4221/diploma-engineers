@@ -576,76 +576,132 @@ body {
 body{
     margin:0;
     padding:0;
+    overflow-x:hidden;
+    font-family:Arial, sans-serif;
 }
 
-/* FULL WIDTH FIX */
+/* FULL WIDTH PROFESSIONAL FOOTER */
 footer{
-    background:#1d3557;
+    background:linear-gradient(135deg,#1d3557,#0b1d3a);
     color:white;
-    padding:30px 15px;
+    padding:50px 20px;
+    width:100%;
     margin-top:40px;
-
-    width:100vw;
-    position:relative;
-    left:50%;
-    right:50%;
-    margin-left:-50vw;
-    margin-right:-50vw;
-
-    font-size:14px;
     box-sizing:border-box;
+}
+
+/* CONTAINER */
+.footer-container{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+/* SECTION TITLE */
+footer h3, footer h4{
+    margin-bottom:12px;
+    font-weight:700;
+}
+
+/* LINKS */
+footer ul{
+    list-style:none;
+    padding:0;
+}
+
+footer ul li{
+    margin-bottom:8px;
+}
+
+footer a{
+    color:#ffffffcc;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+footer a:hover{
+    color:#ff7b00;
+    padding-left:5px;
+}
+
+/* CONTACT */
+footer p{
+    font-size:14px;
+    color:#ffffffcc;
+    margin:6px 0;
+}
+
+/* LINE */
+.footer-bottom{
+    text-align:center;
+    margin-top:30px;
+    padding-top:15px;
+    border-top:1px solid rgba(255,255,255,0.2);
+    font-size:13px;
+    color:#ffffffaa;
+}
+
+/* HOVER EFFECT BOX */
+.footer-box{
+    padding:10px;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.footer-box:hover{
+    background:rgba(255,255,255,0.05);
+    transform:translateY(-3px);
 }
 </style>
 
 <footer>
 
-<div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; justify-content:space-between;">
+<div class="footer-container">
 
-<!-- About -->
-<div style="flex:1; min-width:220px; margin:10px;">
-<h3 style="font-size:18px;">Diploma Engineers</h3>
-<p style="font-size:13px;">
-Your platform for diploma engineering students. Get fastest news, notes, PYQ and study material easily.
-</p>
+    <!-- ABOUT -->
+    <div class="footer-box">
+        <h3>Diploma Engineers</h3>
+        <p>
+            Your platform for diploma students. Get notes, PYQs, updates and study material in one place.
+        </p>
+    </div>
+
+    <!-- LINKS -->
+    <div class="footer-box">
+        <h4>Quick Links</h4>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Notes</a></li>
+            <li><a href="#">Syllabus</a></li>
+            <li><a href="#">PYQ</a></li>
+        </ul>
+    </div>
+
+    <!-- BRANCHES -->
+    <div class="footer-box">
+        <h4>Branches</h4>
+        <ul>
+            <li>Civil Engineering</li>
+            <li>Mechanical Engineering</li>
+            <li>Electrical Engineering</li>
+            <li>Computer Science</li>
+        </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-box">
+        <h4>Contact</h4>
+        <p>📍 Lucknow, India</p>
+        <p>📧 diplomaengineers@email.com</p>
+        <p>📞 +91 XXXXX XXXXX</p>
+    </div>
+
 </div>
 
-<!-- Quick Links -->
-<div style="flex:1; min-width:180px; margin:10px;">
-<h4 style="font-size:16px;">Quick Links</h4>
-<ul style="list-style:none; padding:0; font-size:13px;">
-<li><a href="#" style="color:white; text-decoration:none;">Home</a></li>
-<li><a href="#" style="color:white; text-decoration:none;">Notes</a></li>
-<li><a href="#" style="color:white; text-decoration:none;">Syllabus</a></li>
-</ul>
+<div class="footer-bottom">
+    © 2026 Diploma Engineers | Made with ❤️ for Students
 </div>
-
-<!-- Branches -->
-<div style="flex:1; min-width:180px; margin:10px;">
-<h4 style="font-size:16px;">Branches</h4>
-<ul style="list-style:none; padding:0; font-size:13px;">
-<li>Civil Engineering</li>
-<li>Mechanical Engineering</li>
-<li>Electrical Engineering</li>
-<li>Computer Science</li>
-</ul>
-</div>
-
-<!-- Contact -->
-<div style="flex:1; min-width:220px; margin:10px;">
-<h4 style="font-size:16px;">Contact</h4>
-<p style="font-size:13px;">📍 Lucknow</p>
-<p style="font-size:13px;">📧 diplomaengineers@email.com</p>
-<p style="font-size:13px;">📞 +91 ............</p>
-</div>
-
-</div>
-
-<hr style="border-color:rgba(255,255,255,0.2); margin:15px 0;">
-
-<p style="text-align:center; font-size:12px;">
-© 2026 Diploma Engineers | FAST AND FASTEST NEWS 😎 <br>
-All Rights Reserved
-</p>
 
 </footer>
-                    
