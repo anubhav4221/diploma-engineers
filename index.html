@@ -660,25 +660,55 @@ body{
     padding:0;
 }
 
-/* FULL WIDTH FIX */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diploma Engineers</title>
+
+<style>
+html, body{
+    height:100%;
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+}
+
+/* MAIN CONTENT */
+main{
+    flex:1;
+}
+
+/* FOOTER */
 footer{
     background:#1d3557;
     color:white;
     padding:30px 15px;
-    margin-top:40px;
-
-    width:100vw;
-    position:relative;
-    left:50%;
-    right:50%;
-    margin-left:-50vw;
-    margin-right:-50vw;
-
+    margin-top:auto;
     font-size:14px;
     box-sizing:border-box;
 }
 </style>
 
+</head>
+
+<body>
+
+<!-- MAIN CONTENT -->
+<main>
+    <h2 style="text-align:center; margin-top:50px;">
+        Your Website Content Here
+    </h2>
+</main>
+
+<!-- FOOTER START -->
 <footer>
 
 <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; justify-content:space-between;">
@@ -730,3 +760,6 @@ All Rights Reserved
 </p>
 
 </footer>
+
+</body>
+</html>
