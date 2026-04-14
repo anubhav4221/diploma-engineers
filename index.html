@@ -124,34 +124,69 @@ fetch("header.html")
 </section>
 
 <!-- STATS SECTION -->
-<!-- ACHIEVEMENTS SECTION -->
-<section class="container my-5">
+<style>
+/* ROW STYLE */
+.achievements-row{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    text-align:center;
+    padding:10px;
+}
 
-    <!-- CENTER HEADING -->
-    <h2 style="font-weight:800; margin-bottom:30px; text-align:center;">
-        Our <span style="color:#ff7b00;">Achievements</span>
-    </h2>
+/* BOX STYLE */
+.count-box{
+    flex:1;
+    min-width:160px;
+    max-width:220px;
+    padding:20px;
+    border-radius:12px;
+    background:#fff;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
 
-    <!-- HORIZONTAL ROW -->
-    <div class="achievements-row">
+/* NUMBER STYLE */
+.counter{
+    font-size:2.2rem;
+    font-weight:800;
+    margin:0;
+}
 
-        <div class="count-box">
-            <h3 class="counter" data-target="1500">0</h1>
-            <p>STUDENTS</p>
-        </div>
+/* TEXT STYLE */
+.count-box p{
+    margin:5px 0 0;
+    font-weight:600;
+}
 
-        <div class="count-box">
-            <h3 class="counter" data-target="10">0</h1>
-            <p>YEARS PYQ</p>
-        </div>
+/* 📱 MOBILE RESPONSIVE */
+@media (max-width: 768px){
+    .achievements-row{
+        gap:15px;
+    }
 
-        <div class="count-box">
-            <h3 class="counter" data-target="200">0</h1>
-            <p>NOTES</p>
-        </div>
+    .count-box{
+        flex: 1 1 45%;
+        max-width:45%;
+    }
 
-    </div>
-</section>
+    .counter{
+        font-size:1.8rem;
+    }
+}
+
+/* 📱 SMALL MOBILE */
+@media (max-width: 480px){
+    .count-box{
+        flex: 1 1 100%;
+        max-width:100%;
+    }
+
+    .counter{
+        font-size:1.6rem;
+    }
+}
+</style>
 
 <!-- STYLE -->
 <style>
