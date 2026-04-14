@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-6">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diploma </title>
+<title>Diploma Engineers</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,7 +16,7 @@ body{
 
 /* HEADER */
 .pro-header{
-  background: rgba(29,53,87,0.95);
+  background:#1d3557;
   padding:15px 0;
   position:sticky;
   top:0;
@@ -43,6 +43,13 @@ body{
 .nav-menu a{
   color:white;
   text-decoration:none;
+  padding:5px 10px;
+  border-radius:5px;
+  transition:0.3s;
+}
+
+.nav-menu a:hover{
+  background:rgba(255,255,255,0.15);
 }
 
 /* MOBILE ICON */
@@ -56,14 +63,15 @@ body{
 /* OVERLAY */
 .overlay{
   position:fixed;
-  width:100%;
-  height:100%;
   top:0;
   left:0;
+  width:100%;
+  height:100%;
   background:rgba(0,0,0,0.5);
   opacity:0;
   visibility:hidden;
   transition:0.3s;
+  z-index:999;
 }
 
 .overlay.show{
@@ -81,7 +89,7 @@ body{
   background:#1d3557;
   padding-top:60px;
   transition:0.4s;
-  z-index:1001;
+  z-index:1000;
 }
 
 .side-menu.active{
@@ -95,27 +103,18 @@ body{
   text-decoration:none;
 }
 
+.side-menu a:hover{
+  background:rgba(255,255,255,0.1);
+}
+
+/* CLOSE BUTTON */
 .close-btn{
   position:absolute;
   top:15px;
   right:15px;
   color:white;
-  cursor:pointer;
   font-size:22px;
-}
-
-/* SECTIONS */
-section{
-  padding:60px 20px;
-}
-
-.hero{
-  text-align:center;
-  background:#fff7f0;
-}
-
-.hero h1{
-  font-size:40px;
+  cursor:pointer;
 }
 
 /* RESPONSIVE */
@@ -137,7 +136,7 @@ section{
   <div class="container d-flex justify-content-between align-items-center">
 
     <div class="logo">
-      <a href="#home">Diploma <span>Engineers</span></a>
+      <a href="#">Diploma <span>Engineers</span></a>
     </div>
 
     <nav class="nav-menu">
@@ -145,6 +144,7 @@ section{
       <a href="#notes">Notes</a>
       <a href="#result">Result</a>
       <a href="#contact">Contact</a>
+       <a href="#contact">Latest News </a>
     </nav>
 
     <div class="menu-toggle" id="openMenu">
@@ -161,13 +161,14 @@ section{
 <div class="side-menu" id="sideMenu">
 
   <div class="close-btn" id="closeMenu">
-    <i class="fa fa-times" onclick="closeNav()"></i>
+    <i class="fa fa-times"></i>
   </div>
 
-  <a href="index.html" onclick="closeNav()">Home</a>
-  <a href="notes.html" onclick="closeNav()">Notes</a>
-  <a href="result.html" onclick="closeNav()">Result</a>
-  <a href="contact.html" onclick="closeNav()">Contact</a>
+  <a href="#">Home</a>
+  <a href="#">Notes</a>
+  <a href="#">Result</a>
+  <a href="#">Contact</a>
+  <a href="#">Latest News</a>
 
 </div>
 
