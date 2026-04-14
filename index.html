@@ -1,3 +1,36 @@
+<div id="header"></div>
+
+<script>
+fetch("header.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("header").innerHTML = data;
+
+    // JS re-run karna padega (important)
+    const sideMenu = document.getElementById("sideMenu");
+    const overlay = document.getElementById("overlay");
+    const openMenu = document.getElementById("openMenu");
+    const closeMenu = document.getElementById("closeMenu");
+
+    openMenu.addEventListener("click", () => {
+      sideMenu.classList.add("active");
+      overlay.classList.add("show");
+    });
+
+    closeMenu.addEventListener("click", () => {
+      sideMenu.classList.remove("active");
+      overlay.classList.remove("show");
+    });
+
+    overlay.addEventListener("click", () => {
+      sideMenu.classList.remove("active");
+      overlay.classList.remove("show");
+    });
+  });
+</script>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
