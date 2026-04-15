@@ -500,11 +500,12 @@ Your platform for diploma engineering students. Get fastest news, notes, PYQ and
 
 </div>
 
-<hr style="border-color:rgba(255,255,255,0.2); margin:15px 0;">
+<div id="footer"></div>
 
-<p style="text-align:center; font-size:12px;">
-© 2026 Diploma Engineers | FAST AND FASTEST NEWS 😎 <br>
-All Rights Reserved
-</p>
-
-</footer>
+<script>
+fetch("footer.html")
+.then(res => res.text())
+.then(data => {
+  document.getElementById("footer").innerHTML = data;
+});
+</script>
