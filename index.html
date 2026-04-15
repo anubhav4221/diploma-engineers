@@ -3,812 +3,116 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Complete Website</title>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<style>
-body{
-    margin:0;
-    padding:0;
-    font-family: Arial, sans-serif;
-}
-
-/* FULL WIDTH FIX */
-section, header, footer{
-    width:100%;
-}
-</style>
-</head>
-
-<body>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Diploma Engineers</title>
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<style>
-body{
-  margin:0;
-  font-family:Arial;
-}
-
-/* HEADER */
-header{
-  background:#1d3557;
-  color:white;
-  padding:15px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:9999;
-}
-
-/* LOGO TEXT */
-.logo{
-  font-size:22px;
-  font-weight:900;
-}
-
-.logo .white{
-  color:white;
-}
-
-.logo .yellow{
-  color:yellow;
-}
-
-/* MENU ICON */
-#menuBtn{
-  font-size:28px;
-  cursor:pointer;
-}
-
-/* OVERLAY */
-#overlay{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.5);
-  opacity:0;
-  visibility:hidden;
-  transition:0.3s;
-  z-index:9998;
-}
-
-/* SIDE MENU */
-#sideMenu{
-  position:fixed;
-  top:0;
-  right:-270px;
-  width:260px;
-  height:100%;
-  background:#1d3557;
-  transition:0.3s;
-  padding-top:60px;
-  z-index:99999;
-}
-
-/* LINKS */
-#sideMenu a{
-  display:block;
-  padding:15px;
-  color:white;
-  text-decoration:none;
-  border-bottom:1px solid rgba(255,255,255,0.1);
-}
-
-/* CLOSE BUTTON */
-#closeBtn{
-  position:absolute;
-  top:10px;
-  right:15px;
-  font-size:22px;
-  cursor:pointer;
-  color:white;
-}
-
-/* ACTIVE STATE */
-#sideMenu.active{
-  right:0;
-}
-
-#overlay.active{
-  opacity:1;
-  visibility:visible;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="logo">
-    <span class="white">Diploma</span>
-    <span class="yellow">Engineers</span>
-  </div>
-
-  <div id="menuBtn"><i class="fa fa-bars"></i></div>
-</header>
-
-<!-- OVERLAY -->
-<div id="overlay"></div>
-
-<!-- SIDE MENU -->
-<div id="sideMenu">
-  <div id="closeBtn"><i class="fa fa-times"></i></div>
-
-  <a href="index.html">Home</a>
-  <a href="vision.html">Vision</a>
-  <a href="achievements.html">Achievements</a>
-  <a href="branch.html">Branch</a>
-  <a href="studentfeedback.html">Student Feedback</a>
-  <a href="team.html">Team</a>
-</div>
-
-<script>
-const menuBtn = document.getElementById("menuBtn");
-const sideMenu = document.getElementById("sideMenu");
-const overlay = document.getElementById("overlay");
-const closeBtn = document.getElementById("closeBtn");
-const links = document.querySelectorAll("#sideMenu a");
-
-// open menu
-menuBtn.onclick = () => {
-  sideMenu.classList.add("active");
-  overlay.classList.add("active");
-};
-
-// close menu
-function closeMenu(){
-  sideMenu.classList.remove("active");
-  overlay.classList.remove("active");
-}
-
-closeBtn.onclick = closeMenu;
-overlay.onclick = closeMenu;
-
-// close on link click
-links.forEach(link => {
-  link.onclick = closeMenu;
-});
-</script>
-
-</body>
-</html>
-
+<!-- HEADER LOAD -->
+<div id="header"></div>
 
 <!-- VISION -->
-<section id="vision"></section>
-
-<!-- ACHIEVEMENTS -->
-<section id="achievements"></section>
-
-<!-- BRANCH -->
-<section id="branch"></section>
-
-<!-- STUDENT FEEDBACK -->
-<section id="studentfeedback"></section>
-
-<!-- TEAM -->
-<section id="team"></section>
-
-<!-- FOOTER -->
-<footer id="footer"></footer>
-
-
-<script>
-// LOAD HEADER
-fetch("header.html")
-.then(res => res.text())
-.then(data => {
-    document.getElementById("header").innerHTML = data;
-});
-
-// LOAD VISION
-fetch("vision.html")
-.then(res => res.text())
-.then(data => {
-    document.getElementById("vision").innerHTML = data;
-});
-    
-</script>
-
-</body>
-</html>
-
-<!-- ===== ACHIEVEMENTS SECTION START ===== -->
-<section class="achievements-section">
-
-    <h2 class="title">
-        Our <span>Achievements</span>
-    </h2>
-
-    <div class="achievements-row">
-
-        <div class="count-box">
-            <h1 class="counter" data-target="1500">0</h1>
-            <p>Students</p>
-        </div>
-
-        <div class="count-box">
-            <h1 class="counter" data-target="50">0</h1>
-            <p>Books PDF</p>
-        </div>
-
-        <div class="count-box">
-            <h1 class="counter" data-target="350">0</h1>
-            <p>Notes</p>
-        </div>
-
-        <div class="count-box">
-            <h1 class="counter" data-target="50">0</h1>
-            <p>E-Books</p>
-        </div>
-
-    </div>
+<section id="vision" class="container my-5">
+  <h2 class="title">Our <span>Vision</span></h2>
 </section>
 
-<style>
-.achievements-section{
-    padding:60px 20px;
-    text-align:center;
-    background:#f9f9f9;
-}
+<!-- ACHIEVEMENTS -->
+<section id="achievements" class="container my-5">
+  <h2 class="title">Our <span>Achievements</span></h2>
 
-.title{
-    font-size:30px;
-    font-weight:900;
-    margin-bottom:40px;
-}
+  <div class="achievements-row">
 
-.title span{
-    color:#ff7b00;
-}
-
-.achievements-row{
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    flex-wrap:wrap;
-}
-
-.count-box{
-    flex:1;
-    min-width:180px;
-    max-width:220px;
-    padding:25px;
-    border-radius:15px;
-    background:#fff;
-    box-shadow:0 5px 15px rgba(0,0,0,0.08);
-    transition:0.3s;
-}
-
-.count-box:hover{
-    transform:translateY(-5px);
-}
-
-.counter{
-    font-size:42px;
-    font-weight:900;
-    color:#ff7b00;
-    margin:0;
-}
-
-.count-box p{
-    margin-top:5px;
-    font-weight:600;
-    color:#555;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-    .count-box{
-        flex:1 1 45%;
-    }
-    .counter{
-        font-size:32px;
-    }
-}
-
-@media(max-width:480px){
-    .count-box{
-        flex:1 1 100%;
-    }
-}
-</style>
-
-<script>
-// ===== SMART COUNTER (RUN ONLY WHEN VISIBLE) =====
-const counters = document.querySelectorAll(".counter");
-
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            const counter = entry.target;
-            const target = +counter.dataset.target;
-
-            let count = 0;
-            const step = target / 100;
-
-            const update = () => {
-                count += step;
-                if(count < target){
-                    counter.innerText = Math.ceil(count);
-                    setTimeout(update, 20);
-                } else {
-                    counter.innerText = target;
-                }
-            };
-
-            update();
-            observer.unobserve(counter);
-        }
-    });
-}, { threshold: 0.6 });
-
-counters.forEach(c => observer.observe(c));
-</script>
-
-<!-- JOIN SECTION -->
-<section class="container my-5">
-
-  <!-- CENTER HEADING -->
-  <div class="text-center mb-4">
-   <h2 style="text-align:center; font-weight:bold;">
-   Join <span style="color:#ff7b00;">US</span>
-</h2>
-  <div class="row g-4 justify-content-center"> 
-  <div class="row justify-content-center g-4">
-
-    <!-- TELEGRAM -->
-    <div class="col-lg-5 col-md-6 col-12">
-      <div class="join-card telegram">
-
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" class="logo">
-
-        <h4 class="mt-3">Join Telegram</h4>
-        <p>Get notes, updates & PYQ instantly</p>
-
-        <a href="https://t.me/diploma_engineers7" class="join-btn">Join Now</a>
-
-      </div>
+    <div class="count-box">
+      <h1 class="counter" data-target="1500">0</h1>
+      <p>Students</p>
     </div>
 
-    <!-- WHATSAPP -->
-    <div class="col-lg-5 col-md-6 col-12">
-      <div class="join-card whatsapp">
+    <div class="count-box">
+      <h1 class="counter" data-target="50">0</h1>
+      <p>Books</p>
+    </div>
 
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="logo">
-
-        <h4 class="mt-3">Join WhatsApp</h4>
-        <p>Daily updates & student support</p>
-
-        <a href="https://whatsapp.com/channel/0029Vay8k8CAojYkBQWr1s1w" target="_blank" class="join-btn">Join Now</a>
-
-      </div>
+    <div class="count-box">
+      <h1 class="counter" data-target="350">0</h1>
+      <p>Notes</p>
     </div>
 
   </div>
-
 </section>
 
-<!-- ===== BRANCH SECTION START ===== -->
-<!-- branch section  -->
+<!-- BRANCH -->
+<section id="branch" class="container my-5">
+  <h2 class="title">Engineering <span>Branch</span></h2>
 
-<!-- Bootstrap CSS & JS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <div id="courseSlider" class="carousel slide" data-bs-ride="carousel">
 
-<div class="container my-5">
-<h2 style="text-align:center; font-weight:bold;">
-    Engineering <span style="color:#ff7b00;">Branch</span>
-</h2>
-  <div class="row g-4 justify-content-center">
-  
-    <div id="courseSlider" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500">
+    <div class="carousel-inner text-center">
 
-        <div class="carousel-inner text-center">
+      <div class="carousel-item active">
+        <div class="card p-4 bg-primary text-white">CSE</div>
+      </div>
 
-            <!-- CSE -->
-            <div class="carousel-item active">
-                <div class="card p-5 text-white bg-primary">
-                    <i class="bi bi-laptop fs-1 mb-3"></i>
-                    <h3>Computer Science & Engineering</h3>
-                    <p>Course Code: 355</p>
-                    <p>Duration: 3 Year</p>
-                </div>
-            </div>
+      <div class="carousel-item">
+        <div class="card p-4 bg-success text-white">Electrical</div>
+      </div>
 
-            <!-- Electrical -->
-            <div class="carousel-item">
-                <div class="card p-5 text-white bg-success">
-                    <i class="bi bi-lightning-charge-fill fs-1 mb-3"></i>
-                    <h3>Electrical Engineering</h3>
-                    <p>Course Code: 328</p>
-                    <p>Duration: 3 Year</p>
-                </div>
-            </div>
-
-            <!-- ECE -->
-            <div class="carousel-item">
-                <div class="card p-5 text-dark bg-warning">
-                    <i class="bi bi-cpu fs-1 mb-3"></i>
-                    <h3>Electronics Engineering</h3>
-                    <p>Course Code: 330</p>
-                    <p>Duration: 3 Year</p>
-                </div>
-            </div>
-
-            <!-- Civil -->
-            <div class="carousel-item">
-                <div class="card p-5 text-white bg-danger">
-                    <i class="bi bi-building fs-1 mb-3"></i>
-                    <h3>Civil Engineering</h3>
-                    <p>Course Code: 322</p>
-                    <p>Duration: 3 Year</p>
-                </div>
-            </div>
-
-            <!-- Mechanical -->
-            <div class="carousel-item">
-                <div class="card p-5 text-white bg-dark">
-                    <i class="bi bi-gear-fill fs-1 mb-3"></i>
-                    <h3>Mechanical Engineering</h3>
-                    <p>Course Code: 343</p>
-                    <p>Duration: 3 Year</p>
-                </div>
-            </div>
-
-            <!-- IT -->
-            <div class="carousel-item">
-                <div class="card p-5 text-white bg-secondary">
-                    <i class="bi bi-hdd-network fs-1 mb-3"></i>
-                    <h3>Information Technology</h3>
-                    <p>Course Code: 322</p>
-                    <p>Duration: 3 Year</p>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Buttons -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#courseSlider" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-
-        <button class="carousel-control-next" type="button" data-bs-target="#courseSlider" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
-
-    </div>
-</div>
-
-<!-- ===== TEAM SLIDER (WORKING FIX) ===== -->
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-.team-section{
-    padding:60px 20px;
-    background:#f5f7fa;
-    text-align:center;
-}
-
-.team-card{
-    background:#fff;
-    border-radius:20px;
-    padding:30px;
-    max-width:300px;
-    margin:auto;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-.team-img{
-    width:85px;
-    height:85px;
-    border-radius:50%;
-    object-fit:cover;
-    border:3px solid #ff7b00;
-    margin-bottom:10px;
-}
-
-.social-icons a{
-    margin:0 6px;
-    color:#555;
-    font-size:18px;
-}
-
-.social-icons a:hover{
-    color:#ff7b00;
-}
-
-/* show arrows (important for testing) */
-.carousel-control-prev,
-.carousel-control-next{
-    filter: invert(1);
-}
-</style>
-
-<section class="team-section">
-
-    <h2 class="fw-bold mb-5">
-        Our <span style="color:#ff7b00;">Team</span>
-    </h2>
-
-    <div id="teamCarousel" class="carousel slide" data-bs-ride="carousel">
-
-        <div class="carousel-inner">
-
-            <!-- ITEM 1 -->
-            <div class="carousel-item active">
-                <div class="team-card">
-
-                    <img src="https://anubhavfinance.wordpress.com/wp-content/uploads/2025/09/1000210734.png" class="team-img">
-
-                    <h5 class="fw-bold">Anubhav Gangwar</h5>
-                    <p class="text-muted">Founder</p>
-
-                    <div class="social-icons">
-                        <a href="tel:+918957972019"><i class="fas fa-phone"></i></a>
-                        <a href="mailto:anubhav4221@gmail.com"><i class="fas fa-envelope"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- ITEM 2 -->
-            <div class="carousel-item">
-                <div class="team-card">
-
-                    <img src="https://anubhavcode.wordpress.com/wp-content/uploads/2023/10/dsc_9692.jpg" class="team-img">
-
-                    <h5 class="fw-bold">Mukesh Singh</h5>
-                    <p class="text-muted">Co-Founder</p>
-
-                    <div class="social-icons">
-                        <a href="tel:+91"><i class="fas fa-phone"></i></a>
-                        <a href="mailto:example@gmail.com"><i class="fas fa-envelope"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-        <!-- CONTROLS (IMPORTANT) -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#teamCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-
-        <button class="carousel-control-next" type="button" data-bs-target="#teamCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
+      <div class="carousel-item">
+        <div class="card p-4 bg-danger text-white">Civil</div>
+      </div>
 
     </div>
 
+  </div>
 </section>
-      
-<!-- STUDENT FEEDBACK -->
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<section class="container my-5 text-center">
+<!-- TEAM -->
+<section id="team" class="container my-5">
+  <h2 class="title">Our <span>Team</span></h2>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <div id="teamCarousel" class="carousel slide" data-bs-ride="carousel">
 
-<style>
+    <div class="carousel-inner text-center">
 
-body {
-    background: #f5f7fa;
-}
-
-/* Section Full Width */
-.feedback-section {
-    overflow: hidden;
-    padding: 40px 0;
-}
-
-/* Slider Track */
-.slider {
-    display: flex;
-    gap: 20px;
-    width: max-content;
-    animation: scroll 15s linear infinite;
-}
-
-/* Cards */
-.feedback-card {
-    background: #fff;
-    border-radius: 15px;
-    min-width: 300px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: 0.3s;
-}
-
-.feedback-card:hover {
-    transform: translateY(-5px);
-}
-
-/* Stars */
-.stars {
-    color: #ffc107;
-}
-
-/* Animation */
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="container-fluid">
-
-     <h2 style="font-weight:800; margin-bottom:30px;">
-        Students <span style="color:#ff7b00;">Feedback</span>
-    </h2>
-    <div class="feedback-section">
-        <div class="slider">
-
-            <!-- CARD 1 -->
-            <div class="feedback-card">
-                <h5 class="fw-bold">Rahul Kumar</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐⭐
-                </div>
-                <p>Bahut achi website hai 👍 Notes aur updates time par milte hain.</p>
-            </div>
-
-            <!-- CARD 2 -->
-            <div class="feedback-card">
-                <h5 class="fw-bold">Aman Singh</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐
-                </div>
-                <p>Diploma students ke liye best platform hai 💯</p>
-            </div>
-
-            <!-- CARD 3 -->
-            <div class="feedback-card">
-                <h5 class="fw-bold">Priya Sharma</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐☆
-                </div>
-                <p>Design aur content dono bahut accha hai 👌</p>
-            </div>
-
-            <!-- DUPLICATE (Smooth loop ke liye) -->
-            <div class="feedback-card">
-                <h5 class="fw-bold">Rahul Kumar</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐⭐
-                </div>
-                <p>Bahut achi website hai 👍 Notes aur updates time par milte hain.</p>
-            </div>
-
-            <div class="feedback-card">
-                <h5 class="fw-bold">Aman Singh</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐
-                </div>
-                <p>Diploma students ke liye best platform hai 💯</p>
-            </div>
-
-            <div class="feedback-card">
-                <h5 class="fw-bold">Priya Sharma</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐☆
-                </div>
-                <p>Design aur content dono bahut accha hai 👌</p>
-            </div>
-
+      <div class="carousel-item active">
+        <div class="team-card">
+          <h5>Founder</h5>
         </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="team-card">
+          <h5>Co-Founder</h5>
+        </div>
+      </div>
+
     </div>
-</div>
 
-<<style>
-body{
-    margin:0;
-    padding:0;
-}
+  </div>
+</section>
 
-/* FULL WIDTH FIX */
-footer{
-    background:#1d3557;
-    color:white;
-    padding:30px 15px;
-    margin-top:40px;
+<!-- FEEDBACK -->
+<section id="feedback" class="container my-5">
+  <h2 class="title">Student <span>Feedback</span></h2>
 
-    width:100vw;
-    position:relative;
-    left:50%;
-    right:50%;
-    margin-left:-50vw;
-    margin-right:-50vw;
+  <div class="feedback-scroll">
 
-    font-size:14px;
-    box-sizing:border-box;
-}
-</style>
+    <div class="feedback-card">Good website 👍</div>
+    <div class="feedback-card">Best notes 💯</div>
+    <div class="feedback-card">Very helpful 👌</div>
 
-<footer>
+  </div>
+</section>
 
-<div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; justify-content:space-between;">
+<!-- FOOTER LOAD -->
+<div id="footer"></div>
 
-<!-- About -->
-<div style="flex:1; min-width:220px; margin:10px;">
-<h3 style="font-size:18px;">Diploma Engineers</h3>
-<p style="font-size:13px;">
-Your platform for diploma engineering students. Get fastest news, notes, PYQ and study material easily.
-</p>
-</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
 
-<!-- Quick Links -->
-<div style="flex:1; min-width:180px; margin:10px;">
-<h4 style="font-size:16px;">Quick Links</h4>
-<ul style="list-style:none; padding:0; font-size:13px;">
-<li><a href="#" style="color:white; text-decoration:none;">Home</a></li>
-<li><a href="#" style="color:white; text-decoration:none;">Notes</a></li>
-<li><a href="#" style="color:white; text-decoration:none;">Syllabus</a></li>
-</ul>
-</div>
-
-<!-- Branches -->
-<div style="flex:1; min-width:180px; margin:10px;">
-<h4 style="font-size:16px;">Branches</h4>
-<ul style="list-style:none; padding:0; font-size:13px;">
-<li>Civil Engineering</li>
-<li>Mechanical Engineering</li>
-<li>Electrical Engineering</li>
-<li>Computer Science</li>
-</ul>
-</div>
-
-<!-- Contact -->
-<div style="flex:1; min-width:220px; margin:10px;">
-<h4 style="font-size:16px;">Contact</h4>
-<p style="font-size:13px;">📍 Lucknow</p>
-<p style="font-size:13px;">📧 diplomaengineers@email.com</p>
-<p style="font-size:13px;">📞 +91 ............</p>
-</div>
-
-</div>
-
-<hr style="border-color:rgba(255,255,255,0.2); margin:15px 0;">
-
-<p style="text-align:center; font-size:12px;">
-© 2026 Diploma Engineers | FAST AND FASTEST NEWS 😎 <br>
-All Rights Reserved
-</p>
-
-</footer>
+</body>
+</html>
