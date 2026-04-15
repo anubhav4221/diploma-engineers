@@ -5,18 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Complete Website</title>
 
-<!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
 body{
     margin:0;
     padding:0;
-    font-family:Arial, sans-serif;
+    font-family: Arial, sans-serif;
 }
 
-/* full width sections */
-section, div{
+/* FULL WIDTH FIX */
+section, header, footer{
     width:100%;
 }
 </style>
@@ -28,60 +27,73 @@ section, div{
 <div id="header"></div>
 
 <!-- VISION -->
-<div id="vision"></div>
+<section id="vision"></section>
 
 <!-- ACHIEVEMENTS -->
-<div id="achievements"></div>
+<section id="achievements"></section>
 
 <!-- BRANCH -->
-<div id="branch"></div>
+<section id="branch"></section>
 
 <!-- STUDENT FEEDBACK -->
-<div id="studentfeedback"></div>
+<section id="studentfeedback"></section>
 
 <!-- TEAM -->
-<div id="team"></div>
+<section id="team"></section>
 
 <!-- FOOTER -->
-<div id="footer"></div>
+<footer id="footer"></footer>
 
 
 <script>
-// HEADER
+// LOAD HEADER
 fetch("header.html")
 .then(res => res.text())
-.then(data => document.getElementById("header").innerHTML = data);
+.then(data => {
+    document.getElementById("header").innerHTML = data;
+});
 
-// VISION
+// LOAD VISION
 fetch("vision.html")
 .then(res => res.text())
-.then(data => document.getElementById("vision").innerHTML = data);
+.then(data => {
+    document.getElementById("vision").innerHTML = data;
+});
 
-// ACHIEVEMENTS
+// LOAD ACHIEVEMENTS
 fetch("achievements.html")
 .then(res => res.text())
-.then(data => document.getElementById("achievements").innerHTML = data);
+.then(data => {
+    document.getElementById("achievements").innerHTML = data;
+});
 
-// BRANCH
+// LOAD BRANCH
 fetch("branch.html")
 .then(res => res.text())
-.then(data => document.getElementById("branch").innerHTML = data);
+.then(data => {
+    document.getElementById("branch").innerHTML = data;
+});
 
-// STUDENT FEEDBACK
+// LOAD STUDENT FEEDBACK
 fetch("studentfeedback.html")
 .then(res => res.text())
-.then(data => document.getElementById("studentfeedback").innerHTML = data);
+.then(data => {
+    document.getElementById("studentfeedback").innerHTML = data;
+});
 
-// TEAM
+// LOAD TEAM
 fetch("team.html")
 .then(res => res.text())
-.then(data => document.getElementById("team").innerHTML = data);
+.then(data => {
+    document.getElementById("team").innerHTML = data;
+});
 
-// FOOTER
+// LOAD FOOTER
 fetch("footer.html")
 .then(res => res.text())
-.then(data => document.getElementById("footer").innerHTML = data);
-
+.then(data => {
+    document.getElementById("footer").innerHTML = data;
+});
 </script>
 
 </body>
