@@ -3,87 +3,105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diploma Engineers | Syllabus</title>
+<title>Diploma Engineers</title>
 
+<!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <style>
+html{scroll-behavior:smooth;}
+
 body{
-    font-family:'Poppins',sans-serif;
-    background:linear-gradient(135deg,#f4f7fb,#e9f2ff);
-    padding-top:80px;
-}
 
 /* NAVBAR */
 .navbar{
     background: rgba(1,53,87,0.9);
+    backdrop-filter: blur(10px);
 }
 .navbar a{color:white !important;}
 
-/* TITLE */
-.title{
-    text-align:center;
-    margin:30px 0;
-}
-.title h2{
-    font-weight:700;
-    color:#013557;
+.nav-link{
+    margin-left:15px;
+    position:relative;
 }
 
-/* BUTTON */
-.branch-btn{
-    padding:10px 18px;
-    margin:5px;
-    border:none;
-    border-radius:25px;
-    background:#e3ecf5;
-    cursor:pointer;
+.nav-link::after{
+    content:"";
+    width:0%;
+    height:2px;
+    background:##fff;
+    position:absolute;
+    left:0; bottom:0;
+    transition:0.3s;
 }
-.branch-btn:hover{
-    background:#ff7b00;
-    color:#fff;
-}
+.nav-link:hover::after{width:100%;}
 
 /* CARD */
-.sem-card{
-    background:#fff;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+.card{
+    max-width:400px;
+    margin:100px auto;
+    padding:30px;
+    border-radius:20px;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(10px);
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    text-align:center;
+}
+
+.card h2{
+    font-weight:700;
     margin-bottom:20px;
 }
 
-.sem-card h5{
+.card input{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    outline:none;
+}
+
+.card input:focus{
+    border-color:#ff7b00;
+    box-shadow:0 0 5px rgba(255,123,0,0.5);
+}
+
+.card button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(45deg,#ff7b00,#ffb703);
+    color:white;
     font-weight:600;
 }
 
-.sem-card ul{
-    padding-left:18px;
+.card button:hover{
+    transform:scale(1.05);
 }
 
-.sem-card li{
-    margin-bottom:5px;
-}
-
-/* HIDE */
-.branch-section{
+.loader{
+    margin-top:10px;
     display:none;
+    color:##f4f7fb;
+}
+
+.success{
+    margin-top:10px;
+    display:none;
+    color:#blue;
 }
 </style>
 </head>
 
 <body>
-
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg fixed-top">
-<div class="container">
-<a class="navbar-brand" href="#">
-<span style="color:white;font-weight:bold;">Diploma</span>
-<span style="color:yellow;font-weight:bold;">Engineers</span>
-</a>
-</div>
-</nav>
 
 <!-- ✅ NAVBAR -->
 <nav class="navbar navbar-expand-lg fixed-top">
@@ -111,6 +129,7 @@ body{
 
 </div>
 </nav>
+
   
 <!-- TITLE -->
 <div class="title">
