@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
+
+/* BODY */
 body{
   margin:0;
   font-family:Arial;
@@ -81,7 +83,8 @@ header{
 }
 
 .team-img{
-  width:85px;height:85px;
+  width:85px;
+  height:85px;
   border-radius:50%;
   object-fit:cover;
   border:3px solid #ff7b00;
@@ -113,16 +116,41 @@ header{
   100%{transform:translateX(-50%);}
 }
 
-/* FOOTER FULL WIDTH */
-footer{
-  background:#1d3557;
-  color:white;
-  padding:30px 15px;
-  width:100vw;
-  position:relative;
-  left:50%;
-  transform:translateX(-50%);
+/* ACHIEVEMENTS */
+.achievements-section{
+  padding:60px 20px;
+  text-align:center;
 }
+
+.title{
+  font-size:30px;
+  font-weight:900;
+  margin-bottom:40px;
+}
+.title span{color:#ff7b00;}
+
+.achievements-row{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:25px;
+}
+
+.count-box{
+  background:#fff;
+  padding:25px;
+  border-radius:15px;
+  min-width:180px;
+  max-width:220px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.counter{
+  font-size:40px;
+  font-weight:900;
+  color:#ff7b00;
+}
+
 </style>
 </head>
 
@@ -134,8 +162,7 @@ footer{
   <div id="menuBtn"><i class="fa fa-bars"></i></div>
 </header>
 
-<div id="overlay"></div>
-
+<!-- SIDE MENU -->
 <div id="sideMenu">
   <a href="#">Home</a>
   <a href="#">Vision</a>
@@ -143,203 +170,70 @@ footer{
   <a href="#">Branch</a>
   <a href="#">Team</a>
 </div>
-<!-- VISION -->
-<section id="vision"></section>
+
+<div id="overlay"></div>
 
 <!-- ACHIEVEMENTS -->
-<section id="achievements"></section>
-
-<!-- BRANCH -->
-<section id="branch"></section>
-
-<!-- STUDENT FEEDBACK -->
-<section id="studentfeedback"></section>
-
-<!-- TEAM -->
-<section id="team"></section>
-
-<!-- FOOTER -->
-<footer id="footer"></footer>
-
-
-<!-- ===== ACHIEVEMENTS SECTION START ===== -->
 <section class="achievements-section">
 
-    <h2 class="title">
-        Our <span>Achievements</span>
-    </h2>
+<h2 class="title">Our <span>Achievements</span></h2>
 
-    <div class="achievements-row">
+<div class="achievements-row">
 
-        <div class="count-box">
-            <h1 class="counter" data-target="1500">0</h1>
-            <p>Students</p>
-        </div>
-
-        <div class="count-box">
-            <h1 class="counter" data-target="50">0</h1>
-            <p>Books PDF</p>
-        </div>
-
-        <div class="count-box">
-            <h1 class="counter" data-target="350">0</h1>
-            <p>Notes</p>
-        </div>
-
-        <div class="count-box">
-            <h1 class="counter" data-target="50">0</h1>
-            <p>E-Books</p>
-        </div>
-
-    </div>
-</section>
-
-<style>
-.achievements-section{
-    padding:60px 20px;
-    text-align:center;
-    background:#f9f9f9;
-}
-
-.title{
-    font-size:30px;
-    font-weight:900;
-    margin-bottom:40px;
-}
-
-.title span{
-    color:#ff7b00;
-}
-
-.achievements-row{
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    flex-wrap:wrap;
-}
-
-.count-box{
-    flex:1;
-    min-width:180px;
-    max-width:220px;
-    padding:25px;
-    border-radius:15px;
-    background:#fff;
-    box-shadow:0 5px 15px rgba(0,0,0,0.08);
-    transition:0.3s;
-}
-
-.count-box:hover{
-    transform:translateY(-5px);
-}
-
-.counter{
-    font-size:42px;
-    font-weight:900;
-    color:#ff7b00;
-    margin:0;
-}
-
-.count-box p{
-    margin-top:5px;
-    font-weight:600;
-    color:#555;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-    .count-box{
-        flex:1 1 45%;
-    }
-    .counter{
-        font-size:32px;
-    }
-}
-
-@media(max-width:480px){
-    .count-box{
-        flex:1 1 100%;
-    }
-}
-</style>
-
-<script>
-// ===== SMART COUNTER (RUN ONLY WHEN VISIBLE) =====
-const counters = document.querySelectorAll(".counter");
-
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            const counter = entry.target;
-            const target = +counter.dataset.target;
-
-            let count = 0;
-            const step = target / 100;
-
-            const update = () => {
-                count += step;
-                if(count < target){
-                    counter.innerText = Math.ceil(count);
-                    setTimeout(update, 20);
-                } else {
-                    counter.innerText = target;
-                }
-            };
-
-            update();
-            observer.unobserve(counter);
-        }
-    });
-}, { threshold: 0.6 });
-
-counters.forEach(c => observer.observe(c));
-</script>
-
-<!-- JOIN SECTION -->
-<section class="container my-5">
-
-  <!-- CENTER HEADING -->
-  <div class="text-center mb-4">
-   <h2 style="text-align:center; font-weight:bold;">
-   Join <span style="color:#ff7b00;">US</span>
-</h2>
-  <div class="row g-4 justify-content-center"> 
-  <div class="row justify-content-center g-4">
-
-    <!-- TELEGRAM -->
-    <div class="col-lg-5 col-md-6 col-12">
-      <div class="join-card telegram">
-
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" class="logo">
-
-        <h4 class="mt-3">Join Telegram</h4>
-        <p>Get notes, updates & PYQ instantly</p>
-
-        <a href="https://t.me/diploma_engineers7" class="join-btn">Join Now</a>
-
-      </div>
-    </div>
-
-    <!-- WHATSAPP -->
-    <div class="col-lg-5 col-md-6 col-">
-      <div class="join-card whatsapp">
-
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="logo">
-
-        <h4 class="mt-2">Join WhatsApp</h4>
-        <p>Daily updates & student support</p>
-
-        <a href="https://whatsapp.com/channel/0029Vay8k8CAojYkBQWr1s1w" target="_blank" class="join-btn">Join Now</a>
-
-      </div>
-    </div>
-
+  <div class="count-box">
+    <h1 class="counter" data-target="1500">0</h1>
+    <p>Students</p>
   </div>
 
+  <div class="count-box">
+    <h1 class="counter" data-target="50">0</h1>
+    <p>Books PDF</p>
+  </div>
+
+  <div class="count-box">
+    <h1 class="counter" data-target="350">0</h1>
+    <p>Notes</p>
+  </div>
+
+  <div class="count-box">
+    <h1 class="counter" data-target="50">0</h1>
+    <p>E-Books</p>
+  </div>
+
+</div>
 </section>
 
-  
-  <!-- ===== BRANCH SECTION START ===== -->
+<script>
+// COUNTER
+const counters = document.querySelectorAll(".counter");
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const el = entry.target;
+      const target = +el.dataset.target;
+      let count = 0;
+      const step = target/100;
+
+      const update=()=>{
+        count += step;
+        if(count<target){
+          el.innerText = Math.ceil(count);
+          setTimeout(update,20);
+        } else {
+          el.innerText = target;
+        }
+      }
+      update();
+      observer.unobserve(el);
+    }
+  });
+},{threshold:0.6});
+
+counters.forEach(c=>observer.observe(c));
+</script>
+
+<!-- ===== BRANCH SECTION START ===== -->
 <!-- branch section  -->
 
 <!-- Bootstrap CSS & JS -->
@@ -430,16 +324,121 @@ counters.forEach(c => observer.observe(c));
     </div>
 </div>
 
-<!-- TEAM -->
-<section class="team-section">
-  <h2>Our <span style="color:#ff7b00;">Team</span></h2>
+<!-- ===== TEAM SLIDER (WORKING FIX) ===== -->
 
-  <div class="team-card">
-    <img src="https://anubhavfinance.wordpress.com/wp-content/uploads/2025/09/1000210734.png" class="team-img">
-    <h5>Anubhav Gangwar</h5>
-    <p>Founder</p>
-  </div>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+.team-section{
+    padding:60px 20px;
+    background:#f5f7fa;
+    text-align:center;
+}
+
+.team-card{
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+    max-width:300px;
+    margin:auto;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.team-img{
+    width:85px;
+    height:85px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #ff7b00;
+    margin-bottom:10px;
+}
+
+.social-icons a{
+    margin:0 6px;
+    color:#555;
+    font-size:18px;
+}
+
+.social-icons a:hover{
+    color:#ff7b00;
+}
+
+/* show arrows (important for testing) */
+.carousel-control-prev,
+.carousel-control-next{
+    filter: invert(1);
+}
+</style>
+
+<section class="team-section">
+
+    <h2 class="fw-bold mb-5">
+        Our <span style="color:#ff7b00;">Team</span>
+    </h2>
+
+    <div id="teamCarousel" class="carousel slide" data-bs-ride="carousel">
+
+        <div class="carousel-inner">
+
+            <!-- ITEM 1 -->
+            <div class="carousel-item active">
+                <div class="team-card">
+
+                    <img src="https://anubhavfinance.wordpress.com/wp-content/uploads/2025/09/1000210734.png" class="team-img">
+
+                    <h5 class="fw-bold">Anubhav Gangwar</h5>
+                    <p class="text-muted">Founder</p>
+
+                    <div class="social-icons">
+                        <a href="tel:+918957972019"><i class="fas fa-phone"></i></a>
+                        <a href="mailto:anubhav4221@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ITEM 2 -->
+            <div class="carousel-item">
+                <div class="team-card">
+
+                    <img src="https://anubhavcode.wordpress.com/wp-content/uploads/2023/10/dsc_9692.jpg" class="team-img">
+
+                    <h5 class="fw-bold">Mukesh Singh</h5>
+                    <p class="text-muted">Co-Founder</p>
+
+                    <div class="social-icons">
+                        <a href="tel:+91"><i class="fas fa-phone"></i></a>
+                        <a href="mailto:example@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CONTROLS (IMPORTANT) -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#teamCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#teamCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+
+    </div>
+
 </section>
+      
+
+
 
 <!-- FEEDBACK -->
 <section class="feedback-section text-center">
@@ -456,56 +455,78 @@ counters.forEach(c => observer.observe(c));
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
 
-<div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; justify-content:space-between;">
+  
+ <!-- FOOTER FIXED BOTTOM -->
+<footer style="
+  position:fixed;
+  left:0;
+  bottom:0;
+  width:100%;
+  background:#1d3557;
+  color:white;
+  text-align:center;
+  padding:15px;
+<footer style="
+  background:#1d3557;
+  color:white;
+  width:100%;
+  margin:0;
+  padding:30px 20px;
+">
 
-<!-- About -->
-<div style="flex:1; min-width:220px; margin:10px;">
-<h3 style="font-size:18px;">Diploma Engineers</h3>
-<p style="font-size:13px;">
-Your platform for diploma engineering students. Get fastest news, notes, PYQ and study material easily.
+<div style="
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+">
+
+  <!-- About -->
+  <div style="flex:1; min-width:220px; margin:10px;">
+    <h3 style="font-size:18px;">Diploma Engineers</h3>
+    <p style="font-size:13px;">
+      Your platform for diploma engineering students. Get fastest news, notes, PYQ and study material easily.
+    </p>
+  </div>
+
+  <!-- Quick Links -->
+  <div style="flex:1; min-width:180px; margin:10px;">
+    <h4 style="font-size:16px;">Quick Links</h4>
+    <ul style="list-style:none; padding:0; font-size:13px;">
+      <li><a href="#" style="color:white; text-decoration:none;">Home</a></li>
+      <li><a href="#" style="color:white; text-decoration:none;">Notes</a></li>
+      <li><a href="#" style="color:white; text-decoration:none;">Syllabus</a></li>
+    </ul>
+  </div>
+
+  <!-- Branches -->
+  <div style="flex:1; min-width:180px; margin:10px;">
+    <h4 style="font-size:16px;">Branches</h4>
+    <ul style="list-style:none; padding:0; font-size:13px;">
+      <li>Civil Engineering</li>
+      <li>Mechanical Engineering</li>
+      <li>Electrical Engineering</li>
+      <li>Computer Science</li>
+    </ul>
+  </div>
+
+  <!-- Contact -->
+  <div style="flex:1; min-width:220px; margin:10px;">
+    <h4 style="font-size:16px;">Contact</h4>
+    <p style="font-size:13px;">📍 Lucknow</p>
+    <p style="font-size:13px;">📧 diplomaengineers@email.com</p>
+    <p style="font-size:13px;">📞 +91 ............</p>
+  </div>
+
+</div>
+
+<hr style="border-color:rgba(255,255,255,0.2); margin:15px 0;">
+
+<p style="text-align:center; font-size:12px; margin:0;">
+  © 2026 Diploma Engineers | FAST AND FASTEST NEWS 😎 <br>
+  All Rights Reserved
 </p>
-</div>
 
-<!-- Quick Links -->
-<div style="flex:1; min-width:180px; margin:10px;">
-<h4 style="font-size:16px;">Quick Links</h4>
-<ul style="list-style:none; padding:0; font-size:13px;">
-<li><a href="#" style="color:white; text-decoration:none;">Home</a></li>
-<li><a href="#" style="color:white; text-decoration:none;">Notes</a></li>
-<li><a href="#" style="color:white; text-decoration:none;">Syllabus</a></li>
-</ul>
-</div>
-
-<!-- Branches -->
-<div style="flex:1; min-width:180px; margin:10px;">
-<h4 style="font-size:16px;">Branches</h4>
-<ul style="list-style:none; padding:0; font-size:13px;">
-<li>Civil Engineering</li>
-<li>Mechanical Engineering</li>
-<li>Electrical Engineering</li>
-<li>Computer Science</li>
-</ul>
-</div>
-
-<!-- Contact -->
-<div style="flex:1; min-width:220px; margin:10px;">
-<h4 style="font-size:16px;">Contact</h4>
-<p style="font-size:13px;">📍 Lucknow</p>
-<p style="font-size:13px;">📧 diplomaengineers@email.com</p>
-<p style="font-size:13px;">📞 +91 ............</p>
-</div>
-
-</div>
-
-<div id="footer"></div>
-
-<script>
-fetch("footer.html")
-.then(res => res.text())
-.then(data => {
-  document.getElementById("footer").innerHTML = data;
-});
-</script>
+</footer>
