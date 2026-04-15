@@ -118,6 +118,34 @@ body{
     border:3px solid #ff7b00;
 }
 
+/* FEEDBACK */
+.feedback-section{
+  overflow:hidden;
+  padding:40px 0;
+}
+
+.slider{
+  display:flex;
+  gap:20px;
+  width:max-content;
+  animation:scroll 15s linear infinite;
+}
+
+.feedback-card{
+  background:#fff;
+  border-radius:15px;
+  min-width:300px;
+  padding:20px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+@keyframes scroll{
+  0%{transform:translateX(0);}
+  100%{transform:translateX(-50%);}
+}
+
+    
+
 /* FOOTER */
 footer{
     background:#0b2545;
