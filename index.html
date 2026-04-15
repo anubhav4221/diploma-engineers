@@ -519,6 +519,142 @@ counters.forEach(c => observer.observe(c));
 
 <!-- ===== BRANCH SECTION END ===== -->  
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Team Slider</title>
+
+<style>
+
+body{
+    background:#f5f7fa;
+    font-family:Arial;
+}
+
+/* SECTION */
+.team-section{
+    text-align:center;
+    padding:60px 20px;
+}
+
+/* SLIDER BOX */
+.slider{
+    max-width:350px;
+    margin:auto;
+    position:relative;
+    overflow:hidden;
+}
+
+/* SLIDES */
+.slide{
+    display:none;
+    background:#fff;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.5s;
+}
+
+.slide.active{
+    display:block;
+}
+
+/* IMAGE */
+img{
+    width:85px;
+    height:85px;
+    border-radius:50%;
+    border:3px solid #ff7b00;
+    object-fit:cover;
+    margin-bottom:10px;
+}
+
+/* TEXT */
+h3{
+    margin:10px 0 5px;
+}
+
+p{
+    color:#666;
+    margin:0;
+}
+
+/* ICONS */
+.icons a{
+    margin:5px;
+    color:#555;
+    font-size:18px;
+    text-decoration:none;
+}
+
+.icons a:hover{
+    color:#ff7b00;
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="team-section">
+
+<h2>Our <span style="color:#ff7b00;">Team</span></h2>
+
+<div class="slider">
+
+    <!-- PERSON 1 -->
+    <div class="slide active">
+        <img src="https://anubhavfinance.wordpress.com/wp-content/uploads/2025/09/1000210734.png">
+        <h3>Anubhav Gangwar</h3>
+        <p>Founder</p>
+
+        <div class="icons">
+            <a href="tel:+918957972019">📞</a>
+            <a href="mailto:anubhav4221@gmail.com">✉</a>
+            <a href="#">📱</a>
+        </div>
+    </div>
+
+    <!-- PERSON 2 -->
+    <div class="slide">
+        <img src="https://anubhavcode.wordpress.com/wp-content/uploads/2023/10/dsc_9692.jpg">
+        <h3>Mukesh Singh</h3>
+        <p>Co-Founder</p>
+
+        <div class="icons">
+            <a href="tel:+91">📞</a>
+            <a href="mailto:example@gmail.com">✉</a>
+            <a href="#">📱</a>
+        </div>
+    </div>
+
+</div>
+
+</section>
+
+<script>
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+function showSlide(){
+    slides.forEach(s => s.classList.remove("active"));
+    slides[index].classList.add("active");
+
+    index++;
+    if(index >= slides.length){
+        index = 0;
+    }
+}
+
+setInterval(showSlide, 2500);
+</script>
+
+</body>
+</html>
+
 
 
       
