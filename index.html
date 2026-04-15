@@ -403,7 +403,100 @@ counters.forEach(c => observer.observe(c));
 </section>
 
 <!-- ===== BRANCH SECTION START ===== -->
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
+<div class="container my-5">
+
+  <h2 class="text-center fw-bold mb-4">
+    Engineering <span style="color:#ff7b00;">Branches</span>
+  </h2>
+
+  <div class="branch-slider">
+
+    <div class="branch-card cse">
+      <i class="bi bi-laptop fs-1"></i>
+      <h5>Computer Science</h5>
+      <p>Code: 355</p>
+    </div>
+
+    <div class="branch-card ece">
+      <i class="bi bi-cpu fs-1"></i>
+      <h5>Electronics</h5>
+      <p>Code: 330</p>
+    </div>
+
+    <div class="branch-card ee">
+      <i class="bi bi-lightning-charge fs-1"></i>
+      <h5>Electrical</h5>
+      <p>Code: 328</p>
+    </div>
+
+    <div class="branch-card civil">
+      <i class="bi bi-building fs-1"></i>
+      <h5>Civil</h5>
+      <p>Code: 322</p>
+    </div>
+
+    <div class="branch-card mech">
+      <i class="bi bi-gear fs-1"></i>
+      <h5>Mechanical</h5>
+      <p>Code: 343</p>
+    </div>
+
+    <div class="branch-card it">
+      <i class="bi bi-hdd-network fs-1"></i>
+      <h5>IT</h5>
+      <p>Code: 322</p>
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+
+/* CENTER SLIDER */
+.branch-slider{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+  overflow-x:auto;
+  padding:25px 10px;
+  scroll-behavior:smooth;
+}
+
+/* hide scrollbar */
+.branch-slider::-webkit-scrollbar{
+  display:none;
+}
+
+/* CARD STYLE */
+.branch-card{
+  min-width:220px;
+  flex:0 0 auto;
+  padding:35px 15px;
+  border-radius:20px;
+  text-align:center;
+  color:#fff;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  transition:0.3s;
+}
+
+.branch-card:hover{
+  transform:translateY(-8px) scale(1.05);
+}
+
+/* FULL COLORS */
+.cse{ background:#1e88e5; }
+.ece{ background:#ff9800; }
+.ee{ background:#43a047; }
+.civil{ background:#e53935; }
+.mech{ background:#3949ab; }
+.it{ background:#6d4c41; }
+
+</style>
   
 
 <!-- ===== TEAM SLIDER (WORKING FIX) ===== -->
