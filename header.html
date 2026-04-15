@@ -23,6 +23,7 @@ body{
   z-index:1000;
 }
 
+/* LOGO */
 .logo a{
   color:white;
   font-size:24px;
@@ -34,11 +35,10 @@ body{
   color:#ffb703;
 }
 
-/* MENU */
+/* DESKTOP MENU */
 .nav-menu{
   display:flex;
   gap:18px;
-  flex-wrap:wrap;
 }
 
 .nav-menu a{
@@ -58,8 +58,9 @@ body{
 .menu-toggle{
   display:none;
   color:white;
-  font-size:24px;
+  font-size:26px;
   cursor:pointer;
+  z-index:1101;
 }
 
 /* OVERLAY */
@@ -74,18 +75,20 @@ body{
   visibility:hidden;
   transition:0.3s;
   z-index:999;
+  pointer-events:none;
 }
 
 .overlay.show{
   opacity:1;
   visibility:visible;
+  pointer-events:auto;
 }
 
 /* SIDE MENU */
 .side-menu{
   position:fixed;
   top:0;
-  right:-260px;
+  right:-270px;
   width:260px;
   height:100%;
   background:#1d3557;
@@ -181,25 +184,30 @@ body{
 
 </div>
 
+<!-- JS (FIXED MOBILE ISSUE) -->
 <script>
-const sideMenu = document.getElementById("sideMenu");
-const overlay = document.getElementById("overlay");
-const openMenu = document.getElementById("openMenu");
-const closeMenu = document.getElementById("closeMenu");
+document.addEventListener("DOMContentLoaded", function () {
 
-function openNav(){
-  sideMenu.classList.add("active");
-  overlay.classList.add("show");
-}
+  const sideMenu = document.getElementById("sideMenu");
+  const overlay = document.getElementById("overlay");
+  const openMenu = document.getElementById("openMenu");
+  const closeMenu = document.getElementById("closeMenu");
 
-function closeNav(){
-  sideMenu.classList.remove("active");
-  overlay.classList.remove("show");
-}
+  function openNav(){
+    sideMenu.classList.add("active");
+    overlay.classList.add("show");
+  }
 
-openMenu.addEventListener("click", openNav);
-closeMenu.addEventListener("click", closeNav);
-overlay.addEventListener("click", closeNav);
+  function closeNav(){
+    sideMenu.classList.remove("active");
+    overlay.classList.remove("show");
+  }
+
+  openMenu.addEventListener("click", openNav);
+  closeMenu.addEventListener("click", closeNav);
+  overlay.addEventListener("click", closeNav);
+
+});
 </script>
 
 </body>
