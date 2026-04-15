@@ -3,126 +3,387 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Syllabus - Diploma Engineers</title>
+<title>Diploma Engineers | Syllabus</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 body{
-    background:#000;
-    color:white;
-    font-family:'Segoe UI';
-    text-align:center;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#f4f7fb,#e9f2ff);
+    padding-top:80px;
 }
 
 /* NAVBAR */
 .navbar{
-    background:#000;
-    border-bottom:1px solid #333;
+    background: rgba(1,53,87,0.9);
 }
+.navbar a{color:white !important;}
 
-/* CARD */
-.card{
-    background:#111;
-    border-radius:15px;
-    padding:20px;
-    margin:15px;
-    transition:0.3s;
+/* TITLE */
+.title{
+    text-align:center;
+    margin:30px 0;
 }
-.card:hover{
-    transform:scale(1.05);
-}
-
-/* LINK */
-a{
-    text-decoration:none;
-    color:white;
+.title h2{
+    font-weight:700;
+    color:#013557;
 }
 
 /* BUTTON */
-.btn-main{
-    background:#ff7b00;
+.branch-btn{
+    padding:10px 18px;
+    margin:5px;
     border:none;
-    padding:8px 20px;
-    border-radius:20px;
-    color:white;
+    border-radius:25px;
+    background:#e3ecf5;
+    cursor:pointer;
+}
+.branch-btn:hover{
+    background:#ff7b00;
+    color:#fff;
+}
+
+/* CARD */
+.sem-card{
+    background:#fff;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom:20px;
+}
+
+.sem-card h5{
+    font-weight:600;
+}
+
+.sem-card ul{
+    padding-left:18px;
+}
+
+.sem-card li{
+    margin-bottom:5px;
+}
+
+/* HIDE */
+.branch-section{
+    display:none;
 }
 </style>
-
 </head>
 
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar p-2">
-<a href="index.html" style="color:white;">⬅ Back to Home</a>
+<nav class="navbar navbar-expand-lg fixed-top">
+<div class="container">
+<a class="navbar-brand" href="#">
+<span style="color:white;font-weight:bold;">Diploma</span>
+<span style="color:yellow;font-weight:bold;">Engineers</span>
+</a>
+</div>
 </nav>
 
-<!-- TITLE -->
-<h1 style="margin-top:30px;">📚 Syllabus</h1>
-<p>Select Your Branch</p>
-
-<!-- BRANCH CARDS -->
+<!-- ✅ NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
 <div class="container">
+
+<a class="navbar-brand" href="#">
+   <span style="color:white; font-weight:bold;">Diploma</span> 
+   <span style="color:yellow; font-weight:bold;">Engineers</span>
+</a>
+
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="notes.html">Notes</a></li>
+<li class="nav-item"><a class="nav-link" href="syllabus.html">Syllabus</a></li>
+<li class="nav-item"><a class="nav-link" href="result.html">Result</a></li>
+<li class="nav-item"><a class="nav-link" href="studentfeedback.html">Feedback</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+</ul>
+</div>
+
+</div>
+</nav>
+  
+<!-- TITLE -->
+<div class="title">
+<h2>Select Branch</h2>
+
+<button class="branch-btn" onclick="show('cse')">💻 CSE</button>
+<button class="branch-btn" onclick="show('civil')">🏗 Civil</button>
+<button class="branch-btn" onclick="show('mech')">⚙ Mechanical</button>
+<button class="branch-btn" onclick="show('electrical')">⚡ Electrical</button>
+<button class="branch-btn" onclick="show('electronics')">⚡ Electronics</button>
+<button class="branch-btn" onclick="show('it')">🖥️ IT</button>
+<button class="branch-btn" onclick="show('chemical')">🧪 Chemical</button>
+<button class="branch-btn" onclick="show('agriculture')">🎍 Agriculture </button>
+
+  
+</div>
+
+<!-- ================= CSE ================= -->
+<div id="cse" class="container branch-section">
+<h3>Computer Science Engineering</h3>
 <div class="row">
 
-<div class="col-md-4">
-<div class="card">
-<h4>🏗 Civil Engineering</h4>
-<button class="btn-main">View Syllabus</button>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card">
-<h4>⚙ Mechanical</h4>
-<button class="btn-main">View Syllabus</button>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card">
-<h4>⚡ Electrical</h4>
-<button class="btn-main">View Syllabus</button>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card">
-<h4>📡 Electronics</h4>
-<button class="btn-main">View Syllabus</button>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card">
-<h4>💻 Computer Science</h4>
-<button class="btn-main">View Syllabus</button>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card">
-<h4>💻 Information Technology</h4>
-<button class="btn-main">View Syllabus</button>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card">
-<h4>🌾 Agricultural</h4>
-<button class="btn-main">View Syllabus</button>
-</div>
-</div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Maths I</li><li>Physics</li><li>Electrical</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Maths II</li><li>C Programming</li><li>Chemistry</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>DSA</li><li>Digital Electronics</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>DBMS</li><li>OS</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Networking</li><li>Java</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li><li>Industrial Training</li></ul></div></div>
 
 </div>
 </div>
 
-<!-- NOTE -->
-<p style="color:#aaa; margin-top:20px;">
-* You can link PDF or official syllabus website
-</p>
+<!-- ================= CIVIL ================= -->
+<div id="civil" class="container branch-section">
+<h3>Civil Engineering</h3>
+<div class="row">
+
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Maths</li><li>Drawing</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Building Materials</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Surveying</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>RCC</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Transportation</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
+
+</div>
+</div>
+
+<!-- ================= MECH ================= -->
+<div id="mech" class="container branch-section">
+<h3>Mechanical Engineering</h3>
+<div class="row">
+
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Workshop</li><li>Maths</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Thermodynamics</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Strength of Materials</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>Fluid Mechanics</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Machine Design</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
+
+</div>
+</div>
+
+<!-- ================= ELECTRICAL ================= -->
+<div id="electrical" class="container branch-section">
+<h3>Electrical Engineering</h3>
+<div class="row">
+
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Basic Electrical</li><li>Maths</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Circuits</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Machines</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>Power Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Control Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
+
+</div>
+</div>
+  
+<!-- ================= Electronics ================= -->
+<div id="electronics" class="container branch-section">
+<h3>Electrical Engineering</h3>
+<div class="row">
+
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Basic Electrical</li><li>Maths</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Circuits</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Machines</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>Power Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Control Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
+
+</div>
+</div>
+
+<!-- ================= IT ================= -->
+<div id="it" class="container branch-section">
+<h3>IT</h3>
+<div class="row">
+
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Basic Electrical</li><li>Maths</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Circuits</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Machines</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>Power Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Control Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
+
+</div>
+</div>  
+
+<!-- ================= Chemical ================= -->
+<div id="chemical" class="container branch-section">
+<h3>Chemical</h3>
+<div class="row">
+
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Basic Electrical</li><li>Maths</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Circuits</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Machines</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>Power Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Control Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
+
+</div>
+</div>  
+
+  <!-- ================= Agriculture ================= -->
+<div id="agriculture" class="container branch-section">
+<h3>Agriculture</h3>
+<div class="row">
+
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Basic Electrical</li><li>Maths</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Circuits</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Machines</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>Power Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Control Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
+
+</div>
+</div>
+  
+  
+<script>
+function show(id){
+    document.querySelectorAll('.branch-section').forEach(e=>e.style.display='none');
+    document.getElementById(id).style.display='block';
+}
+</script>
 
 </body>
 </html>
+
+<footer class="main-footer">
+
+  <div class="container">
+    <div class="row">
+
+      <!-- LOGO + ABOUT -->
+      <div class="col-md-4 footer-box">
+        <div class="footer-logo">
+          <img src="https://anubhavfinance.wordpress.com/wp-content/uploads/2025/11/whatsapp-image-2025-11-26-at-01.09.43_629f0cdb.jpg" alt="logo">
+          <h4>Diploma Engineers</h4>
+        </div>
+        <p>Your learning partner for exams, notes and results.</p>
+      </div>
+
+      <!-- Study Material -->
+      <div class="col-md-4 footer-box">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="notes.html">Notes</a></li>
+          <li><a href="Books.html">Books</a></li>
+          <li><a href="P.Y.Q.html">P.Y.Q</a></li>
+          <li><a href="QuetionBank.html">Quetion Bank</a></li>
+        </ul>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div class="col-md-4 footer-box">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="vision.html">Vision</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="studentfeedback.html">Feedback</a></li>
+        </ul>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="col-md-4 footer-box">
+        <h4>Contact</h4>
+        <p>Email: info@diplomaengineers.com</p>
+        <p>📍 Lucknow, India</p>
+      </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="footer-bottom">
+      <p>© 2026 Diploma Engineers | All Rights Reserved | Developed by ANUBHAV GANGWAR</p>
+    </div>
+  </div>
+
+</footer>
+
+<!-- CSS -->
+<style>
+.main-footer {
+    background: #0d1b2a;
+    color: #fff;
+    padding: 50px 0 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-box {
+    margin-bottom: 20px;
+}
+
+.footer-box h4 {
+    font-weight: 600;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.footer-box h4::after {
+    content: '';
+    width: 40px;
+    height: 3px;
+    background: #fca311;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+}
+
+.footer-box p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.footer-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-box ul li {
+    margin-bottom: 8px;
+}
+
+.footer-box ul li a {
+    text-decoration: none;
+    color: #ccc;
+    transition: 0.3s;
+}
+
+.footer-box ul li a:hover {
+    color: #fca311;
+    padding-left: 5px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+    padding-top: 10px;
+    font-size: 13px;
+    color: #aaa;
+}
+</style>
+
