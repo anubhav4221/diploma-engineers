@@ -736,20 +736,79 @@ body {
     </div>
 </div>
 
-</body>
-</html>
+<<style>
+body{
+    margin:0;
+    padding:0;
+}
 
+/* FULL WIDTH FIX */
+footer{
+    background:#1d3557;
+    color:white;
+    padding:30px 15px;
+    margin-top:40px;
 
-<div id="footer"></div>
+    width:100vw;
+    position:relative;
+    left:50%;
+    right:50%;
+    margin-left:-50vw;
+    margin-right:-50vw;
 
-<script>
-fetch("footer.html")
-.then(res => res.text())
-.then(data => {
-    document.getElementById("footer").innerHTML = data;
-});
-</script>
-      
+    font-size:14px;
+    box-sizing:border-box;
+}
+</style>
 
+<footer>
 
+<div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; justify-content:space-between;">
 
+<!-- About -->
+<div style="flex:1; min-width:220px; margin:10px;">
+<h3 style="font-size:18px;">Diploma Engineers</h3>
+<p style="font-size:13px;">
+Your platform for diploma engineering students. Get fastest news, notes, PYQ and study material easily.
+</p>
+</div>
+
+<!-- Quick Links -->
+<div style="flex:1; min-width:180px; margin:10px;">
+<h4 style="font-size:16px;">Quick Links</h4>
+<ul style="list-style:none; padding:0; font-size:13px;">
+<li><a href="#" style="color:white; text-decoration:none;">Home</a></li>
+<li><a href="#" style="color:white; text-decoration:none;">Notes</a></li>
+<li><a href="#" style="color:white; text-decoration:none;">Syllabus</a></li>
+</ul>
+</div>
+
+<!-- Branches -->
+<div style="flex:1; min-width:180px; margin:10px;">
+<h4 style="font-size:16px;">Branches</h4>
+<ul style="list-style:none; padding:0; font-size:13px;">
+<li>Civil Engineering</li>
+<li>Mechanical Engineering</li>
+<li>Electrical Engineering</li>
+<li>Computer Science</li>
+</ul>
+</div>
+
+<!-- Contact -->
+<div style="flex:1; min-width:220px; margin:10px;">
+<h4 style="font-size:16px;">Contact</h4>
+<p style="font-size:13px;">📍 Lucknow</p>
+<p style="font-size:13px;">📧 diplomaengineers@email.com</p>
+<p style="font-size:13px;">📞 +91 ............</p>
+</div>
+
+</div>
+
+<hr style="border-color:rgba(255,255,255,0.2); margin:15px 0;">
+
+<p style="text-align:center; font-size:12px;">
+© 2026 Diploma Engineers | FAST AND FASTEST NEWS 😎 <br>
+All Rights Reserved
+</p>
+
+</footer>
