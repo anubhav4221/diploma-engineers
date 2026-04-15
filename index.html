@@ -12,3 +12,36 @@ fetch("header.html")
 </script>
 
 </body>
+
+<body>
+
+<!-- HEADER -->
+<div id="header"></div>
+
+<!-- STUDENT FEEDBACK SECTION -->
+<div id="student-feedback"></div>
+
+<!-- FOOTER -->
+<div id="footer"></div>
+
+<script>
+fetch("header.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("header").innerHTML = data;
+  });
+
+fetch("studentfeedback.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("student-feedback").innerHTML = data;
+  });
+
+fetch("footer.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("footer").innerHTML = data;
+  });
+</script>
+
+</body>
