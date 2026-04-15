@@ -3,23 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Menu Fix</title>
+<title>Diploma Engineers</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-body{
+*{
   margin:0;
+  padding:0;
+  box-sizing:border-box;
   font-family:Arial;
 }
 
 /* HEADER */
 header{
   background:#1d3557;
-  padding:15px;
+  color:white;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  padding:15px 20px;
   position:sticky;
   top:0;
   z-index:1000;
@@ -27,17 +30,36 @@ header{
 
 /* LOGO */
 .logo{
-  color:white;
   font-size:20px;
   font-weight:bold;
 }
+.logo span{
+  color:#ffb703;
+}
 
-/* MENU ICON */
-.menu-btn{
-  font-size:26px;
+/* NAV */
+nav{
+  display:flex;
+  gap:20px;
+}
+
+nav a{
   color:white;
+  text-decoration:none;
+  padding:6px 10px;
+  border-radius:5px;
+  transition:0.3s;
+}
+
+nav a:hover{
+  background:rgba(255,255,255,0.15);
+}
+
+/* HAMBURGER */
+.menu-btn{
+  display:none;
+  font-size:26px;
   cursor:pointer;
-  z-index:3000;
 }
 
 /* OVERLAY */
@@ -49,7 +71,7 @@ header{
   height:100%;
   background:rgba(0,0,0,0.5);
   display:none;
-  z-index:2000;
+  z-index:999;
 }
 
 /* SIDE MENU */
@@ -60,18 +82,9 @@ header{
   width:260px;
   height:100%;
   background:#1d3557;
-  transition:0.3s;
   padding-top:60px;
-  z-index:2500;
-}
-
-/* OPEN STATE */
-.side-menu.open{
-  right:0;
-}
-
-.overlay.show{
-  display:block;
+  transition:0.3s;
+  z-index:1000;
 }
 
 .side-menu a{
@@ -81,13 +94,38 @@ header{
   text-decoration:none;
 }
 
-.close{
+.side-menu a:hover{
+  background:rgba(255,255,255,0.1);
+}
+
+/* CLOSE */
+.close-btn{
   position:absolute;
-  top:10px;
+  top:15px;
   right:15px;
   font-size:22px;
-  color:white;
   cursor:pointer;
+  color:white;
+}
+
+/* ACTIVE STATES */
+.side-menu.active{
+  right:0;
+}
+
+.overlay.active{
+  display:block;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{
+    display:none;
+  }
+
+  .menu-btn{
+    display:block;
+  }
 }
 </style>
 </head>
@@ -95,11 +133,22 @@ header{
 <body>
 
 <header>
-  <div class="logo">Diploma Engineers</div>
 
-  <div class="menu-btn" id="menuBtn">
+  <div class="logo">Diploma <span>Engineers</span></div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Syllabus</a>
+    <a href="#">Notes</a>
+    <a href="#">Result</a>
+    <a href="#">Team</a>
+  </nav>
+
+  <div class="menu-btn" id="openBtn">
     <i class="fa fa-bars"></i>
   </div>
+
 </header>
 
 <!-- OVERLAY -->
@@ -108,7 +157,7 @@ header{
 <!-- SIDE MENU -->
 <div class="side-menu" id="sideMenu">
 
-  <div class="close" id="closeBtn">
+  <div class="close-btn" id="closeBtn">
     <i class="fa fa-times"></i>
   </div>
 
@@ -118,29 +167,31 @@ header{
   <a href="#">Notes</a>
   <a href="#">Result</a>
   <a href="#">Team</a>
-  <a href="#">Feedback</a>
 
 </div>
 
 <script>
-const menuBtn = document.getElementById("menuBtn");
-const sideMenu = document.getElementById("sideMenu");
-const overlay = document.getElementById("overlay");
-const closeBtn = document.getElementById("closeBtn");
+document.addEventListener("DOMContentLoaded", function(){
 
-function openMenu(){
-  sideMenu.classList.add("open");
-  overlay.classList.add("show");
-}
+  const sideMenu = document.getElementById("sideMenu");
+  const overlay = document.getElementById("overlay");
+  const openBtn = document.getElementById("openBtn");
+  const closeBtn = document.getElementById("closeBtn");
 
-function closeMenu(){
-  sideMenu.classList.remove("open");
-  overlay.classList.remove("show");
-}
+  openBtn.addEventListener("click", function(){
+    sideMenu.classList.add("active");
+    overlay.classList.add("active");
+  });
 
-menuBtn.addEventListener("click", openMenu);
-closeBtn.addEventListener("click", closeMenu);
-overlay.addEventListener("click", closeMenu);
+  closeBtn.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu);
+
+  function closeMenu(){
+    sideMenu.classList.remove("active");
+    overlay.classList.remove("active");
+  }
+
+});
 </script>
 
 </body>
