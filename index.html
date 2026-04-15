@@ -22,13 +22,12 @@ section, header, footer{
 </head>
 
 <body>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Working Mobile Menu</title>
+<title>Diploma Engineers</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -49,6 +48,20 @@ header{
   position:sticky;
   top:0;
   z-index:9999;
+}
+
+/* LOGO TEXT */
+.logo{
+  font-size:22px;
+  font-weight:900;
+}
+
+.logo .white{
+  color:white;
+}
+
+.logo .yellow{
+  color:yellow;
 }
 
 /* MENU ICON */
@@ -117,21 +130,29 @@ header{
 
 <body>
 
+<!-- HEADER -->
 <header>
-  <div>Diploma Engineers</div>
+  <div class="logo">
+    <span class="white">Diploma</span>
+    <span class="yellow">Engineers</span>
+  </div>
+
   <div id="menuBtn"><i class="fa fa-bars"></i></div>
 </header>
 
+<!-- OVERLAY -->
 <div id="overlay"></div>
 
+<!-- SIDE MENU -->
 <div id="sideMenu">
   <div id="closeBtn"><i class="fa fa-times"></i></div>
 
-  <a href="#">Home</a>
-  <a href="#">About</a>
-  <a href="#">Syllabus</a>
-  <a href="#">Notes</a>
-  <a href="#">Result</a>
+  <a href="index.html">Home</a>
+  <a href="vision.html">Vision</a>
+  <a href="achievements.html">Achievements</a>
+  <a href="branch.html">Branch</a>
+  <a href="studentfeedback.html">Student Feedback</a>
+  <a href="team.html">Team</a>
 </div>
 
 <script>
@@ -164,6 +185,7 @@ links.forEach(link => {
 
 </body>
 </html>
+
 
 <!-- VISION -->
 <section id="vision"></section>
