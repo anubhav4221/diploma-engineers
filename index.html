@@ -224,7 +224,160 @@ overlay.onclick = closeMenu;
     </div>
 
 </section>
+<!-- STUDENT FEEDBACK -->
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<section class="container my-5 text-center">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+
+body {
+    background: #f5f7fa;
+}
+
+/* Section Full Width */
+.feedback-section {
+    overflow: hidden;
+    padding: 40px 0;
+}
+
+/* Slider Track */
+.slider {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scroll 15s linear infinite;
+}
+
+/* Cards */
+.feedback-card {
+    background: #fff;
+    border-radius: 15px;
+    min-width: 300px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.feedback-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Stars */
+.stars {
+    color: #ffc107;
+}
+
+/* Animation */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container-fluid">
+
+     <h2 style="font-weight:800; margin-bottom:30px;">
+        Students <span style="color:#ff7b00;">Feedback</span>
+    </h2>
+    <div class="feedback-section">
+        <div class="slider">
+
+            <!-- CARD 1 -->
+            <div class="feedback-card">
+                <h5 class="fw-bold">Rahul Kumar</h5>
+                <div class="stars mb-2">
+                    ⭐⭐⭐⭐⭐
+                </div>
+                <p>Bahut achi website hai 👍 Notes aur updates time par milte hain.</p>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="feedback-card">
+                <h5 class="fw-bold">Aman Singh</h5>
+                <div class="stars mb-2">
+                    ⭐⭐⭐⭐
+                </div>
+                <p>Diploma students ke liye best platform hai 💯</p>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="feedback-card">
+                <h5 class="fw-bold">Priya Sharma</h5>
+                <div class="stars mb-2">
+                    ⭐⭐⭐⭐☆
+                </div>
+                <p>Design aur content dono bahut accha hai 👌</p>
+            </div>
+
+            <!-- DUPLICATE (Smooth loop ke liye) -->
+            <div class="feedback-card">
+                <h5 class="fw-bold">Rahul Kumar</h5>
+                <div class="stars mb-2">
+                    ⭐⭐⭐⭐⭐
+                </div>
+                <p>Bahut achi website hai 👍 Notes aur updates time par milte hain.</p>
+            </div>
+
+            <div class="feedback-card">
+                <h5 class="fw-bold">Aman Singh</h5>
+                <div class="stars mb-2">
+                    ⭐⭐⭐⭐
+                </div>
+                <p>Diploma students ke liye best platform hai 💯</p>
+            </div>
+
+            <div class="feedback-card">
+                <h5 class="fw-bold">Priya Sharma</h5>
+                <div class="stars mb-2">
+                    ⭐⭐⭐⭐☆
+                </div>
+                <p>Design aur content dono bahut accha hai 👌</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<<style>
+body{
+    margin:0;
+    padding:0;
+}
+
+/* FULL WIDTH FIX */
+footer{
+    background:#1d3557;
+    color:white;
+    padding:30px 15px;
+    margin-top:40px;
+
+    width:100vw;
+    position:relative;
+    left:50%;
+    right:50%;
+    margin-left:-50vw;
+    margin-right:-50vw;
+
+    font-size:14px;
+    box-sizing:border-box;
+}
+</style>
   
 <script>
 fetch("footer.html")
