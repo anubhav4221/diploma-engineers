@@ -1,158 +1,77 @@
-<body>
-
-<!-- HEADER WILL LOAD HERE -->
-<div id="header"></div>
-
-<script>
-fetch("header.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("header").innerHTML = data;
-  });
-</script>
-
-</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diploma Website</title>
+</head>
 
 <body>
 
 <!-- HEADER -->
 <div id="header"></div>
 
-<body>
-
-<!-- HEADER -->
-<div id="header"></div>
-
-<!-- VISION SECTION -->
+<!-- SECTIONS -->
 <div id="vision"></div>
-
-
-<!-- ACHIEVEMENTS -->
 <div id="achievements"></div>
-
-<!-- BRANCH SECTION -->
 <div id="branch"></div>
-
-<!-- TEAM -->
 <div id="team"></div>
-
-<!-- FEEDBACK -->
 <div id="student-feedback"></div>
 
 <!-- FOOTER -->
 <div id="footer"></div>
 
 <script>
+// LOAD HEADER
 fetch("header.html")
   .then(res => res.text())
   .then(data => {
     document.getElementById("header").innerHTML = data;
   });
 
+// LOAD VISION (if file exists)
+// fetch("vision.html")
+//   .then(res => res.text())
+//   .then(data => {
+//     document.getElementById("vision").innerHTML = data;
+//   });
+
+// LOAD ACHIEVEMENTS
+// fetch("achievements.html")
+//   .then(res => res.text())
+//   .then(data => {
+//     document.getElementById("achievements").innerHTML = data;
+//   });
+
+// LOAD BRANCH
 fetch("branch.html")
   .then(res => res.text())
   .then(data => {
     document.getElementById("branch").innerHTML = data;
   });
 
+// LOAD TEAM
 fetch("team.html")
   .then(res => res.text())
   .then(data => {
     document.getElementById("team").innerHTML = data;
   });
 
+// LOAD FEEDBACK
 fetch("studentfeedback.html")
   .then(res => res.text())
   .then(data => {
     document.getElementById("student-feedback").innerHTML = data;
   });
 
+// LOAD FOOTER
 fetch("footer.html")
   .then(res => res.text())
   .then(data => {
     document.getElementById("footer").innerHTML = data;
   });
+
 </script>
 
 </body>
-  
-<!-- STUDENT FEEDBACK SECTION -->
-<div id="student-feedback"></div>
-
-<body>
-
-<!-- HEADER -->
-<div id="header"></div>
-
-<!-- VISION SECTION -->
-<div id="vision"></div>
-
-
-<!-- ACHIEVEMENTS -->
-<div id="achievements"></div>
-
-<!-- BRANCH SECTION -->
-<div id="branch"></div>
-
-
-<!-- TEAM SECTION -->
-<div id="team"></div>
-
-<!-- STUDENT FEEDBACK -->
-<div id="student-feedback"></div>
-
-<!-- FOOTER -->
-<div id="footer"></div>
-
-<script>
-fetch("header.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("header").innerHTML = data;
-  });
-
-fetch("team.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("team").innerHTML = data;
-  });
-
-fetch("studentfeedback.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("student-feedback").innerHTML = data;
-  });
-
-fetch("footer.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("footer").innerHTML = data;
-  });
-</script>
-
-</body>
-
-<!-- FOOTER -->
-<div id="footer"></div>
-
-<script>
-fetch("header.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("header").innerHTML = data;
-  });
-
-fetch("studentfeedback.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("student-feedback").innerHTML = data;
-  });
-
-fetch("footer.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("footer").innerHTML = data;
-  });
-</script>
-
-</body>
+</html>
