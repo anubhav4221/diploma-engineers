@@ -18,7 +18,56 @@ fetch("header.html")
 <!-- HEADER -->
 <div id="header"></div>
 
+<body>
 
+<!-- HEADER -->
+<div id="header"></div>
+
+<!-- BRANCH SECTION -->
+<div id="branch"></div>
+
+<!-- TEAM -->
+<div id="team"></div>
+
+<!-- FEEDBACK -->
+<div id="student-feedback"></div>
+
+<!-- FOOTER -->
+<div id="footer"></div>
+
+<script>
+fetch("header.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("header").innerHTML = data;
+  });
+
+fetch("branch.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("branch").innerHTML = data;
+  });
+
+fetch("team.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("team").innerHTML = data;
+  });
+
+fetch("studentfeedback.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("student-feedback").innerHTML = data;
+  });
+
+fetch("footer.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("footer").innerHTML = data;
+  });
+</script>
+
+</body>
   
 <!-- STUDENT FEEDBACK SECTION -->
 <div id="student-feedback"></div>
