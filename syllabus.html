@@ -1,113 +1,302 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>6th Semester Branches</title>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
 <style>
 body{
+    font-family:'Poppins',sans-serif;
     background:#000;
-    color:white;
-    font-family:'Segoe UI';
+    color:#fff;
+    padding-top:80px;
 }
 
 /* NAVBAR */
 .navbar{
-    background:#000;
-    border-bottom:1px solid #333;
+    background:#0a0a0a;
+    border-bottom:1px solid #222;
+}
+
+/* TITLE */
+.title{
+    text-align:center;
+    margin:30px 0;
+}
+.title h2{
+    font-weight:700;
+    color:#22c55e;
+}
+
+/* BUTTONS (NOTES STYLE) */
+.branch-btn{
+    padding:10px 18px;
+    margin:5px;
+    border:none;
+    border-radius:25px;
+    background:#111;
+    color:#fff;
+    border:1px solid #222;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.branch-btn:hover{
+    background:#22c55e;
+    color:#000;
+    transform:scale(1.05);
+}
+
+/* CARD (NOTES STYLE) */
+.sem-card{
+    background:#111;
+    padding:20px;
+    border-radius:15px;
+    border:1px solid #222;
+    box-shadow:0 0 10px rgba(255,255,255,0.05);
+    margin-bottom:20px;
+    transition:0.3s;
+}
+
+.sem-card:hover{
+    border-color:#22c55e;
+    transform:translateY(-5px);
+}
+
+.sem-card h5{
+    color:#22c55e;
+    font-weight:600;
+}
+
+.sem-card ul{
+    padding-left:18px;
+}
+
+.sem-card li{
+    margin-bottom:6px;
+}
+
+/* HIDE */
+.branch-section{
+    display:none;
+}
+</style><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#f4f7fb,#e9f2ff);
+    padding-top:80px;
+}
+
+
+
+
+.title{
+    text-align:center;
+    margin:30px 0;
+}
+.title h2{
+    font-weight:700;
+    color:#013557;
+}
+
+/* BUTTON */
+.branch-btn{
+    padding:10px 18px;
+    margin:5px;
+    border:none;
+    border-radius:25px;
+    background:#e3ecf5;
+    cursor:pointer;
+}
+.branch-btn:hover{
+    background:#ff7b00;
+    color:#fff;
 }
 
 /* CARD */
-.card{
-    background:#111;
-    color:white;
-    border-radius:15px;
+.sem-card{
+    background:#fff;
     padding:20px;
-    margin:15px;
-    text-align:center;
-    transition:0.3s;
-    cursor:pointer;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom:20px;
 }
 
-.card:hover{
-    transform:scale(1.05);
-    background:#1a1a1a;
+.sem-card h5{
+    font-weight:600;
 }
 
-/* LINK */
-a{
-    text-decoration:none;
-    color:white;
+.sem-card ul{
+    padding-left:18px;
+}
+
+.sem-card li{
+    margin-bottom:5px;
+}
+
+/* HIDE */
+.branch-section{
+    display:none;
 }
 </style>
-
 </head>
 
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar p-2">
-<a href="index.html" style="color:white;">⬅ Back to Home</a>
-</nav>
+<nav class="navbar navbar-expand-lg fixed-top">
+<div class="container">
+<a class="navbar-brand" href="#">
 
+
+
+
+</div>
+</nav>
+  
 <!-- TITLE -->
-<div class="container text-center mt-4">
-<h1>📚 6th Semester Branches</h1>
-<p>Select Your Branch</p>
+<div class="title">
+<h2>Select Branch</h2>
+
+<button class="branch-btn" onclick="show('cse')">💻 CSE</button>
+<button class="branch-btn" onclick="show('civil')">🏗 Civil</button>
+<button class="branch-btn" onclick="show('mech')">⚙ Mechanical</button>
+<button class="branch-btn" onclick="show('electrical')">⚡ Electrical</button>
+<button class="branch-btn" onclick="show('electronics')">⚡ Electronics</button>
+<button class="branch-btn" onclick="show('it')">🖥️ IT</button>
+<button class="branch-btn" onclick="show('chemical')">🧪 Chemical</button>
+<button class="branch-btn" onclick="show('agriculture')">🎍 Agriculture </button>
+
+  
 </div>
 
-<!-- BRANCH CARDS -->
-<div class="container">
+<!-- ================= CSE ================= -->
+<div id="cse" class="container branch-section">
+<h3>Computer Science Engineering</h3>
 <div class="row">
 
-<div class="col-md-4">
-<a href="civil.html">
-<div class="card">🏗 Civil Engineering</div>
-</a>
-</div>
-
-<div class="col-md-4">
-<a href="mechanical.html">
-<div class="card">⚙ Mechanical Engineering</div>
-</a>
-</div>
-
-<div class="col-md-4">
-<a href="electrical.html">
-<div class="card">⚡ Electrical Engineering</div>
-</a>
-</div>
-
-<div class="col-md-4">
-<a href="electronics.html">
-<div class="card">📡 Electronics Engineering</div>
-</a>
-</div>
-
-<div class="col-md-4">
-<a href="computer.html">
-<div class="card">💻 Computer Science</div>
-</a>
-</div>
-
-<div class="col-md-4">
-<a href="it.html">
-<div class="card">💻 Information Technology</div>
-</a>
-</div>
-
-<div class="col-md-4">
-<a href="agricultural.html">
-<div class="card">🌾 Agricultural Engineering</div>
-</a>
-</div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Maths I</li><li>Physics</li><li>Electrical</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Maths II</li><li>C Programming</li><li>Chemistry</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>DSA</li><li>Digital Electronics</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>DBMS</li><li>OS</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Networking</li><li>Java</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li><li>Industrial Training</li></ul></div></div>
 
 </div>
 </div>
 
-</body>
-</html>
+<!-- ================= CIVIL ================= -->
+<div id="civil" class="container branch-section">
+<h3>Civil Engineering</h3>
+<div class="row">
+
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Maths</li><li>Drawing</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Building Materials</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Surveying</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>RCC</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Transportation</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
+
+</div>
+</div>
+
+<!-- ================= MECH ================= -->
+<div id="mech" class="container branch-section">
+<h3>Mechanical Engineering</h3>
+<div class="row">
+
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Workshop</li><li>Maths</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Thermodynamics</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Strength of Materials</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>Fluid Mechanics</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Machine Design</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
+
+</div>
+</div>
+
+<!-- ================= ELECTRICAL ================= -->
+<div id="electrical" class="container branch-section">
+<h3>Electrical Engineering</h3>
+<div class="row">
+
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Basic Electrical</li><li>Maths</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Circuits</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Machines</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>Power Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Control Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
+
+</div>
+</div>
+  
+<!-- ================= Electronics ================= -->
+<div id="electronics" class="container branch-section">
+<h3>Electrical Engineering</h3>
+<div class="row">
+
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Basic Electrical</li><li>Maths</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Circuits</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Machines</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>Power Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Control Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
+
+</div>
+</div>
+
+<!-- ================= IT ================= -->
+<div id="it" class="container branch-section">
+<h3>IT</h3>
+<div class="row">
+
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Basic Electrical</li><li>Maths</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Circuits</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Machines</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>Power Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Control Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
+
+</div>
+</div>  
+
+<!-- ================= Chemical ================= -->
+<div id="chemical" class="container branch-section">
+<h3>Chemical</h3>
+<div class="row">
+
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Basic Electrical</li><li>Maths</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Circuits</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Machines</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>Power Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Control Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
+
+</div>
+</div>  
+
+  <!-- ================= Agriculture ================= -->
+<div id="agriculture" class="container branch-section">
+<h3>Agriculture</h3>
+<div class="row">
+
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Basic Electrical</li><li>Maths</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Circuits</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Machines</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>Power Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Control Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
+
+</div>
+</div>
+  
+  
+<script>
+function show(id){
+    document.querySelectorAll('.branch-section').forEach(e=>e.style.display='none');
+    document.getElementById(id).style.display='block';
+}
+</script>
+
