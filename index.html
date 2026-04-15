@@ -12,9 +12,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     margin:0;
     font-family: Arial, sans-serif;
+    padding-top:70px; /* FIX for fixed navbar */
 }
 
 /* HEADER */
@@ -97,7 +102,7 @@ footer{
     <div class="collapse navbar-collapse" id="menu">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#achievements">result</a></li>
+        <li class="nav-item"><a class="nav-link" href="#result">Result</a></li>
         <li class="nav-item"><a class="nav-link" href="#branches">Branches</a></li>
         <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
         <li class="nav-item"><a class="nav-link" href="#feedback">Feedback</a></li>
@@ -639,7 +644,8 @@ counters.forEach(c => observer.observe(c));
     </div>
 
 </section>
-      
+
+</section>      
 
 
 <!-- FOOTER -->
