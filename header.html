@@ -3,59 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diploma Engineers</title>
+<title>Menu Fix</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 body{
   margin:0;
-  font-family:'Segoe UI', sans-serif;
+  font-family:Arial;
 }
 
 /* HEADER */
-.pro-header{
+header{
   background:#1d3557;
-  padding:15px 0;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   position:sticky;
   top:0;
   z-index:1000;
 }
 
 /* LOGO */
-.logo a{
+.logo{
   color:white;
-  font-size:24px;
-  font-weight:700;
-  text-decoration:none;
-}
-.logo span{ color:#ffb703; }
-
-/* DESKTOP MENU */
-.nav-menu{
-  display:flex;
-  gap:18px;
+  font-size:20px;
+  font-weight:bold;
 }
 
-.nav-menu a{
-  color:white;
-  text-decoration:none;
-  padding:5px 10px;
-  font-size:14px;
-  border-radius:5px;
-}
-.nav-menu a:hover{
-  background:rgba(255,255,255,0.15);
-}
-
-/* HAMBURGER */
-.menu-toggle{
-  display:none;
-  color:white;
+/* MENU ICON */
+.menu-btn{
   font-size:26px;
+  color:white;
   cursor:pointer;
-  z-index:2001;
+  z-index:3000;
 }
 
 /* OVERLAY */
@@ -66,14 +48,8 @@ body{
   width:100%;
   height:100%;
   background:rgba(0,0,0,0.5);
-  opacity:0;
-  visibility:hidden;
-  transition:0.3s;
+  display:none;
   z-index:2000;
-}
-.overlay.show{
-  opacity:1;
-  visibility:visible;
 }
 
 /* SIDE MENU */
@@ -84,13 +60,18 @@ body{
   width:260px;
   height:100%;
   background:#1d3557;
-  padding-top:60px;
   transition:0.3s;
-  z-index:2002;
+  padding-top:60px;
+  z-index:2500;
 }
 
-.side-menu.active{
+/* OPEN STATE */
+.side-menu.open{
   right:0;
+}
+
+.overlay.show{
+  display:block;
 }
 
 .side-menu a{
@@ -99,55 +80,25 @@ body{
   color:white;
   text-decoration:none;
 }
-.side-menu a:hover{
-  background:rgba(255,255,255,0.1);
-}
 
-/* CLOSE */
-.close-btn{
+.close{
   position:absolute;
-  top:15px;
+  top:10px;
   right:15px;
-  color:white;
   font-size:22px;
+  color:white;
   cursor:pointer;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  .nav-menu{
-    display:none;
-  }
-  .menu-toggle{
-    display:block;
-  }
 }
 </style>
 </head>
 
 <body>
 
-<header class="pro-header">
-  <div class="container d-flex justify-content-between align-items-center">
+<header>
+  <div class="logo">Diploma Engineers</div>
 
-    <div class="logo">
-      <a href="#">Diploma <span>Engineers</span></a>
-    </div>
-
-    <nav class="nav-menu">
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Syllabus</a>
-      <a href="#">Notes</a>
-      <a href="#">Result</a>
-      <a href="#">Team</a>
-      <a href="#">Feedback</a>
-    </nav>
-
-    <div class="menu-toggle" id="openMenu">
-      <i class="fa fa-bars"></i>
-    </div>
-
+  <div class="menu-btn" id="menuBtn">
+    <i class="fa fa-bars"></i>
   </div>
 </header>
 
@@ -157,7 +108,7 @@ body{
 <!-- SIDE MENU -->
 <div class="side-menu" id="sideMenu">
 
-  <div class="close-btn" id="closeMenu">
+  <div class="close" id="closeBtn">
     <i class="fa fa-times"></i>
   </div>
 
@@ -172,29 +123,24 @@ body{
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+const menuBtn = document.getElementById("menuBtn");
+const sideMenu = document.getElementById("sideMenu");
+const overlay = document.getElementById("overlay");
+const closeBtn = document.getElementById("closeBtn");
 
-  const sideMenu = document.getElementById("sideMenu");
-  const overlay = document.getElementById("overlay");
-  const openMenu = document.getElementById("openMenu");
-  const closeMenu = document.getElementById("closeMenu");
+function openMenu(){
+  sideMenu.classList.add("open");
+  overlay.classList.add("show");
+}
 
-  openMenu.addEventListener("click", function(){
-    sideMenu.classList.add("active");
-    overlay.classList.add("show");
-  });
+function closeMenu(){
+  sideMenu.classList.remove("open");
+  overlay.classList.remove("show");
+}
 
-  closeMenu.addEventListener("click", function(){
-    sideMenu.classList.remove("active");
-    overlay.classList.remove("show");
-  });
-
-  overlay.addEventListener("click", function(){
-    sideMenu.classList.remove("active");
-    overlay.classList.remove("show");
-  });
-
-});
+menuBtn.addEventListener("click", openMenu);
+closeBtn.addEventListener("click", closeMenu);
+overlay.addEventListener("click", closeMenu);
 </script>
 
 </body>
