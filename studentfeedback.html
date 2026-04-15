@@ -1,132 +1,173 @@
-<!-- STUDENT FEEDBACK -->
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<section class="container my-5 text-center">
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<title>Feedback System</title>
 
 <style>
-
-body {
-    background: #f5f7fa;
+body{
+    font-family: Arial;
+    background:#0f172a;
+    color:white;
+    display:flex;
+    justify-content:center;
+    padding:30px;
 }
 
-/* Section Full Width */
-.feedback-section {
-    overflow: hidden;
-    padding: 40px 0;
+.container{
+    width:400px;
+    background:#1e293b;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,0,0,0.4);
 }
 
-/* Slider Track */
-.slider {
-    display: flex;
-    gap: 20px;
-    width: max-content;
-    animation: scroll 15s linear infinite;
+h2{text-align:center}
+
+textarea,input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:8px;
+    border:none;
+    outline:none;
 }
 
-/* Cards */
-.feedback-card {
-    background: #fff;
-    border-radius: 15px;
-    min-width: 300px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: 0.3s;
+.stars{
+    text-align:center;
+    margin:10px 0;
 }
 
-.feedback-card:hover {
-    transform: translateY(-5px);
+.star{
+    font-size:25px;
+    cursor:pointer;
+    color:#555;
 }
 
-/* Stars */
-.stars {
-    color: #ffc107;
+.star.active{
+    color:gold;
 }
 
-/* Animation */
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+button{
+    width:100%;
+    padding:10px;
+    background:#22c55e;
+    border:none;
+    border-radius:8px;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
 }
 
+button:hover{
+    background:#16a34a;
+}
+
+.feedback-box{
+    margin-top:20px;
+}
+
+.item{
+    background:#0f172a;
+    padding:10px;
+    margin:10px 0;
+    border-radius:10px;
+}
+
+.small{
+    font-size:12px;
+    color:#aaa;
+}
 </style>
 </head>
-
 <body>
 
-<div class="container-fluid">
+<div class="container">
 
-     <h2 style="font-weight:800; margin-bottom:30px;">
-        Students <span style="color:#ff7b00;">Feedback</span>
-    </h2>
-    <div class="feedback-section">
-        <div class="slider">
+<h2>⭐ Feedback System</h2>
 
-            <!-- CARD 1 -->
-            <div class="feedback-card">
-                <h5 class="fw-bold">Rahul Kumar</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐⭐
-                </div>
-                <p>Bahut achi website hai 👍 Notes aur updates time par milte hain.</p>
-            </div>
+<input type="text" id="name" placeholder="Your Name">
 
-            <!-- CARD 2 -->
-            <div class="feedback-card">
-                <h5 class="fw-bold">Aman Singh</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐
-                </div>
-                <p>Diploma students ke liye best platform hai 💯</p>
-            </div>
-
-            <!-- CARD 3 -->
-            <div class="feedback-card">
-                <h5 class="fw-bold">Priya Sharma</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐☆
-                </div>
-                <p>Design aur content dono bahut accha hai 👌</p>
-            </div>
-
-            <!-- DUPLICATE (Smooth loop ke liye) -->
-            <div class="feedback-card">
-                <h5 class="fw-bold">Rahul Kumar</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐⭐
-                </div>
-                <p>Bahut achi website hai 👍 Notes aur updates time par milte hain.</p>
-            </div>
-
-            <div class="feedback-card">
-                <h5 class="fw-bold">Aman Singh</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐
-                </div>
-                <p>Diploma students ke liye best platform hai 💯</p>
-            </div>
-
-            <div class="feedback-card">
-                <h5 class="fw-bold">Priya Sharma</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐☆
-                </div>
-                <p>Design aur content dono bahut accha hai 👌</p>
-            </div>
-
-        </div>
-    </div>
+<div class="stars">
+    <span class="star">★</span>
+    <span class="star">★</span>
+    <span class="star">★</span>
+    <span class="star">★</span>
+    <span class="star">★</span>
 </div>
+
+<textarea id="msg" rows="3" placeholder="Write feedback..."></textarea>
+
+<button onclick="submitFeedback()">Submit</button>
+
+<div class="feedback-box" id="list"></div>
+
+</div>
+
+<script>
+let rating = 0;
+const stars = document.querySelectorAll(".star");
+
+stars.forEach((star, index) => {
+    star.addEventListener("click", () => {
+        rating = index + 1;
+        updateStars();
+    });
+});
+
+function updateStars(){
+    stars.forEach((star, i) => {
+        star.classList.toggle("active", i < rating);
+    });
+}
+
+function submitFeedback(){
+    let name = document.getElementById("name").value;
+    let msg = document.getElementById("msg").value;
+
+    if(!name || !msg || rating === 0){
+        alert("Please fill all fields!");
+        return;
+    }
+
+    let data = JSON.parse(localStorage.getItem("feedbacks")) || [];
+
+    data.unshift({
+        name,
+        msg,
+        rating,
+        time: new Date().toLocaleString()
+    });
+
+    localStorage.setItem("feedbacks", JSON.stringify(data));
+
+    document.getElementById("name").value = "";
+    document.getElementById("msg").value = "";
+    rating = 0;
+    updateStars();
+
+    showFeedback();
+}
+
+function showFeedback(){
+    let list = document.getElementById("list");
+    let data = JSON.parse(localStorage.getItem("feedbacks")) || [];
+
+    list.innerHTML = "";
+
+    data.forEach(item => {
+        list.innerHTML += `
+        <div class="item">
+            <b>${item.name}</b> ⭐ ${item.rating}/5
+            <div class="small">${item.time}</div>
+            <p>${item.msg}</p>
+        </div>
+        `;
+    });
+}
+
+showFeedback();
+</script>
 
 </body>
 </html>
