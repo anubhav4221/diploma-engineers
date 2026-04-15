@@ -118,22 +118,6 @@ body{
     border:3px solid #ff7b00;
 }
 
- /* STUDENT FEEDBACK */
-.team-card{
-    background:#fff;
-    border-radius:20px;
-    padding:30px;
-    text-align:center;
-    box-shadow:0 5px 20px rgba(0,0,0,0.08);
-}
-.team-img{
-    width:80px;
-    height:80px;
-    border-radius:50%;
-    border:3px solid #ff7b00;
-}
-   
-
 /* FOOTER */
 footer{
     background:#0b2545;
@@ -165,8 +149,8 @@ footer h4{color:#fff;}
 <li class="nav-item"><a class="nav-link" href="notes.html">Notes</a></li>
 <li class="nav-item"><a class="nav-link" href="syllabus.html">Syllabus</a></li>
 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-<li class="nav-item"><a class="nav-link" href="result.html">result</a></li>
-<li class="nav-item"><a class="nav-link" href="studentfeedback.html">feedback</a></li>
+<li class="nav-item"><a class="nav-link" href="result.html">Result</a></li>
+<li class="nav-item"><a class="nav-link" href="studentfeedback.html">Feedback</a></li>
 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
     
 </ul>
@@ -327,7 +311,7 @@ counters.forEach(c => observer.observe(c));
 <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg">
 <h4>Telegram</h4>
 <p>Notes & Updates</p>
-<a href="#" class="join-btn">Join</a>
+<a href="https://t.me/diploma_engineers7" target="_blank" class="join-btn">Join</a>
 </div>
 </div>
 
@@ -336,7 +320,7 @@ counters.forEach(c => observer.observe(c));
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 <h4>WhatsApp</h4>
 <p>Daily Updates</p>
-<a href="#" class="join-btn whatsapp-btn">Join</a>
+<a href="https://whatsapp.com/channel/0029Vay8k8CAojYkBQWr1s1w" target="_blank" class="join-btn whatsapp-btn">Join</a>
 </div>
 </div>
 
@@ -650,10 +634,8 @@ counters.forEach(c => observer.observe(c));
                     <div class="social-icons">
                         <a href="tel:+918957972019"><i class="fas fa-phone"></i></a>
                         <a href="mailto:anubhav4221@gmail.com"><i class="fas fa-envelope"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-
+                        <a href="https://wa.me/918957972019" target="blank"> <i class="fab fa-whatsapp"></i>
+                        <a href="https://instagram.com/anubhav_gangwar7" target="blank"> <i class="fab fa-instagram"></i>
                 </div>
             </div>
 
@@ -692,162 +674,123 @@ counters.forEach(c => observer.observe(c));
 </section>
 
 </section>  
-<!-- STUDENT FEEDBACK -->
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- FOOTER -->
+<!-- FOOTER -->
+<footer class="main-footer">
 
-<section class="container my-5 text-center">
+  <div class="container">
+    <div class="row">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      <!-- LOGO + ABOUT -->
+      <div class="col-md-4 footer-box">
+        <div class="footer-logo">
+          <img src="https://anubhavfinance.wordpress.com/wp-content/uploads/2025/11/whatsapp-image-2025-11-26-at-01.09.43_629f0cdb.jpg" alt="logo">
+          <h4>Diploma Engineers</h4>
+        </div>
+        <p>Your learning partner for exams, notes and results.</p>
+      </div>
 
+      <!-- QUICK LINKS -->
+      <div class="col-md-4 footer-box">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="vision.html">Vision</a></li>
+          <li><a href="branch.html">Branches</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="studentfeedback.html">Feedback</a></li>
+        </ul>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="col-md-4 footer-box">
+        <h4>Contact</h4>
+        <p>Email: info@diplomaengineers.com</p>
+        <p>📍 Lucknow, India</p>
+      </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="footer-bottom">
+      <p>© 2026 Diploma Engineers | All Rights Reserved | Developed by ANUBHAV GANGWAR</p>
+    </div>
+  </div>
+
+</footer>
+
+<!-- CSS -->
 <style>
-
-body {
-    background: #f5f7fa;
+.main-footer {
+    background: #0d1b2a;
+    color: #fff;
+    padding: 50px 0 20px;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Section Full Width */
-.feedback-section {
-    overflow: hidden;
-    padding: 40px 0;
+.footer-box {
+    margin-bottom: 20px;
 }
 
-/* Slider Track */
-.slider {
-    display: flex;
-    gap: 20px;
-    width: max-content;
-    animation: scroll 15s linear infinite;
+.footer-box h4 {
+    font-weight: 600;
+    margin-bottom: 15px;
+    position: relative;
 }
 
-/* Cards */
-.feedback-card {
-    background: #fff;
-    border-radius: 15px;
-    min-width: 300px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+.footer-box h4::after {
+    content: '';
+    width: 40px;
+    height: 3px;
+    background: #fca311;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+}
+
+.footer-box p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.footer-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-box ul li {
+    margin-bottom: 8px;
+}
+
+.footer-box ul li a {
+    text-decoration: none;
+    color: #ccc;
     transition: 0.3s;
 }
 
-.feedback-card:hover {
-    transform: translateY(-5px);
+.footer-box ul li a:hover {
+    color: #fca311;
+    padding-left: 5px;
 }
 
-/* Stars */
-.stars {
-    color: #ffc107;
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* Animation */
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+.footer-logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+    padding-top: 10px;
+    font-size: 13px;
+    color: #aaa;
+}
 </style>
-</head>
-
-<body>
-
-<div class="container-fluid">
-
-     <h2 style="font-weight:800; margin-bottom:30px;">
-        Students <span style="color:#ff7b00;">Feedback</span>
-    </h2>
-    <div class="feedback-section">
-        <div class="slider">
-
-            <!-- CARD 1 -->
-            <div class="feedback-card">
-                <h5 class="fw-bold">Rahul Kumar</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐⭐
-                </div>
-                <p>Bahut achi website hai 👍 Notes aur updates time par milte hain.</p>
-            </div>
-
-            <!-- CARD 2 -->
-            <div class="feedback-card">
-                <h5 class="fw-bold">Aman Singh</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐
-                </div>
-                <p>Diploma students ke liye best platform hai 💯</p>
-            </div>
-
-            <!-- CARD 3 -->
-            <div class="feedback-card">
-                <h5 class="fw-bold">Priya Sharma</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐☆
-                </div>
-                <p>Design aur content dono bahut accha hai 👌</p>
-            </div>
-
-            <!-- DUPLICATE (Smooth loop ke liye) -->
-            <div class="feedback-card">
-                <h5 class="fw-bold">Rahul Kumar</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐⭐
-                </div>
-                <p>Bahut achi website hai 👍 Notes aur updates time par milte hain.</p>
-            </div>
-
-            <div class="feedback-card">
-                <h5 class="fw-bold">Aman Singh</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐
-                </div>
-                <p>Diploma students ke liye best platform hai 💯</p>
-            </div>
-
-            <div class="feedback-card">
-                <h5 class="fw-bold">Priya Sharma</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐☆
-                </div>
-                <p>Design aur content dono bahut accha hai 👌</p>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-</body>
-</html>
-
-
-<!-- FOOTER -->
-<footer>
-<footer>
-    <div class="footer-container">
-        <div class="footer-box">
-            <h4>Diploma Engineers</h4>
-            <p>Your learning partner for exams, notes and results.</p>
-        </div>
-
-        <div class="footer-box">
-            <h4>Quick Links</h4>
-            <p>Home<br>Branches<br>Team<br>Feedback</p>
-        </div>
-
-        <div class="footer-box">
-            <h4>Contact</h4>
-            <p>Email: info@diplomaengineers.com<br>Lucknow, India</p>
-        </div>
-    </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
 
