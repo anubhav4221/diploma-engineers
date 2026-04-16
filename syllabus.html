@@ -1,83 +1,9 @@
-<style>
-body{
-    font-family:'Poppins',sans-serif;
-    background:#000;
-    color:#fff;
-    padding-top:80px;
-}
-
-/* NAVBAR */
-.navbar{
-    background:#0a0a0a;
-    border-bottom:1px solid #222;
-}
-
-/* TITLE */
-.title{
-    text-align:center;
-    margin:30px 0;
-}
-.title h2{
-    font-weight:700;
-    color:#22c55e;
-}
-
-/* BUTTONS (NOTES STYLE) */
-.branch-btn{
-    padding:10px 18px;
-    margin:5px;
-    border:none;
-    border-radius:25px;
-    background:#111;
-    color:#fff;
-    border:1px solid #222;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.branch-btn:hover{
-    background:#22c55e;
-    color:#000;
-    transform:scale(1.05);
-}
-
-/* CARD (NOTES STYLE) */
-.sem-card{
-    background:#111;
-    padding:20px;
-    border-radius:15px;
-    border:1px solid #222;
-    box-shadow:0 0 10px rgba(255,255,255,0.05);
-    margin-bottom:20px;
-    transition:0.3s;
-}
-
-.sem-card:hover{
-    border-color:#22c55e;
-    transform:translateY(-5px);
-}
-
-.sem-card h5{
-    color:#22c55e;
-    font-weight:600;
-}
-
-.sem-card ul{
-    padding-left:18px;
-}
-
-.sem-card li{
-    margin-bottom:6px;
-}
-
-/* HIDE */
-.branch-section{
-    display:none;
-}
-</style><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diploma Branch</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -85,81 +11,27 @@ body{
 <style>
 body{
     font-family:'Poppins',sans-serif;
-    background:linear-gradient(135deg,#f4f7fb,#e9f2ff);
+    background:#000;
+    color:#fff;
     padding-top:80px;
 }
-
-
-
-
-.title{
-    text-align:center;
-    margin:30px 0;
-}
-.title h2{
-    font-weight:700;
-    color:#013557;
-}
-
-/* BUTTON */
-.branch-btn{
-    padding:10px 18px;
-    margin:5px;
-    border:none;
-    border-radius:25px;
-    background:#e3ecf5;
-    cursor:pointer;
-}
-.branch-btn:hover{
-    background:#ff7b00;
-    color:#fff;
-}
-
-/* CARD */
-.sem-card{
-    background:#fff;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    margin-bottom:20px;
-}
-
-.sem-card h5{
-    font-weight:600;
-}
-
-.sem-card ul{
-    padding-left:18px;
-}
-
-.sem-card li{
-    margin-bottom:5px;
-}
-
-/* HIDE */
-.branch-section{
-    display:none;
-}
+.navbar{background:#0a0a0a;border-bottom:1px solid #222;}
+.title{text-align:center;margin:30px 0;}
+.title h2{font-weight:700;color:#22c55e;}
+.branch-btn{padding:10px 18px;margin:5px;border-radius:25px;background:#111;color:#fff;border:1px solid #222;cursor:pointer;transition:0.3s;}
+.branch-btn:hover{background:#22c55e;color:#000;transform:scale(1.05);} 
+.sem-card{background:#111;padding:20px;border-radius:15px;border:1px solid #222;box-shadow:0 0 10px rgba(255,255,255,0.05);margin-bottom:20px;transition:0.3s;}
+.sem-card:hover{border-color:#22c55e;transform:translateY(-5px);} 
+.sem-card h5{color:#22c55e;font-weight:600;}
+.branch-section{display:none;}
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg fixed-top">
-<div class="container">
-<a class="navbar-brand" href="#">
 
-
-
-
-</div>
-</nav>
-  
-<!-- TITLE -->
 <div class="title">
 <h2>Select Branch</h2>
-
 <button class="branch-btn" onclick="show('cse')">💻 CSE</button>
 <button class="branch-btn" onclick="show('civil')">🏗 Civil</button>
 <button class="branch-btn" onclick="show('mech')">⚙ Mechanical</button>
@@ -168,135 +40,194 @@ body{
 <button class="branch-btn" onclick="show('it')">🖥️ IT</button>
 <button class="branch-btn" onclick="show('chemical')">🧪 Chemical</button>
 <button class="branch-btn" onclick="show('agriculture')">🎍 Agriculture </button>
-
-  
 </div>
 
-<!-- ================= CSE ================= -->
+<!-- CSE -->
 <div id="cse" class="container branch-section">
-<h3>Computer Science Engineering</h3>
+<h3 class="text-success">CSE</h3>
 <div class="row">
-
-<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Maths I</li><li>Physics</li><li>Electrical</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Maths II</li><li>C Programming</li><li>Chemistry</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Maths I</li><li>Physics</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Maths II</li><li>C Programming</li></ul></div></div>
 <div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>DSA</li><li>Digital Electronics</li></ul></div></div>
 <div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>DBMS</li><li>OS</li></ul></div></div>
 <div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Networking</li><li>Java</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li><li>Industrial Training</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li><li>Training</li></ul></div></div>
+</div>
+  <!-- PDF DOWNLOAD SECTION -->
+<div class="container text-center mt-4">
+    <h4 class="text-success mb-3">Download Syllabus</h4>
+    
+    <a href="#" class="btn btn-outline-success m-2">📄 1st Year Syllabus</a>
+    <a href="#" class="btn btn-outline-success m-2">📄 2nd Year Syllabus</a>
+    <a href="#" class="btn btn-outline-success m-2">📄 3rd Year Syllabus</a>
+</div>
 
 </div>
 </div>
 
-<!-- ================= CIVIL ================= -->
+<!-- CIVIL -->
 <div id="civil" class="container branch-section">
-<h3>Civil Engineering</h3>
+<h3 class="text-success">Civil</h3>
 <div class="row">
-
 <div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Maths</li><li>Drawing</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Building Materials</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Materials</li></ul></div></div>
 <div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Surveying</li></ul></div></div>
 <div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>RCC</li></ul></div></div>
 <div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Transportation</li></ul></div></div>
 <div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
+</div>
+  <!-- PDF DOWNLOAD SECTION -->
+<div class="container text-center mt-4">
+    <h4 class="text-success mb-3">Download Syllabus</h4>
+    
+    <a href="#" class="btn btn-outline-success m-2">📄 1st Year Syllabus</a>
+    <a href="#" class="btn btn-outline-success m-2">📄 2nd Year Syllabus</a>
+    <a href="#" class="btn btn-outline-success m-2">📄 3rd Year Syllabus</a>
+</div>
 
 </div>
 </div>
 
-<!-- ================= MECH ================= -->
+<!-- MECHANICAL -->
 <div id="mech" class="container branch-section">
-<h3>Mechanical Engineering</h3>
+<h3 class="text-success">Mechanical</h3>
 <div class="row">
-
-<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Workshop</li><li>Maths</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Workshop</li></ul></div></div>
 <div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Thermodynamics</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Strength of Materials</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>Fluid Mechanics</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Machine Design</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>SOM</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>Fluid</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Design</li></ul></div></div>
 <div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
+</div>
+  <!-- PDF DOWNLOAD SECTION -->
+<div class="container text-center mt-4">
+    <h4 class="text-success mb-3">Download Syllabus</h4>
+    
+    <a href="#" class="btn btn-outline-success m-2">📄 1st Year Syllabus</a>
+    <a href="#" class="btn btn-outline-success m-2">📄 2nd Year Syllabus</a>
+    <a href="#" class="btn btn-outline-success m-2">📄 3rd Year Syllabus</a>
+</div>
 
 </div>
 </div>
 
-<!-- ================= ELECTRICAL ================= -->
+<!-- ELECTRICAL -->
 <div id="electrical" class="container branch-section">
-<h3>Electrical Engineering</h3>
+<h3 class="text-success">Electrical</h3>
 <div class="row">
-
-<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Basic Electrical</li><li>Maths</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Basic Electrical</li></ul></div></div>
 <div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Circuits</li></ul></div></div>
 <div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Machines</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>Power Systems</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Control Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>Power System</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Control</li></ul></div></div>
 <div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
-
 </div>
+<!-- PDF DOWNLOAD SECTION -->
+<div class="container text-center mt-4">
+    <h4 class="text-success mb-3">Download Syllabus</h4>
+    
+    <a href="#" class="btn btn-outline-success m-2">📄 1st Year Syllabus</a>
+    <a href="#" class="btn btn-outline-success m-2">📄 2nd Year Syllabus</a>
+    <a href="#" class="btn btn-outline-success m-2">📄 3rd Year Syllabus</a>
+</div>
+
+</div>  
 </div>
   
-<!-- ================= Electronics ================= -->
+<!-- electronics -->
 <div id="electronics" class="container branch-section">
-<h3>Electrical Engineering</h3>
+<h3 class="text-success">Electronics</h3>
 <div class="row">
-
-<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Basic Electrical</li><li>Maths</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Circuits</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Machines</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>Power Systems</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Control Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Maths</li><li>Drawing</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Materials</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Surveying</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>RCC</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Transportation</li></ul></div></div>
 <div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
+</div>
+  <!-- PDF DOWNLOAD SECTION -->
+<div class="container text-center mt-4">
+    <h4 class="text-success mb-3">Download Syllabus</h4>
+    
+    <a href="#" class="btn btn-outline-success m-2">📄 1st Year Syllabus</a>
+    <a href="#" class="btn btn-outline-success m-2">📄 2nd Year Syllabus</a>
+    <a href="#" class="btn btn-outline-success m-2">📄 3rd Year Syllabus</a>
+</div>
 
 </div>
 </div>
 
-<!-- ================= IT ================= -->
+<!-- IT -->
 <div id="it" class="container branch-section">
-<h3>IT</h3>
+<h3 class="text-success">IT</h3>
 <div class="row">
-
-<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Basic Electrical</li><li>Maths</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Circuits</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Machines</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>Power Systems</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Control Systems</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Maths</li><li>Drawing</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Materials</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Surveying</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>RCC</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Transportation</li></ul></div></div>
 <div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
-
 </div>
-</div>  
-
-<!-- ================= Chemical ================= -->
-<div id="chemical" class="container branch-section">
-<h3>Chemical</h3>
-<div class="row">
-
-<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Basic Electrical</li><li>Maths</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Circuits</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Machines</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>Power Systems</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Control Systems</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
-
+  <!-- PDF DOWNLOAD SECTION -->
+<div class="container text-center mt-4">
+    <h4 class="text-success mb-3">Download Syllabus</h4>
+    
+    <a href="#" class="btn btn-outline-success m-2">📄 1st Year Syllabus</a>
+    <a href="#" class="btn btn-outline-success m-2">📄 2nd Year Syllabus</a>
+    <a href="#" class="btn btn-outline-success m-2">📄 3rd Year Syllabus</a>
 </div>
-</div>  
-
-  <!-- ================= Agriculture ================= -->
-<div id="agriculture" class="container branch-section">
-<h3>Agriculture</h3>
-<div class="row">
-
-<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Basic Electrical</li><li>Maths</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Circuits</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Machines</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>Power Systems</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Control Systems</li></ul></div></div>
-<div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
 
 </div>
 </div>
   
+<!-- CHEMICAL -->
+<div id="chemical" class="container branch-section">
+<h3 class="text-success">Chemical</h3>
+<div class="row">
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Maths</li><li>Drawing</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Materials</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Surveying</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>RCC</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Transportation</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
+</div>
+  <!-- PDF DOWNLOAD SECTION -->
+<div class="container text-center mt-4">
+    <h4 class="text-success mb-3">Download Syllabus</h4>
+    
+    <a href="#" class="btn btn-outline-success m-2">📄 1st Year Syllabus</a>
+    <a href="#" class="btn btn-outline-success m-2">📄 2nd Year Syllabus</a>
+    <a href="#" class="btn btn-outline-success m-2">📄 3rd Year Syllabus</a>
+</div>
+</div>
+</div>
+
+ <!-- AGRICULTURE -->
+<div id="agriculture" class="container branch-section">
+<h3 class="text-success">Agriculture</h3>
+<div class="row">
+<div class="col-md-4"><div class="sem-card"><h5>Sem 1</h5><ul><li>Maths</li><li>Drawing</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 2</h5><ul><li>Materials</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 3</h5><ul><li>Surveying</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 4</h5><ul><li>RCC</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 5</h5><ul><li>Transportation</li></ul></div></div>
+<div class="col-md-4"><div class="sem-card"><h5>Sem 6</h5><ul><li>Project</li></ul></div></div>
+</div>
+  <!-- PDF DOWNLOAD SECTION -->
+<div class="container text-center mt-4">
+    <h4 class="text-success mb-3">Download Syllabus</h4>
+    
+    <a href="https://urise.up.gov.in/resources/profile_image/su/17310529021st_Year_Syllabus_for_42_branches_05-08-2024_compressed.pdf" class="btn btn-outline-success m-2">📄 1st Year Syllabus</a>
+    <a href="#" class="btn btn-outline-success m-2">📄 2nd Year Syllabus</a>
+    <a href="#" class="btn btn-outline-success m-2">📄 3rd Year Syllabus</a>
+</div>
   
 <script>
 function show(id){
-    document.querySelectorAll('.branch-section').forEach(e=>e.style.display='none');
-    document.getElementById(id).style.display='block';
+ document.querySelectorAll('.branch-section').forEach(e=>e.style.display='none');
+ document.getElementById(id).style.display='block';
 }
 </script>
 
+</body>
+</html>
