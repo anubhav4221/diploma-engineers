@@ -15,30 +15,56 @@ body{
     font-family:'Segoe UI';
 }
 
-/* NAVBAR */
+/* NAVBAR SAME AS CONTACT */
 .navbar{
-    background:#000;
-    border-bottom:1px solid #333;
+    background:#0a0a0a;
+    border-bottom:1px solid #222;
 }
 
-/* CARD */
+/* BACK BUTTON */
+.back-btn{
+    color:#22c55e;
+    border:1px solid #22c55e;
+    padding:5px 15px;
+    border-radius:20px;
+    text-decoration:none;
+    transition:0.3s;
+}
+.back-btn:hover{
+    background:#22c55e;
+    color:#000;
+}
+
+
+
+/* CARD STYLE */
 .card{
     background:#111;
     color:white;
     border-radius:15px;
-    padding:20px;
-    margin:15px;
+    padding:25px;
     text-align:center;
+    border:1px solid #222;
     transition:0.3s;
-}
-.card:hover{
-    transform:scale(1.05);
+    cursor:pointer;
 }
 
-/* LINK */
+.card:hover{
+    transform:translateY(-8px) scale(1.05);
+    border-color:#22c55e;
+    box-shadow:0 0 15px rgba(34,197,94,0.3);
+}
+
+/* LINK REMOVE */
 a{
     text-decoration:none;
-    color:white;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .card{
+        margin-bottom:15px;
+    }
 }
 </style>
 
@@ -47,57 +73,61 @@ a{
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar p-2">
-<a href="index.html" style="color:white;">⬅ Back to Home</a>
-</nav>
+<nav class="navbar p-3">
+<div class="container d-flex justify-content-between">
 
+<a href="index.html" class="back-btn">⬅ Back</a>
+<span class="text-success fw-bold">Diploma Engineers</span>
+
+</div>
+</nav>
 <!-- TITLE -->
-<div class="container text-center mt-4">
-<h1>📚 Notes Section</h1>
-<p>Select Your Branch</p>
+<div class="title">
+    <h1>📚 Notes Section</h1>
+    <p class="text-secondary">Select Your Branch</p>
 </div>
 
 <!-- BRANCH CARDS -->
-<div class="container">
-<div class="row">
+<div class="container mt-4">
+<div class="row g-4">
 
-<div class="col-md-4">
+<div class="col-md-4 col-sm-6">
 <a href="civil.html">
 <div class="card">🏗 Civil Engineering</div>
 </a>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-4 col-sm-6">
 <a href="mechanical.html">
 <div class="card">⚙ Mechanical</div>
 </a>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-4 col-sm-6">
 <a href="electrical.html">
 <div class="card">⚡ Electrical</div>
 </a>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-4 col-sm-6">
 <a href="electronics.html">
 <div class="card">📡 Electronics</div>
 </a>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-4 col-sm-6">
 <a href="computer.html">
 <div class="card">💻 Computer Science</div>
 </a>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-4 col-sm-6">
 <a href="it.html">
-<div class="card">💻 Information Technology</div>
+<div class="card">🖥️ Information Technology</div>
 </a>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-4 col-sm-6">
 <a href="agricultural.html">
 <div class="card">🌾 Agricultural</div>
 </a>
@@ -108,3 +138,141 @@ a{
 
 </body>
 </html>
+
+
+
+<!-- FOOTER -->
+<footer class="main-footer">
+
+  <div class="container">
+    <div class="row">
+
+      <!-- LOGO + ABOUT -->
+      <div class="col-md-4 footer-box">
+        <div class="footer-logo">
+          <img src="https://anubhavfinance.wordpress.com/wp-content/uploads/2025/11/whatsapp-image-2025-11-26-at-01.09.43_629f0cdb.jpg" alt="logo">
+          <h4>Diploma Engineers</h4>
+        </div>
+        <p>Your learning partner for exams, notes and results.</p>
+      </div>
+
+      <!-- Study Material -->
+      <div class="col-md-4 footer-box">
+        <h4>Study Material</h4>
+        <ul>
+          <li><a href="notes.html">Notes</a></li>
+          <li><a href="Books.html">Books</a></li>
+          <li><a href="P.Y.Q.html">P.Y.Q</a></li>
+          <li><a href="QuetionBank.html">Quetion Bank</a></li>
+        </ul>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div class="col-md-4 footer-box">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="vision.html">Vision</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="studentfeedback.html">Feedback</a></li>
+        </ul>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="col-md-4 footer-box">
+        <h4>Contact</h4>
+        <p>Email: info@diplomaengineers.com</p>
+        <p>📍 Lucknow, India</p>
+      </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="footer-bottom">
+      <p>© 2026 Diploma Engineers | All Rights Reserved | Developed by ANUBHAV GANGWAR</p>
+    </div>
+  </div>
+
+</footer>
+
+
+<!-- CSS -->
+
+<style>
+  
+.main-footer {
+    background: #0a0a0a;
+  
+    color: #fff;
+    padding: 50px 0 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-box {
+    margin-bottom: 20px;
+  
+}
+
+.footer-box h4 {
+    font-weight: 600;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.footer-box h4::after {
+    content: '';
+    width: 40px;
+    height: 3px;
+    background: #fca311;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+  
+}
+
+.footer-box p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.footer-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-box ul li {
+    margin-bottom: 8px;
+}
+
+.footer-box ul li a {
+    text-decoration: none;
+    color: #ccc;
+    transition: 0.3s;
+}
+
+.footer-box ul li a:hover {
+    color: #fca311;
+    padding-left: 5px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+    padding-top: 10px;
+    font-size: 13px;
+    color: #aaa;
+}
+  
+</style>
