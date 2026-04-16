@@ -1,85 +1,286 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anubhav Gangwar | Civil Engineer</title>
 
-    <link rel="preload" href="./font/acorn.woff" as="font">
-    <link rel="preload" href="./font/gt.woff" as="font">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <meta name="twitter:site" content="@seanehalpin">
-    <meta name="twitter:card" content="summary_large_image">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
-    <meta name="robots" content="index,follow">
+body{
+    background:#0b1220;
+    color:white;
+    overflow-x:hidden;
+}
 
-    <meta name="description" content="The portfolio of Seán Halpin, Product Designer.">
-    <meta property="og:description" content="The portfolio of Seán Halpin, Product Designer.">
-    <meta property="og:url" content="https://seanhalpin.xyz">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://seanhalpin.xyz/meta/og.png">
-    <meta property="og:image:alt" content="Seán Halpin">
-    <meta property="og:locale" content="en_IE">
-    <meta property="og:site_name" content="Seán Halpin">
-    <meta property="og:title" content="Seán Halpin — Product Designer">
-    
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
-    <link rel="mask-icon" href="/meta/mask-icon.svg">
-    <link rel="apple-touch-icon" href="/meta/apple-touch-icon.png">
-    <link rel="manifest" href="/meta/manifest.webmanifest">
+/* NAV */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 40px;
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
 
-    <title>Seán Halpin • Product Designer</title>
-    <!-- HEAD_svelte-kxyw0k_START --><meta name="theme-color" content=""><script defer data-domain="seanhalpin.xyz" src="https://plausible.io/js/script.tagged-events.js"></script><!-- HEAD_svelte-kxyw0k_END -->
-	<link rel="stylesheet" href="/_app/immutable/assets/__layout-a6ecd9ee.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/Spotify-c918e4f3.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/MusicPlayer-af13d9d8.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/Video-8c3b8494.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/about-ff0441df.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/MegaButton-7944a603.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/Title-49302e17.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/Loader-62333e05.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/GridBlock-56346390.css">
-	<link rel="modulepreload" href="/_app/immutable/start-9327390b.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/index-ecbfe2ab.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/index-17cc622a.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/singletons-cdeec3fd.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/__layout.svelte-3c1a66d2.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/index-8ba69108.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/navigation-a4842c11.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/_commonjsHelpers-461dc783.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/Video-193c9ea1.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/about.svelte-ab1851aa.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/Title-230ac3a1.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/Loader-f2283bab.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/GridBlock-a4f2872a.js">
-  </head>
-  <body>
-    <div>
+nav img{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+}
 
+nav h3{
+    margin-left:10px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
 
+.nav-left{
+    display:flex;
+    align-items:center;
+}
 
+/* HERO */
+.hero{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    flex-direction:column;
+}
 
-<div class="load-holder svelte-1dke9pl"></div>
+.hero h1{
+    font-size:55px;
+}
 
+.hero span{
+    color:#38bdf8;
+}
 
-		<script type="module" data-sveltekit-hydrate="qvv88e">
-		import { start } from "/_app/immutable/start-9327390b.js";
-		start({
-			target: document.querySelector('[data-sveltekit-hydrate="qvv88e"]').parentNode,
-			paths: {"base":"","assets":""},
-			session: {},
-			route: true,
-			spa: false,
-			trailing_slash: "never",
-			hydrate: {
-				status: 200,
-				error: null,
-				nodes: [0, 3],
-				params: {},
-				routeId: "about"
-			}
-		});
-	</script></div>
-  </body>
+/* TYPING */
+.typing{
+    font-size:22px;
+    margin-top:10px;
+    color:#38bdf8;
+    border-right:2px solid white;
+    white-space:nowrap;
+    overflow:hidden;
+    width:0;
+    animation:typing 4s steps(35,end) forwards, blink 0.8s infinite;
+}
+
+@keyframes typing{
+    from{width:0}
+    to{width:100%}
+}
+
+@keyframes blink{
+    50%{border-color:transparent}
+}
+
+/* SECTIONS */
+section{
+    padding:100px 10%;
+}
+
+/* ABOUT */
+.about{
+    display:flex;
+    gap:40px;
+    flex-wrap:wrap;
+    align-items:center;
+}
+
+.about img{
+    width:260px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* PROJECTS */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#111a2e;
+    padding:20px;
+    border-radius:15px;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.05);
+    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* SCROLL */
+.hidden{
+    opacity:0;
+    transform:translateY(60px);
+    transition:1s;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* SOCIAL BAR */
+.social{
+    position:fixed;
+    right:15px;
+    top:50%;
+    transform:translateY(-50%);
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    z-index:9999;
+}
+
+.social a{
+    width:45px;
+    height:45px;
+    background:#111a2e;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.social a:hover{
+    background:#38bdf8;
+    color:black;
+    transform:scale(1.2);
+}
+
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:55px;
+    height:55px;
+    background:#25D366;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    color:white;
+    z-index:9999;
+}
+
+/* BUTTON */
+.btn{
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#38bdf8;
+    font-weight:bold;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SOCIAL -->
+<div class="social">
+    <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://wa.me/918957972019" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+<!-- WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/918957972019" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- NAV -->
+<nav>
+    <div class="nav-left">
+        <img src="https://anubhavfinance.wordpress.com/wp-content/uploads/2026/02/cropped-1000261069-1.png">
+        <h3>Anubhav Gangwar</h3>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <h1>Hi, I'm <span>Anubhav Gangwar</span></h1>
+    <div class="typing">Civil Engineering Student | Designer | Site Learner 🚧</div>
+</div>
+
+<!-- ABOUT -->
+<section class="hidden">
+    <h2>About Me</h2>
+
+    <div class="about">
+        <img src="https://anubhavfinance.wordpress.com/wp-content/uploads/2025/09/1000210734.png">
+
+        <p>
+            I am a Civil Engineering student passionate about infrastructure design,
+            construction technology, and real site engineering experience.
+            I love working on AutoCAD, Revit and structural design concepts.
+        </p>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="hidden">
+    <h2>Projects</h2>
+
+    <div class="grid">
+        <div class="card">🏗 Residential Building Design</div>
+        <div class="card">🌉 Bridge Structural Analysis</div>
+        <div class="card">🧱 Concrete Mix Design</div>
+        <div class="card">📐 AutoCAD Floor Plan</div>
+        <div class="card">🏢 Site Layout Planning</div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="hidden">
+    <h2>Contact Me</h2>
+    <p>Email: anubhav@example.com</p>
+    <button class="btn">Hire Me</button>
+</section>
+
+<script>
+// scroll animation
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+document.querySelectorAll(".hidden").forEach(el=>{
+    observer.observe(el);
+});
+</script>
+
+</body>
 </html>
-
