@@ -3,179 +3,205 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diploma Engineers</title>
 
-<!-- Bootstrap -->
+<title>Result - Diploma Engineers</title>
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<!-- Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 <style>
-html{scroll-behavior:smooth;}
-
 body{
+    background:#000;
+    color:white;
+    font-family:'Poppins',sans-serif;
+}
 
 /* NAVBAR */
 .navbar{
-    background: rgba(1,53,87,0.9);
-    backdrop-filter: blur(10px);
-}
-.navbar a{color:white !important;}
-
-.nav-link{
-    margin-left:15px;
-    position:relative;
+    background:#0a0a0a;
+    border-bottom:1px solid #222;
 }
 
-.nav-link::after{
-    content:"";
-    width:0%;
-    height:2px;
-    background:##fff;
-    position:absolute;
-    left:0; bottom:0;
-    transition:0.3s;
+/* BACK BUTTON */
+.back-btn{
+    color:#22c55e;
+    border:1px solid #22c55e;
+    padding:5px 15px;
+    border-radius:20px;
+    text-decoration:none;
 }
-.nav-link:hover::after{width:100%;}
+.back-btn:hover{
+    background:#22c55e;
+    color:#000;
+}
 
 /* CARD */
-.card{
-    max-width:400px;
-    margin:100px auto;
+.result-box{
+    background:#111;
     padding:30px;
     border-radius:20px;
-    background: rgba(255,255,255,0.9);
-    backdrop-filter: blur(10px);
-    box-shadow:0 10px 30px rgba(0,0,0,0.15);
-    text-align:center;
+    max-width:500px;
+    margin:50px auto;
+    border:1px solid #222;
 }
 
-.card h2{
-    font-weight:700;
-    margin-bottom:20px;
-}
-
-.card input{
+/* INPUT */
+input{
     width:100%;
     padding:12px;
-    margin-bottom:15px;
+    margin:10px 0;
     border-radius:10px;
-    border:1px solid #ddd;
-    outline:none;
+    border:1px solid #333;
+    background:#000;
+    color:white;
 }
 
-.card input:focus{
-    border-color:#ff7b00;
-    box-shadow:0 0 5px rgba(255,123,0,0.5);
-}
-
-.card button{
+/* BUTTON */
+button{
     width:100%;
     padding:12px;
+    background:#22c55e;
     border:none;
     border-radius:10px;
-    background:linear-gradient(45deg,#ff7b00,#ffb703);
-    color:white;
-    font-weight:600;
+    color:black;
+    font-weight:bold;
 }
 
-.card button:hover{
-    transform:scale(1.05);
+button.loading{
+    opacity:0.6;
 }
 
-.loader{
-    margin-top:10px;
-    display:none;
-    color:##f4f7fb;
-}
-
+/* SUCCESS */
 .success{
-    margin-top:10px;
     display:none;
-    color:#blue;
+    margin-top:15px;
+    color:#22c55e;
+    text-align:center;
+}
+.success.active{
+    display:block;
+}
+
+/* VIEW BUTTON */
+.view-btn{
+    display:none;
+    margin-top:10px;
+}
+.view-btn.active{
+    display:block;
 }
 </style>
 </head>
 
 <body>
 
-<!-- ✅ NAVBAR -->
-<nav class="navbar navbar-expand-lg fixed-top">
-<div class="container">
-
-<a class="navbar-brand" href="#">
-   <span style="color:white; font-weight:bold;">Diploma</span> 
-   <span style="color:yellow; font-weight:bold;">Engineers</span>
-</a>
-
-<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
-<span class="navbar-toggler-icon"></span>
-</button>
-
-<div class="collapse navbar-collapse" id="menu">
-<ul class="navbar-nav ms-auto">
-<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-<li class="nav-item"><a class="nav-link" href="notes.html">Notes</a></li>
-<li class="nav-item"><a class="nav-link" href="syllabus.html">Syllabus</a></li>
-<li class="nav-item"><a class="nav-link" href="result.html">Result</a></li>
-<li class="nav-item"><a class="nav-link" href="studentfeedback.html">Feedback</a></li>
-<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-</ul>
-</div>
-
+<!-- NAVBAR -->
+<nav class="navbar p-3">
+<div class="container d-flex justify-content-between">
+<a href="index.html" class="back-btn">⬅ Back</a>
+<span class="text-success fw-bold">Diploma Engineers</span>
 </div>
 </nav>
 
-<!-- ✅ RESULT CARD -->
-<div class="card">
-    <h2><i class="fas fa-graduation-cap"></i> BTEUP Result</h2>
+<!-- RESULT BOX -->
+<div class="result-box">
 
-    <input type="text" id="enroll" placeholder="Enrollment No (E251...)" />
-    <input type="text" id="dob" placeholder="DD/MM/YYYY" />
+<h3 class="text-center text-success">🎓 Check Result</h3>
 
-    <button onclick="getResult()">Get Result</button>
+<input type="text" id="enroll" placeholder="Enrollment Number">
+<div id="enrollError" style="color:red;font-size:12px;"></div>
 
-    <div class="loader" id="loader">⏳ Processing...</div>
-    <div class="success" id="success">✅ Opening Result...</div>
+<input type="text" id="dob" placeholder="DD/MM/YYYY">
+<div id="dobError" style="color:red;font-size:12px;"></div>
+
+<button id="generateBtn" onclick="handleGenerate()">Get Result</button>
+
+<div id="successMsg" class="success">✅ Result Generated Successfully</div>
+
+<button id="viewBtn" class="view-btn btn btn-success" onclick="openResult()">View Result</button>
+
 </div>
 
-<!-- SCRIPT -->
 <script>
-function getResult(){
-    let enroll = document.getElementById("enroll").value.trim();
-    let dob = document.getElementById("dob").value.trim();
+let enrollInput = document.getElementById("enroll");
+let dobInput = document.getElementById("dob");
+let generateBtn = document.getElementById("generateBtn");
 
-    if(enroll=="" || dob==""){
-        alert("Enter all details");
-        return;
+let successMsgDiv = document.getElementById("successMsg");
+let viewResultBtn = document.getElementById("viewBtn");
+
+let generatedFinalUrl = "";
+
+/* RESET */
+function resetErrors(){
+    document.getElementById("enrollError").innerText = "";
+    document.getElementById("dobError").innerText = "";
+}
+
+/* SHOW ERRORS */
+function showEnrollError(msg){
+    document.getElementById("enrollError").innerText = msg;
+}
+function showDobError(msg){
+    document.getElementById("dobError").innerText = msg;
+}
+
+/* DOB VALIDATION */
+function isValidDOB(dob){
+    return /^\d{2}\/\d{2}\/\d{4}$/.test(dob);
+}
+
+/* GENERATE URL (EDIT IF NEEDED) */
+function generateResultUrl(enroll, dob){
+    return `https://bteup.ac.in/webapp/StudentResult.aspx?enroll=${enroll}&dob=${dob}`;
+}
+
+/* MAIN FUNCTION */
+function handleGenerate() {
+    resetErrors();
+
+    let enrollVal = enrollInput.value.trim();
+    let dobVal = dobInput.value.trim();
+
+    let hasError = false;
+
+    if (enrollVal === "") {
+        showEnrollError("Enrollment number cannot be empty");
+        hasError = true;
     }
 
-    document.getElementById("loader").style.display="block";
+    if (dobVal === "") {
+        showDobError("Date of Birth is required");
+        hasError = true;
+    } else if (!isValidDOB(dobVal)) {
+        showDobError("Use DD/MM/YYYY format (example: 27/04/2008)");
+        hasError = true;
+    }
 
-    setTimeout(()=>{
-        let id = btoa(enroll);
-        let id2 = encodeURIComponent(btoa(dob));
+    if (hasError) return;
 
-        let url = `https://result.bteexam.com/Odd_Semester/reval/REVAL_RollNo.aspx?id=${id}&id2=${id2}`;
+    generateBtn.classList.add('loading');
+    generateBtn.disabled = true;
 
-        document.getElementById("loader").style.display="none";
-        document.getElementById("success").style.display="block";
+    setTimeout(() => {
+        generatedFinalUrl = generateResultUrl(enrollVal, dobVal);
 
-        window.open(url, "_blank");
-    },1000);
+        successMsgDiv.classList.add('active');
+        viewResultBtn.classList.add('active');
+
+        generateBtn.classList.remove('loading');
+        generateBtn.disabled = false;
+
+    }, 500);
+}
+
+/* OPEN RESULT */
+function openResult(){
+    window.open(generatedFinalUrl, "_blank");
 }
 </script>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
-
 <!-- FOOTER -->
 <footer class="main-footer">
 
@@ -193,7 +219,7 @@ function getResult(){
 
       <!-- Study Material -->
       <div class="col-md-4 footer-box">
-        <h4>Quick Links</h4>
+        <h4>Study Material</h4>
         <ul>
           <li><a href="notes.html">Notes</a></li>
           <li><a href="Books.html">Books</a></li>
@@ -229,10 +255,14 @@ function getResult(){
 
 </footer>
 
+
 <!-- CSS -->
+
 <style>
+  
 .main-footer {
-    background: #0d1b2a;
+    background: #0a0a0a;
+  
     color: #fff;
     padding: 50px 0 20px;
     font-family: 'Poppins', sans-serif;
@@ -240,6 +270,7 @@ function getResult(){
 
 .footer-box {
     margin-bottom: 20px;
+  
 }
 
 .footer-box h4 {
@@ -256,6 +287,7 @@ function getResult(){
     position: absolute;
     left: 0;
     bottom: -5px;
+  
 }
 
 .footer-box p {
@@ -303,5 +335,8 @@ function getResult(){
     font-size: 13px;
     color: #aaa;
 }
-</style>
+  
 
+
+
+     
