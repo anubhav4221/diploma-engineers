@@ -12,68 +12,58 @@
 body{
     margin:0;
     font-family:'Segoe UI';
-    background:#f4fff5;
+    background:#eefaf1;
 }
 
-/* HEADER */
 header{
-    background:linear-gradient(135deg,#1b5e20,#2e7d32);
+    background:linear-gradient(135deg,#558b2f,#33691e);
     color:white;
     padding:15px;
     position:sticky;
     top:0;
 }
 
-/* HEADER FLEX */
 .header-container{
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
 }
 
-/* BACK BUTTON */
 .back-btn{
     color:white;
     text-decoration:none;
     border:1px solid white;
     padding:6px 14px;
     border-radius:20px;
-    transition:0.3s;
 }
 
 .back-btn:hover{
     background:white;
-    color:#2e7d32;
+    color:#33691e;
 }
 
-/* TITLE */
 .title{
-    text-align:center;
     font-weight:bold;
-    font-size:20px;
 }
 
-/* SECTION */
 .section{
     padding:40px 20px;
 }
 
 .section h2{
     text-align:center;
-    color:#2e7d32;
     margin-bottom:20px;
+    color:#33691e;
 }
 
-/* GRID */
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
     gap:20px;
 }
 
-/* CARD */
 .card{
-    background:linear-gradient(135deg,#43a047,#81c784);
+    background:linear-gradient(135deg,#7cb342,#9ccc65);
     color:white;
     padding:20px;
     border-radius:15px;
@@ -85,32 +75,20 @@ header{
     transform:translateY(-8px);
 }
 
-/* BUTTON */
 .btn{
     display:inline-block;
     margin-top:10px;
     padding:8px 15px;
     background:white;
-    color:#2e7d32;
+    color:#33691e;
     border-radius:20px;
     text-decoration:none;
-    font-weight:bold;
-}
-
-/* FOOTER */
-footer{
-    background:#1b5e20;
-    color:white;
-    text-align:center;
-    padding:15px;
-    margin-top:30px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
 <div class="header-container">
 
@@ -118,7 +96,7 @@ footer{
 <i class="fas fa-arrow-left"></i> Back
 </a>
 
-<div class="title">🌱 Agriculture Notes</div>
+<div class="title">🌾 Agriculture Notes</div>
 
 <div></div>
 
@@ -127,23 +105,29 @@ footer{
 
 <!-- SEM 1 -->
 <div class="section">
-<h2>Semester 1</h2>
+<h2>Semester 1 (Common)</h2>
 <div class="grid">
-<div class="card"><h3>📐 Mathematics</h3><a href="#" class="btn">Download</a></div>
-<div class="card"><h3>🔬 Physics</h3><a href="#" class="btn">Download</a></div>
-<div class="card"><h3>🧪 Chemistry</h3><a href="#" class="btn">Download</a></div>
-<div class="card"><h3>📏 Drawing</h3><a href="#" class="btn">Download</a></div>
-<div class="card"><h3>💬 Communication</h3><a href="#" class="btn">Download</a></div>
+
+<div class="card"><h3>Applied Mathematics I</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Applied Physics</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Applied Chemistry</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Communication Skills</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Engineering Drawing</h3><a href="#" class="btn">Download</a></div>
+
 </div>
 </div>
 
 <!-- SEM 2 -->
 <div class="section">
-<h2>Semester 2</h2>
+<h2>Semester 2 (Common)</h2>
 <div class="grid">
-<div class="card"><h3>🌾 Agriculture Basics</h3><a href="#" class="btn">Download</a></div>
-<div class="card"><h3>⚙ Workshop</h3><a href="#" class="btn">Download</a></div>
-<div class="card"><h3>📊 Maths II</h3><a href="#" class="btn">Download</a></div>
+
+<div class="card"><h3>Applied Mathematics II</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Basic Electrical Engineering</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Engineering Mechanics</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Environmental Studies</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Workshop Practice</h3><a href="#" class="btn">Download</a></div>
+
 </div>
 </div>
 
@@ -151,10 +135,13 @@ footer{
 <div class="section">
 <h2>Semester 3</h2>
 <div class="grid">
-<div class="card"><h3>🌱 Soil Science</h3><a href="#" class="btn">Download</a></div>
-<div class="card"><h3>📏 Surveying</h3><a href="#" class="btn">Download</a></div>
-<div class="card"><h3>🏗 Construction</h3><a href="#" class="btn">Download</a></div>
-<div class="card"><h3>💧 Fluid Mechanics</h3><a href="#" class="btn">Download</a></div>
+
+<div class="card"><h3>Crop Production Technology</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Soil Science</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Irrigation & Water Management</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Plant Protection</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Farm Machinery</h3><a href="#" class="btn">Download</a></div>
+
 </div>
 </div>
 
@@ -162,36 +149,15 @@ footer{
 <div class="section">
 <h2>Semester 4</h2>
 <div class="grid">
-<div class="card"><h3>📐 Strength of Material</h3><a href="#" class="btn">Download</a></div>
-<div class="card"><h3>🚜 Farm Machinery</h3><a href="#" class="btn">Download</a></div>
-<div class="card"><h3>🌊 Irrigation</h3><a href="#" class="btn">Download</a></div>
-<div class="card"><h3>📏 Engineering Drawing</h3><a href="#" class="btn">Download</a></div>
-</div>
-</div>
 
-<!-- SEM 5 -->
-<div class="section">
-<h2>Semester 5</h2>
-<div class="grid">
-<div class="card"><h3>⚡ Renewable Energy</h3><a href="#" class="btn">Download</a></div>
-<div class="card"><h3>📡 IoT</h3><a href="#" class="btn">Download</a></div>
-<div class="card"><h3>🌍 Environment</h3><a href="#" class="btn">Download</a></div>
-</div>
-</div>
+<div class="card"><h3>Horticulture</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Agricultural Engineering</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Soil Fertility & Fertilizers</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Plant Breeding</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Agricultural Economics</h3><a href="#" class="btn">Download</a></div>
 
-<!-- SEM 6 -->
-<div class="section">
-<h2>Semester 6</h2>
-<div class="grid">
-<div class="card"><h3>📊 Project</h3><a href="#" class="btn">Download</a></div>
-<div class="card"><h3>🏭 Training</h3><a href="#" class="btn">Download</a></div>
 </div>
 </div>
-
-<!-- FOOTER -->
-<footer>
-© 2026 Polytechnic Notes | Agriculture Section 🌱
-</footer>
 
 </body>
 </html>
