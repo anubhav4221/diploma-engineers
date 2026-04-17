@@ -4,140 +4,182 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Electronics Engineering</title>
+<title>Electronics Notes</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 body{
-    background:#000;
-    color:white;
+    margin:0;
     font-family:'Segoe UI';
+    background:#fff3e0;
 }
 
-/* NAVBAR */
-.navbar{
-    background:#000;
-    border-bottom:1px solid #333;
+/* HEADER */
+header{
+    background:linear-gradient(135deg,#e65100,#bf360c);
+    color:white;
+    padding:15px;
+    position:sticky;
+    top:0;
 }
 
-/* HERO */
-.hero{
+.header-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.back-btn{
+    color:white;
+    text-decoration:none;
+    border:1px solid white;
+    padding:6px 14px;
+    border-radius:20px;
+}
+
+.back-btn:hover{
+    background:white;
+    color:#e65100;
+}
+
+.title{
+    font-weight:bold;
+}
+
+/* SECTION */
+.section{
+    padding:40px 20px;
+}
+
+.section h2{
     text-align:center;
-    padding:60px 20px;
+    margin-bottom:20px;
+    color:#e65100;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:20px;
 }
 
 /* CARD */
 .card{
-    background:#111;
-    color:white;   /* IMPORTANT: TEXT WHITE */
-    border-radius:15px;
+    background:linear-gradient(135deg,#ff7043,#ff8a65);
+    color:white;
     padding:20px;
-    margin:15px;
+    border-radius:15px;
+    text-align:center;
     transition:0.3s;
 }
+
 .card:hover{
-    transform:scale(1.05);
+    transform:translateY(-8px);
 }
 
-/* BUTTON */
-.btn-main{
-    background:#ff7b00;
-    border:none;
-    padding:8px 20px;
+.btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 15px;
+    background:white;
+    color:#bf360c;
     border-radius:20px;
-    color:white;
-}
-
-/* GRID */
-.row{
-    justify-content:center;
+    text-decoration:none;
 }
 </style>
-
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar p-2">
-<a href="index.html" style="color:white; text-decoration:none;">⬅ Back to Home</a>
-</nav>
+<!-- HEADER -->
+<header>
+<div class="header-container">
 
-<!-- HERO -->
-<section class="hero">
-<h1>📡 Electronics Engineering</h1>
-<p>Notes | PYQ | Study Material</p>
-</section>
+<a href="javascript:history.back()" class="back-btn">
+<i class="fas fa-arrow-left"></i> Back
+</a>
 
-<!-- SUBJECTS -->
-<div class="container">
-<div class="row">
+<div class="title">📡 Electronics Notes</div>
 
-<div class="col-md-4">
-<div class="card">
-<h4>Basic Electronics</h4>
-<p>Diode, Transistor</p>
-<button class="btn-main">View Notes</button>
-</div>
-</div>
+<div></div>
 
-<div class="col-md-4">
-<div class="card">
-<h4>Digital Electronics</h4>
-<p>Logic Gates, Flip-Flops</p>
-<button class="btn-main">View Notes</button>
 </div>
-</div>
+</header>
 
-<div class="col-md-4">
-<div class="card">
-<h4>Analog Circuits</h4>
-<p>Amplifier, Oscillator</p>
-<button class="btn-main">View Notes</button>
-</div>
-</div>
+<!-- SEM 1 -->
+<div class="section">
+<h2>Semester 1 (Common)</h2>
+<div class="grid">
 
-<div class="col-md-4">
-<div class="card">
-<h4>Communication</h4>
-<p>Signal, Transmission</p>
-<button class="btn-main">View Notes</button>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card">
-<h4>Microprocessor</h4>
-<p>8085, Programming</p>
-<button class="btn-main">View Notes</button>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card">
-<h4>Instrumentation</h4>
-<p>Measurement & Control</p>
-<button class="btn-main">View Notes</button>
-</div>
-</div>
+<div class="card"><h3>Applied Mathematics I</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Applied Physics</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Applied Chemistry</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Communication Skills</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Engineering Drawing</h3><a href="#" class="btn">Download</a></div>
 
 </div>
 </div>
 
-<!-- PYQ -->
-<div class="container mt-4">
+<!-- SEM 2 -->
+<div class="section">
+<h2>Semester 2 (Common)</h2>
+<div class="grid">
 
-<div class="card">
-<h5>📄 2023 Question Paper</h5>
-<button class="btn-main">Download</button>
+<div class="card"><h3>Applied Mathematics II</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Basic Electrical Engineering</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Engineering Mechanics</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Environmental Studies</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Workshop Practice</h3><a href="#" class="btn">Download</a></div>
+
+</div>
 </div>
 
-<div class="card">
-<h5>📄 2022 Question Paper</h5>
-<button class="btn-main">Download</button>
+<!-- SEM 3 -->
+<div class="section">
+<h2>Semester 3</h2>
+<div class="grid">
+
+<div class="card"><h3>Electronics Devices & Circuits (Theory)</h3><a href="#" class="btn">Download</a></div>
+
+<div class="card"><h3>Digital Electronics (Theory)</h3><a href="#" class="btn">Download</a></div>
+
+<div class="card"><h3>Linear Integrated Circuit (Practicum)</h3><a href="#" class="btn">Download</a></div>
+
+<div class="card"><h3>Electric Circuit & Network (Practicum)</h3><a href="#" class="btn">Download</a></div>
+
+<div class="card"><h3>Electronics Devices & Circuits (Practical)</h3><a href="#" class="btn">Download</a></div>
+
+<div class="card"><h3>Digital Electronics (Practical)</h3><a href="#" class="btn">Download</a></div>
+
+<div class="card"><h3>Skill Development / Design Thinking</h3><a href="#" class="btn">Download</a></div>
+
+</div>
 </div>
 
+<!-- SEM 4 -->
+<div class="section">
+<h2>Semester 4</h2>
+<div class="grid">
+
+<div class="card"><h3>Microprocessor & Applications (Theory)</h3><a href="#" class="btn">Download</a></div>
+
+<div class="card"><h3>Electronic Communication (Theory)</h3><a href="#" class="btn">Download</a></div>
+
+<div class="card"><h3>Electronic Instrumentation (Practicum)</h3><a href="#" class="btn">Download</a></div>
+
+<div class="card"><h3>Programming in C (Practicum)</h3><a href="#" class="btn">Download</a></div>
+
+<div class="card"><h3>Microprocessor (Practical)</h3><a href="#" class="btn">Download</a></div>
+
+<div class="card"><h3>Electronic Communication (Practical)</h3><a href="#" class="btn">Download</a></div>
+
+<div class="card"><h3>Electric Vehicle / Robotics</h3><a href="#" class="btn">Download</a></div>
+
+<div class="card"><h3>Indian Knowledge & Tradition</h3><a href="#" class="btn">Download</a></div>
+
+</div>
 </div>
 
 </body>
