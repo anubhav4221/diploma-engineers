@@ -4,140 +4,170 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Computer Science Engineering</title>
+<title>CSE Notes</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 body{
-    background:#000;
-    color:white;
+    margin:0;
     font-family:'Segoe UI';
+    background:#eef3ff;
 }
 
-/* NAVBAR */
-.navbar{
-    background:#000;
-    border-bottom:1px solid #333;
+/* HEADER */
+header{
+    background:linear-gradient(135deg,#1a237e,#0d47a1);
+    color:white;
+    padding:15px;
+    position:sticky;
+    top:0;
 }
 
-/* HERO */
-.hero{
+.header-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.back-btn{
+    color:white;
+    text-decoration:none;
+    border:1px solid white;
+    padding:6px 14px;
+    border-radius:20px;
+}
+
+.back-btn:hover{
+    background:white;
+    color:#1a237e;
+}
+
+.title{
+    font-weight:bold;
+}
+
+/* SECTION */
+.section{
+    padding:40px 20px;
+}
+
+.section h2{
     text-align:center;
-    padding:60px 20px;
+    margin-bottom:20px;
+    color:#1a237e;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:20px;
 }
 
 /* CARD */
 .card{
-    background:#111;
+    background:linear-gradient(135deg,#3f51b5,#5c6bc0);
     color:white;
-    border-radius:15px;
     padding:20px;
-    margin:15px;
+    border-radius:15px;
+    text-align:center;
     transition:0.3s;
 }
+
 .card:hover{
-    transform:scale(1.05);
+    transform:translateY(-8px);
 }
 
-/* BUTTON */
-.btn-main{
-    background:#ff7b00;
-    border:none;
-    padding:8px 20px;
+.btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 15px;
+    background:white;
+    color:#1a237e;
     border-radius:20px;
-    color:white;
-}
-
-/* GRID */
-.row{
-    justify-content:center;
+    text-decoration:none;
 }
 </style>
-
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar p-2">
-<a href="index.html" style="color:white; text-decoration:none;">⬅ Back to Home</a>
-</nav>
+<!-- HEADER -->
+<header>
+<div class="header-container">
 
-<!-- HERO -->
-<section class="hero">
-<h1>💻 Computer Science Engineering</h1>
-<p>Notes | PYQ | Programming | Projects</p>
-</section>
+<a href="javascript:history.back()" class="back-btn">
+<i class="fas fa-arrow-left"></i> Back
+</a>
 
-<!-- SUBJECTS -->
-<div class="container">
-<div class="row">
+<div class="title">💻 CSE Notes</div>
 
-<div class="col-md-4">
-<div class="card">
-<h4>Programming (C / Python)</h4>
-<p>Basics, Logic, Coding</p>
-<button class="btn-main">View Notes</button>
-</div>
-</div>
+<div></div>
 
-<div class="col-md-4">
-<div class="card">
-<h4>Data Structure</h4>
-<p>Stack, Queue, Tree</p>
-<button class="btn-main">View Notes</button>
 </div>
-</div>
+</header>
 
-<div class="col-md-4">
-<div class="card">
-<h4>DBMS</h4>
-<p>Database, SQL</p>
-<button class="btn-main">View Notes</button>
-</div>
-</div>
+<!-- SEM 1 -->
+<div class="section">
+<h2>Semester 1 (Common)</h2>
+<div class="grid">
 
-<div class="col-md-4">
-<div class="card">
-<h4>Operating System</h4>
-<p>Process, Memory</p>
-<button class="btn-main">View Notes</button>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card">
-<h4>Computer Network</h4>
-<p>Internet, Protocols</p>
-<button class="btn-main">View Notes</button>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card">
-<h4>Web Development</h4>
-<p>HTML, CSS, JavaScript</p>
-<button class="btn-main">View Notes</button>
-</div>
-</div>
+<div class="card"><h3>Applied Mathematics I</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Applied Physics</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Applied Chemistry</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Communication Skills</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Engineering Drawing</h3><a href="#" class="btn">Download</a></div>
 
 </div>
 </div>
 
-<!-- PYQ -->
-<div class="container mt-4">
+<!-- SEM 2 -->
+<div class="section">
+<h2>Semester 2 (Common)</h2>
+<div class="grid">
 
-<div class="card">
-<h5>📄 2023 Question Paper</h5>
-<button class="btn-main">Download</button>
+<div class="card"><h3>Applied Mathematics II</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Basic Electrical Engineering</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Engineering Mechanics</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Environmental Studies</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Workshop Practice</h3><a href="#" class="btn">Download</a></div>
+
+</div>
 </div>
 
-<div class="card">
-<h5>📄 2022 Question Paper</h5>
-<button class="btn-main">Download</button>
+<!-- SEM 3 -->
+<div class="section">
+<h2>Semester 3</h2>
+<div class="grid">
+
+<div class="card"><h3>Operating Systems</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Database Management System</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Software Engineering</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Web Technologies</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Operating Systems Lab</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>DBMS Lab</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Programming in C</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Summer Internship</h3><a href="#" class="btn">Download</a></div>
+
+</div>
 </div>
 
+<!-- SEM 4 -->
+<div class="section">
+<h2>Semester 4</h2>
+<div class="grid">
+
+<div class="card"><h3>Data Structures using C</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Computer Networks</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Introduction to e-Governance</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Program Elective</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Open Elective</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Data Structures Lab</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Python (Scripting Language)</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>Indian Knowledge & Tradition</h3><a href="#" class="btn">Download</a></div>
+
+</div>
 </div>
 
 </body>
