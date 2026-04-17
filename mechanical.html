@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mechanical Engineering</title>
+<title>Mechanical Syllabus</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -12,81 +12,168 @@
 body{
     background:#000;
     color:white;
-    font-family:'Segoe UI';
+    font-family:'Poppins',sans-serif;
+    padding-top:70px;
 }
 
+/* NAVBAR */
 .navbar{
-    background:#000;
-    border-bottom:1px solid #333;
+    background:#0a0a0a;
+    border-bottom:1px solid #222;
 }
 
-.hero{
-    text-align:center;
-    padding:60px 20px;
-}
-
-.card{
-    background:#111;
-    border-radius:15px;
-    padding:20px;
-    margin:15px;
-    transition:0.3s;
-}
-.card:hover{
-    transform:scale(1.05);
-}
-
-.btn-main{
-    background:#ff7b00;
-    border:none;
-    padding:8px 20px;
+/* BACK BUTTON */
+.back-btn{
+    color:#22c55e;
+    border:1px solid #22c55e;
+    padding:5px 15px;
     border-radius:20px;
-    color:white;
+    text-decoration:none;
+}
+.back-btn:hover{
+    background:#22c55e;
+    color:#000;
+}
+
+/* TITLE */
+.title{
+    text-align:center;
+    margin:20px 0;
+}
+.title h2{
+    color:#22c55e;
+}
+
+/* CARD */
+.sem-card{
+    background:#111;
+    padding:20px;
+    border-radius:15px;
+    border:1px solid #222;
+    margin-bottom:20px;
+}
+.sem-card:hover{
+    border-color:#22c55e;
+    transform:translateY(-5px);
+}
+.sem-card h5{
+    color:#22c55e;
 }
 </style>
-
 </head>
 
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar p-2">
-<a href="index.html" style="color:white;">⬅ Back</a>
+<nav class="navbar p-3">
+<div class="container d-flex justify-content-between">
+<a href="index.html" class="back-btn">⬅ Back</a>
+<span class="text-success fw-bold">Mechanical Engineering</span>
+</div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-<h1>⚙ Mechanical Engineering</h1>
-<p>Notes | PYQ | Study Material</p>
-</section>
+<!-- TITLE -->
+<div class="title">
+<h2>Mechanical Engineering - All Semester</h2>
+</div>
 
-<!-- SUBJECTS -->
 <div class="container">
+<div class="row">
 
-<div class="card">
-<h4>Thermodynamics</h4>
-<p>Heat, Energy, Laws</p>
-<button class="btn-main">View Notes</button>
+<!-- SEM 1 -->
+<div class="col-md-4">
+<div class="sem-card">
+<h5>Sem 1</h5>
+<ul>
+<li>Mathematics I</li>
+<li>Physics</li>
+<li>Chemistry</li>
+<li>Communication Skills</li>
+<li>Engineering Drawing</li>
+<li>Workshop Practice</li>
+</ul>
+</div>
 </div>
 
-<div class="card">
-<h4>Strength of Materials</h4>
-<p>Stress, Strain, Beam</p>
-<button class="btn-main">View Notes</button>
+<!-- SEM 2 -->
+<div class="col-md-4">
+<div class="sem-card">
+<h5>Sem 2</h5>
+<ul>
+<li>Mathematics II</li>
+<li>Applied Mechanics</li>
+<li>Engineering Physics</li>
+<li>Basic Electrical</li>
+<li>Computer Fundamentals</li>
+<li>Workshop Practice II</li>
+</ul>
+</div>
 </div>
 
-<div class="card">
-<h4>Fluid Mechanics</h4>
-<p>Flow, Pressure</p>
-<button class="btn-main">View Notes</button>
+<!-- SEM 3 -->
+<div class="col-md-4">
+<div class="sem-card">
+<h5>Sem 3</h5>
+<ul>
+<li>Thermal Engineering I</li>
+<li>Fluid Mechanics & Hydraulic Machinery</li>
+<li>Fluid Mechanics Lab</li>
+<li>Workshop Practice</li>
+<li>Measurements & Metrology</li>
+<li>CAD Machine Drawing</li>
+<li>Open Elective I</li>
+<li>Summer Internship</li>
+</ul>
+</div>
 </div>
 
-<div class="card">
-<h4>Machine Design</h4>
-<p>Design of Machine Parts</p>
-<button class="btn-main">View Notes</button>
+<!-- SEM 4 -->
+<div class="col-md-4">
+<div class="sem-card">
+<h5>Sem 4</h5>
+<ul>
+<li>Strength of Materials</li>
+<li>Industrial Engineering & Management</li>
+<li>SOM Lab</li>
+<li>Manufacturing Engineering</li>
+<li>Material Science</li>
+<li>Thermal Engineering II</li>
+<li>Open Elective II</li>
+<li>Indian Knowledge</li>
+</ul>
+</div>
 </div>
 
+<!-- SEM 5 -->
+<div class="col-md-4">
+<div class="sem-card">
+<h5>Sem 5</h5>
+<ul>
+<li>Machine Design</li>
+<li>Automobile Engineering</li>
+<li>Refrigeration & AC</li>
+<li>Production Technology</li>
+<li>CAD/CAM</li>
+<li>Elective Subject</li>
+</ul>
+</div>
+</div>
+
+<!-- SEM 6 -->
+<div class="col-md-4">
+<div class="sem-card">
+<h5>Sem 6</h5>
+<ul>
+<li>Industrial Training</li>
+<li>Project Work</li>
+<li>Entrepreneurship</li>
+<li>Maintenance Engineering</li>
+<li>Quality Control</li>
+</ul>
+</div>
+</div>
+
+</div>
 </div>
 
 </body>
