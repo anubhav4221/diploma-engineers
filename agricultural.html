@@ -4,141 +4,194 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Agricultural Engineering</title>
+<title>Agriculture Notes</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 body{
-    background:#000;
-    color:white;
+    margin:0;
     font-family:'Segoe UI';
+    background:#f4fff5;
 }
 
-/* NAVBAR */
-.navbar{
-    background:#000;
-    border-bottom:1px solid #333;
+/* HEADER */
+header{
+    background:linear-gradient(135deg,#1b5e20,#2e7d32);
+    color:white;
+    padding:15px;
+    position:sticky;
+    top:0;
 }
 
-/* HERO */
-.hero{
+/* HEADER FLEX */
+.header-container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+/* BACK BUTTON */
+.back-btn{
+    color:white;
+    text-decoration:none;
+    border:1px solid white;
+    padding:6px 14px;
+    border-radius:20px;
+    transition:0.3s;
+}
+
+.back-btn:hover{
+    background:white;
+    color:#2e7d32;
+}
+
+/* TITLE */
+.title{
     text-align:center;
-    padding:60px 20px;
+    font-weight:bold;
+    font-size:20px;
+}
+
+/* SECTION */
+.section{
+    padding:40px 20px;
+}
+
+.section h2{
+    text-align:center;
+    color:#2e7d32;
+    margin-bottom:20px;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
 }
 
 /* CARD */
 .card{
-    background:#111;
+    background:linear-gradient(135deg,#43a047,#81c784);
     color:white;
-    border-radius:15px;
     padding:20px;
-    margin:15px;
+    border-radius:15px;
+    text-align:center;
     transition:0.3s;
 }
+
 .card:hover{
-    transform:scale(1.05);
+    transform:translateY(-8px);
 }
 
 /* BUTTON */
-.btn-main{
-    background:#ff7b00;
-    border:none;
-    padding:8px 20px;
+.btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 15px;
+    background:white;
+    color:#2e7d32;
     border-radius:20px;
-    color:white;
+    text-decoration:none;
+    font-weight:bold;
 }
 
-/* GRID */
-.row{
-    justify-content:center;
+/* FOOTER */
+footer{
+    background:#1b5e20;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:30px;
 }
 </style>
-
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar p-2">
-<a href="index.html" style="color:white; text-decoration:none;">⬅ Back to Home</a>
-</nav>
+<!-- HEADER -->
+<header>
+<div class="header-container">
 
-<!-- HERO -->
-<section class="hero">
-<h1>🌾 Agricultural Engineering</h1>
-<p>Notes | PYQ | Farming Technology</p>
-</section>
+<a href="javascript:history.back()" class="back-btn">
+<i class="fas fa-arrow-left"></i> Back
+</a>
 
-<!-- SUBJECTS -->
-<div class="container">
-<div class="row">
+<div class="title">🌱 Agriculture Notes</div>
 
-<div class="col-md-4">
-<div class="card">
-<h4>Farm Machinery</h4>
-<p>Tractor, Tools, Equipment</p>
-<button class="btn-main">View Notes</button>
+<div></div>
+
 </div>
-</div>
+</header>
 
-<div class="col-md-4">
-<div class="card">
-<h4>Soil Science</h4>
-<p>Soil Properties, Fertility</p>
-<button class="btn-main">View Notes</button>
+<!-- SEM 1 -->
+<div class="section">
+<h2>Semester 1</h2>
+<div class="grid">
+<div class="card"><h3>📐 Mathematics</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>🔬 Physics</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>🧪 Chemistry</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>📏 Drawing</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>💬 Communication</h3><a href="#" class="btn">Download</a></div>
 </div>
 </div>
 
-<div class="col-md-4">
-<div class="card">
-<h4>Irrigation Engineering</h4>
-<p>Water Management, Canal</p>
-<button class="btn-main">View Notes</button>
+<!-- SEM 2 -->
+<div class="section">
+<h2>Semester 2</h2>
+<div class="grid">
+<div class="card"><h3>🌾 Agriculture Basics</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>⚙ Workshop</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>📊 Maths II</h3><a href="#" class="btn">Download</a></div>
 </div>
 </div>
 
-<div class="col-md-4">
-<div class="card">
-<h4>Crop Processing</h4>
-<p>Harvesting, Storage</p>
-<button class="btn-main">View Notes</button>
+<!-- SEM 3 -->
+<div class="section">
+<h2>Semester 3</h2>
+<div class="grid">
+<div class="card"><h3>🌱 Soil Science</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>📏 Surveying</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>🏗 Construction</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>💧 Fluid Mechanics</h3><a href="#" class="btn">Download</a></div>
 </div>
 </div>
 
-<div class="col-md-4">
-<div class="card">
-<h4>Renewable Energy</h4>
-<p>Solar, Biogas</p>
-<button class="btn-main">View Notes</button>
+<!-- SEM 4 -->
+<div class="section">
+<h2>Semester 4</h2>
+<div class="grid">
+<div class="card"><h3>📐 Strength of Material</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>🚜 Farm Machinery</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>🌊 Irrigation</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>📏 Engineering Drawing</h3><a href="#" class="btn">Download</a></div>
 </div>
 </div>
 
-<div class="col-md-4">
-<div class="card">
-<h4>Farm Structures</h4>
-<p>Greenhouse, Storage Buildings</p>
-<button class="btn-main">View Notes</button>
+<!-- SEM 5 -->
+<div class="section">
+<h2>Semester 5</h2>
+<div class="grid">
+<div class="card"><h3>⚡ Renewable Energy</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>📡 IoT</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>🌍 Environment</h3><a href="#" class="btn">Download</a></div>
 </div>
 </div>
 
+<!-- SEM 6 -->
+<div class="section">
+<h2>Semester 6</h2>
+<div class="grid">
+<div class="card"><h3>📊 Project</h3><a href="#" class="btn">Download</a></div>
+<div class="card"><h3>🏭 Training</h3><a href="#" class="btn">Download</a></div>
 </div>
 </div>
 
-<!-- PYQ -->
-<div class="container mt-4">
-
-<div class="card">
-<h5>📄 2023 Question Paper</h5>
-<button class="btn-main">Download</button>
-</div>
-
-<div class="card">
-<h5>📄 2022 Question Paper</h5>
-<button class="btn-main">Download</button>
-</div>
-
-</div>
+<!-- FOOTER -->
+<footer>
+© 2026 Polytechnic Notes | Agriculture Section 🌱
+</footer>
 
 </body>
 </html>
