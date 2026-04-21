@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diploma Engineers - Secure Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+}
+.container{
+    background:#111;
+    padding:40px;
+    border-radius:15px;
+    width:350px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.5);
+    text-align:center;
+}
+.container h2{
+    color:#00d4ff;
+    margin-bottom:20px;
+}
+.input-box{
+    margin:12px 0;
+    text-align:left;
+}
+.input-box label{
+    color:#aaa;
+    font-size:14px;
+}
+.input-box input{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border:none;
+    outline:none;
+    border-radius:8px;
+    background:#222;
+    color:#fff;
+}
+button{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border:none;
+    border-radius:8px;
+    background:#00d4ff;
+    color:#000;
+    font-weight:600;
+    cursor:pointer;
+}
+button:hover{background:#00aacc;}
+.error{color:red;font-size:13px;margin-top:5px;}
+.link{
+    margin-top:10px;
+    font-size:13px;
+}
+.link a{
+    color:#00d4ff;
+    text-decoration:none;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Login</h2>
+
+    <form id="loginForm">
+        <div class="input-box">
+            <label>Email</label>
+            <input type="email" id="email" required>
+        </div>
+
+        <div class="input-box">
+            <label>Password</label>
+            <input type="password" id="password" required>
+        </div>
+
+        <div class="error" id="errorMsg"></div>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <div class="link">
+        <a href="register.html">Create New Account</a>
+    </div>
+</div>
+
+<script>
+const form = document.getElementById('loginForm');
+const errorMsg = document.getElementById('errorMsg');
+
+form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    const userData = localStorage.getItem(email);
+
+    if(!userData){
+        errorMsg.textContent = "User not found";
+        return;
+    }
+
+    const user = JSON.parse(userData);
+
+    if(user.password === password){
+        // Session store (login state)
+        sessionStorage.setItem("loggedInUser", email);
+
+        alert("Login Successful");
+        window.location.href = "dashboard.html"; // after login page
+    } else {
+        errorMsg.textContent = "Wrong password";
+    }
+});
+</script>
+
+</body>
+</html>
