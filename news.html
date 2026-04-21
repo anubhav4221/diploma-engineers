@@ -1,52 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Latest News</title>
+
 <style>
-body{background:#0f2027;color:white;padding:15px;}
-.post{background:#111;margin:10px 0;padding:15px;border-radius:8px;}
-.post img{width:100%;}
+body{
+    margin:0;
+    font-family:'Segoe UI';
+    background:#0b1220;
+    color:white;
+}
+
+/* TOP BAR */
+.top-news{
+    background:#00d4ff;
+    color:black;
+    padding:10px;
+    font-weight:bold;
+    text-align:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+/* CONTAINER */
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:15px;
+    padding:15px;
+}
+
+/* CARD */
+.card{
+    background:#121a2b;
+    padding:15px;
+    border-radius:12px;
+    box-shadow:0 0 10px rgba(0,0,0,0.4);
+}
+
+.card h3{
+    color:#00d4ff;
+}
+
+.card img{
+    width:100%;
+    border-radius:10px;
+    margin-top:10px;
+}
+
+/* PDF BUTTON */
+.card a{
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 12px;
+    background:#00ff99;
+    color:black;
+    border-radius:6px;
+    text-decoration:none;
+    font-weight:bold;
+}
 </style>
 </head>
 <body>
 
-<h2>Latest News</h2>
-<div id="news"></div>
+<!-- TOP NEWS -->
+<div class="top-news" id="latest">🔥 Latest News</div>
 
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, getDocs } 
-from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+<!-- NEWS LIST -->
+<div class="container" id="news"></div>
 
-const firebaseConfig = {
-  apiKey: "PASTE_YOUR_KEY",
-  authDomain: "XXXX",
-  projectId: "XXXX"
-};
+<script>
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+// LOAD POSTS
+let posts = JSON.parse(localStorage.getItem("posts")) || [];
 
-async function load(){
-    const querySnapshot = await getDocs(collection(db, "posts"));
-    let html="";
-
-    querySnapshot.forEach(doc=>{
-        const p = doc.data();
-        html+=`
-        <div class="post">
-            <h3>${p.title}</h3>
-            <p>${p.desc}</p>
-            ${p.img ? `<img src="${p.img}">` : ""}
-            ${p.pdf ? `<a href="${p.pdf}" target="_blank">📄 Open PDF</a>` : ""}
-        </div>`;
-    });
-
-    document.getElementById("news").innerHTML=html;
+// TOP LATEST NEWS
+if(posts.length > 0){
+    document.getElementById("latest").innerHTML =
+    "🔥 Latest: " + posts[0].title;
 }
 
-load();
+// ALL POSTS
+let html = "";
+
+posts.forEach(p=>{
+    html += `
+    <div class="card">
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+
+        ${p.img ? `<img src="${p.img}">` : ""}
+
+        ${p.pdf ? `<a href="${p.pdf}" target="_blank">📄 View PDF</a>` : ""}
+
+        <small>${p.date}</small>
+    </div>
+    `;
+});
+
+document.getElementById("news").innerHTML = html;
+
 </script>
 
 </body>
