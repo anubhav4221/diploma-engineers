@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diploma Engineers - Latest News</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#0f2027;color:white;padding:20px;}
+.header{
+    text-align:center;
+    margin-bottom:30px;
+}
+.header h1{color:#00d4ff;}
+.news-container{
+    max-width:800px;
+    margin:auto;
+}
+.news-card{
+    background:#111;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+.news-card h2{color:#00d4ff;}
+.news-card p{margin:10px 0;color:#ccc;}
+.news-card a{
+    color:#00ff88;
+    text-decoration:none;
+    display:inline-block;
+    margin-top:5px;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>📢 Latest News & Notices</h1>
+    <p>Diploma Engineers Updates</p>
+</div>
+
+<div class="news-container" id="news"></div>
+
+<script>
+function loadNews(){
+    let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+    let html = "";
+
+    posts.forEach(p => {
+        html += `
+        <div class="news-card">
+            <h2>${p.title}</h2>
+            <p>${p.desc}</p>
+            ${p.link ? `<a href="${p.link}" target="_blank">Open Notice</a>` : ""}
+        </div>
+        `;
+    });
+
+    document.getElementById('news').innerHTML = html;
+}
+
+loadNews();
+</script>
+
+</body>
+</html>
