@@ -1,40 +1,205 @@
-<input type="file" id="file">
-<button onclick="upload()">Upload</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel</title>
 
-<img id="img" width="200">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif;}
+
+body{display:flex;flex-wrap:wrap;background:#0f2027;color:white;}
+
+.sidebar{
+    width:220px;
+    background:#111;
+    min-height:100vh;
+    padding:20px;
+}
+.sidebar h2{color:#00d4ff;margin-bottom:20px;}
+.sidebar div{
+    padding:10px;
+    margin:10px 0;
+    background:#222;
+    cursor:pointer;
+    border-radius:6px;
+}
+.sidebar div:hover{background:#00d4ff;color:black;}
+
+.main{
+    flex:1;
+    padding:20px;
+}
+
+.card{
+    background:#111;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+input,textarea{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border:none;
+    border-radius:6px;
+    background:#222;
+    color:white;
+}
+
+button{
+    padding:10px;
+    border:none;
+    border-radius:6px;
+    background:#00d4ff;
+    cursor:pointer;
+}
+
+.post{
+    background:#1a1a1a;
+    padding:15px;
+    border-radius:10px;
+    margin-top:15px;
+}
+.post img{width:100%;border-radius:8px;margin-top:10px;}
+
+@media(max-width:768px){
+    .sidebar{width:100%;}
+}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h2>Admin</h2>
+    <div onclick="show('dashboard')">Dashboard</div>
+    <div onclick="show('add')">Add Post</div>
+    <div onclick="show('manage')">Manage</div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<div id="dashboard" class="card">
+    <h2>Dashboard</h2>
+    <p>Total Posts: <span id="count"></span></p>
+</div>
+
+<div id="add" class="card" style="display:none;">
+    <h2>Add Post</h2>
+
+    <input type="text" id="title" placeholder="Title">
+    <textarea id="desc" placeholder="Description"></textarea>
+    <input type="file" id="file">
+
+    <button onclick="addPost()">Publish</button>
+</div>
+
+<div id="manage" class="card" style="display:none;">
+    <h2>All Posts</h2>
+    <div id="posts"></div>
+</div>
+
+</div>
 
 <script>
-async function upload(){
+
+// NAVIGATION
+function show(id){
+    ["dashboard","add","manage"].forEach(x=>{
+        document.getElementById(x).style.display="none";
+    });
+    document.getElementById(id).style.display="block";
+}
+
+// CLOUDINARY UPLOAD
+async function uploadImage(file){
+    const fd = new FormData();
+    fd.append("file", file);
+    fd.append("upload_preset", "mypreset");
+
+    const res = await fetch("https://api.cloudinary.com/v1_1/ddxfmmfko/upload", {
+        method:"POST",
+        body:fd
+    });
+
+    const data = await res.json();
+    return data.secure_url || "";
+}
+
+// ADD POST
+async function addPost(){
+    const title = document.getElementById("title").value.trim();
+    const desc = document.getElementById("desc").value.trim();
     const file = document.getElementById("file").files[0];
 
-    if(!file){
-        alert("File select karo");
+    if(!title){
+        alert("Title required");
         return;
     }
 
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", "mypreset");
+    let imgURL="";
 
-    try{
-        const res = await fetch("https://api.cloudinary.com/v1_1/ddxfmmfko/upload", {
-            method: "POST",
-            body: formData
-        });
-
-        const data = await res.json();
-        console.log(data);
-
-        if(data.secure_url){
-            document.getElementById("img").src = data.secure_url;
-            alert("Upload Success ✅");
-        }else{
-            alert("Upload failed ❌");
-        }
-
-    }catch(e){
-        alert("Error aaya ❌");
-        console.log(e);
+    if(file){
+        alert("Uploading image...");
+        imgURL = await uploadImage(file);
     }
+
+    let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+    posts.unshift({
+        title,
+        desc,
+        img: imgURL,
+        date: new Date().toLocaleString()
+    });
+
+    localStorage.setItem("posts", JSON.stringify(posts));
+
+    alert("Post Added");
+
+    document.getElementById("title").value="";
+    document.getElementById("desc").value="";
+    document.getElementById("file").value="";
+
+    loadPosts();
 }
+
+// LOAD POSTS
+function loadPosts(){
+    let posts = JSON.parse(localStorage.getItem("posts")) || [];
+    document.getElementById("count").innerText = posts.length;
+
+    let html="";
+
+    posts.forEach((p,i)=>{
+        html+=`
+        <div class="post">
+            <h3>${p.title}</h3>
+            <p>${p.desc}</p>
+            ${p.img ? `<img src="${p.img}">` : ""}
+            <small>${p.date}</small><br>
+            <button onclick="del(${i})">Delete</button>
+        </div>
+        `;
+    });
+
+    document.getElementById("posts").innerHTML=html;
+}
+
+// DELETE
+function del(i){
+    let posts = JSON.parse(localStorage.getItem("posts")) || [];
+    posts.splice(i,1);
+    localStorage.setItem("posts", JSON.stringify(posts));
+    loadPosts();
+}
+
+loadPosts();
+
 </script>
+
+</body>
+</html>
