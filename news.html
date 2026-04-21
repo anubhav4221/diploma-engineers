@@ -1,78 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Latest News</title>
-
 <style>
-body{
-    background:#0f2027;
-    color:white;
-    font-family:sans-serif;
-    padding:20px;
-}
-
-h1{
-    text-align:center;
-    margin-bottom:20px;
-}
-
-.container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:20px;
-}
-
-.post{
-    background:#111;
-    padding:15px;
-    border-radius:10px;
-}
-
-.post img{
-    width:100%;
-    border-radius:8px;
-    margin-top:10px;
-}
-
-.post h2{color:#00d4ff;}
-.post small{color:#aaa;}
+body{background:#0f2027;color:white;padding:15px;}
+.post{background:#111;margin:10px 0;padding:15px;border-radius:8px;}
+.post img{width:100%;}
 </style>
 </head>
 <body>
 
-<h1>🔥 Latest News</h1>
+<h2>Latest News</h2>
+<div id="news"></div>
 
-<div class="container" id="news"></div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, getDocs } 
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-<script>
+const firebaseConfig = {
+  apiKey: "PASTE_YOUR_KEY",
+  authDomain: "XXXX",
+  projectId: "XXXX"
+};
 
-function loadNews(){
-    let posts = JSON.parse(localStorage.getItem("posts")) || [];
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-    let html = "";
+async function load(){
+    const querySnapshot = await getDocs(collection(db, "posts"));
+    let html="";
 
-    if(posts.length === 0){
-        html = "<p>No news available</p>";
-    }
-
-    posts.forEach(p=>{
-        html += `
+    querySnapshot.forEach(doc=>{
+        const p = doc.data();
+        html+=`
         <div class="post">
-            <h2>${p.title}</h2>
+            <h3>${p.title}</h3>
             <p>${p.desc}</p>
             ${p.img ? `<img src="${p.img}">` : ""}
-            <small>${p.date}</small>
-        </div>
-        `;
+            ${p.pdf ? `<a href="${p.pdf}" target="_blank">📄 Open PDF</a>` : ""}
+        </div>`;
     });
 
-    document.getElementById("news").innerHTML = html;
+    document.getElementById("news").innerHTML=html;
 }
 
-loadNews();
-
+load();
 </script>
 
 </body>
