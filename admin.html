@@ -1,26 +1,17 @@
+<input type="file" id="file">
+<button onclick="upload()">Upload</button>
+
+<img id="img" width="200">
+
 <script>
+async function upload(){
+    const file = document.getElementById("file").files[0];
 
-// LOGIN CHECK
-if(!sessionStorage.getItem("loggedInUser")){
-    window.location.href = "index.html";
-}
+    if(!file){
+        alert("File select karo");
+        return;
+    }
 
-// NAVIGATION
-function showSection(sec){
-    ["dashboard","add","manage"].forEach(id=>{
-        document.getElementById(id).style.display="none";
-    });
-    document.getElementById(sec).style.display="block";
-}
-
-// LOGOUT
-function logout(){
-    sessionStorage.removeItem("loggedInUser");
-    window.location.href="index.html";
-}
-
-// 🔥 CLOUDINARY UPLOAD (FIXED)
-async function uploadToCloudinary(file){
     const formData = new FormData();
     formData.append("file", file);
     formData.append("upload_preset", "mypreset");
@@ -32,94 +23,18 @@ async function uploadToCloudinary(file){
         });
 
         const data = await res.json();
+        console.log(data);
 
-        if(!data.secure_url){
-            throw "Upload failed";
+        if(data.secure_url){
+            document.getElementById("img").src = data.secure_url;
+            alert("Upload Success ✅");
+        }else{
+            alert("Upload failed ❌");
         }
 
-        return data.secure_url;
-
-    }catch(err){
-        alert("Upload error!");
-        console.error(err);
-        return "";
+    }catch(e){
+        alert("Error aaya ❌");
+        console.log(e);
     }
 }
-
-// ADD POST (FIXED)
-async function addPost(){
-    const title = document.getElementById('title').value.trim();
-    const desc = document.getElementById('desc').value.trim();
-    const file = document.getElementById('image').files[0];
-
-    if(title===""){
-        alert("Title required");
-        return;
-    }
-
-    let imageURL = "";
-
-    if(file){
-        alert("Uploading image...");
-        imageURL = await uploadToCloudinary(file);
-    }
-
-    let posts = JSON.parse(localStorage.getItem("posts")) || [];
-
-    posts.unshift({
-        id: Date.now(),
-        title,
-        desc,
-        image: imageURL,
-        date: new Date().toLocaleString()
-    });
-
-    localStorage.setItem("posts", JSON.stringify(posts));
-
-    alert("Post Published!");
-
-    document.getElementById('title').value="";
-    document.getElementById('desc').value="";
-    document.getElementById('image').value="";
-
-    loadPosts();
-}
-
-// LOAD POSTS (IMPROVED)
-function loadPosts(){
-    let posts = JSON.parse(localStorage.getItem("posts")) || [];
-
-    document.getElementById('count').innerText = posts.length;
-
-    let html = "";
-
-    posts.forEach((p,i)=>{
-        html += `
-        <div class="post">
-            <h3>${p.title}</h3>
-            <p>${p.desc}</p>
-
-            ${p.image ? `<img src="${p.image}" style="margin-top:10px;">` : ""}
-
-            <small>${p.date}</small><br>
-
-            <button onclick="deletePost(${i})">Delete</button>
-        </div>
-        `;
-    });
-
-    document.getElementById('posts').innerHTML = html;
-}
-
-// DELETE
-function deletePost(i){
-    let posts = JSON.parse(localStorage.getItem("posts")) || [];
-    posts.splice(i,1);
-    localStorage.setItem("posts", JSON.stringify(posts));
-    loadPosts();
-}
-
-// INIT
-loadPosts();
-
 </script>
