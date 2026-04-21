@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel - Diploma Engineers</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{display:flex;background:#0f2027;color:white;height:100vh;}
+
+/* SIDEBAR */
+.sidebar{
+    width:220px;
+    background:#111;
+    padding:20px;
+}
+.sidebar h2{color:#00d4ff;margin-bottom:20px;}
+.sidebar ul{list-style:none;}
+.sidebar ul li{
+    padding:10px;
+    margin:10px 0;
+    background:#222;
+    border-radius:6px;
+    cursor:pointer;
+}
+.sidebar ul li:hover{background:#00d4ff;color:black;}
+
+/* MAIN */
+.main{
+    flex:1;
+    padding:20px;
+    overflow:auto;
+}
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+button{
+    padding:8px 12px;
+    border:none;
+    border-radius:6px;
+    background:#00d4ff;
+    cursor:pointer;
+}
+
+.card{
+    background:#111;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+input, textarea{
+    width:100%;
+    margin:10px 0;
+    padding:10px;
+    border:none;
+    border-radius:6px;
+    background:#222;
+    color:white;
+}
+
+.post{
+    background:#1a1a1a;
+    padding:15px;
+    border-radius:8px;
+    margin-top:10px;
+}
+.post h3{color:#00d4ff;}
+.post a{color:#00ff88;display:block;}
+</style>
+</head>
+<body>
+
+<script>
+if(!sessionStorage.getItem("loggedInUser")){
+    window.location.href = "index.html";
+}
+</script>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h2>Admin</h2>
+    <ul>
+        <li onclick="showSection('dashboard')">Dashboard</li>
+        <li onclick="showSection('add')">Add Post</li>
+        <li onclick="showSection('manage')">Manage Posts</li>
+        <li onclick="logout()">Logout</li>
+    </ul>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+    <div class="header">
+        <h1>Admin Panel</h1>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboard" class="card">
+        <h2>Welcome Admin</h2>
+        <p>Total Posts: <span id="count"></span></p>
+    </div>
+
+    <!-- ADD POST -->
+    <div id="add" class="card" style="display:none;">
+        <h2>Add New Post</h2>
+        <input type="text" id="title" placeholder="Title">
+        <textarea id="desc" placeholder="Description"></textarea>
+        <input type="text" id="link" placeholder="PDF / Link URL">
+        <button onclick="addPost()">Publish</button>
+    </div>
+
+    <!-- MANAGE POSTS -->
+    <div id="manage" class="card" style="display:none;">
+        <h2>All Posts</h2>
+        <div id="posts"></div>
+    </div>
+
+</div>
+
+<script>
+function logout(){
+    sessionStorage.removeItem("loggedInUser");
+    window.location.href = "index.html";
+}
+
+function showSection(sec){
+    document.getElementById('dashboard').style.display='none';
+    document.getElementById('add').style.display='none';
+    document.getElementById('manage').style.display='none';
+    document.getElementById(sec).style.display='block';
+}
+
+function addPost(){
+    const title=document.getElementById('title').value;
+    const desc=document.getElementById('desc').value;
+    const link=document.getElementById('link').value;
+
+    if(title==""){alert("Title required");return;}
+
+    let posts=JSON.parse(localStorage.getItem("posts"))||[];
+    posts.unshift({title,desc,link});
+    localStorage.setItem("posts",JSON.stringify(posts));
+
+    document.getElementById('title').value="";
+    document.getElementById('desc').value="";
+    document.getElementById('link').value="";
+
+    loadPosts();
+    alert("Post Published");
+}
+
+function loadPosts(){
+    let posts=JSON.parse(localStorage.getItem("posts"))||[];
+    document.getElementById('count').innerText=posts.length;
+
+    let html="";
+    posts.forEach((p,i)=>{
+        html+=`<div class="post">
+            <h3>${p.title}</h3>
+            <p>${p.desc}</p>
+            ${p.link?`<a href="${p.link}" target="_blank">Open</a>`:""}
+            <button onclick="deletePost(${i})">Delete</button>
+        </div>`;
+    });
+
+    document.getElementById('posts').innerHTML=html;
+}
+
+function deletePost(i){
+    let posts=JSON.parse(localStorage.getItem("posts"))||[];
+    posts.splice(i,1);
+    localStorage.setItem("posts",JSON.stringify(posts));
+    loadPosts();
+}
+
+loadPosts();
+</script>
+
+</body>
+</html>
