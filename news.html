@@ -1,95 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Latest News</title>
+<div id="add" class="card" style="display:none;">
+    <h2>Add New Post</h2>
 
-<style>
-body{
-margin:0;
-font-family:Arial;
-background:#0b1220;
-color:white;
-}
+    <input type="text" id="title" placeholder="Title">
+    <textarea id="desc" placeholder="Description"></textarea>
 
-header{
-text-align:center;
-padding:20px;
-background:#111827;
-font-size:22px;
-font-weight:bold;
-}
+    <!-- IMAGE -->
+    <label>Upload Image</label>
+    <input type="file" id="image" accept="image/*">
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px;
-padding:15px;
-}
+    <!-- PDF -->
+    <label>Upload PDF</label>
+    <input type="file" id="pdf" accept="application/pdf">
 
-.card{
-background:rgba(255,255,255,0.06);
-border-radius:12px;
-overflow:hidden;
-transition:0.3s;
-}
+    <!-- VIDEO -->
+    <label>Upload Video</label>
+    <input type="file" id="video" accept="video/*">
 
-.card:hover{
-transform:scale(1.03);
-}
-
-.card img{
-width:100%;
-height:150px;
-object-fit:cover;
-}
-
-.card-content{
-padding:10px;
-}
-
-.card a{
-color:#22c55e;
-text-decoration:none;
-font-weight:bold;
-}
-</style>
-</head>
-
-<body>
-
-<header>📰 Latest News</header>
-
-<div class="grid" id="news"></div>
-
-<script>
-fetch("YOUR_SHEET_CSV_LINK")
-.then(res=>res.text())
-.then(data=>{
-let rows=data.split("\n");
-let html="";
-
-rows.forEach(r=>{
-let c=r.split(",");
-
-if(c[0]){
-html+=`
-<div class="card">
-<img src="${c[2]}" />
-<div class="card-content">
-<h3>${c[0]}</h3>
-<p>${c[1].slice(0,80)}...</p>
-<a href="${c[3]}" target="_blank">Read More</a>
+    <button onclick="addPost()">🚀 Publish</button>
 </div>
-</div>`;
-}
-
-});
-
-document.getElementById("news").innerHTML=html;
-});
-</script>
-
-</body>
-</html>
