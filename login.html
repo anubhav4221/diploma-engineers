@@ -97,30 +97,36 @@ button:hover{background:#00aacc;}
 const form = document.getElementById('loginForm');
 const errorMsg = document.getElementById('errorMsg');
 
+// Allowed users
+const allowedUsers = [
+    "singhmukesh6382@gmail.com",
+    "astar22072006@gmail.com"
+];
+
+// Fixed password
+const correctPassword = "diplomaengineers@4221";
+
 form.addEventListener('submit', function(e){
     e.preventDefault();
 
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
 
-    const userData = localStorage.getItem(email);
-
-    if(!userData){
-        errorMsg.textContent = "User not found";
+    if(!allowedUsers.includes(email)){
+        errorMsg.textContent = "Access Denied: Unauthorized Email";
         return;
     }
 
-    const user = JSON.parse(userData);
-
-    if(user.password === password){
-        // Session store (login state)
-        sessionStorage.setItem("loggedInUser", email);
-
-        alert("Login Successful");
-        window.location.href = "admin.html"; // after login page
-    } else {
-        errorMsg.textContent = "Wrong password";
+    if(password !== correctPassword){
+        errorMsg.textContent = "Wrong Password";
+        return;
     }
+
+    // Login success
+    sessionStorage.setItem("loggedInUser", email);
+
+    alert("Login Successful");
+    window.location.href = "admin.html";
 });
 </script>
 
