@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,165 +7,88 @@
 
 <style>
 body{
-    margin:0;
-    font-family:'Segoe UI';
-    background:#0b1220;
-    color:white;
+margin:0;
+font-family:Arial;
+background:#0b1220;
+color:white;
 }
 
-/* TOP BAR */
-.top-news{
-    background:#00d4ff;
-    color:black;
-    padding:10px;
-    font-weight:bold;
-    text-align:center;
-    position:sticky;
-    top:0;
-    z-index:1000;
+header{
+text-align:center;
+padding:20px;
+background:#111827;
+font-size:22px;
+font-weight:bold;
 }
 
-/* GRID */
-.container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:15px;
-    padding:15px;
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+padding:15px;
 }
 
-/* CARD */
 .card{
-    background:#121a2b;
-    padding:15px;
-    border-radius:12px;
-    box-shadow:0 0 10px rgba(0,0,0,0.4);
+background:rgba(255,255,255,0.06);
+border-radius:12px;
+overflow:hidden;
+transition:0.3s;
 }
 
-.card h3{ color:#00d4ff; }
+.card:hover{
+transform:scale(1.03);
+}
 
 .card img{
-    width:100%;
-    border-radius:10px;
-    margin-top:10px;
+width:100%;
+height:150px;
+object-fit:cover;
 }
 
-/* BUTTONS */
-.btn{
-    display:inline-block;
-    margin-top:8px;
-    padding:8px 10px;
-    border-radius:6px;
-    text-decoration:none;
-    font-weight:bold;
-    cursor:pointer;
-    border:none;
+.card-content{
+padding:10px;
 }
 
-.view-btn{ background:#00ff99; color:black; }
-.share-btn{ background:#ffcc00; color:black; }
-
-/* MODAL */
-.modal{
-    display:none;
-    position:fixed;
-    top:0;left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.8);
-    justify-content:center;
-    align-items:center;
-}
-
-.modal-content{
-    background:#121a2b;
-    padding:20px;
-    width:90%;
-    max-width:500px;
-    border-radius:10px;
-}
-
-.close{
-    float:right;
-    cursor:pointer;
-    color:red;
-    font-size:20px;
+.card a{
+color:#22c55e;
+text-decoration:none;
+font-weight:bold;
 }
 </style>
 </head>
+
 <body>
 
-<div class="top-news" id="latest">🔥 Latest News</div>
+<header>📰 Latest News</header>
 
-<div class="container" id="news"></div>
-
-<!-- MODAL -->
-<div class="modal" id="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">❌</span>
-        <h2 id="mTitle"></h2>
-        <p id="mDesc"></p>
-    </div>
-</div>
+<div class="grid" id="news"></div>
 
 <script>
+fetch("YOUR_SHEET_CSV_LINK")
+.then(res=>res.text())
+.then(data=>{
+let rows=data.split("\n");
+let html="";
 
-let posts = JSON.parse(localStorage.getItem("posts")) || [];
+rows.forEach(r=>{
+let c=r.split(",");
 
-// latest
-if(posts.length > 0){
-    document.getElementById("latest").innerHTML =
-    "🔥 Latest: " + posts[0].title;
+if(c[0]){
+html+=`
+<div class="card">
+<img src="${c[2]}" />
+<div class="card-content">
+<h3>${c[0]}</h3>
+<p>${c[1].slice(0,80)}...</p>
+<a href="${c[3]}" target="_blank">Read More</a>
+</div>
+</div>`;
 }
 
-let html = "";
-
-posts.forEach((p,i)=>{
-    html += `
-    <div class="card">
-        <h3>${p.title}</h3>
-        <p>${p.desc.substring(0,80)}...</p>
-
-        ${p.img ? `<img src="${p.img}">` : ""}
-
-        <small>${p.date}</small><br>
-
-        <button class="btn view-btn" onclick="viewNews(${i})">👁 View</button>
-        <button class="btn share-btn" onclick="shareNews('${p.title}','${p.desc}')">📤 Share</button>
-
-        ${p.pdf ? `<a class="btn view-btn" href="${p.pdf}" target="_blank">📄 PDF</a>` : ""}
-    </div>
-    `;
 });
 
-document.getElementById("news").innerHTML = html;
-
-// VIEW
-function viewNews(i){
-    document.getElementById("modal").style.display="flex";
-    document.getElementById("mTitle").innerText = posts[i].title;
-    document.getElementById("mDesc").innerText = posts[i].desc;
-}
-
-// CLOSE
-function closeModal(){
-    document.getElementById("modal").style.display="none";
-}
-
-// SHARE
-function shareNews(title,desc){
-    let text = title + " - " + desc;
-
-    if(navigator.share){
-        navigator.share({
-            title:title,
-            text:text
-        });
-    } else {
-        navigator.clipboard.writeText(text);
-        alert("Copied to clipboard ✅");
-    }
-}
-
+document.getElementById("news").innerHTML=html;
+});
 </script>
 
 </body>
