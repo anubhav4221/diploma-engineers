@@ -1,176 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Panel - Diploma Engineers</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-
-body{display:flex;background:#0f2027;color:white;height:100vh;}
-
-/* SIDEBAR */
-.sidebar{
-    width:220px;
-    background:#111;
-    padding:20px;
-}
-.sidebar h2{color:#00d4ff;margin-bottom:20px;}
-.sidebar ul{list-style:none;}
-.sidebar ul li{
-    padding:10px;
-    margin:10px 0;
-    background:#222;
-    border-radius:6px;
-    cursor:pointer;
-}
-.sidebar ul li:hover{background:#00d4ff;color:black;}
-
-/* MAIN */
-.main{
-    flex:1;
-    padding:20px;
-    overflow:auto;
-}
-.header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:20px;
-}
-
-button{
-    padding:10px;
-    border:none;
-    border-radius:6px;
-    background:#00d4ff;
-    cursor:pointer;
-    margin-top:10px;
-}
-
-.card{
-    background:#111;
-    padding:20px;
-    border-radius:10px;
-    margin-bottom:20px;
-}
-
-input, textarea{
-    width:100%;
-    margin:10px 0;
-    padding:10px;
-    border:none;
-    border-radius:6px;
-    background:#222;
-    color:white;
-}
-
-.post{
-    background:#1a1a1a;
-    padding:15px;
-    border-radius:8px;
-    margin-top:10px;
-}
-.post img{
-    width:100%;
-    border-radius:6px;
-}
-.post h3{color:#00d4ff;}
-</style>
-</head>
-<body>
-
-<!-- LOGIN CHECK -->
 <script>
+
+// LOGIN CHECK
 if(!sessionStorage.getItem("loggedInUser")){
-    window.location.href = "index.html";
-}
-</script>
-
-<!-- SIDEBAR -->
-<div class="sidebar">
-    <h2>Admin</h2>
-    <ul>
-        <li onclick="showSection('dashboard')">Dashboard</li>
-        <li onclick="showSection('add')">Add Post</li>
-        <li onclick="showSection('manage')">Manage Posts</li>
-        <li onclick="logout()">Logout</li>
-    </ul>
-</div>
-
-<!-- MAIN -->
-<div class="main">
-
-    <div class="header">
-        <h1>Admin Panel</h1>
-    </div>
-
-    <!-- DASHBOARD -->
-    <div id="dashboard" class="card">
-        <h2>Welcome Admin</h2>
-        <p>Total Posts: <span id="count"></span></p>
-    </div>
-
-    <!-- ADD POST -->
-    <div id="add" class="card" style="display:none;">
-        <h2>Add New Post</h2>
-
-        <input type="text" id="title" placeholder="Title">
-        <textarea id="desc" placeholder="Description"></textarea>
-
-        <input type="file" id="image">
-
-        <button onclick="addPost()">Publish</button>
-    </div>
-
-    <!-- MANAGE POSTS -->
-    <div id="manage" class="card" style="display:none;">
-        <h2>All Posts</h2>
-        <div id="posts"></div>
-    </div>
-
-</div>
-
-<script>
-// LOGOUT
-function logout(){
-    sessionStorage.removeItem("loggedInUser");
     window.location.href = "index.html";
 }
 
 // NAVIGATION
 function showSection(sec){
-    document.getElementById('dashboard').style.display='none';
-    document.getElementById('add').style.display='none';
-    document.getElementById('manage').style.display='none';
-    document.getElementById(sec).style.display='block';
+    ["dashboard","add","manage"].forEach(id=>{
+        document.getElementById(id).style.display="none";
+    });
+    document.getElementById(sec).style.display="block";
 }
 
-// 🔥 CLOUDINARY UPLOAD
+// LOGOUT
+function logout(){
+    sessionStorage.removeItem("loggedInUser");
+    window.location.href="index.html";
+}
+
+// 🔥 CLOUDINARY UPLOAD (FIXED)
 async function uploadToCloudinary(file){
     const formData = new FormData();
     formData.append("file", file);
     formData.append("upload_preset", "mypreset");
 
-    const res = await fetch("https://api.cloudinary.com/v1_1/ddxfmmfko/upload", {
-        method: "POST",
-        body: formData
-    });
+    try{
+        const res = await fetch("https://api.cloudinary.com/v1_1/ddxfmmfko/upload", {
+            method: "POST",
+            body: formData
+        });
 
-    const data = await res.json();
-    return data.secure_url;
+        const data = await res.json();
+
+        if(!data.secure_url){
+            throw "Upload failed";
+        }
+
+        return data.secure_url;
+
+    }catch(err){
+        alert("Upload error!");
+        console.error(err);
+        return "";
+    }
 }
 
-// ADD POST
+// ADD POST (FIXED)
 async function addPost(){
-    const title = document.getElementById('title').value;
-    const desc = document.getElementById('desc').value;
+    const title = document.getElementById('title').value.trim();
+    const desc = document.getElementById('desc').value.trim();
     const file = document.getElementById('image').files[0];
 
-    if(title==""){
+    if(title===""){
         alert("Title required");
         return;
     }
@@ -178,14 +60,16 @@ async function addPost(){
     let imageURL = "";
 
     if(file){
+        alert("Uploading image...");
         imageURL = await uploadToCloudinary(file);
     }
 
     let posts = JSON.parse(localStorage.getItem("posts")) || [];
 
     posts.unshift({
-        title: title,
-        desc: desc,
+        id: Date.now(),
+        title,
+        desc,
         image: imageURL,
         date: new Date().toLocaleString()
     });
@@ -201,9 +85,10 @@ async function addPost(){
     loadPosts();
 }
 
-// LOAD POSTS
+// LOAD POSTS (IMPROVED)
 function loadPosts(){
     let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
     document.getElementById('count').innerText = posts.length;
 
     let html = "";
@@ -213,9 +98,11 @@ function loadPosts(){
         <div class="post">
             <h3>${p.title}</h3>
             <p>${p.desc}</p>
-            ${p.image ? `<img src="${p.image}">` : ""}
-            <small>${p.date}</small>
-            <br>
+
+            ${p.image ? `<img src="${p.image}" style="margin-top:10px;">` : ""}
+
+            <small>${p.date}</small><br>
+
             <button onclick="deletePost(${i})">Delete</button>
         </div>
         `;
@@ -224,7 +111,7 @@ function loadPosts(){
     document.getElementById('posts').innerHTML = html;
 }
 
-// DELETE POST
+// DELETE
 function deletePost(i){
     let posts = JSON.parse(localStorage.getItem("posts")) || [];
     posts.splice(i,1);
@@ -234,7 +121,5 @@ function deletePost(i){
 
 // INIT
 loadPosts();
-</script>
 
-</body>
-</html>
+</script>
