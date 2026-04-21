@@ -1,46 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diploma Engineers - Latest News</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Latest News</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#0f2027;color:white;padding:20px;}
-.header{
-    text-align:center;
-    margin-bottom:30px;
-}
-.header h1{color:#00d4ff;}
-.news-container{
-    max-width:800px;
-    margin:auto;
-}
-.news-card{
+body{background:#0f2027;color:white;font-family:sans-serif;padding:20px;}
+.post{
     background:#111;
-    padding:20px;
+    padding:15px;
     border-radius:10px;
     margin-bottom:20px;
 }
-.news-card h2{color:#00d4ff;}
-.news-card p{margin:10px 0;color:#ccc;}
-.news-card a{
-    color:#00ff88;
-    text-decoration:none;
-    display:inline-block;
-    margin-top:5px;
+.post img{
+    width:100%;
+    border-radius:8px;
 }
 </style>
 </head>
 <body>
 
-<div class="header">
-    <h1>📢 Latest News & Notices</h1>
-    <p>Diploma Engineers Updates</p>
-</div>
+<h1>🔥 Latest News</h1>
 
-<div class="news-container" id="news"></div>
+<div id="news"></div>
 
 <script>
 function loadNews(){
@@ -48,17 +28,18 @@ function loadNews(){
 
     let html = "";
 
-    posts.forEach(p => {
+    posts.forEach(p=>{
         html += `
-        <div class="news-card">
+        <div class="post">
             <h2>${p.title}</h2>
             <p>${p.desc}</p>
-            ${p.link ? `<a href="${p.link}" target="_blank">Open Notice</a>` : ""}
+            ${p.image ? `<img src="${p.image}">` : ""}
+            <small>${p.date}</small>
         </div>
         `;
     });
 
-    document.getElementById('news').innerHTML = html;
+    document.getElementById("news").innerHTML = html;
 }
 
 loadNews();
