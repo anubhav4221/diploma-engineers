@@ -1,132 +1,82 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Dashboard</title>
-
+<title>Admin Panel</title>
 <style>
 body{
-  margin:0;
-  font-family:Arial;
-  background:#0f172a;
-  color:white;
+font-family:Arial;
+background:#0f172a;
+color:white;
+text-align:center;
 }
-
-header{
-  background:#111827;
-  padding:15px;
-  text-align:center;
-  font-size:20px;
-  font-weight:bold;
+input, textarea, select{
+width:90%;
+padding:10px;
+margin:10px;
 }
-
-.container{
-  max-width:700px;
-  margin:auto;
-  padding:20px;
-}
-
-.card{
-  background:rgba(255,255,255,0.06);
-  padding:20px;
-  border-radius:12px;
-  backdrop-filter:blur(10px);
-}
-
-input,textarea,button{
-  width:100%;
-  padding:12px;
-  margin:10px 0;
-  border:none;
-  border-radius:8px;
-}
-
-input,textarea{
-  background:#1f2937;
-  color:white;
-}
-
 button{
-  background:#22c55e;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-button:hover{
-  background:#16a34a;
+padding:10px 20px;
+background:lime;
+border:none;
+font-weight:bold;
 }
 </style>
 </head>
 
 <body>
 
-<header>🧑‍💼 Admin Dashboard (WordPress Style)</header>
+<h1>📢 Upload News</h1>
 
-<div class="container">
-<div class="card">
-
-<input type="text" id="title" placeholder="Post Title">
+<input id="title" placeholder="Title">
 <textarea id="desc" placeholder="Description"></textarea>
 
-<label>Thumbnail Image</label>
-<input type="file" id="image">
+<select id="type">
+<option value="application/pdf">PDF</option>
+<option value="image/png">Image</option>
+<option value="image/jpeg">Image</option>
+</select>
 
-<label>File (PDF/Image)</label>
 <input type="file" id="file">
 
-<button onclick="uploadPost()">Publish Post</button>
+<button onclick="upload()">🚀 Publish</button>
 
-<p id="status"></p>
-
-</div>
-</div>
+<p id="msg"></p>
 
 <script>
-function uploadPost(){
 
-var title=document.getElementById("title").value;
-var desc=document.getElementById("desc").value;
+const scriptURL = "YOUR_APPS_SCRIPT_URL";
 
-var img=document.getElementById("image").files[0];
-var file=document.getElementById("file").files[0];
+function upload(){
 
-if(!title||!desc||!img||!file){
-alert("Fill all fields");
-return;
-}
+let file = document.getElementById("file").files[0];
 
-var reader1=new FileReader();
-var reader2=new FileReader();
+let reader = new FileReader();
 
-reader1.readAsDataURL(img);
-reader1.onload=function(){
+reader.readAsDataURL(file);
 
-reader2.readAsDataURL(file);
-reader2.onload=function(){
+reader.onload = function(){
 
-fetch("YOUR_APPS_SCRIPT_URL",{
+let base64 = reader.result.split(",")[1];
+
+let data = new URLSearchParams();
+data.append("title", document.getElementById("title").value);
+data.append("desc", document.getElementById("desc").value);
+data.append("type", file.type);
+data.append("file", base64);
+
+fetch(scriptURL, {
 method:"POST",
-body:new URLSearchParams({
-title:title,
-desc:desc,
-image:reader1.result.split(",")[1],
-imageType:img.type,
-file:reader2.result.split(",")[1],
-fileType:file.type
+body:data
 })
-})
-.then(r=>r.text())
-.then(d=>{
-document.getElementById("status").innerHTML="✅ Post Published Successfully";
+.then(res=>res.text())
+.then(res=>{
+document.getElementById("msg").innerText="✅ Uploaded Successfully!";
 });
 
-}
+};
 
 }
 
-}
 </script>
 
 </body>
