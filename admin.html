@@ -4,9 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Panel - Diploma Engineers</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
 body{display:flex;background:#0f2027;color:white;height:100vh;}
 
 /* SIDEBAR */
@@ -38,12 +41,14 @@ body{display:flex;background:#0f2027;color:white;height:100vh;}
     align-items:center;
     margin-bottom:20px;
 }
+
 button{
-    padding:8px 12px;
+    padding:10px;
     border:none;
     border-radius:6px;
     background:#00d4ff;
     cursor:pointer;
+    margin-top:10px;
 }
 
 .card{
@@ -69,12 +74,16 @@ input, textarea{
     border-radius:8px;
     margin-top:10px;
 }
+.post img{
+    width:100%;
+    border-radius:6px;
+}
 .post h3{color:#00d4ff;}
-.post a{color:#00ff88;display:block;}
 </style>
 </head>
 <body>
 
+<!-- LOGIN CHECK -->
 <script>
 if(!sessionStorage.getItem("loggedInUser")){
     window.location.href = "index.html";
@@ -92,7 +101,7 @@ if(!sessionStorage.getItem("loggedInUser")){
     </ul>
 </div>
 
-<!-- MAIN CONTENT -->
+<!-- MAIN -->
 <div class="main">
 
     <div class="header">
@@ -108,9 +117,12 @@ if(!sessionStorage.getItem("loggedInUser")){
     <!-- ADD POST -->
     <div id="add" class="card" style="display:none;">
         <h2>Add New Post</h2>
+
         <input type="text" id="title" placeholder="Title">
         <textarea id="desc" placeholder="Description"></textarea>
-        <input type="text" id="link" placeholder="PDF / Link URL">
+
+        <input type="file" id="image">
+
         <button onclick="addPost()">Publish</button>
     </div>
 
@@ -123,11 +135,13 @@ if(!sessionStorage.getItem("loggedInUser")){
 </div>
 
 <script>
+// LOGOUT
 function logout(){
     sessionStorage.removeItem("loggedInUser");
     window.location.href = "index.html";
 }
 
+// NAVIGATION
 function showSection(sec){
     document.getElementById('dashboard').style.display='none';
     document.getElementById('add').style.display='none';
@@ -135,49 +149,90 @@ function showSection(sec){
     document.getElementById(sec).style.display='block';
 }
 
-function addPost(){
-    const title=document.getElementById('title').value;
-    const desc=document.getElementById('desc').value;
-    const link=document.getElementById('link').value;
+// 🔥 CLOUDINARY UPLOAD
+async function uploadToCloudinary(file){
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "mypreset");
 
-    if(title==""){alert("Title required");return;}
+    const res = await fetch("https://api.cloudinary.com/v1_1/ddxfmmfko/upload", {
+        method: "POST",
+        body: formData
+    });
 
-    let posts=JSON.parse(localStorage.getItem("posts"))||[];
-    posts.unshift({title,desc,link});
-    localStorage.setItem("posts",JSON.stringify(posts));
+    const data = await res.json();
+    return data.secure_url;
+}
+
+// ADD POST
+async function addPost(){
+    const title = document.getElementById('title').value;
+    const desc = document.getElementById('desc').value;
+    const file = document.getElementById('image').files[0];
+
+    if(title==""){
+        alert("Title required");
+        return;
+    }
+
+    let imageURL = "";
+
+    if(file){
+        imageURL = await uploadToCloudinary(file);
+    }
+
+    let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+    posts.unshift({
+        title: title,
+        desc: desc,
+        image: imageURL,
+        date: new Date().toLocaleString()
+    });
+
+    localStorage.setItem("posts", JSON.stringify(posts));
+
+    alert("Post Published!");
 
     document.getElementById('title').value="";
     document.getElementById('desc').value="";
-    document.getElementById('link').value="";
+    document.getElementById('image').value="";
 
     loadPosts();
-    alert("Post Published");
 }
 
+// LOAD POSTS
 function loadPosts(){
-    let posts=JSON.parse(localStorage.getItem("posts"))||[];
-    document.getElementById('count').innerText=posts.length;
+    let posts = JSON.parse(localStorage.getItem("posts")) || [];
+    document.getElementById('count').innerText = posts.length;
 
-    let html="";
+    let html = "";
+
     posts.forEach((p,i)=>{
-        html+=`<div class="post">
+        html += `
+        <div class="post">
             <h3>${p.title}</h3>
             <p>${p.desc}</p>
-            ${p.link?`<a href="${p.link}" target="_blank">Open</a>`:""}
+            ${p.image ? `<img src="${p.image}">` : ""}
+            <small>${p.date}</small>
+            <br>
             <button onclick="deletePost(${i})">Delete</button>
-        </div>`;
+        </div>
+        `;
     });
 
-    document.getElementById('posts').innerHTML=html;
+    document.getElementById('posts').innerHTML = html;
 }
 
+// DELETE POST
 function deletePost(i){
-    let posts=JSON.parse(localStorage.getItem("posts"))||[];
+    let posts = JSON.parse(localStorage.getItem("posts")) || [];
     posts.splice(i,1);
-    localStorage.setItem("posts",JSON.stringify(posts));
+    localStorage.setItem("posts", JSON.stringify(posts));
     loadPosts();
 }
 
+// INIT
 loadPosts();
 </script>
 
