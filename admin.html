@@ -1,121 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Admin Panel</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif;}
-
-body{display:flex;flex-wrap:wrap;background:#0f2027;color:white;}
-
-.sidebar{
-    width:220px;
-    background:#111;
-    min-height:100vh;
-    padding:20px;
-}
-.sidebar h2{color:#00d4ff;margin-bottom:20px;}
-.sidebar div{
-    padding:10px;
-    margin:10px 0;
-    background:#222;
-    cursor:pointer;
-    border-radius:6px;
-}
-.sidebar div:hover{background:#00d4ff;color:black;}
-
-.main{
-    flex:1;
-    padding:20px;
-}
-
-.card{
-    background:#111;
-    padding:20px;
-    border-radius:10px;
-    margin-bottom:20px;
-}
-
-input,textarea{
-    width:100%;
-    padding:10px;
-    margin:10px 0;
-    border:none;
-    border-radius:6px;
-    background:#222;
-    color:white;
-}
-
-button{
-    padding:10px;
-    border:none;
-    border-radius:6px;
-    background:#00d4ff;
-    cursor:pointer;
-}
-
-.post{
-    background:#1a1a1a;
-    padding:15px;
-    border-radius:10px;
-    margin-top:15px;
-}
-.post img{width:100%;border-radius:8px;margin-top:10px;}
-
-@media(max-width:768px){
-    .sidebar{width:100%;}
-}
+body{margin:0;font-family:sans-serif;background:#0f2027;color:white;}
+.sidebar{background:#111;padding:15px;}
+.sidebar button{width:100%;margin:5px 0;padding:10px;}
+.main{padding:15px;}
+.card{background:#111;padding:15px;margin:10px 0;border-radius:8px;}
+input,textarea{width:100%;padding:10px;margin:5px 0;background:#222;color:white;border:none;}
+.post img{width:100%;margin-top:10px;}
 </style>
 </head>
 <body>
 
-<!-- SIDEBAR -->
 <div class="sidebar">
-    <h2>Admin</h2>
-    <div onclick="show('dashboard')">Dashboard</div>
-    <div onclick="show('add')">Add Post</div>
-    <div onclick="show('manage')">Manage</div>
+<button onclick="show('add')">Add Post</button>
+<button onclick="show('manage')">Manage</button>
 </div>
 
-<!-- MAIN -->
 <div class="main">
 
-<div id="dashboard" class="card">
-    <h2>Dashboard</h2>
-    <p>Total Posts: <span id="count"></span></p>
-</div>
-
-<div id="add" class="card" style="display:none;">
-    <h2>Add Post</h2>
-
-    <input type="text" id="title" placeholder="Title">
-    <textarea id="desc" placeholder="Description"></textarea>
-    <input type="file" id="file">
-
-    <button onclick="addPost()">Publish</button>
+<div id="add" class="card">
+<h3>Add Post</h3>
+<input id="title" placeholder="Title">
+<textarea id="desc" placeholder="Description"></textarea>
+<input type="file" id="img">
+<input type="file" id="pdf">
+<button onclick="addPost()">Publish</button>
 </div>
 
 <div id="manage" class="card" style="display:none;">
-    <h2>All Posts</h2>
-    <div id="posts"></div>
+<h3>Posts</h3>
+<div id="posts"></div>
 </div>
 
 </div>
 
-<script>
+<!-- Firebase -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc } 
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-// NAVIGATION
-function show(id){
-    ["dashboard","add","manage"].forEach(x=>{
-        document.getElementById(x).style.display="none";
-    });
-    document.getElementById(id).style.display="block";
-}
+const firebaseConfig = {
+  apiKey: "PASTE_YOUR_KEY",
+  authDomain: "XXXX",
+  projectId: "XXXX"
+};
 
-// CLOUDINARY UPLOAD
-async function uploadImage(file){
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// Cloudinary Upload
+async function upload(file){
     const fd = new FormData();
     fd.append("file", file);
     fd.append("upload_preset", "mypreset");
@@ -129,76 +69,53 @@ async function uploadImage(file){
     return data.secure_url || "";
 }
 
-// ADD POST
-async function addPost(){
-    const title = document.getElementById("title").value.trim();
-    const desc = document.getElementById("desc").value.trim();
-    const file = document.getElementById("file").files[0];
+// Add Post
+window.addPost = async function(){
+    const title = document.getElementById("title").value;
+    const desc = document.getElementById("desc").value;
 
-    if(!title){
-        alert("Title required");
-        return;
-    }
+    const imgFile = document.getElementById("img").files[0];
+    const pdfFile = document.getElementById("pdf").files[0];
 
-    let imgURL="";
+    let imgURL = imgFile ? await upload(imgFile) : "";
+    let pdfURL = pdfFile ? await upload(pdfFile) : "";
 
-    if(file){
-        alert("Uploading image...");
-        imgURL = await uploadImage(file);
-    }
-
-    let posts = JSON.parse(localStorage.getItem("posts")) || [];
-
-    posts.unshift({
-        title,
-        desc,
-        img: imgURL,
+    await addDoc(collection(db, "posts"), {
+        title, desc, img: imgURL, pdf: pdfURL,
         date: new Date().toLocaleString()
     });
 
-    localStorage.setItem("posts", JSON.stringify(posts));
-
     alert("Post Added");
-
-    document.getElementById("title").value="";
-    document.getElementById("desc").value="";
-    document.getElementById("file").value="";
-
     loadPosts();
 }
 
-// LOAD POSTS
-function loadPosts(){
-    let posts = JSON.parse(localStorage.getItem("posts")) || [];
-    document.getElementById("count").innerText = posts.length;
-
+// Load Posts
+async function loadPosts(){
+    const querySnapshot = await getDocs(collection(db, "posts"));
     let html="";
 
-    posts.forEach((p,i)=>{
+    querySnapshot.forEach(docSnap=>{
+        const p = docSnap.data();
         html+=`
         <div class="post">
             <h3>${p.title}</h3>
             <p>${p.desc}</p>
             ${p.img ? `<img src="${p.img}">` : ""}
-            <small>${p.date}</small><br>
-            <button onclick="del(${i})">Delete</button>
-        </div>
-        `;
+            ${p.pdf ? `<a href="${p.pdf}" target="_blank">📄 PDF</a>` : ""}
+        </div>`;
     });
 
     document.getElementById("posts").innerHTML=html;
 }
 
-// DELETE
-function del(i){
-    let posts = JSON.parse(localStorage.getItem("posts")) || [];
-    posts.splice(i,1);
-    localStorage.setItem("posts", JSON.stringify(posts));
-    loadPosts();
-}
-
 loadPosts();
 
+// Navigation
+window.show = function(id){
+    document.getElementById("add").style.display="none";
+    document.getElementById("manage").style.display="none";
+    document.getElementById(id).style.display="block";
+}
 </script>
 
 </body>
