@@ -1,229 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Panel</title>
+<title>Admin Dashboard</title>
 
 <style>
 body{
-    margin:0;
-    font-family:'Segoe UI';
-    background:#0b1220;
-    color:white;
+  margin:0;
+  font-family:Arial;
+  background:#0f172a;
+  color:white;
 }
 
-/* HEADER */
 header{
-    background:#111a2e;
-    padding:15px;
-    text-align:center;
-    color:#00d4ff;
-    font-weight:bold;
+  background:#111827;
+  padding:15px;
+  text-align:center;
+  font-size:20px;
+  font-weight:bold;
 }
 
-/* LAYOUT */
 .container{
-    display:flex;
-    flex-wrap:wrap;
-}
-
-/* SIDEBAR */
-.sidebar{
-    width:220px;
-    background:#121a2b;
-    min-height:100vh;
-    padding:15px;
-}
-
-.sidebar button{
-    width:100%;
-    margin:8px 0;
-    padding:10px;
-    background:#1e2a44;
-    border:none;
-    color:white;
-    border-radius:8px;
-    cursor:pointer;
-}
-
-.sidebar button:hover{
-    background:#00d4ff;
-    color:black;
-}
-
-/* MAIN */
-.main{
-    flex:1;
-    padding:15px;
+  max-width:700px;
+  margin:auto;
+  padding:20px;
 }
 
 .card{
-    background:#121a2b;
-    padding:15px;
-    border-radius:12px;
-    margin-bottom:15px;
+  background:rgba(255,255,255,0.06);
+  padding:20px;
+  border-radius:12px;
+  backdrop-filter:blur(10px);
+}
+
+input,textarea,button{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border:none;
+  border-radius:8px;
 }
 
 input,textarea{
-    width:100%;
-    padding:10px;
-    margin:8px 0;
-    border:none;
-    border-radius:8px;
-    background:#1e2a44;
-    color:white;
+  background:#1f2937;
+  color:white;
 }
 
-button.publish{
-    background:#00d4ff;
-    color:black;
-    padding:10px;
-    border:none;
-    border-radius:8px;
-    width:100%;
-    cursor:pointer;
+button{
+  background:#22c55e;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-/* POST */
-.post{
-    background:#1a243a;
-    padding:10px;
-    margin:10px 0;
-    border-radius:10px;
-}
-
-.post img{
-    width:100%;
-    border-radius:10px;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-    .sidebar{
-        width:100%;
-        min-height:auto;
-    }
+button:hover{
+  background:#16a34a;
 }
 </style>
 </head>
+
 <body>
 
-<header>🔥 Admin Panel</header>
+<header>🧑‍💼 Admin Dashboard (WordPress Style)</header>
 
 <div class="container">
+<div class="card">
 
-<!-- SIDEBAR -->
-<div class="sidebar">
-    <button onclick="show('add')">➕ Add Post</button>
-    <button onclick="show('manage')">📄 Manage</button>
-</div>
-
-<!-- MAIN -->
-<div class="main">
-
-<div id="add" class="card">
-<h3>Add New Post</h3>
-
-<input type="text" id="title" placeholder="Title">
+<input type="text" id="title" placeholder="Post Title">
 <textarea id="desc" placeholder="Description"></textarea>
-<input type="file" id="img">
 
-<button class="publish" onclick="addPost()">Publish</button>
-</div>
+<label>Thumbnail Image</label>
+<input type="file" id="image">
 
-<div id="manage" class="card" style="display:none;">
-<h3>All Posts</h3>
-<div id="posts"></div>
-</div>
+<label>File (PDF/Image)</label>
+<input type="file" id="file">
+
+<button onclick="uploadPost()">Publish Post</button>
+
+<p id="status"></p>
 
 </div>
 </div>
 
 <script>
+function uploadPost(){
 
-function show(id){
-    document.getElementById("add").style.display="none";
-    document.getElementById("manage").style.display="none";
-    document.getElementById(id).style.display="block";
+var title=document.getElementById("title").value;
+var desc=document.getElementById("desc").value;
+
+var img=document.getElementById("image").files[0];
+var file=document.getElementById("file").files[0];
+
+if(!title||!desc||!img||!file){
+alert("Fill all fields");
+return;
 }
 
-// ADD POST
-function addPost(){
+var reader1=new FileReader();
+var reader2=new FileReader();
 
-    let title = document.getElementById("title").value;
-    let desc = document.getElementById("desc").value;
-    let file = document.getElementById("img").files[0];
+reader1.readAsDataURL(img);
+reader1.onload=function(){
 
-    let reader = new FileReader();
+reader2.readAsDataURL(file);
+reader2.onload=function(){
 
-    reader.onload = function(){
+fetch("YOUR_APPS_SCRIPT_URL",{
+method:"POST",
+body:new URLSearchParams({
+title:title,
+desc:desc,
+image:reader1.result.split(",")[1],
+imageType:img.type,
+file:reader2.result.split(",")[1],
+fileType:file.type
+})
+})
+.then(r=>r.text())
+.then(d=>{
+document.getElementById("status").innerHTML="✅ Post Published Successfully";
+});
 
-        let posts = JSON.parse(localStorage.getItem("posts")) || [];
-
-        posts.unshift({
-            title,
-            desc,
-            img: reader.result,
-            date: new Date().toLocaleString()
-        });
-
-        localStorage.setItem("posts", JSON.stringify(posts));
-
-        loadPosts();
-
-        alert("Post Added");
-    }
-
-    if(file){
-        reader.readAsDataURL(file);
-    }else{
-        let posts = JSON.parse(localStorage.getItem("posts")) || [];
-
-        posts.unshift({
-            title,
-            desc,
-            img:"",
-            date: new Date().toLocaleString()
-        });
-
-        localStorage.setItem("posts", JSON.stringify(posts));
-
-        loadPosts();
-    }
 }
 
-// LOAD POSTS
-function loadPosts(){
-
-    let posts = JSON.parse(localStorage.getItem("posts")) || [];
-
-    let html="";
-
-    posts.forEach((p,i)=>{
-        html+=`
-        <div class="post">
-            <h3>${p.title}</h3>
-            <p>${p.desc}</p>
-            ${p.img ? `<img src="${p.img}">` : ""}
-            <small>${p.date}</small>
-            <br><button onclick="del(${i})">Delete</button>
-        </div>`;
-    });
-
-    document.getElementById("posts").innerHTML = html;
 }
 
-// DELETE
-function del(i){
-    let posts = JSON.parse(localStorage.getItem("posts")) || [];
-    posts.splice(i,1);
-    localStorage.setItem("posts", JSON.stringify(posts));
-    loadPosts();
 }
-
-loadPosts();
-
 </script>
 
 </body>
