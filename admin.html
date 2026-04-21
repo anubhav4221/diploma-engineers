@@ -1,121 +1,229 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Panel</title>
 
 <style>
-body{margin:0;font-family:sans-serif;background:#0f2027;color:white;}
-.sidebar{background:#111;padding:15px;}
-.sidebar button{width:100%;margin:5px 0;padding:10px;}
-.main{padding:15px;}
-.card{background:#111;padding:15px;margin:10px 0;border-radius:8px;}
-input,textarea{width:100%;padding:10px;margin:5px 0;background:#222;color:white;border:none;}
-.post img{width:100%;margin-top:10px;}
+body{
+    margin:0;
+    font-family:'Segoe UI';
+    background:#0b1220;
+    color:white;
+}
+
+/* HEADER */
+header{
+    background:#111a2e;
+    padding:15px;
+    text-align:center;
+    color:#00d4ff;
+    font-weight:bold;
+}
+
+/* LAYOUT */
+.container{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+/* SIDEBAR */
+.sidebar{
+    width:220px;
+    background:#121a2b;
+    min-height:100vh;
+    padding:15px;
+}
+
+.sidebar button{
+    width:100%;
+    margin:8px 0;
+    padding:10px;
+    background:#1e2a44;
+    border:none;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.sidebar button:hover{
+    background:#00d4ff;
+    color:black;
+}
+
+/* MAIN */
+.main{
+    flex:1;
+    padding:15px;
+}
+
+.card{
+    background:#121a2b;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:15px;
+}
+
+input,textarea{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border:none;
+    border-radius:8px;
+    background:#1e2a44;
+    color:white;
+}
+
+button.publish{
+    background:#00d4ff;
+    color:black;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    width:100%;
+    cursor:pointer;
+}
+
+/* POST */
+.post{
+    background:#1a243a;
+    padding:10px;
+    margin:10px 0;
+    border-radius:10px;
+}
+
+.post img{
+    width:100%;
+    border-radius:10px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .sidebar{
+        width:100%;
+        min-height:auto;
+    }
+}
 </style>
 </head>
 <body>
 
+<header>🔥 Admin Panel</header>
+
+<div class="container">
+
+<!-- SIDEBAR -->
 <div class="sidebar">
-<button onclick="show('add')">Add Post</button>
-<button onclick="show('manage')">Manage</button>
+    <button onclick="show('add')">➕ Add Post</button>
+    <button onclick="show('manage')">📄 Manage</button>
 </div>
 
+<!-- MAIN -->
 <div class="main">
 
 <div id="add" class="card">
-<h3>Add Post</h3>
-<input id="title" placeholder="Title">
+<h3>Add New Post</h3>
+
+<input type="text" id="title" placeholder="Title">
 <textarea id="desc" placeholder="Description"></textarea>
 <input type="file" id="img">
-<input type="file" id="pdf">
-<button onclick="addPost()">Publish</button>
+
+<button class="publish" onclick="addPost()">Publish</button>
 </div>
 
 <div id="manage" class="card" style="display:none;">
-<h3>Posts</h3>
+<h3>All Posts</h3>
 <div id="posts"></div>
 </div>
 
 </div>
+</div>
 
-<!-- Firebase -->
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc } 
-from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+<script>
 
-const firebaseConfig = {
-  apiKey: "PASTE_YOUR_KEY",
-  authDomain: "XXXX",
-  projectId: "XXXX"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-// Cloudinary Upload
-async function upload(file){
-    const fd = new FormData();
-    fd.append("file", file);
-    fd.append("upload_preset", "mypreset");
-
-    const res = await fetch("https://api.cloudinary.com/v1_1/ddxfmmfko/upload", {
-        method:"POST",
-        body:fd
-    });
-
-    const data = await res.json();
-    return data.secure_url || "";
+function show(id){
+    document.getElementById("add").style.display="none";
+    document.getElementById("manage").style.display="none";
+    document.getElementById(id).style.display="block";
 }
 
-// Add Post
-window.addPost = async function(){
-    const title = document.getElementById("title").value;
-    const desc = document.getElementById("desc").value;
+// ADD POST
+function addPost(){
 
-    const imgFile = document.getElementById("img").files[0];
-    const pdfFile = document.getElementById("pdf").files[0];
+    let title = document.getElementById("title").value;
+    let desc = document.getElementById("desc").value;
+    let file = document.getElementById("img").files[0];
 
-    let imgURL = imgFile ? await upload(imgFile) : "";
-    let pdfURL = pdfFile ? await upload(pdfFile) : "";
+    let reader = new FileReader();
 
-    await addDoc(collection(db, "posts"), {
-        title, desc, img: imgURL, pdf: pdfURL,
-        date: new Date().toLocaleString()
-    });
+    reader.onload = function(){
 
-    alert("Post Added");
-    loadPosts();
+        let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+        posts.unshift({
+            title,
+            desc,
+            img: reader.result,
+            date: new Date().toLocaleString()
+        });
+
+        localStorage.setItem("posts", JSON.stringify(posts));
+
+        loadPosts();
+
+        alert("Post Added");
+    }
+
+    if(file){
+        reader.readAsDataURL(file);
+    }else{
+        let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+        posts.unshift({
+            title,
+            desc,
+            img:"",
+            date: new Date().toLocaleString()
+        });
+
+        localStorage.setItem("posts", JSON.stringify(posts));
+
+        loadPosts();
+    }
 }
 
-// Load Posts
-async function loadPosts(){
-    const querySnapshot = await getDocs(collection(db, "posts"));
+// LOAD POSTS
+function loadPosts(){
+
+    let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
     let html="";
 
-    querySnapshot.forEach(docSnap=>{
-        const p = docSnap.data();
+    posts.forEach((p,i)=>{
         html+=`
         <div class="post">
             <h3>${p.title}</h3>
             <p>${p.desc}</p>
             ${p.img ? `<img src="${p.img}">` : ""}
-            ${p.pdf ? `<a href="${p.pdf}" target="_blank">📄 PDF</a>` : ""}
+            <small>${p.date}</small>
+            <br><button onclick="del(${i})">Delete</button>
         </div>`;
     });
 
-    document.getElementById("posts").innerHTML=html;
+    document.getElementById("posts").innerHTML = html;
+}
+
+// DELETE
+function del(i){
+    let posts = JSON.parse(localStorage.getItem("posts")) || [];
+    posts.splice(i,1);
+    localStorage.setItem("posts", JSON.stringify(posts));
+    loadPosts();
 }
 
 loadPosts();
 
-// Navigation
-window.show = function(id){
-    document.getElementById("add").style.display="none";
-    document.getElementById("manage").style.display="none";
-    document.getElementById(id).style.display="block";
-}
 </script>
 
 </body>
