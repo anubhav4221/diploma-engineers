@@ -83,22 +83,47 @@ button:hover{
 <body>
 
 <div class="header">
-BTEUP RESULT PORTAL
-</div>
+<div class="main-wrapper">
+    <div class="result-card">
+        <div class="card-header">
+            <h1><i class="fas fa-link"></i> BTE Revaluation Result</h1>
+            <p>Fast & secure access to your Odd Semester re-check result</p>
+            <div class="developer-badge">
 
-<div class="container">
-    <div class="card">
-        <h2>Check Result</h2>
+        </div>
+        <div class="card-body">
+            <div class="input-field">
+                <label><i class="fas fa-id-card"></i> Enrollment Number</label>
+                <input type="text" id="enrollNo" placeholder="Example: E25111033800024 or 25111033800024" value="E25111033800024">
+                <div class="helper-tip"><i class="fas fa-info-circle"></i> Enter full enrollment (with or without 'E')</div>
+                <div class="error-msg" id="enrollError"><i class="fas fa-exclamation-triangle"></i> Enrollment number is required</div>
+            </div>
+            <div class="input-field">
+                <label><i class="fas fa-calendar-alt"></i> Date of Birth</label>
+                <input type="text" id="dobInput" placeholder="DD/MM/YYYY" value="27/04/2008">
+                <div class="helper-tip"><i class="fas fa-calendar-check"></i> Format: DD/MM/YYYY (eg. 27/04/2008)</div>
+                <div class="error-msg" id="dobError"><i class="fas fa-exclamation-triangle"></i> Enter valid DOB in DD/MM/YYYY format</div>
+            </div>
 
-        <input type="text" placeholder="Enrollment Number">
-        <div class="note">Example: E1610933000002</div>
+            <button class="btn-generate" id="generateBtn">
+                <span>Generate Result Link</span>
+                <i class="fas fa-arrow-right"></i>
+                <div class="spinner"></div>
+            </button>
 
-        <input type="text" placeholder="Date of Birth (DD/MM/YYYY)">
-        <div class="note">Example: 28/09/2000</div>
+            <div class="success-area" id="successMsg">
+                <i class="fas fa-check-circle"></i>
+                <span>✅ Link generated successfully! Click below to view your result.</span>
+            </div>
 
-        <button>Show Result</button>
+            <button class="btn-result" id="viewResultBtn">
+                <i class="fas fa-external-link-alt"></i> Open Result in New Tab
+                <i class="fas fa-graduation-cap"></i>
+            </button>
+
+            <div class="helper-tip" style="margin-top: 25px; text-align: center; border-top: 1px solid #eef2f0; padding-top: 18px;">
+                <i class="fas fa-shield-alt"></i> Official BTE result portal | Secure revaluation access
+            </div>
+        </div>
     </div>
 </div>
-
-</body>
-</html>
