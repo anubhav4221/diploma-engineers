@@ -4,44 +4,44 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Result - Diploma Engineers</title>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>BTEUP Result</title>
 
 <style>
 body{
-    background:#000;
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
     color:white;
-    font-family:'Poppins',sans-serif;
 }
 
-/* NAVBAR */
-.navbar{
-    background:#0a0a0a;
-    border-bottom:1px solid #222;
-}
-
-/* BACK BUTTON */
-.back-btn{
-    color:#22c55e;
-    border:1px solid #22c55e;
-    padding:5px 15px;
-    border-radius:20px;
-    text-decoration:none;
-}
-.back-btn:hover{
-    background:#22c55e;
-    color:#000;
+/* HEADER */
+.header{
+    background:#020617;
+    padding:15px;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
 }
 
 /* CARD */
-.result-box{
-    background:#111;
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:80vh;
+}
+
+.card{
+    background:#1e293b;
     padding:30px;
-    border-radius:20px;
-    max-width:500px;
-    margin:50px auto;
-    border:1px solid #222;
+    border-radius:12px;
+    width:350px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+.card h2{
+    text-align:center;
+    margin-bottom:20px;
 }
 
 /* INPUT */
@@ -49,9 +49,9 @@ input{
     width:100%;
     padding:12px;
     margin:10px 0;
-    border-radius:10px;
-    border:1px solid #333;
-    background:#000;
+    border:none;
+    border-radius:6px;
+    background:#0f172a;
     color:white;
 }
 
@@ -59,159 +59,46 @@ input{
 button{
     width:100%;
     padding:12px;
-    background:#22c55e;
+    background:#3b82f6;
     border:none;
-    border-radius:10px;
-    color:black;
-    font-weight:bold;
+    border-radius:6px;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
 }
 
-button.loading{
-    opacity:0.6;
+button:hover{
+    background:#2563eb;
 }
 
-/* SUCCESS */
-.success{
-    display:none;
-    margin-top:15px;
-    color:#22c55e;
-    text-align:center;
-}
-.success.active{
-    display:block;
-}
-
-/* VIEW BUTTON */
-.view-btn{
-    display:none;
-    margin-top:10px;
-}
-.view-btn.active{
-    display:block;
+/* NOTE */
+.note{
+    font-size:12px;
+    color:#f87171;
+    margin-top:5px;
 }
 </style>
-</head>
 
+</head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar p-3">
-<div class="container d-flex justify-content-between">
-<a href="index.html" class="back-btn">⬅ Back</a>
-<span class="text-success fw-bold">Diploma Engineers</span>
-</div>
-</nav>
-
-<!-- RESULT BOX -->
-<div class="result-box">
-
-<h3 class="text-center text-success">🎓 Check Result</h3>
-
-<input type="text" id="enroll" placeholder="Enrollment Number">
-<div id="enrollError" style="color:red;font-size:12px;"></div>
-
-<input type="text" id="dob" placeholder="DD/MM/YYYY">
-<div id="dobError" style="color:red;font-size:12px;"></div>
-
-<button id="generateBtn" onclick="handleGenerate()">Get Result</button>
-
-<div id="successMsg" class="success">✅ Result Generated Successfully</div>
-
-<button id="viewBtn" class="view-btn btn btn-success" onclick="openResult()">View Result</button>
-
+<div class="header">
+BTEUP RESULT PORTAL
 </div>
 
-<script>
-let enrollInput = document.getElementById("enroll");
-let dobInput = document.getElementById("dob");
-let generateBtn = document.getElementById("generateBtn");
+<div class="container">
+    <div class="card">
+        <h2>Check Result</h2>
 
-let successMsgDiv = document.getElementById("successMsg");
-let viewResultBtn = document.getElementById("viewBtn");
+        <input type="text" placeholder="Enrollment Number">
+        <div class="note">Example: E1610933000002</div>
 
-let generatedFinalUrl = "";
+        <input type="text" placeholder="Date of Birth (DD/MM/YYYY)">
+        <div class="note">Example: 28/09/2000</div>
 
-/* RESET */
-function resetErrors(){
-    document.getElementById("enrollError").innerText = "";
-    document.getElementById("dobError").innerText = "";
-}
-
-/* SHOW ERRORS */
-function showEnrollError(msg){
-    document.getElementById("enrollError").innerText = msg;
-}
-function showDobError(msg){
-    document.getElementById("dobError").innerText = msg;
-}
-
-/* DOB VALIDATION */
-function isValidDOB(dob){
-    return /^\d{2}\/\d{2}\/\d{4}$/.test(dob);
-}
-
-/* GENERATE URL (EDIT IF NEEDED) */
-function generateResultUrl(enroll, dob){
-    return `https://bteup.ac.in/webapp/StudentResult.aspx?enroll=${enroll}&dob=${dob}`;
-}
-
-/* MAIN FUNCTION */
-function handleGenerate() {
-    resetErrors();
-
-    let enrollVal = enrollInput.value.trim();
-    let dobVal = dobInput.value.trim();
-
-    let hasError = false;
-
-    if (enrollVal === "") {
-        showEnrollError("Enrollment number cannot be empty");
-        hasError = true;
-    }
-
-    if (dobVal === "") {
-        showDobError("Date of Birth is required");
-        hasError = true;
-    } else if (!isValidDOB(dobVal)) {
-        showDobError("Use DD/MM/YYYY format (example: 27/04/2008)");
-        hasError = true;
-    }
-
-    if (hasError) return;
-
-    generateBtn.classList.add('loading');
-    generateBtn.disabled = true;
-
-    setTimeout(() => {
-        generatedFinalUrl = generateResultUrl(enrollVal, dobVal);
-
-        successMsgDiv.classList.add('active');
-        viewResultBtn.classList.add('active');
-
-        generateBtn.classList.remove('loading');
-        generateBtn.disabled = false;
-
-    }, 500);
-}
-
-/* OPEN RESULT */
-function openResult(){
-    window.open(generatedFinalUrl, "_blank");
-}
-</script>
+        <button>Show Result</button>
+    </div>
+</div>
 
 </body>
 </html>
-<!-- FOOTER -->
-<div id="footer"></div>
-
-<script>
-fetch("footer.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("footer").innerHTML = data;
-  });
-</script>
-
-
-     
