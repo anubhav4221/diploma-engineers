@@ -3,45 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diploma Engineers | BTE Result</title>
 
-<title>Diploma Engineers | Result Tool</title>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 body{
-    background:#000;
+    margin:0;
+    font-family:'Segoe UI';
+    background:#0b1220;
     color:white;
-    font-family:'Poppins',sans-serif;
 }
 
 /* NAVBAR */
 .navbar{
-    background:#0a0a0a;
-    border-bottom:1px solid #222;
+    background:#111827;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-/* BACK BUTTON */
-.back-btn{
+.logo{
+    font-weight:bold;
     color:#22c55e;
-    border:1px solid #22c55e;
-    padding:5px 15px;
-    border-radius:20px;
-    text-decoration:none;
-}
-.back-btn:hover{
-    background:#22c55e;
-    color:#000;
 }
 
 /* CARD */
-.result-card{
+.card{
+    max-width:450px;
+    margin:60px auto;
     background:#111;
     padding:30px;
     border-radius:20px;
-    max-width:500px;
-    margin:60px auto;
     border:1px solid #222;
 }
 
@@ -57,42 +51,36 @@ input{
 }
 
 /* BUTTON */
-.btn-main{
+button{
     width:100%;
     padding:12px;
+    margin-top:10px;
     background:#22c55e;
     border:none;
     border-radius:10px;
-    color:black;
     font-weight:bold;
-    margin-top:10px;
-}
-
-/* ERROR */
-.error{
-    color:#ef4444;
-    display:none;
-}
-.error.active{
-    display:block;
+    cursor:pointer;
 }
 
 /* SUCCESS */
 .success{
     display:none;
+    margin-top:15px;
     color:#22c55e;
     text-align:center;
-    margin-top:15px;
 }
+
 .success.active{
     display:block;
 }
 
 /* VIEW BUTTON */
-.view-btn{
+.view{
     display:none;
+    margin-top:10px;
 }
-.view-btn.active{
+
+.view.active{
     display:block;
 }
 </style>
@@ -100,103 +88,61 @@ input{
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar p-3">
-<div class="container d-flex justify-content-between">
-<a href="index.html" class="back-btn">⬅ Back</a>
-<span class="text-success fw-bold">Diploma Engineers</span>
+<div class="navbar">
+    <div class="logo">Diploma Engineers</div>
 </div>
-</nav>
 
-<!-- CARD -->
-<div class="result-card">
+<div class="card">
+    <h2>BTE Revaluation Result</h2>
 
-<h3 class="text-center mb-3">BTE Result Link Generator</h3>
+    <input type="text" id="enroll" placeholder="Enrollment No (E251...)" />
+    <input type="text" id="dob" placeholder="DD/MM/YYYY" />
 
-<input type="text" id="enrollNo" placeholder="Enrollment Number (E251....)">
-<div id="enrollError" class="error">Enter valid Enrollment</div>
+    <button onclick="generate()">Generate Link</button>
 
-<input type="text" id="dobInput" placeholder="DOB (DD/MM/YYYY)">
-<div id="dobError" class="error">Enter valid DOB</div>
+    <div class="success" id="msg">✅ Link Generated</div>
 
-<button id="generateBtn" class="btn-main">Generate Link</button>
-
-<div id="successMsg" class="success">✅ Link Generated Successfully</div>
-
-<button id="viewBtn" class="btn-main view-btn">View Result</button>
-
+    <button class="view" id="openBtn" onclick="openResult()">Open Result</button>
 </div>
 
 <script>
-
-// elements
-const enroll = document.getElementById("enrollNo");
-const dob = document.getElementById("dobInput");
-const genBtn = document.getElementById("generateBtn");
-const viewBtn = document.getElementById("viewBtn");
-
-const enrollErr = document.getElementById("enrollError");
-const dobErr = document.getElementById("dobError");
-const success = document.getElementById("successMsg");
-
-let finalUrl = "";
+let finalURL = "";
 
 // DOB validation
 function validDOB(d){
-    const r = /^(\d{2})\/(\d{2})\/(\d{4})$/;
-    if(!r.test(d)) return false;
-    let [day,month,year] = d.split('/').map(Number);
-    let max = new Date(year,month,0).getDate();
-    return day>=1 && day<=max;
+    return /^(\d{2})\/(\d{2})\/(\d{4})$/.test(d);
 }
 
-// GENERATE
-genBtn.onclick = () => {
+// MAIN LOGIC (FINAL CORRECT)
+function generate(){
+    let enroll = document.getElementById("enroll").value.trim();
+    let dob = document.getElementById("dob").value.trim();
 
-    enrollErr.classList.remove("active");
-    dobErr.classList.remove("active");
-
-    let e = enroll.value.trim();
-    let d = dob.value.trim();
-
-    let error = false;
-
-    if(e===""){
-        enrollErr.classList.add("active");
-        error=true;
+    if(!enroll){
+        alert("Enter Enrollment");
+        return;
     }
 
-    if(!validDOB(d)){
-        dobErr.classList.add("active");
-        error=true;
+    if(!validDOB(dob)){
+        alert("Enter DOB in DD/MM/YYYY");
+        return;
     }
 
-    if(error) return;
+    let encEnroll = btoa(enroll); // KEEP E
+    let encDob = encodeURIComponent(btoa(dob));
 
-    // ✅ IMPORTANT FIX (KEEP E)
-    let encEnroll = btoa(e);
-    let encDob = encodeURIComponent(btoa(d));
+    finalURL = `https://result.bteexam.com/Odd_Semester/reval/REVAL_RollNo.aspx?id=${encEnroll}&id2=${encDob}`;
 
-    finalUrl = `https://result.bteexam.com/Odd_Semester/reval/REVAL_RollNo.aspx?id=${encEnroll}&id2=${encDob}`;
+    document.getElementById("msg").classList.add("active");
+    document.getElementById("openBtn").classList.add("active");
+}
 
-    success.classList.add("active");
-    viewBtn.classList.add("active");
-};
-
-// VIEW RESULT
-viewBtn.onclick = () => {
-    if(finalUrl){
-        window.open(finalUrl,"_blank");
+// OPEN RESULT
+function openResult(){
+    if(finalURL){
+        window.open(finalURL, "_blank");
     }
-};
-
-// ENTER KEY
-[enroll,dob].forEach(i=>{
-    i.addEventListener("keypress",e=>{
-        if(e.key==="Enter") genBtn.click();
-    });
-});
-
+}
 </script>
 
 </body>
