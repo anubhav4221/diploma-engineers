@@ -17,16 +17,9 @@ body{
 
 /* NAVBAR */
 .navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
     padding:15px 25px;
     background:#020617;
     border-bottom:1px solid #1e293b;
-}
-
-.logo{
-    font-size:20px;
     font-weight:bold;
     color:#22c55e;
 }
@@ -49,33 +42,11 @@ body{
     box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* HEADER */
-.card h2{
-    text-align:center;
-    margin-bottom:5px;
-}
-
-.card p{
-    text-align:center;
-    color:#94a3b8;
-    font-size:14px;
-    margin-bottom:20px;
-}
-
 /* INPUT */
-.input-box{
-    margin-bottom:15px;
-}
-
-.input-box label{
-    font-size:14px;
-    color:#cbd5f5;
-}
-
-.input-box input{
+input{
     width:100%;
     padding:12px;
-    margin-top:5px;
+    margin:10px 0;
     border-radius:10px;
     border:1px solid #334155;
     background:#020617;
@@ -83,7 +54,7 @@ body{
 }
 
 /* BUTTON */
-.btn{
+button{
     width:100%;
     padding:12px;
     margin-top:10px;
@@ -92,73 +63,89 @@ body{
     border-radius:10px;
     font-weight:bold;
     cursor:pointer;
-    transition:0.3s;
-}
-
-.btn:hover{
-    background:#16a34a;
 }
 
 /* SUCCESS */
 .success{
     display:none;
     margin-top:15px;
-    background:#022c22;
-    padding:10px;
-    border-radius:10px;
     text-align:center;
     color:#22c55e;
 }
+.success.active{ display:block; }
 
-.success.active{
-    display:block;
-}
-
-/* RESULT BUTTON */
-.view-btn{
+/* VIEW BUTTON */
+.view{
     display:none;
-    margin-top:10px;
     background:#0ea5e9;
 }
-
-.view-btn.active{
-    display:block;
-}
+.view.active{ display:block; }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="logo">🎓 Diploma Engineers</div>
-</div>
+<div class="navbar">🎓 Diploma Engineers</div>
 
-<!-- MAIN -->
 <div class="container">
     <div class="card">
 
         <h2>Revaluation Result</h2>
-        <p>Check your BTE Odd Semester Re-check Result</p>
 
-        <div class="input-box">
-            <label>Enrollment Number</label>
-            <input type="text" placeholder="E25111033800024">
-        </div>
+        <input type="text" id="enroll" placeholder="Enrollment (E251...)" />
+        <input type="text" id="dob" placeholder="DD/MM/YYYY" />
 
-        <div class="input-box">
-            <label>Date of Birth</label>
-            <input type="text" placeholder="DD/MM/YYYY">
-        </div>
+        <button onclick="generate()">Generate Link</button>
 
-        <button class="btn">Generate Result Link</button>
+        <div class="success" id="msg">✅ Link Generated Successfully</div>
 
-        <div class="success">✅ Link Generated Successfully</div>
-
-        <button class="btn view-btn">View Result</button>
+        <button class="view" id="openBtn" onclick="openResult()">Open Result</button>
 
     </div>
 </div>
+
+<script>
+let finalURL = "";
+
+// DOB validation
+function validDOB(d){
+    return /^(\d{2})\/(\d{2})\/(\d{4})$/.test(d);
+}
+
+// GENERATE LINK
+function generate(){
+    let enroll = document.getElementById("enroll").value.trim();
+    let dob = document.getElementById("dob").value.trim();
+
+    if(!enroll){
+        alert("Enter Enrollment Number");
+        return;
+    }
+
+    if(!validDOB(dob)){
+        alert("Enter DOB in DD/MM/YYYY");
+        return;
+    }
+
+    // ✅ FINAL WORKING LOGIC
+    let encEnroll = btoa(enroll); // KEEP E
+    let encDob = encodeURIComponent(btoa(dob));
+
+    finalURL = `https://result.bteexam.com/Odd_Semester/reval/REVAL_RollNo.aspx?id=${encEnroll}&id2=${encDob}`;
+
+    document.getElementById("msg").classList.add("active");
+    document.getElementById("openBtn").classList.add("active");
+}
+
+// OPEN RESULT
+function openResult(){
+    if(finalURL){
+        window.open(finalURL, "_blank");
+    }else{
+        alert("Generate link first");
+    }
+}
+</script>
 
 </body>
 </html>
