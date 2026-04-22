@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BTE Result | Diploma Engineers</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI';
+    background:linear-gradient(135deg,#020617,#0f172a);
+    color:white;
+}
+
+/* NAVBAR */
+.navbar{
+    padding:15px 25px;
+    background:#020617;
+    border-bottom:1px solid #1e293b;
+    font-weight:bold;
+    color:#22c55e;
+}
+
+/* MAIN */
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:90vh;
+}
+
+/* CARD */
+.card{
+    width:420px;
+    background:#0f172a;
+    border:1px solid #1e293b;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* INPUT */
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:10px;
+    border:1px solid #334155;
+    background:#020617;
+    color:white;
+}
+
+/* BUTTON */
+button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    background:#22c55e;
+    border:none;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* SUCCESS */
+.success{
+    display:none;
+    margin-top:15px;
+    text-align:center;
+    color:#22c55e;
+}
+.success.active{ display:block; }
+
+/* VIEW BUTTON */
+.view{
+    display:none;
+    background:#0ea5e9;
+}
+.view.active{ display:block; }
+</style>
+</head>
+
+<body>
+
+<div class="navbar">🎓 Diploma Engineers</div>
+
+<div class="container">
+    <div class="card">
+
+        <h2>Main Result</h2>
+
+        <input type="text" id="enroll" placeholder="Enrollment Number (E251...)" />
+        <input type="text" id="dob" placeholder="DD/MM/YYYY" />
+
+        <button onclick="generate()">Generate Result Link</button>
+
+        <div class="success" id="msg">✅ Link Generated Successfully</div>
+
+        <button class="view" id="openBtn" onclick="openResult()">Open Result</button>
+
+    </div>
+</div>
+
+<script>
+let finalURL = "";
+
+// DOB validation
+function validDOB(d){
+    return /^(\d{2})\/(\d{2})\/(\d{4})$/.test(d);
+}
+
+// GENERATE LINK
+function generate(){
+    let enroll = document.getElementById("enroll").value.trim();
+    let dob = document.getElementById("dob").value.trim();
+
+    if(!enroll){
+        alert("Enter Enrollment Number");
+        return;
+    }
+
+    if(!validDOB(dob)){
+        alert("Enter DOB in DD/MM/YYYY");
+        return;
+    }
+
+    // ✅ MAIN RESULT LOGIC
+    let encEnroll = btoa(enroll);
+    let encDob = encodeURIComponent(btoa(dob));
+
+    finalURL = `https://result.bteexam.com/Odd_Semester/RollNo.aspx?id=${encEnroll}&id2=${encDob}`;
+
+    document.getElementById("msg").classList.add("active");
+    document.getElementById("openBtn").classList.add("active");
+}
+
+// OPEN RESULT
+function openResult(){
+    if(finalURL){
+        window.open(finalURL, "_blank");
+    }else{
+        alert("Generate link first");
+    }
+}
+</script>
+
+</body>
+</html>
