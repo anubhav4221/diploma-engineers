@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diploma Engineers | BTE Result</title>
+<title>Select Result | Diploma Engineers</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -11,137 +11,111 @@
 body{
     margin:0;
     font-family:'Segoe UI';
-    background:#0b1220;
+    background:linear-gradient(135deg,#020617,#0f172a);
     color:white;
 }
 
 /* NAVBAR */
 .navbar{
-    background:#111827;
-    padding:15px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    padding:15px 20px;
+    background:#020617;
+    border-bottom:1px solid #1e293b;
 }
 
-.logo{
+.back{
+    color:#22c55e;
+    text-decoration:none;
+    border:1px solid #22c55e;
+    padding:5px 15px;
+    border-radius:20px;
+}
+
+.title{
     font-weight:bold;
     color:#22c55e;
+}
+
+/* MAIN */
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:90vh;
 }
 
 /* CARD */
 .card{
-    max-width:450px;
-    margin:60px auto;
+    width:420px;
     background:#111;
     padding:30px;
     border-radius:20px;
     border:1px solid #222;
-}
-
-/* INPUT */
-input{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    border-radius:10px;
-    border:1px solid #333;
-    background:#000;
-    color:white;
-}
-
-/* BUTTON */
-button{
-    width:100%;
-    padding:12px;
-    margin-top:10px;
-    background:#22c55e;
-    border:none;
-    border-radius:10px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-/* SUCCESS */
-.success{
-    display:none;
-    margin-top:15px;
-    color:#22c55e;
     text-align:center;
 }
 
-.success.active{
-    display:block;
+/* BUTTON */
+.option{
+    width:100%;
+    padding:15px;
+    margin:10px 0;
+    border-radius:12px;
+    border:none;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
 }
 
-/* VIEW BUTTON */
-.view{
-    display:none;
-    margin-top:10px;
+.main-btn{
+    background:#22c55e;
 }
 
-.view.active{
-    display:block;
+.reval-btn{
+    background:#0ea5e9;
+}
+
+.option:hover{
+    transform:scale(1.03);
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <div class="navbar">
-    <div class="logo">Diploma Engineers</div>
+    <a href="index.html" class="back">⬅ Back</a>
+    <div class="title">Diploma Engineers</div>
 </div>
 
-<div class="card">
-    <h2>BTE Revaluation Result</h2>
+<!-- MAIN -->
+<div class="container">
+    <div class="card">
 
-    <input type="text" id="enroll" placeholder="Enrollment No (E251...)" />
-    <input type="text" id="dob" placeholder="DD/MM/YYYY" />
+        <h2>Select Result Type</h2>
+        <p style="color:#aaa;">Choose which result you want to check</p>
 
-    <button onclick="generate()">Generate Link</button>
+        <button class="option main-btn" onclick="goMain()">
+            📄 Main Result
+        </button>
 
-    <div class="success" id="msg">✅ Link Generated</div>
+        <button class="option reval-btn" onclick="goReval()">
+            🔁 Revaluation Result
+        </button>
 
-    <button class="view" id="openBtn" onclick="openResult()">Open Result</button>
+    </div>
 </div>
 
 <script>
-let finalURL = "";
-
-// DOB validation
-function validDOB(d){
-    return /^(\d{2})\/(\d{2})\/(\d{4})$/.test(d);
+function goMain(){
+    window.location.href = "main-result.html";
 }
 
-// MAIN LOGIC (FINAL CORRECT)
-function generate(){
-    let enroll = document.getElementById("enroll").value.trim();
-    let dob = document.getElementById("dob").value.trim();
-
-    if(!enroll){
-        alert("Enter Enrollment");
-        return;
-    }
-
-    if(!validDOB(dob)){
-        alert("Enter DOB in DD/MM/YYYY");
-        return;
-    }
-
-    let encEnroll = btoa(enroll); // KEEP E
-    let encDob = encodeURIComponent(btoa(dob));
-
-    finalURL = `https://result.bteexam.com/Odd_Semester/reval/REVAL_RollNo.aspx?id=${encEnroll}&id2=${encDob}`;
-
-    document.getElementById("msg").classList.add("active");
-    document.getElementById("openBtn").classList.add("active");
-}
-
-// OPEN RESULT
-function openResult(){
-    if(finalURL){
-        window.open(finalURL, "_blank");
-    }
+function goReval(){
+    window.location.href = "reval-result.html";
 }
 </script>
 
