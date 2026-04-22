@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BTE Result | Diploma Engineers</title>
+<title>BTE UP Result 2025</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -11,35 +11,28 @@
 body{
     margin:0;
     font-family:'Segoe UI';
-    background:linear-gradient(135deg,#020617,#0f172a);
+    background:#0b1220;
     color:white;
 }
 
-/* NAVBAR */
-.navbar{
-    padding:15px 25px;
+/* HEADER */
+.header{
     background:#020617;
+    padding:15px;
+    text-align:center;
     border-bottom:1px solid #1e293b;
-    font-weight:bold;
     color:#22c55e;
-}
-
-/* MAIN */
-.container{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:90vh;
+    font-weight:bold;
 }
 
 /* CARD */
 .card{
-    width:420px;
-    background:#0f172a;
-    border:1px solid #1e293b;
-    border-radius:20px;
+    max-width:450px;
+    margin:60px auto;
+    background:#111;
     padding:30px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+    border-radius:20px;
+    border:1px solid #222;
 }
 
 /* INPUT */
@@ -48,8 +41,8 @@ input{
     padding:12px;
     margin:10px 0;
     border-radius:10px;
-    border:1px solid #334155;
-    background:#020617;
+    border:1px solid #333;
+    background:#000;
     color:white;
 }
 
@@ -74,7 +67,7 @@ button{
 }
 .success.active{ display:block; }
 
-/* VIEW BUTTON */
+/* VIEW */
 .view{
     display:none;
     background:#0ea5e9;
@@ -85,23 +78,23 @@ button{
 
 <body>
 
-<div class="navbar">🎓 Diploma Engineers</div>
+<div class="header">
+🎓 BTE UP ODD Semester Result 2025
+</div>
 
-<div class="container">
-    <div class="card">
+<div class="card">
 
-        <h2>Main Result</h2>
+    <h2>Main Result (New Portal)</h2>
 
-        <input type="text" id="enroll" placeholder="Enrollment Number (E251...)" />
-        <input type="text" id="dob" placeholder="DD/MM/YYYY" />
+    <input type="text" id="enroll" placeholder="Enrollment (E23222532200062)" />
+    <input type="text" id="dob" placeholder="DD/MM/YYYY" />
 
-        <button onclick="generate()">Generate Result Link</button>
+    <button onclick="generate()">Generate Result Link</button>
 
-        <div class="success" id="msg">✅ Link Generated Successfully</div>
+    <div class="success" id="msg">✅ Link Generated Successfully</div>
 
-        <button class="view" id="openBtn" onclick="openResult()">Open Result</button>
+    <button class="view" id="openBtn" onclick="openResult()">Open Result</button>
 
-    </div>
 </div>
 
 <script>
@@ -112,7 +105,7 @@ function validDOB(d){
     return /^(\d{2})\/(\d{2})\/(\d{4})$/.test(d);
 }
 
-// GENERATE LINK
+// MAIN LOGIC (NEW WEBSITE)
 function generate(){
     let enroll = document.getElementById("enroll").value.trim();
     let dob = document.getElementById("dob").value.trim();
@@ -127,11 +120,11 @@ function generate(){
         return;
     }
 
-    // ✅ MAIN RESULT LOGIC
+    // ✅ NEW BTE LOGIC
     let encEnroll = btoa(enroll);
-    let encDob = encodeURIComponent(btoa(dob));
+    let encDob = btoa(dob); // NO encodeURIComponent
 
-    finalURL = `https://result.bteexam.com/Odd_Semester/RollNo.aspx?id=${encEnroll}&id2=${encDob}`;
+    finalURL = `https://test.bteupexam.co.in/Odd_Semester/main/result.aspx?id=${encEnroll}&id2=${encDob}`;
 
     document.getElementById("msg").classList.add("active");
     document.getElementById("openBtn").classList.add("active");
