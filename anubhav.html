@@ -111,6 +111,82 @@ section{
     border-radius:20px;
     box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
+/* EDUCATION */
+.edu-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.edu-card{
+background:rgba(17,26,46,0.6);
+border-radius:20px;
+padding:25px;
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,0.08);
+position:relative;
+overflow:hidden;
+transition:0.4s;
+}
+
+.edu-card:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 15px 40px rgba(0,0,0,0.6);
+}
+
+.edu-card::before{
+content:"";
+position:absolute;
+width:200%;
+height:200%;
+background:linear-gradient(120deg,transparent,#38bdf8,transparent);
+transform:rotate(25deg);
+top:-100%;left:-100%;
+opacity:0;
+transition:0.3s;
+}
+
+.edu-card:hover::before{
+top:100%;left:100%;
+opacity:0.3;
+}
+
+.tag{
+font-size:12px;
+padding:5px 12px;
+border-radius:20px;
+display:inline-block;
+margin-bottom:10px;
+}
+
+.blue{background:#1e3a8a;}
+.purple{background:#7c3aed;}
+.green{background:#059669;}
+.orange{background:#f97316;}
+
+.progress{
+height:6px;
+background:#1e293b;
+border-radius:10px;
+margin-top:15px;
+overflow:hidden;
+}
+
+.bar{
+height:100%;
+background:#38bdf8;
+animation:load 2s ease;
+}
+
+@keyframes load{
+from{width:0;}
+}
+
+.percent{
+float:right;
+font-size:12px;
+margin-top:5px;
+}
 
 /* PROJECTS */
 .grid{
@@ -130,6 +206,26 @@ section{
     transform:translateY(-10px) scale(1.05);
     box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
+
+  /* Skills */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#111a2e;
+    padding:20px;
+    border-radius:15px;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.05);
+    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
 
 /* SCROLL */
 .hidden{
@@ -206,11 +302,20 @@ section{
 <body>
 
 <!-- SOCIAL -->
+
 <div class="social">
-    <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="https://wa.me/918957972019" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://instagram.com/@anubhav_gangwar7" target="_blank">
+        <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://linkedin.com/in/anubhav-gangwar-703395229/" target="_blank">
+        <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://github.com/anubhavgangwar" target="_blank">
+        <i class="fab fa-github"></i>
+    </a>
+    <a href="https://wa.me/918957972019" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 </div>
 
 
@@ -243,24 +348,62 @@ section{
     </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- Education -->
 <section class="hidden">
-    <h2>Projects</h2>
+    <h2>Education </h2>
+  <section class="edu-section hidden">
+
+    <div class="edu-card">
+        <span class="tag blue">FOUNDATION</span>
+        <h2>High School</h2>
+        <p>SIC Inter College</p>
+
+        <div class="progress">
+            <div class="bar" style="width:90%"></div>
+        </div>
+        <span class="percent">90%</span>
+    </div>
+
+    <div class="edu-card">
+        <span class="tag purple">CURRENT</span>
+        <h2>Diploma in Civil Engineering</h2>
+        <p>Government Polytechnic</p>
+
+        <div class="progress">
+            <div class="bar purple-bar" style="width:75%"></div>
+        </div>
+        <span class="percent">75%</span>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+<!-- Skills -->
+<section class="hidden">
+    <h2>Skills </h2>
+  <section class="edu-section hidden">
+
 
     <div class="grid">
         <div class="card">🏗 Residential Building Design</div>
-        <div class="card">🌉 Bridge Structural Analysis</div>
-        <div class="card">🧱 Concrete Mix Design</div>
+        <div class="card">🧱 Estimation & Costing </div>
         <div class="card">📐 AutoCAD Floor Plan</div>
         <div class="card">🏢 Site Layout Planning</div>
+        <div class="card">🌉 Computer work </div>
+        
     </div>
 </section>
 
 <!-- CONTACT -->
 <section class="hidden">
     <h2>Contact Me</h2>
-    <p>Email: anubhav@example.com</p>
-    <button class="btn">Hire Me</button>
+    <p>Email: anubhav4221.com</p>
+    <button class="btn">...</button>
 </section>
 
 <script>
@@ -280,3 +423,6 @@ document.querySelectorAll(".hidden").forEach(el=>{
 
 </body>
 </html>
+
+
+  
