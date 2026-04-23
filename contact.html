@@ -138,11 +138,19 @@ button:hover{
 
 <div class="contact-box">
 
-<form onsubmit="sendMsg(event)">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="email" id="email" placeholder="Your Email" required>
-    <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+<<form action="https://formsubmit.co/astar22072006@gmail.com" method="POST">
+
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+
+    <input type="text" name="name" placeholder="Your Name" required>
+
+    <input type="email" name="email" placeholder="Your Email" required>
+
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
     <button type="submit">Send Message</button>
+
 </form>
 
 </div>
