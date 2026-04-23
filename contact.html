@@ -16,27 +16,23 @@ body{
     min-height:100vh;
 }
 
-/* NAVBAR */
 .navbar{
     background:#0a0a0a;
     border-bottom:1px solid #222;
 }
 
-/* BACK BUTTON */
 .back-btn{
     color:#22c55e;
     border:1px solid #22c55e;
     padding:5px 15px;
     border-radius:20px;
     text-decoration:none;
-    transition:0.3s;
 }
 .back-btn:hover{
     background:#22c55e;
     color:#000;
 }
 
-/* CONTACT BOX */
 .contact-box{
     background:#111;
     padding:30px;
@@ -45,21 +41,15 @@ body{
     margin:40px auto;
     border:1px solid #222;
     box-shadow:0 0 20px rgba(34,197,94,0.1);
-    transition:0.3s;
+    backdrop-filter: blur(10px);
 }
 
-.contact-box:hover{
-    transform:translateY(-5px);
-}
-
-/* TITLE */
 h1{
     text-align:center;
     margin-top:20px;
     color:#22c55e;
 }
 
-/* INPUT */
 input, textarea{
     width:100%;
     padding:12px;
@@ -68,14 +58,12 @@ input, textarea{
     border:1px solid #333;
     background:#000;
     color:white;
-    outline:none;
 }
 
 input:focus, textarea:focus{
     border-color:#22c55e;
 }
 
-/* BUTTON */
 button{
     width:100%;
     padding:12px;
@@ -84,184 +72,30 @@ button{
     border-radius:10px;
     color:black;
     font-weight:600;
-    cursor:pointer;
-    transition:0.3s;
 }
 
 button:hover{
     background:#16a34a;
 }
 
-/* INFO */
 .info{
     text-align:center;
     margin-top:20px;
     color:#aaa;
 }
 
-/* SOCIAL */
-.social{
-    text-align:center;
-    margin-top:20px;
-}
-.social a{
-    margin:0 10px;
-    color:#22c55e;
-    font-size:20px;
-}
-</style>
-
-</head>
-
-<body>
-
-<!-- NAVBAR -->
-<nav class="navbar p-3">
-<div class="container d-flex justify-content-between">
-
-<a href="index.html" class="back-btn">⬅ Back</a>
-<span class="text-success fw-bold">Diploma Engineers</span>
-
-</div>
-</nav>
-
-<!-- TITLE -->
-<h1>📩 Contact Us</h1>
-<p class="text-center text-secondary">We are here to help you</p>
-
-<!-- CONTACT FORM -->
-<div class="contact-box">
-
-<form onsubmit="sendMsg(event)">
-
-    <input type="text" id="name" placeholder="Your Name" required>
-
-    <input type="email" id="email" placeholder="Your Email" required>
-
-    <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-
-    <button type="submit">Send Message</button>
-
-</form>
-
-</div>
-
-<!-- INFO -->
-<div class="info">
-⚡ Response time: 24 hours
-</div>
-
-<!-- SOCIAL -->
-
-
-<script>
-function sendMsg(e){
-    e.preventDefault();
-
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let msg = document.getElementById("message").value;
-
-   
-
-    window.open(url, "_blank");
-}
-</script>
-
-</body>
-</html>
-
-<!-- FOOTER -->
-<footer class="main-footer">
-
-  <div class="container">
-    <div class="row">
-
-      <!-- LOGO + ABOUT -->
-      <div class="col-md-4 footer-box">
-        <div class="footer-logo">
-          <img src="https://anubhavfinance.wordpress.com/wp-content/uploads/2025/11/whatsapp-image-2025-11-26-at-01.09.43_629f0cdb.jpg" alt="logo">
-          <h4>Diploma Engineers</h4>
-        </div>
-        <p>Your learning partner for exams, notes and results.</p>
-      </div>
-
-      <!-- Study Material -->
-      <div class="col-md-4 footer-box">
-        <h4>Study Material</h4>
-        <ul>
-          <li><a href="notes.html">Notes</a></li>
-          <li><a href="Books.html">Books</a></li>
-          <li><a href="P.Y.Q.html">P.Y.Q</a></li>
-          <li><a href="QuetionBank.html">Quetion Bank</a></li>
-        </ul>
-      </div>
-
-      <!-- QUICK LINKS -->
-      <div class="col-md-4 footer-box">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="vision.html">Vision</a></li>
-          <li><a href="team.html">Team</a></li>
-          <li><a href="studentfeedback.html">Feedback</a></li>
-        </ul>
-      </div>
-
-      <!-- CONTACT -->
-      <div class="col-md-4 footer-box">
-        <h4>Contact</h4>
-        <p>Email: info@diplomaengineers.com</p>
-        <p>📍 Lucknow, India</p>
-      </div>
-
-    </div>
-
-    <!-- COPYRIGHT -->
-    <div class="footer-bottom">
-      <p>© 2026 Diploma Engineers | All Rights Reserved | Developed by ANUBHAV GANGWAR</p>
-    </div>
-  </div>
-
-</footer>
-
-
-<!-- CSS -->
-
-<style>
-  
 .main-footer {
     background: #0a0a0a;
-  
     color: #fff;
     padding: 50px 0 20px;
-    font-family: 'Poppins', sans-serif;
 }
 
 .footer-box {
     margin-bottom: 20px;
-  
 }
 
 .footer-box h4 {
-    font-weight: 600;
     margin-bottom: 15px;
-    position: relative;
-}
-
-.footer-box h4::after {
-    content: '';
-    width: 40px;
-    height: 3px;
-    background: #fca311;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-  
-}
-
-.footer-box p {
-    font-size: 14px;
-    color: #ccc;
 }
 
 .footer-box ul {
@@ -269,31 +103,13 @@ function sendMsg(e){
     padding: 0;
 }
 
-.footer-box ul li {
-    margin-bottom: 8px;
-}
-
 .footer-box ul li a {
     text-decoration: none;
     color: #ccc;
-    transition: 0.3s;
 }
 
 .footer-box ul li a:hover {
-    color: #fca311;
-    padding-left: 5px;
-}
-
-.footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.footer-logo img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    color: #22c55e;
 }
 
 .footer-bottom {
@@ -304,8 +120,56 @@ function sendMsg(e){
     font-size: 13px;
     color: #aaa;
 }
-  
+</style>
+
+</head>
+
+<body>
+
+<nav class="navbar p-3">
+<div class="container d-flex justify-content-between">
+<a href="index.html" class="back-btn">⬅ Back</a>
+<span class="text-success fw-bold">Diploma Engineers</span>
+</div>
+</nav>
+
+<h1>📩 Contact Us</h1>
+<p class="text-center text-secondary">We are here to help you</p>
+
+<div class="contact-box">
+
+<form onsubmit="sendMsg(event)">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+</form>
+
+</div>
+
+<div class="info">
+⚡ Response time: 24 hours
+</div>
 
 
+<script>
+function sendMsg(e){
+    e.preventDefault();
 
-     
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let msg = document.getElementById("message").value;
+
+    let subject = "Contact from Diploma Engineers";
+    let body = "Name: " + name + "%0D%0A"
+             + "Email: " + email + "%0D%0A"
+             + "Message: " + msg;
+
+    let url = "mailto:astar22072006@gmail.com?subject=" + subject + "&body=" + body;
+
+    window.location.href = url;
+}
+</script>
+
+</body>
+</html>
