@@ -172,4 +172,13 @@ function sendMsg(e){
 </script>
 
 </body>
-</html>
+</htm <!-- FOOTER -->
+<div id="footer"></div>
+
+<script>
+fetch("footer.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("footer").innerHTML = data;
+  });
+</script>l>
