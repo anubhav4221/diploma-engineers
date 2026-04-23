@@ -4,95 +4,126 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Civil Notes/Books</title>title>
+<title>Civil Notes/Books</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-body{
-    margin:0;
-    font-family:'Segoe UI';
-    background:#eef3ff;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
+body{
+background:linear-gradient(135deg,#eef3ff,#dfe9ff);
+}
+
+/* HEADER */
 header{
-    background:linear-gradient(135deg,#2e7d32,#1b5e20);
-    color:white;
-    padding:15px;
-    position:sticky;
-    top:0;
+background:linear-gradient(135deg,#1b5e20,#2e7d32);
+color:white;
+padding:12px 15px;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 
 .header-container{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
 .back-btn{
-    color:white;
-    text-decoration:none;
-    border:1px solid white;
-    padding:6px 14px;
-    border-radius:20px;
-}
-
-.back-btn:hover{
-    background:white;
-    color:#1b5e20;
+color:white;
+text-decoration:none;
+border:1px solid white;
+padding:5px 12px;
+border-radius:20px;
+font-size:14px;
 }
 
 .title{
-    font-weight:bold;
+font-weight:600;
+font-size:18px;
 }
 
+/* SECTION */
 .section{
-    padding:40px 20px;
+padding:25px 12px;
 }
 
 .section h2{
-    text-align:center;
-    margin-bottom:20px;
-    color:#1b5e20;
+text-align:center;
+margin-bottom:15px;
+color:#1b5e20;
+font-size:20px;
 }
 
+/* GRID */
 .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:15px;
 }
 
+/* CARD */
 .card{
-    background:linear-gradient(135deg,#43a047,#66bb6a);
-    color:white;
-    padding:20px;
-    border-radius:15px;
-    text-align:center;
-    transition:0.3s;
+background:linear-gradient(135deg,#43a047,#66bb6a);
+color:white;
+padding:18px 10px;
+border-radius:18px;
+text-align:center;
+transition:0.3s;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
 }
 
 .card:hover{
-    transform:translateY(-8px);
+transform:translateY(-6px) scale(1.02);
 }
 
 .card i{
-    margin-bottom:10px;
+margin-bottom:8px;
 }
 
+.card h3{
+font-size:15px;
+margin:8px 0;
+}
+
+/* BUTTON */
 .btn{
-    display:inline-block;
-    margin:6px 5px;
-    padding:7px 14px;
-    background:white;
-    color:#1b5e20;
-    border-radius:20px;
-    text-decoration:none;
-    font-size:14px;
+display:inline-block;
+margin:4px 2px;
+padding:6px 10px;
+background:white;
+color:#1b5e20;
+border-radius:20px;
+text-decoration:none;
+font-size:12px;
+font-weight:500;
+transition:0.2s;
 }
 
 .btn:hover{
-    background:#e8f5e9;
+background:#e8f5e9;
 }
+
+/* MOBILE OPTIMIZATION */
+@media(max-width:400px){
+.card h3{
+font-size:13px;
+}
+.btn{
+font-size:11px;
+padding:5px 8px;
+}
+}
+
 </style>
 </head>
 
@@ -102,13 +133,14 @@ header{
 <div class="header-container">
 
 <a href="javascript:history.back()" class="back-btn">
-<i class="fas fa-arrow-left"></i> Back
+<i class="fas fa-arrow-left"></i>
 </a>
 
 <div class="title">🏗 Civil Notes</div>
 
 </div>
 </header>
+
 
 <!-- SEM 1 -->
 <div class="section">
