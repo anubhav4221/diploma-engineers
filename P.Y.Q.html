@@ -4,112 +4,216 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PYQ PDF Download</title>
+<title>PYQ Search</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
 
 <style>
 body{
-    background:#000;
+    font-family:'Poppins',sans-serif;
+    background:#eef2f7;
+    margin:0;
+}
+
+/* Header */
+.header{
+    background:#4e73df;
     color:white;
-    font-family:'Segoe UI';
+    padding:15px;
+    text-align:center;
+    position:relative;
 }
 
-/* NAVBAR */
-.navbar{
-    background:#000;
-    border-bottom:1px solid #333;
+.back-btn{
+    position:absolute;
+    left:15px;
+    top:15px;
+    background:white;
+    color:#4e73df;
+    padding:6px 12px;
+    border-radius:6px;
+    text-decoration:none;
 }
 
-/* TITLE */
-h1{
+/* Container */
+.container{
+    max-width:900px;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Search */
+.search-box{
+    width:100%;
+    padding:10px;
+    border-radius:6px;
+    border:1px solid #ccc;
+    margin-bottom:20px;
+}
+
+/* Table */
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#4e73df;
+    color:white;
+    padding:10px;
+}
+
+td{
+    padding:10px;
+    border-bottom:1px solid #ddd;
+}
+
+tr:hover{
+    background:#f1f5ff;
+}
+
+/* Button */
+.download-btn{
+    background:#1cc88a;
+    color:white;
+    padding:6px 12px;
+    border-radius:6px;
+    text-decoration:none;
+}
+
+/* Pagination */
+.pagination{
     text-align:center;
     margin-top:20px;
 }
 
-/* CARD */
-.pyq-card{
-    background:#111;
-    border:1px solid #222;
-    border-radius:15px;
-    padding:20px;
-    margin:15px 0;
-    transition:0.3s;
-    text-align:center;
+.pagination button{
+    margin:3px;
+    padding:6px 12px;
+    border:none;
+    background:#ddd;
+    cursor:pointer;
+    border-radius:5px;
 }
 
-.pyq-card:hover{
-    transform:scale(1.03);
-    background:#1a1a1a;
-}
-
-/* BUTTON */
-a.download-btn{
-    display:inline-block;
-    margin-top:10px;
-    padding:10px 15px;
-    background:#22c55e;
+.pagination button.active{
+    background:#4e73df;
     color:white;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-a.download-btn:hover{
-    background:#16a34a;
 }
 </style>
-
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav class="navbar p-2">
-<a href="index.html" style="color:white;">⬅ Back to Home</a>
-</nav>
-
-<h1>📄 PYQ PDF Download (Free)</h1>
-<p class="text-center text-secondary">All Branch Previous Year Question Papers</p>
+<div class="header">
+    <a href="index.html" class="back-btn">⬅ Back</a>
+    <h2>PYQ Search</h2>
+</div>
 
 <div class="container">
 
-<!-- CIVIL -->
-<div class="pyq-card">
-<h4>🏗 Civil Engineering PYQ</h4>
-<p>6th Semester Previous Year Papers</p>
-<a class="download-btn" href="pdf/civil-pyq.pdf" download>⬇ Download PDF</a>
-</div>
+    <!-- Search -->
+    <input type="text" id="search" class="search-box" placeholder="Search Subject...">
 
-<!-- MECHANICAL -->
-<div class="pyq-card">
-<h4>⚙ Mechanical Engineering PYQ</h4>
-<p>All Important Question Papers</p>
-<a class="download-btn" href="pdf/mechanical-pyq.pdf" download>⬇ Download PDF</a>
-</div>
+    <!-- Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>Subject Name</th>
+                <th>Download</th>
+            </tr>
+        </thead>
+        <tbody id="tableData"></tbody>
+    </table>
 
-<!-- ELECTRICAL -->
-<div class="pyq-card">
-<h4>⚡ Electrical Engineering PYQ</h4>
-<p>Exam Previous Year Questions</p>
-<a class="download-btn" href="pdf/electrical-pyq.pdf" download>⬇ Download PDF</a>
-</div>
-
-<!-- CS -->
-<div class="pyq-card">
-<h4>💻 Computer Science PYQ</h4>
-<p>Important Exam Papers</p>
-<a class="download-btn" href="pdf/cs-pyq.pdf" download>⬇ Download PDF</a>
-</div>
-
-<!-- ELECTRONICS -->
-<div class="pyq-card">
-<h4>📡 Electronics PYQ</h4>
-<p>Question Bank PDF</p>
-<a class="download-btn" href="pdf/electronics-pyq.pdf" download>⬇ Download PDF</a>
-</div>
+    <!-- Pagination -->
+    <div class="pagination" id="pagination"></div>
 
 </div>
+
+<script>
+const data = [
+"Engineering Mathematics",
+"Applied Physics",
+"Applied Chemistry",
+"Computer Programming",
+"Workshop Practice",
+"Thermal Engineering",
+"Fluid Mechanics",
+"Strength of Material",
+"Machine Design",
+"Surveying",
+"Data Structure",
+"Operating System",
+"DBMS",
+"Java Programming",
+"Web Development",
+"Electrical Machine",
+"Digital Electronics",
+"Control System",
+"Microprocessor",
+"Power System"
+];
+
+// Convert to object
+const fullData = data.map(s => ({subject:s, link:"#"}));
+
+let currentPage = 1;
+const rowsPerPage = 5;
+let filteredData = fullData;
+
+function displayTable(){
+    let start = (currentPage-1)*rowsPerPage;
+    let end = start + rowsPerPage;
+    let pageData = filteredData.slice(start,end);
+
+    let html = "";
+    pageData.forEach(item=>{
+        html += `
+        <tr>
+            <td>${item.subject}</td>
+            <td><a href="${item.link}" class="download-btn">Download</a></td>
+        </tr>`;
+    });
+
+    document.getElementById("tableData").innerHTML = html;
+    setupPagination();
+}
+
+function setupPagination(){
+    let pageCount = Math.ceil(filteredData.length/rowsPerPage);
+    let buttons = "";
+
+    for(let i=1;i<=pageCount;i++){
+        buttons += `<button onclick="changePage(${i})" class="${i===currentPage?'active':''}">${i}</button>`;
+    }
+
+    document.getElementById("pagination").innerHTML = buttons;
+}
+
+function changePage(page){
+    currentPage = page;
+    displayTable();
+}
+
+// Search
+document.getElementById("search").addEventListener("keyup", function(){
+    let value = this.value.toLowerCase();
+
+    filteredData = fullData.filter(item =>
+        item.subject.toLowerCase().includes(value)
+    );
+
+    currentPage = 1;
+    displayTable();
+});
+
+// Init
+displayTable();
+</script>
 
 </body>
 </html>
