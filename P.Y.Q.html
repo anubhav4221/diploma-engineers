@@ -4,87 +4,101 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PYQ Search</title>
+<title>PYQ - Diploma Engineers</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
 body{
+    background:#000;
+    color:white;
     font-family:'Poppins',sans-serif;
-    background:#eef2f7;
-    margin:0;
 }
 
-/* Header */
-.header{
-    background:#4e73df;
-    color:white;
-    padding:15px;
-    text-align:center;
-    position:relative;
+/* NAVBAR */
+.navbar{
+    background:#0a0a0a;
+    border-bottom:1px solid #222;
 }
 
 .back-btn{
-    position:absolute;
-    left:15px;
-    top:15px;
-    background:white;
-    color:#4e73df;
-    padding:6px 12px;
-    border-radius:6px;
+    color:#22c55e;
+    border:1px solid #22c55e;
+    padding:5px 15px;
+    border-radius:20px;
     text-decoration:none;
 }
-
-/* Container */
-.container{
-    max-width:900px;
-    margin:20px auto;
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+.back-btn:hover{
+    background:#22c55e;
+    color:#000;
 }
 
-/* Search */
+/* MAIN BOX */
+.main-box{
+    max-width:900px;
+    margin:30px auto;
+    background:#111;
+    padding:20px;
+    border-radius:20px;
+    border:1px solid #222;
+    box-shadow:0 0 20px rgba(34,197,94,0.1);
+}
+
+/* TITLE */
+.title{
+    text-align:center;
+    color:#22c55e;
+}
+
+/* SEARCH */
 .search-box{
     width:100%;
     padding:10px;
-    border-radius:6px;
-    border:1px solid #ccc;
-    margin-bottom:20px;
+    margin:20px 0;
+    border-radius:10px;
+    border:1px solid #333;
+    background:#000;
+    color:white;
+}
+.search-box:focus{
+    border-color:#22c55e;
+    outline:none;
 }
 
-/* Table */
+/* TABLE */
 table{
     width:100%;
     border-collapse:collapse;
 }
 
 th{
-    background:#4e73df;
-    color:white;
+    background:#22c55e;
+    color:black;
     padding:10px;
 }
 
 td{
     padding:10px;
-    border-bottom:1px solid #ddd;
+    border-bottom:1px solid #222;
 }
 
 tr:hover{
-    background:#f1f5ff;
+    background:#1a1a1a;
 }
 
-/* Button */
+/* BUTTON */
 .download-btn{
-    background:#1cc88a;
-    color:white;
+    background:#22c55e;
+    color:black;
     padding:6px 12px;
     border-radius:6px;
     text-decoration:none;
 }
+.download-btn:hover{
+    background:#16a34a;
+}
 
-/* Pagination */
+/* PAGINATION */
 .pagination{
     text-align:center;
     margin-top:20px;
@@ -94,88 +108,93 @@ tr:hover{
     margin:3px;
     padding:6px 12px;
     border:none;
-    background:#ddd;
-    cursor:pointer;
+    background:#222;
+    color:white;
     border-radius:5px;
 }
 
 .pagination button.active{
-    background:#4e73df;
-    color:white;
+    background:#22c55e;
+    color:black;
 }
 </style>
+
 </head>
 
 <body>
 
-<div class="header">
-    <a href="index.html" class="back-btn">⬅ Back</a>
-    <h2>PYQ Search</h2>
+<!-- NAVBAR -->
+<nav class="navbar p-3">
+<div class="container d-flex justify-content-between">
+<a href="index.html" class="back-btn">⬅ Back</a>
+<span class="text-success fw-bold">Diploma Engineers</span>
+</div>
+</nav>
+
+<!-- MAIN -->
+<div class="main-box">
+
+<h2 class="title">📚 Previous Year Questions</h2>
+
+<input type="text" id="search" class="search-box" placeholder="🔍 Search Subject...">
+
+<table>
+<thead>
+<tr>
+<th>Subject Name</th>
+<th>Download</th>
+</tr>
+</thead>
+
+<tbody id="tableData"></tbody>
+</table>
+
+<div class="pagination" id="pagination"></div>
+
 </div>
 
-<div class="container">
-
-    <!-- Search -->
-    <input type="text" id="search" class="search-box" placeholder="Search Subject...">
-
-    <!-- Table -->
-    <table>
-        <thead>
-            <tr>
-                <th>Subject Name</th>
-                <th>Download</th>
-            </tr>
-        </thead>
-        <tbody id="tableData"></tbody>
-    </table>
-
-    <!-- Pagination -->
-    <div class="pagination" id="pagination"></div>
-
-</div>
-
+<!-- SCRIPT -->
 <script>
-const data = [
-"Engineering Mathematics",
-"Applied Physics",
-"Applied Chemistry",
-"Computer Programming",
-"Workshop Practice",
-"Thermal Engineering",
-"Fluid Mechanics",
-"Strength of Material",
-"Machine Design",
-"Surveying",
-"Data Structure",
-"Operating System",
-"DBMS",
-"Java Programming",
-"Web Development",
-"Electrical Machine",
-"Digital Electronics",
-"Control System",
-"Microprocessor",
-"Power System"
-];
 
-// Convert to object
-const fullData = data.map(s => ({subject:s, link:"#"}));
+// ALL LINKS TEMPORARY (#)
+const fullData = [
+{subject:"Engineering Mathematics", link:"#"},
+{subject:"Applied Physics", link:"#"},
+{subject:"Applied Chemistry", link:"#"},
+{subject:"Computer Programming", link:"#"},
+{subject:"Workshop Practice", link:"#"},
+{subject:"Thermal Engineering", link:"#"},
+{subject:"Fluid Mechanics", link:"#"},
+{subject:"Strength of Material", link:"#"},
+{subject:"Machine Design", link:"#"},
+{subject:"Surveying", link:"#"},
+{subject:"Data Structure", link:"#"},
+{subject:"Operating System", link:"#"},
+{subject:"DBMS", link:"#"},
+{subject:"Java Programming", link:"#"},
+{subject:"Web Development", link:"#"},
+{subject:"Electrical Machine", link:"#"},
+{subject:"Digital Electronics", link:"#"},
+{subject:"Control System", link:"#"},
+{subject:"Microprocessor", link:"#"},
+{subject:"Power System", link:"#"}
+];
 
 let currentPage = 1;
 const rowsPerPage = 5;
 let filteredData = fullData;
 
+// TABLE DISPLAY
 function displayTable(){
     let start = (currentPage-1)*rowsPerPage;
     let end = start + rowsPerPage;
-    let pageData = filteredData.slice(start,end);
 
     let html = "";
-    pageData.forEach(item=>{
+    filteredData.slice(start,end).forEach(item=>{
         html += `
         <tr>
             <td>${item.subject}</td>
-            <td><a href="${item.link}" class="download-btn">Download</a></td>
+            <td><a href="${item.link}" onclick="comingSoon(event)" class="download-btn">Download</a></td>
         </tr>`;
     });
 
@@ -183,36 +202,46 @@ function displayTable(){
     setupPagination();
 }
 
+// PAGINATION
 function setupPagination(){
     let pageCount = Math.ceil(filteredData.length/rowsPerPage);
-    let buttons = "";
+    let btns = "";
 
     for(let i=1;i<=pageCount;i++){
-        buttons += `<button onclick="changePage(${i})" class="${i===currentPage?'active':''}">${i}</button>`;
+        btns += `<button onclick="changePage(${i})" class="${i===currentPage?'active':''}">${i}</button>`;
     }
 
-    document.getElementById("pagination").innerHTML = buttons;
+    document.getElementById("pagination").innerHTML = btns;
 }
 
-function changePage(page){
-    currentPage = page;
+function changePage(p){
+    currentPage = p;
     displayTable();
 }
 
-// Search
+// SEARCH
 document.getElementById("search").addEventListener("keyup", function(){
-    let value = this.value.toLowerCase();
+    let val = this.value.toLowerCase();
 
     filteredData = fullData.filter(item =>
-        item.subject.toLowerCase().includes(value)
+        item.subject.toLowerCase().includes(val)
     );
 
     currentPage = 1;
     displayTable();
 });
 
-// Init
+// TEMP ALERT
+function comingSoon(e){
+    if(e.target.getAttribute("href") === "#"){
+        e.preventDefault();
+        alert("📄 PDF Coming Soon...");
+    }
+}
+
+// INIT
 displayTable();
+
 </script>
 
 </body>
