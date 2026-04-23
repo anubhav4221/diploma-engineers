@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Institute Search</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+    font-family:'Poppins',sans-serif;
+    background:#eef2f7;
+    margin:0;
+}
+
+.header{
+    background:#0a2540;
+    color:#fff;
+    padding:15px;
+    text-align:center;
+    font-size:18px;
+    font-weight:600;
+}
+
+.container{
+    padding:15px;
+}
+
+.card{
+    background:#fff;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom:15px;
+}
+
+select, input{
+    width:100%;
+    padding:10px;
+    margin:6px 0;
+    border-radius:6px;
+    border:1px solid #ddd;
+    font-size:14px;
+}
+
+.table-box{
+    background:#fff;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#0a2540;
+    color:#fff;
+    padding:12px;
+    font-size:14px;
+}
+
+td{
+    padding:10px;
+    border-bottom:1px solid #eee;
+    font-size:14px;
+}
+
+tr:hover{
+    background:#f5faff;
+}
+
+.btn{
+    background:#007bff;
+    color:#fff;
+    padding:6px 10px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+    table, thead, tbody, th, td, tr{
+        display:block;
+    }
+
+    th{display:none;}
+
+    td{
+        padding:8px;
+    }
+
+    td::before{
+        content:attr(data-label);
+        font-weight:600;
+        display:block;
+        color:#555;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">Search Institute</div>
+
+<div class="container">
+
+<div class="card">
+
+<select>
+<option>Select Organization</option>
+<option value="3">Polytechnic Diploma Sector</option>
+
+                                                     <option value="2">ITI Industrial 
+training institute</option>
+
+                                                     <option value="4">Dr. A.P.J. Abdul Kalam Technical University</option>
+
+                                                     <option value="6">Harcourt Butler Technical University(HBTU)</option>
+
+                                                     <option value="7">Madan Mohan Malaviya University of Technology(MMMTU)</option>
+
+                                                     <option value="1">SKill Development</option>
+
+                                                     <option value="5">Urban Development Department</option
+</select>
+
+<select>
+<option value="1">P.G.DIPLOMA IN ADVERTISING AND PUBLIC RELATION</option>
+                                                                 <option value="2">P.G.DIPLOMA IN BIO TECHNOLOGY (TISSUE CULTURE)</option>
+                                                                     <option value="3" selected>P.G.DIPLOMA IN TOURISM AND TRAVEL MANAGEMENT</option>
+                                                                  <option value="4">P.G.DIPLOMA IN TEXTILE DESIGN</option>
+                                                                 <option value="5">INDUSTRIAL SAFETY</option>
+                                                                 <option value="6">P.G.DIPLOMA IN CUSTOMER SERVICE MANAGEMENT</option>
+                                                                 <option value="7">P.G.DIPLOMA IN MARKETING AND SALES MANAGEMENT</option>
+                                                                 <option value="8">P.G.DIPLOMA IN BEAUTY AND HEALTH CARE</option>
+                                                                 <option value="9">P.G.DIPLOMA IN FASHION TECHNOLOGY</option>
+                                                                 <option value="10">P G DIPLOMA IN RETAIL MANAGEMENT</option>
+                                                                 <option value="11">P.G. DIPLOMA IN ACCOUNTACY (WITH COMPUTERISED ACCOUNTS & TAXATION)</option>
+                                                                 <option value="12">P.G. DIPLOMA IN WEB DESIGNING</option>
+                                                                 <option value="13">P G DIPLOMA IN COMPUTER HARDWARE & NETWORKING</option>
+                                                                 <option value="14">P.G.DIPLOMA IN COMPUTER APPLICATION</option>
+                                                                 <option value="15">HOME SCIENCE</option>
+                                                                 <option value="16">LIBRARY AND INFORMATION SCIENCE</option>
+                                                                 <option value="17">DIPLOMA IN MASS COMMUNICATION</option>
+                                                                 <option value="18">DIPLOMA IN PHARMACY</option>
+                                                                 <option value="19">MODERN OFFICE MANAGEMENT AND SECRETERIAL PRACTICE</option>
+                                                                 <option value="20">AGRICULTURE ENGINEERING</option>
+                                                                 <option value="21">AIRCRAFT MAINTENANCE ENGINEERING</option>
+                                                                 <option value="22">ARCHITECTURAL ASSISTANTSHIP</option>
+                                                                 <option value="23">GLASS AND CERAMIC ENGINEERING</option>
+                                                                 <option value="24">CHEMICAL TECHNOLOGY (FERTILIZER)</option>
+                                                                 <option value="25">CHEMICAL TECHNOLOGY (RUBBER AND PLASTIC)</option>
+                                                                 <option value="26">CIVIL ENGINEERING</option>
+                                                                 <option value="27">CIVIL ENGINEERING (ENVIRONMENT & POLLUTION CONTROL)</option>
+                                                                 <option value="28">FASHION DESIGNING & GARMENT TECHNOLOGY</option>
+                                                                 <option value="29">DAIRY ENGINEERING</option>
+                                                                 <option value="30">ELECTRICAL ENGINEERING</option>
+                                                                 <option value="31">ELECTRICAL ENGINEERING (INDUSTRIAL CONTROL)</option>
+                                                                 <option value="32">ELECTRONICS ENGINEERING</option>
+                                                                 <option value="33">ELECTRONICS ENGINEERING (MODERN CONSUMER ELECTRONICS APPLIANCE)</option>
+                                                                 <option value="34">ELECTRONICS ENGINEERING (ADVANCE MICROPROCESSOR & INTERFACE)</option>
+                                                                 <option value="35">ELECTRONICS ENGINEERING (MICRO ELECTRONICS)</option>
+                                                                 <option value="36">ELECTRICAL AND ELECTRONICS ENGINEERING</option>
+                                                                 <option value="37">LEATHER TECHNOLOGY FOOTWEAR (COMPUTER AIDED SHOE DESIGN)</option>
+                                                                 <option value="38">HOTEL MANAGEMENT AND CATERING TECHNOLOGY</option>
+                                                                 <option value="39">INSTRUMENTATION AND CONTROL</option>
+                                                                 <option value="40">INTERIOR DESIGN AND DECORATION</option>
+                                                                 <option value="41">LEATHER TECHNOLOGY (TANNING)</option>
+                                                                 <option value="42">MECHANICAL ENGINEERING (AUTOMOBILE)</option>
+                                                                 <option value="43">MECHANICAL ENGINEERING (COMPUTER AIDED DESIGN)</option>
+                                                                 <option value="44">MECHANICAL ENGINEERING (PRODUCTION)</option>
+                                                                 <option value="45">MECHANICAL ENGINEERING ( REFRIGERATION & AIR CONDITIONING)</option>
+                                                                 <option value="46">MECHANICAL ENGINEERING (MAINTENANCE)</option>
+                                                                 <option value="47">TEXTILE CHEMISTRY</option>
+                                                                 <option value="48">TEXTILE DESIGN</option>
+                                                                 <option value="49">TEXTILE DESIGN (TEXTILE PRINTING)</option>
+                                                                 <option value="50">TEXTILE TECHNOLOGY</option>
+                                                                 <option value="51">CHEMICAL ENGINEERING</option>
+                                                                 <option value="52">CHEMICAL ENGINEERING (PETRO CHEMICAL)</option>
+                                                                 <option value="53">COMPUTER SCIENCE AND ENGINEERING</option>
+                                                                 <option value="54">INFORMATION TECHNOLOGY</option>
+                                                                 <option value="55">PAINT TECHNOLOGY</option>
+                                                                 <option value="56">PLASTIC MOULD TECHNOLOGY</option>
+                                                                 <option value="57">AIRCRAFT MAINTENANCE ENGINEERING (AVIONICS)</option>
+                                                                 <option value="58">HELICOPTER AND POWER PLANT ENGINEERING</option>
+                                                                 <option value="59">ELECTRONICS & COMMUNICATION ENGINEERING</option>
+                                                                 <option value="60">CARPET TECHNOLOGY</option>
+                                                                 <option value="61">FOOD TECHNOLOGY</option>
+                                                                 <option value="62">PAPER AND PULP TECHNOLOGY</option>
+                                                                 <option value="63">TEXTILE ENGINEERING</option>
+                                                                 <option value="64">MINING ENGINEERING</option>
+                                                                 <option value="65">MECHANICAL ENGINEERING</option>
+                                                                 <option value="66">PRINTING TECHNOLOGY</option>
+                                                                 <option value="67">TOOL AND MOULD MAKING</option>
+                                                                 <option value="68">CIVIL ENGINEERING (LATERAL ENTRY)</option>
+                                                                 <option value="69">CIVIL ENGINEERING (ENVIRONMENT & POLLUTION CONTROL)(LATERAL ENTRY)</option>
+                                                                 <option value="70">FASHION DESIGN & GARMENT TECHNOLOGY (LATERAL ENTRY)</option>
+                                                                 <option value="71">ELECTRICAL ENGINEERING (LATERAL ENTRY)</option>
+                                                                 <option value="72">ELECTRICAL ENGINEERING (INDUSTRIAL CONTROL) (LATERAL ENTRY)</option>
+                                                                 <option value="73">ELECTRONICS ENGINEERING (LATERAL ENTRY)</option>
+                                                                 <option value="74">ELECTRONICS ENGINEERING (MODERN CONSUMER ELECTRONICS)(LATERAL ENTRY)</option>
+                                                                 <option value="75">ELECTRONICS ENGINEERING (ADVANCE MICROPROCESSOR & INTERFACE)(LATERAL ENTRY)</option>
+                                                                 <option value="76">ELECTRONICS ENGINEERING (MICRO ELECTRONICS) (LATERAL ENTRY)</option>
+                                                                 <option value="77">MECHANICAL ENGINEERING (AUTOMOBILE) (LATERAL ENTRY)</option>
+                                                                 <option value="78">MECHANICAL ENGINEERING (COMPUTER AIDED DESIGN) (LATERAL ENTRY)</option>
+                                                                 <option value="79">MECHANICAL ENGINEERING (PRODUCTION) (LATERAL ENTRY)</option>
+                                                                 <option value="80">MECHANICAL ENGINEERING (REFRIGERATION & AIRCONDITIONING)(LATERAL ENTRY)</option>
+                                                                 <option value="81">MECHANICAL ENGINEERING (MAINTENANCE) (LATERAL ENTRY)</option>
+                                                                 <option value="82">COMPUTER SCIENCE AND ENGINEERING (LATERAL ENTRY)</option>
+                                                                 <option value="83">INFORMATION TECHNOLOGY (LATERAL ENTRY)</option>
+                                                                 <option value="84">ELECTRICAL AND ELECTRONICS ENGINEERING (LATERAL ENTRY)</option>
+                                                                 <option value="85">TEXTILE TECHNOLOGY (LATERAL ENTRY)</option>
+                                                                 <option value="86">PRINTING TECHNOLOGY(LATERAL ENTRY)</option>
+                                                                 <option value="4563">MECHANICAL ENGINEERING (LATERAL ENTRY)</option>
+                                                                 <option value="4571">CIVIL AND ENVIRONMENT ENGINEERING</option>
+                                                                 <option value="4572">COMMUNICATION AND COMPUTER NETWORKING</option>
+                                                                 <option value="4573">RENEWABLE ENERGY</option>
+                                                                 <option value="4574">APPAREL DESIGN AND FASHION TECHNOLOGY</option>
+                                                                 <option value="4575">COSTUME DESIGN AND GARMENT TECHNOLOGY</option>
+                                                                 <option value="4576">CRAFT TECHNOLOGY</option>
+                                                                 <option value="4580">ELECTRONICS AND COMMUNICATION ENGINEERING [LATERAL ENTRY]</option>
+                                                                 <option value="4592">P.G.DIPLOMA IN CYBER SECURITY</option>
+                                                                 <option value="4593">P.G.DIPLOMA IN DATA SCIENCE AND MACHINE LEARNING</option>
+                                                                 <option value="4594">P.G.DIPLOMA IN DRONE TECHNOLOGY</option>
+                                                                 <option value="4595">P.G.DIPLOMA IN IOT</option>
+                                                                 <option value="4596">CIVIL AND ENVIRONMENT ENGINEERING [LATERAL ENTRY]</option>
+                                                                 <option value="4597">COSTUME DESIGN AND GARMENT TECHNOLOGY [LATERAL ENTRY]</option>
+                                                                 <option value="4598">CIVIL ENGINEERING</option>
+                                                                 <option value="4599">Civil Engineering (Construction Technology)</option>
+                                                                 <option value="4600">Civil Engineering (Public Health Engineering)</option>
+                                                                 <option value="4601">Electrical Engineering</option>
+                                                                 <option value="4602">Electronic Engineering</option>
+                                                                 <option value="4603">Instrumentation & Control Engineering</option>
+                                                                 <option value="4604">Mechanical Engineering (Automobile Engineering)</option>
+                                                                 <option value="4605">Mechanical Engineering (Power Plant Engineering)</option>
+                                                                 <option value="4606">Mechanical Engineering (Production Engineering)</option>
+                                                                 <option value="4607">Mechanical Engineering (Refrigeration & Airconditioning Engineering)</option>
+                                                                 <option value="4608">Mechanical Engineering (Tool Engineering)</option>
+                                                                 <option value="4609">Mechanical Engineering (Tube well Engineering)</option>
+                                                                 <option value="4610">PLASTIC TECHNOLOGY</option>
+                                                                 <option value="4611">Commercial Practice</option>
+                                                                 <option value="4612">Marketing Management</option>
+                                                                 <option value="4613">Material Management</option>
+                                                                 <option value="4614">Post Diploma in Computer Application</option>
+                                                                 <option value="4615">APPAREL DESIGN AND FASHION TECHNOLOGY(LATERAL ENTRY)</option>
+                                                                 <option value="4616">CRAFT TECHNOLOGY(LATERAL ENTRY)</option>
+                                                                 <option value="4617">TEXTILE ENGINEERING(LATERAL ENTRY)</option>
+                                                                 <option value="4618">RENEABLE ENERGY(LATERAL ENTRY)</option>
+                                                                 <option value="4970">TOOL AND DIE UNDER MECHANICAL ENGINEERING</option>
+                                                                 <option value="4971">MECHATRONICS AND INDUSTRIAL AUTOMATION</option>
+                                                                 <option value="4972">PACKAGING TECHNOLOGY</option>
+</select>
+
+<select>
+<option>Select District</option>
+<option value="6">AGRA</option>
+                                                                 <option value="5">ALIGARH</option>
+                                                                 <option value="2">AMBEDKAR NAGAR</option>
+                                                                 <option value="1">AMETHI</option>
+                                                                 <option value="3">AMROHA</option>
+                                                                 <option value="11">AURAIYA</option>
+                                                                 <option value="4">AYODHYA</option>
+                                                                 <option value="7">AZAMGARH</option>
+                                                                 <option value="43">BAGPAT</option>
+                                                                 <option value="40">BALLIA</option>
+                                                                 <option value="39">BALRAMPUR</option>
+                                                                 <option value="44">BANDA</option>
+                                                                 <option value="45">BARABANKI</option>
+                                                                 <option value="37">BAREILLY</option>
+                                                                 <option value="41">BASTI</option>
+                                                                 <option value="42">BEHRAICH</option>
+                                                                 <option value="47">BHADOHI</option>
+                                                                 <option value="46">BIJNOR</option>
+                                                                 <option value="36">BUDAUN</option>
+                                                                 <option value="38">BULANDSHAHAR</option>
+                                                                 <option value="24">CHANDAULI</option>
+                                                                 <option value="25">CHITRAKOOT</option>
+                                                                 <option value="29">DEORIA</option>
+                                                                 <option value="10">ETAH</option>
+                                                                 <option value="8">ETAWAH</option>
+                                                                 <option value="34">FARRUKHABAD</option>
+                                                                 <option value="33">FATEHPUR</option>
+                                                                 <option value="35">FIROZABAD</option>
+                                                                 <option value="23">GAUTAM BUDDHA NAGAR</option>
+                                                                 <option value="19">GHAZIABAD</option>
+                                                                 <option value="20">GHAZIPUR</option>
+                                                                 <option value="21">GONDA</option>
+                                                                 <option value="22">GORAKHPUR</option>
+                                                                 <option value="72">HAMIRPUR</option>
+                                                                 <option value="75">HAPUR</option>
+                                                                 <option value="73">HARDOI</option>
+                                                                 <option value="74">HATHRAS</option>
+                                                                 <option value="26">JALAUN</option>
+                                                                 <option value="27">JAUNPUR</option>
+                                                                 <option value="28">JHANSI</option>
+                                                                 <option value="12">KANNAUJ</option>
+                                                                 <option value="14">KANPUR DEHAT</option>
+                                                                 <option value="15">KANPUR NAGAR</option>
+                                                                 <option value="16">KASGANJ</option>
+                                                                 <option value="17">KAUSHAMBHI</option>
+                                                                 <option value="13">KUSHINAGAR</option>
+                                                                 <option value="18">LAKHIMPUR-KHERI</option>
+                                                                 <option value="60">LALITPUR</option>
+                                                                 <option value="59">LUCKNOW</option>
+                                                                 <option value="54">MAHARAJGANJ</option>
+                                                                 <option value="55">MAHOBA</option>
+                                                                 <option value="51">MAINPURI</option>
+                                                                 <option value="50">MATHURA</option>
+                                                                 <option value="48">MAU</option>
+                                                                 <option value="52">MEERUT</option>
+                                                                 <option value="56">MIRZAPUR</option>
+                                                                 <option value="53">MORADABAD</option>
+                                                                 <option value="49">MUZAFFARNAGAR</option>
+                                                                 <option value="32">PILIBHIT</option>
+                                                                 <option value="30">PRATAPGARH</option>
+                                                                 <option value="31">PRAYAGRAJ</option>
+                                                                 <option value="58">RAEBARELI</option>
+                                                                 <option value="57">RAMPUR</option>
+                                                                 <option value="68">SAHARANPUR</option>
+                                                                 <option value="66">SAMBHAL</option>
+                                                                 <option value="65">SANT KABIR NAGAR</option>
+                                                                 <option value="64">SHAHJAHANPUR</option>
+                                                                 <option value="63">SHAMLI</option>
+                                                                 <option value="62">SHRAVASTI</option>
+                                                                 <option value="69">SIDHARTHNAGAR</option>
+                                                                 <option value="70">SITAPUR</option>
+                                                                 <option value="71">SONBHADRA</option>
+                                                                 <option value="67">SULTANPUR</option>
+                                                                 <option value="9">UNNAO</option>
+                                                                 <option value="61">VARANASI</option>
+</select>
+
+<select>
+<option value="">Select Institute Type</option>
+                            <option value="gov">Government</option>
+                            <option value="pvt">Private</option>
+                            <option value="gov-aid">Aided</option>
+                            <option value="other">Other</option>
+</select>
+
+<input type="text" id="searchInput" placeholder="Search institute...">
+
+</div>
+
+<div class="table-box">
+<table id="table">
+<thead>
+<tr>
+<th>S.No</th>
+<th>Institute Code</th>
+<th>Institute</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td data-label="S.No">1</td>
+<td data-label="Code">2223</td>
+<td data-label="Institute">HEWETT POLYTECHNIC LUCKNOW</td>
+<td data-label="Action"><button class="btn">WEBSITE</button></td>
+</tr>
+<tr>
+<td data-label="S.No">2</td>
+<td data-label="Code">2222</td>
+<td data-label="Institute">LUCKNOW POLYTECHNIC LUCKNOW</td>
+<td data-label="Action"><button class="btn">WEBSITE</button></td>
+</tr>
+<tr>
+<td data-label="S.No">3</td>
+<td data-label="Code">2225</td>
+<td data-label="Institute">JAWAHAR LAL NEHRU POLYTECHNIC</td>
+<td data-label="Action"><button class="btn">WEBSITE</button></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+<script>
+let input=document.getElementById('searchInput');
+input.addEventListener('keyup',function(){
+let filter=this.value.toLowerCase();
+let rows=document.querySelectorAll('#table tbody tr');
+rows.forEach(r=>{
+let text=r.innerText.toLowerCase();
+r.style.display=text.includes(filter)?'':'none';
+});
+});
+</script>
+
+</body>
+</html>
