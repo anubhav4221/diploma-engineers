@@ -9,90 +9,121 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-body{
-    margin:0;
-    font-family:'Segoe UI';
-    background:#eef3ff;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
+body{
+background:linear-gradient(135deg,#eef3ff,#dfe9ff);
+}
+
+/* HEADER */
 header{
-    background:linear-gradient(135deg,#1565c0,#0d47a1);
-    color:white;
-    padding:15px;
-    position:sticky;
-    top:0;
+background:linear-gradient(135deg,#37474f,#263238);
+color:white;
+padding:12px 15px;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 
 .header-container{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
 .back-btn{
-    color:white;
-    text-decoration:none;
-    border:1px solid white;
-    padding:6px 14px;
-    border-radius:20px;
-}
-
-.back-btn:hover{
-    background:white;
-    color:#0d47a1;
+color:white;
+text-decoration:none;
+border:1px solid white;
+padding:5px 12px;
+border-radius:20px;
+font-size:14px;
 }
 
 .title{
-    font-weight:bold;
+font-weight:600;
+font-size:18px;
 }
 
+/* SECTION */
 .section{
-    padding:40px 20px;
+padding:25px 12px;
 }
 
 .section h2{
-    text-align:center;
-    margin-bottom:20px;
-    color:#0d47a1;
+text-align:center;
+margin-bottom:15px;
+color:#263238;
+font-size:20px;
 }
 
+/* GRID */
 .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:15px;
 }
 
+/* CARD */
 .card{
-    background:linear-gradient(135deg,#1e88e5,#42a5f5);
-    color:white;
-    padding:20px;
-    border-radius:15px;
-    text-align:center;
-    transition:0.3s;
+background:linear-gradient(135deg,#546e7a,#78909c);
+color:white;
+padding:18px 10px;
+border-radius:18px;
+text-align:center;
+transition:0.3s;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
 }
 
 .card:hover{
-    transform:translateY(-8px);
+transform:translateY(-6px) scale(1.02);
 }
 
 .card i{
-    margin-bottom:10px;
+margin-bottom:8px;
 }
 
+.card h3{
+font-size:14px;
+margin:8px 0;
+}
+
+/* BUTTON */
 .btn{
-    display:inline-block;
-    margin:6px 5px;
-    padding:7px 14px;
-    background:white;
-    color:#0d47a1;
-    border-radius:20px;
-    text-decoration:none;
-    font-size:14px;
+display:inline-block;
+margin:4px 2px;
+padding:6px 10px;
+background:white;
+color:#263238;
+border-radius:20px;
+text-decoration:none;
+font-size:12px;
+font-weight:500;
+transition:0.2s;
 }
 
 .btn:hover{
-    background:#e3f2fd;
+background:#eceff1;
 }
+
+/* MOBILE */
+@media(max-width:400px){
+.card h3{
+font-size:13px;
+}
+.btn{
+font-size:11px;
+padding:5px 8px;
+}
+}
+
 </style>
 </head>
 
@@ -102,7 +133,7 @@ header{
 <div class="header-container">
 
 <a href="javascript:history.back()" class="back-btn">
-<i class="fas fa-arrow-left"></i> Back
+<i class="fas fa-arrow-left"></i>
 </a>
 
 <div class="title">⚙ Mechanical Notes</div>
@@ -112,27 +143,51 @@ header{
 
 <!-- SEM 1 -->
 <div class="section">
-<h2>Semester 1 (Common)</h2>
+<h2>Semester 1</h2>
 <div class="grid">
 
-<div class="card"><i class="fas fa-book"></i><h3>Applied Mathematics I</h3><a href="#" class="btn">Book</a><a href="#" class="btn">Notes</a></div>
-<div class="card"><i class="fas fa-book"></i><h3>Applied Physics</h3><a href="#" class="btn">Book</a><a href="#" class="btn">Notes</a></div>
-<div class="card"><i class="fas fa-book"></i><h3>Applied Chemistry</h3><a href="#" class="btn">Book</a><a href="#" class="btn">Notes</a></div>
-<div class="card"><i class="fas fa-book"></i><h3>Communication Skills</h3><a href="#" class="btn">Book</a><a href="#" class="btn">Notes</a></div>
-<div class="card"><i class="fas fa-book"></i><h3>Engineering Drawing</h3><a href="#" class="btn">Book</a><a href="#" class="btn">Notes</a></div>
+<div class="card">
+<i class="fas fa-book fa-2x"></i>
+<h3>Applied Mathematics I</h3>
+<a href="#" class="btn">Book</a>
+<a href="#" class="btn">Notes</a>
+</div>
+
+<div class="card">
+<i class="fas fa-book fa-2x"></i>
+<h3>Applied Physics</h3>
+<a href="#" class="btn">Book</a>
+<a href="#" class="btn">Notes</a>
+</div>
 
 </div>
 </div>
 
 <!-- SEM 2 -->
 <div class="section">
-<h2>Semester 2 (Common)</h2>
+<h2>Semester 2</h2>
 <div class="grid">
 
-<div class="card"><i class="fas fa-book"></i><h3>Applied Mathematics II</h3><a href="#" class="btn">Book</a><a href="#" class="btn">Notes</a></div>
-<div class="card"><i class="fas fa-book"></i><h3>Basic Electrical Engineering</h3><a href="#" class="btn">Book</a><a href="#" class="btn">Notes</a></div>
-<div class="card"><i class="fas fa-book"></i><h3>Engineering Mechanics</h3><a href="#" class="btn">Book</a><a href="#" class="btn">Notes</a></div>
-<div class="card"><i class="fas fa-book"></i><h3>Workshop Practice</h3><a href="#" class="btn">Book</a><a href="#" class="btn">Notes</a></div>
+<div class="card">
+<i class="fas fa-book"></i>
+<h3>Applied Mathematics II</h3>
+<a href="#" class="btn">Book</a>
+<a href="#" class="btn">Notes</a>
+</div>
+
+<div class="card">
+<i class="fas fa-bolt"></i>
+<h3>Basic Electrical</h3>
+<a href="#" class="btn">Book</a>
+<a href="#" class="btn">Notes</a>
+</div>
+
+<div class="card">
+<i class="fas fa-cogs"></i>
+<h3>Engineering Mechanics</h3>
+<a href="#" class="btn">Book</a>
+<a href="#" class="btn">Notes</a>
+</div>
 
 </div>
 </div>
@@ -142,23 +197,26 @@ header{
 <h2>Semester 3</h2>
 <div class="grid">
 
-<div class="card"><i class="fas fa-book"></i><h3>Thermal Engineering</h3><a href="#" class="btn">Book</a><a href="#" class="btn">Notes</a></div>
-<div class="card"><i class="fas fa-book"></i><h3>Fluid Mechanics</h3><a href="#" class="btn">Book</a><a href="#" class="btn">Notes</a></div>
-<div class="card"><i class="fas fa-book"></i><h3>Manufacturing Process</h3><a href="#" class="btn">Book</a><a href="#" class="btn">Notes</a></div>
-<div class="card"><i class="fas fa-book"></i><h3>Machine Drawing</h3><a href="#" class="btn">Book</a><a href="#" class="btn">Notes</a></div>
-
+<div class="card">
+<i class="fas fa-cog"></i>
+<h3>Thermal Engineering</h3>
+<a href="#" class="btn">Book</a>
+<a href="#" class="btn">Notes</a>
 </div>
+
+<div class="card">
+<i class="fas fa-industry"></i>
+<h3>Manufacturing Process</h3>
+<a href="#" class="btn">Book</a>
+<a href="#" class="btn">Notes</a>
 </div>
 
-<!-- SEM 4 -->
-<div class="section">
-<h2>Semester 4</h2>
-<div class="grid">
-
-<div class="card"><i class="fas fa-book"></i><h3>Theory of Machines</h3><a href="#" class="btn">Book</a><a href="#" class="btn">Notes</a></div>
-<div class="card"><i class="fas fa-book"></i><h3>Strength of Materials</h3><a href="#" class="btn">Book</a><a href="#" class="btn">Notes</a></div>
-<div class="card"><i class="fas fa-book"></i><h3>Production Engineering</h3><a href="#" class="btn">Book</a><a href="#" class="btn">Notes</a></div>
-<div class="card"><i class="fas fa-book"></i><h3>Refrigeration & Air Conditioning</h3><a href="#" class="btn">Book</a><a href="#" class="btn">Notes</a></div>
+<div class="card">
+<i class="fas fa-tools"></i>
+<h3>Machine Drawing</h3>
+<a href="#" class="btn">Book</a>
+<a href="#" class="btn">Notes</a>
+</div>
 
 </div>
 </div>
