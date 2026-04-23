@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+z<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -9,30 +9,21 @@
 
 <style>
 body{
-    background:#000;
+    margin:0;
+    font-family:'Segoe UI';
+    background:linear-gradient(135deg,#020617,#0f172a);
     color:white;
-    font-family:'Poppins',sans-serif;
 }
 
 /* NAVBAR */
 .navbar{
-    background:#0a0a0a;
-    border-bottom:1px solid #222;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+    background:#020617;
+    border-bottom:1px solid #1e293b;
 }
-
-/* BACK BUTTON */
-.back-btn{
-    color:#22c55e;
-    border:1px solid #22c55e;
-    padding:5px 15px;
-    border-radius:20px;
-    text-decoration:none;
-}
-.back-btn:hover{
-    background:#22c55e;
-    color:#000;
-}
-
 
 .back{
     color:#22c55e;
@@ -95,13 +86,11 @@ body{
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar p-3">
-<div class="container d-flex justify-content-between">
-<a href="index.html" class="back-btn">⬅ Back</a>
-<span class="text-success fw-bold">Diploma Engineers</span>
+<div class="navbar">
+    <a href="index.html" class="back">⬅ Back</a>
+    <div class="title">Diploma Engineers</div>
 </div>
-</nav> 
-    
+
 <!-- MAIN -->
 <div class="container">
     <div class="card">
