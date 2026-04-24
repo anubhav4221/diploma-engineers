@@ -850,58 +850,16 @@ body {
 
 </section>  
 <!-- FOOTER -->
-<!-- FOOTER -->
-<footer class="main-footer">
 
-  <div class="container">
-    <div class="row">
+<div id="footer"></div>
 
-      <!-- LOGO + ABOUT -->
-      <div class="col-md-4 footer-box">
-        <div class="footer-logo">
-          <img src="https://anubhavfinance.wordpress.com/wp-content/uploads/2025/11/whatsapp-image-2025-11-26-at-01.09.43_629f0cdb.jpg" alt="logo">
-          <h4>Diploma Engineers</h4>
-        </div>
-        <p>Your learning partner for exams, notes and results.</p>
-      </div>
-
-      <!-- Study Material -->
-      <div class="col-md-4 footer-box">
-        <h4>Study Material</h4>
-        <ul>
-          <li><a href="notes.html">Notes</a></li>
-          <li><a href="Books.html">Books</a></li>
-          <li><a href="P.Y.Q.html">P.Y.Q</a></li>
-          <li><a href="QuetionBank.html">Quetion Bank</a></li>
-        </ul>
-      </div>
-
-      <!-- QUICK LINKS -->
-      <div class="col-md-4 footer-box">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="vision.html">Vision</a></li>
-          <li><a href="team.html">Team</a></li>
-          <li><a href="studentfeedback.html">Feedback</a></li>
-        </ul>
-      </div>
-
-      <!-- CONTACT -->
-      <div class="col-md-4 footer-box">
-        <h4>Contact</h4>
-        <p>Email: info@diplomaengineers.com</p>
-        <p>📍 Lucknow, India</p>
-      </div>
-
-    </div>
-
-    <!-- COPYRIGHT -->
-    <div class="footer-bottom">
-      <p>© 2026 Diploma Engineers | All Rights Reserved | Developed by ANUBHAV GANGWAR</p>
-    </div>
-  </div>
-
-</footer>
+<script>
+fetch("footer.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("footer").innerHTML = data;
+  });
+</script>
 
 <!-- CSS -->
 <style>
