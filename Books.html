@@ -4,154 +4,217 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Engineering Book Store</title>
+<title>Ebook Store</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <style>
 body{
-    background:#000;
+    font-family:Arial;
+    background:#0f172a;
     color:white;
-    font-family:'Segoe UI';
+    margin:0;
 }
 
-/* NAVBAR */
-.navbar{
-    background:#000;
-    border-bottom:1px solid #333;
-}
-
-/* TITLE */
-h1{
+/* HEADER */
+.header{
     text-align:center;
-    margin-top:20px;
+    padding:20px;
+    background:#020617;
+    font-size:24px;
+    font-weight:bold;
 }
 
-/* BOOK CARD */
-.book-card{
-    background:#111;
-    border-radius:15px;
+/* GRID */
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:20px;
+}
+
+/* CARD */
+.card{
+    background:#1e293b;
     padding:15px;
-    margin:15px 0;
+    border-radius:15px;
     text-align:center;
     transition:0.3s;
-    border:1px solid #222;
 }
 
-.book-card:hover{
+.card:hover{
     transform:scale(1.05);
-    background:#1a1a1a;
 }
 
-/* IMAGE */
-.book-card img{
+.card img{
     width:100%;
-    height:220px;
+    height:180px;
     object-fit:cover;
     border-radius:10px;
 }
 
-/* BUTTON */
+.card h3{
+    margin:10px 0;
+}
+
+.price{
+    color:#22c55e;
+    font-size:18px;
+    margin-bottom:10px;
+}
+
 button{
-    width:100%;
-    padding:10px;
-    margin-top:10px;
     background:#22c55e;
     border:none;
+    padding:10px;
     border-radius:8px;
     color:white;
-    font-weight:bold;
+    width:100%;
+    cursor:pointer;
+    font-size:15px;
 }
 
 button:hover{
     background:#16a34a;
 }
 
-/* PRICE */
-.price{
-    color:#facc15;
-    font-weight:bold;
-    margin-top:5px;
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-box{
+    background:#1e293b;
+    padding:20px;
+    border-radius:10px;
+    width:300px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:6px;
+    border:none;
 }
 </style>
 
 </head>
-
 <body>
 
-<!-- NAV -->
-<nav class="navbar p-2">
-<a href="index.html" style="color:white;">⬅ Back to Home</a>
-</nav>
-
-<h1>📚 Engineering Book Store</h1>
-<p class="text-center text-secondary">All Branch Books Available</p>
+<div class="header">📚 Ebook Store</div>
 
 <div class="container">
-<div class="row">
 
 <!-- BOOK 1 -->
-<div class="col-md-4">
-<div class="book-card">
-    <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f" alt="">
-    <h5>Engineering Mathematics</h5>
-    <div class="price">₹299</div>
-    <button>Buy Now</button>
-</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1">
+<h3>Engineering Maths</h3>
+<p class="price">₹99</p>
+<button onclick="openForm()">Buy Now</button>
 </div>
 
 <!-- BOOK 2 -->
-<div class="col-md-4">
-<div class="book-card">
-    <img src="https://images.unsplash.com/photo-1581091870622-3f8d2f5a6c7a" alt="">
-    <h5>Mechanical Engineering Basics</h5>
-    <div class="price">₹349</div>
-    <button>Buy Now</button>
-</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1">
+<h3>Physics Notes</h3>
+<p class="price">₹99</p>
+<button onclick="openForm()">Buy Now</button>
 </div>
 
 <!-- BOOK 3 -->
-<div class="col-md-4">
-<div class="book-card">
-    <img src="https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1" alt="">
-    <h5>Electrical Engineering Guide</h5>
-    <div class="price">₹399</div>
-    <button>Buy Now</button>
-</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1">
+<h3>Computer Basics</h3>
+<p class="price">₹99</p>
+<button onclick="openForm()">Buy Now</button>
 </div>
 
 <!-- BOOK 4 -->
-<div class="col-md-4">
-<div class="book-card">
-    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="">
-    <h5>Computer Science Handbook</h5>
-    <div class="price">₹299</div>
-    <button>Buy Now</button>
-</div>
-</div>
-
-<!-- BOOK 5 -->
-<div class="col-md-4">
-<div class="book-card">
-    <img src="https://images.unsplash.com/photo-1526378722484-cc31f5f3c5f1" alt="">
-    <h5>Electronics Engineering</h5>
-    <div class="price">₹329</div>
-    <button>Buy Now</button>
-</div>
-</div>
-
-<!-- BOOK 6 -->
-<div class="col-md-4">
-<div class="book-card">
-    <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66" alt="">
-    <h5>Civil Engineering Guide</h5>
-    <div class="price">₹379</div>
-    <button>Buy Now</button>
-</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1">
+<h3>Electrical Notes</h3>
+<p class="price">₹99</p>
+<button onclick="openForm()">Buy Now</button>
 </div>
 
 </div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+<div class="modal-box">
+
+<h3>Enter Details</h3>
+
+<input type="text" id="name" placeholder="Name">
+<input type="email" id="email" placeholder="Email">
+<input type="tel" id="mobile" placeholder="Mobile Number">
+
+<button onclick="payNow()">Proceed Payment</button>
+
 </div>
+</div>
+
+<script>
+
+function openForm(){
+    document.getElementById("modal").style.display = "flex";
+}
+
+async function payNow(){
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let mobile = document.getElementById("mobile").value;
+
+    if(!name || !email || !mobile){
+        alert("Fill all fields");
+        return;
+    }
+
+    let res = await fetch("/create-order", {method:"POST"});
+    let data = await res.json();
+
+    var options = {
+        "key": "YOUR_KEY_ID",
+        "amount": data.amount,
+        "currency": "INR",
+        "name": "Ebook Store",
+        "description": "Book Purchase",
+        "order_id": data.id,
+
+        "handler": function (response){
+
+            alert("Payment Successful ✅");
+
+            // 👉 YOUR GOOGLE DRIVE FILE OPEN
+            window.location.href = "https://drive.google.com/file/d/1Rf0MKJ4Z-zbaC5qr8mdVMrOL9TAelDdH/view?usp=drivesdk";
+        },
+
+        "prefill": {
+            "name": name,
+            "email": email,
+            "contact": mobile
+        },
+
+        "theme": {
+            "color": "#22c55e"
+        }
+    };
+
+    var rzp = new Razorpay(options);
+    rzp.open();
+}
+
+</script>
 
 </body>
 </html>
