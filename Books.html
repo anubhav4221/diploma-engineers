@@ -4,23 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Premium Ebook Store</title>
+<title>Ebook Store</title>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <style>
-body{margin:0;font-family:'Segoe UI',sans-serif;background:#0f172a;color:white;}
+body{
+    margin:0;
+    font-family:sans-serif;
+    background:#0f172a;
+    color:white;
+}
 
+/* HEADER */
 .header{
-    background:linear-gradient(90deg,#0ea5e9,#22c55e);
+    background:#22c55e;
     padding:15px;
     display:flex;
     justify-content:space-between;
-    align-items:center;
 }
 
-.search{padding:8px;border-radius:8px;border:none;width:200px;}
+.search{
+    padding:8px;
+    border-radius:6px;
+    border:none;
+}
 
+/* BOOK GRID */
 .container{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -28,21 +38,33 @@ body{margin:0;font-family:'Segoe UI',sans-serif;background:#0f172a;color:white;}
     padding:20px;
 }
 
-.card{background:#1e293b;border-radius:15px;overflow:hidden;}
-.card img{width:100%;height:180px;object-fit:cover;}
-.card-body{text-align:center;padding:15px;}
-.price{color:#22c55e;}
+.card{
+    background:#1e293b;
+    padding:10px;
+    border-radius:10px;
+    text-align:center;
+}
+
+.card img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+}
+
+.price{
+    color:#22c55e;
+}
 
 button{
     background:#22c55e;
     border:none;
     padding:10px;
-    border-radius:8px;
-    color:white;
     width:100%;
+    color:white;
     cursor:pointer;
 }
 
+/* MODAL */
 .modal{
     display:none;
     position:fixed;
@@ -53,15 +75,15 @@ button{
     align-items:center;
 }
 
-.modal-box{
+.box{
     background:#1e293b;
     padding:20px;
-    border-radius:12px;
-    width:350px;
+    width:300px;
+    border-radius:10px;
     position:relative;
 }
 
-.close-btn{
+.close{
     position:absolute;
     right:10px;
     top:5px;
@@ -70,126 +92,77 @@ button{
 
 input,textarea{
     width:100%;
-    padding:10px;
-    margin:6px 0;
+    padding:8px;
+    margin:5px 0;
     border:none;
-    border-radius:6px;
+    border-radius:5px;
 }
+/* FOOTER */
+footer{
+    background:#0b2545;
+    color:#ccc;
+    padding:40px 20px;
+}
+
 </style>
 </head>
 
 <body>
 
+  
+
+<body>
+
 <div class="header">
     <div>📚 Ebook Store</div>
-    <input class="search" id="searchInput" onkeyup="searchBooks()" placeholder="Search books...">
+    <input class="search" id="searchInput" onkeyup="searchBooks()" placeholder="Search...">
 </div>
 
 <div class="container">
 
+<!-- BOOK 1 -->
 <div class="card">
 <img src="https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1">
-<div class="card-body">
 <h3>Engineering Maths</h3>
 <p class="price">₹99</p>
-<button onclick="openForm('Engineering Maths')">Buy Now</button>
-</div>
+<button onclick="openForm('Engineering Maths')">Buy</button>
 </div>
 
+<!-- BOOK 2 -->
 <div class="card">
 <img src="https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1">
-<div class="card-body">
 <h3>Physics Notes</h3>
 <p class="price">₹99</p>
-<button onclick="openForm('Physics Notes')">Buy Now</button>
-</div>
+<button onclick="openForm('Physics Notes')">Buy</button>
 </div>
 
-</div>
-  
-<div class="container">
-
+<!-- BOOK 3 -->
 <div class="card">
 <img src="https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1">
-<div class="card-body">
-<h3>FEEE Maths</h3>
+<h3>Computer Basics</h3>
 <p class="price">₹99</p>
-<button onclick="openForm('Engineering Maths')">Buy Now</button>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1">
-<div class="card-body">
-<h3>Physics-II Notes</h3>
-<p class="price">₹99</p>
-<button onclick="openForm('Physics Notes')">Buy Now</button>
-</div>
+<button onclick="openForm('Computer Basics')">Buy</button>
 </div>
 
 </div>
 
- <div class="container">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1">
-<div class="card-body">
-<h3>Engineering Maths-II</h3>
-<p class="price">₹99</p>
-<button onclick="openForm('Engineering Maths')">Buy Now</button>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1">
-<div class="card-body">
-<h3>Chemistry Notes</h3>
-<p class="price">₹99</p>
-<button onclick="openForm('Physics Notes')">Buy Now</button>
-</div>
-</div>
-
-</div>
-
-<div class="container">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1">
-<div class="card-body">
-<h3>Drawing Maths</h3>
-<p class="price">₹99</p>
-<button onclick="openForm('Engineering Maths')">Buy Now</button>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1">
-<div class="card-body">
-<h3>BOM Notes</h3>
-<p class="price">₹99</p>
-<button onclick="openForm('Physics Notes')">Buy Now</button>
-</div>
-</div>
-
-</div>
-<!-- MODAL -->
+<!-- FORM -->
 <div class="modal" id="modal">
-<div class="modal-box">
+<div class="box">
 
-<span class="close-btn" onclick="closeForm()">✖</span>
+<span class="close" onclick="closeForm()">✖</span>
 
-<h3>🧾 Order Form</h3>
+<h3>Order Form</h3>
 
-<p>📲 Scan & Pay ₹99</p>
-<img src="https://anubhav.finance.blog/wp-content/uploads/2026/03/whatsapp-image-2026-03-09-at-10.49.05.jpeg?w=592" width="150">
+<p>Scan & Pay ₹99</p>
+<img src="https://anubhav.finance.blog/wp-content/uploads/2026/03/whatsapp-image-2026-03-09-at-10.49.05.jpeg?w=592" width="140">
 
 <input id="upi" placeholder="UPI Transaction ID">
 <input id="name" placeholder="Name">
 <input id="email" placeholder="Email">
-<input id="phone1" placeholder="Phone">
+<input id="phone" placeholder="Phone">
 <input id="book">
 <textarea id="address" placeholder="Address"></textarea>
-<input id="pincode" placeholder="Pincode">
 
 <button onclick="sendOrder()">Place Order</button>
 
@@ -198,10 +171,10 @@ input,textarea{
 
 <script>
 
-// ✅ INIT EMAILJS (1 बार)
+// 👉 INIT (replace key)
 emailjs.init("YOUR_PUBLIC_KEY");
 
-// 🔍 SEARCH
+// SEARCH
 function searchBooks(){
     let input = document.getElementById("searchInput").value.toLowerCase();
     document.querySelectorAll(".card").forEach(card=>{
@@ -216,7 +189,7 @@ function openForm(book){
     document.getElementById("modal").style.display="flex";
 }
 
-// CLOSE FORM
+// CLOSE
 function closeForm(){
     document.getElementById("modal").style.display="none";
 }
@@ -227,30 +200,44 @@ function sendOrder(){
     let data = {
         to_email: "Astar22072006@gmail.com",
 
-        upi: document.getElementById("upi").value,
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        phone1: document.getElementById("phone1").value,
-        book: document.getElementById("book").value,
-        address: document.getElementById("address").value,
-        pincode: document.getElementById("pincode").value
+        upi: upi.value,
+        name: name.value,
+        email: email.value,
+        phone: phone.value,
+        book: book.value,
+        address: address.value
     };
 
     if(!data.upi || !data.name || !data.email){
-        alert("⚠️ Fill required fields");
+        alert("Fill required fields");
         return;
     }
 
     emailjs.send("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",data)
     .then(()=>{
-        alert("✅ Order Successful! Your order is under process. Within 24 hours we will send your book on email.");
+        alert("✅ Order Successful! Book will be sent within 24 hours.");
         closeForm();
     })
     .catch((err)=>{
-        alert("❌ Error: " + JSON.stringify(err));
+        alert("❌ Error: check console");
+        console.log(err);
     });
 }
 
+</script>
+
+</body>
+</html
+
+  <!-- FOOTER -->
+<div id="footer"></div>
+
+<script>
+fetch("footer.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("footer").innerHTML = data;
+  });
 </script>
 
 </body>
