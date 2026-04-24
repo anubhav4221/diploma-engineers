@@ -13,6 +13,8 @@
 
 <!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 
 <style>
 
@@ -102,49 +104,44 @@ body{
 }
 .whatsapp-btn{background:#25D366;}
 
-/* TEAM */
-.team-card{
+.contact-form{
     background:#fff;
-    border-radius:20px;
     padding:30px;
-    text-align:center;
-    box-shadow:0 5px 20px rgba(0,0,0,0.08);
-}
-.team-img{
-    width:80px;
-    height:80px;
-    border-radius:50%;
-    border:3px solid #ff7b00;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
 }
 
-/* FEEDBACK */
-.feedback-section{
-  overflow:hidden;
-  padding:40px 0;
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    outline:none;
+    font-size:14px;
 }
 
-.slider{
-  display:flex;
-  gap:20px;
-  width:max-content;
-  animation:scroll 15s linear infinite;
+.contact-form input:focus,
+.contact-form textarea:focus{
+    border-color:#ff7b00;
 }
 
-.feedback-card{
-  background:#fff;
-  border-radius:15px;
-  min-width:300px;
-  padding:20px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+.contact-form button{
+    width:100%;
+    padding:12px;
+    background:#ff7b00;
+    border:none;
+    color:#fff;
+    font-weight:600;
+    border-radius:10px;
+    transition:0.3s;
 }
 
-@keyframes scroll{
-  0%{transform:translateX(0);}
-  100%{transform:translateX(-50%);}
+.contact-form button:hover{
+    background:#e66900;
 }
-
-    
-
+  
 /* FOOTER */
 footer{
     background:#0b2545;
@@ -157,7 +154,7 @@ footer h4{color:#fff;}
 </head>
 
 <body>
-
+ 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg fixed-top">
 <div class="container">
@@ -185,671 +182,51 @@ footer h4{color:#fff;}
 </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-<h1>Welcome to Diploma Engineers</h1>
-<p>Notes | PYQ | Results | Guidance</p>
-<a href="#" class="btn btn-warning mt-3">Explore</a>
-</section>
 
-<!-- ACHIEVEMENTS -->
-<!-- ===== ACHIEVEMENTS SECTION START ===== -->
-<section class="achievements-section">
-
-    <h2 class="title">
-        Our <span>Achievements</span>
-    </h2>
-
-    <div class="achievements-row">
-
-        <div class="count-box">
-            <h1 class="counter" data-target="1500">0</h1>
-            <p>Students</p>
-        </div>
-
-        <div class="count-box">
-            <h1 class="counter" data-target="50">0</h1>
-            <p>Books PDF</p>
-        </div>
-
-        <div class="count-box">
-            <h1 class="counter" data-target="350">0</h1>
-            <p>Notes</p>
-        </div>
-
-        <div class="count-box">
-            <h1 class="counter" data-target="50">0</h1>
-            <p>E-Books</p>
-        </div>
-
-    </div>
-</section>
-
-<style>
-.achievements-section{
-    padding:60px 20px;
-    text-align:center;
-    background:#f9f9f9;
-}
-
-.title{
-    font-size:30px;
-    font-weight:900;
-    margin-bottom:40px;
-}
-
-.title span{
-    color:#ff7b00;
-}
-
-.achievements-row{
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    flex-wrap:wrap;
-}
-
-.count-box{
-    flex:1;
-    min-width:180px;
-    max-width:220px;
-    padding:25px;
-    border-radius:15px;
-    background:#fff;
-    box-shadow:0 5px 15px rgba(0,0,0,0.08);
-    transition:0.3s;
-}
-
-.count-box:hover{
-    transform:translateY(-5px);
-}
-
-.counter{
-    font-size:42px;
-    font-weight:900;
-    color:#ff7b00;
-    margin:0;
-}
-
-.count-box p{
-    margin-top:5px;
-    font-weight:600;
-    color:#555;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-    .count-box{
-        flex:1 1 45%;
-    }
-    .counter{
-        font-size:32px;
-    }
-}
-
-@media(max-width:480px){
-    .count-box{
-        flex:1 1 100%;
-    }
-}
-</style>
-
-<script>
-// ===== SMART COUNTER (RUN ONLY WHEN VISIBLE) =====
-const counters = document.querySelectorAll(".counter");
-
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            const counter = entry.target;
-            const target = +counter.dataset.target;
-
-            let count = 0;
-            const step = target / 100;
-
-            const update = () => {
-                count += step;
-                if(count < target){
-                    counter.innerText = Math.ceil(count);
-                    setTimeout(update, 20);
-                } else {
-                    counter.innerText = target;
-                }
-            };
-
-            update();
-            observer.unobserve(counter);
-        }
-    });
-}, { threshold: 0.6 });
-
-counters.forEach(c => observer.observe(c));
-</script>
-
-<!-- JOIN -->
+<!-- CONTACT SECTION -->
 <section class="section">
-<h2 class="title">Join <span>Us</span></h2>
-
-<div class="container">
-<div class="row g-4">
-
-<div class="col-md-6">
-<div class="branch-card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg">
-<h4>Telegram</h4>
-<p>Notes & Updates</p>
-<a href="https://t.me/diploma_engineers7" target="_blank" class="join-btn">Join</a>
-</div>
-</div>
-
-<div class="col-md-6">
-<div class="branch-card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-<h4>WhatsApp</h4>
-<p>Daily Updates</p>
-<a href="https://whatsapp.com/channel/0029Vay8k8CAojYkBQWr1s1w" target="_blank" class="join-btn whatsapp-btn">Join</a>
-</div>
-</div>
-
-</div>
-</div>
-</section>
-<style>
-.branch-section {
-    background: #f8f9fa;
-    padding: 60px 0;
-}
-
-.branch-title {
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 40px;
-    font-size: 2rem;
-}
-
-.branch-title span {
-    color: #ff7b00;
-}
-
-/* Square Card */
-.branch-card {
-    aspect-ratio: 1 / 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    background: #fff;
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    transition: 0.4s;
-}
-
-.branch-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-}
-
-/* Square Icon Box */
-.branch-icon {
-    width: 70px;
-    height: 70px;
-    background: #eaf6ff;
-    border-radius: 15px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 15px;
-}
-
-.whatsapp-icon {
-    background: #eafbf1;
-}
-
-.branch-icon img {
-    width: 35px;
-    height: 35px;
-    object-fit: contain;
-}
-
-.branch-card h4 {
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.branch-card p {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 15px;
-}
-
-/* Buttons */
-.join-btn {
-    display: inline-block;
-    padding: 10px 22px;
-    border-radius: 30px;
-    background: #0088cc;
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-.join-btn:hover {
-    background: #006699;
-    color: white;
-}
-
-.whatsapp-btn {
-    background: #25D366;
-}
-
-.whatsapp-btn:hover {
-    background: #1da851;
-}
-
-@media (max-width: 768px) {
-    .branch-card {
-        aspect-ratio: auto;
-        min-height: 280px;
-    }
-}
-</style>
-
- <!-- ===== BRANCH SECTION START ===== -->
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<style>
-.branch-section {
-    background: #f8f9fa;
-    padding: 60px 0;
-}
-
-.branch-title {
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 40px;
-}
-
-.branch-title span {
-    color: #ff7b00;
-}
-
-/* Card Style */
-.branch-card {
-    border: none;
-    border-radius: 20px;
-    padding: 30px;
-    text-align: center;
-    transition: 0.4s;
-    background: white;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-}
-
-.branch-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-}
-
-/* Icons */
-.branch-icon {
-    font-size: 40px;
-    margin-bottom: 15px;
-    color: #ff7b00;
-}
-
-/* Responsive spacing */
-.branch-card h4 {
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.branch-card p {
-    margin: 0;
-    font-size: 14px;
-}
-</style>
-
-<section class="branch-section">
 <div class="container">
 
-<h2 class="branch-title">
-    Engineering <span>Branch</span>
-</h2>
+<h2 class="title">Contact <span>Us</span></h2>
+<p class="text-center text-secondary mb-4">We are here to help you</p>
 
-<div class="row g-4">
+<div class="row justify-content-center">
+<div class="col-md-6">
 
-    <!-- CSE -->
-    <div class="col-md-4 col-sm-6">
-        <div class="branch-card">
-            <div class="branch-icon">💻</div>
-            <h4>Computer Science</h4>
-            <p>Code: 355</p>
-            <p>Duration: 3 Years</p>
-        </div>
-    </div>
+<form action="https://formsubmit.co/astar22072006@gmail.com" method="POST" class="contact-form">
 
-    <!-- Electrical -->
-    <div class="col-md-4 col-sm-6">
-        <div class="branch-card">
-            <div class="branch-icon">⚡</div>
-            <h4>Electrical Engineering</h4>
-            <p>Code: 328</p>
-            <p>Duration: 3 Years</p>
-        </div>
-    </div>
+    <!-- Hidden settings -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
 
-    <!-- ECE -->
-    <div class="col-md-4 col-sm-6">
-        <div class="branch-card">
-            <div class="branch-icon">📡</div>
-            <h4>Electronics</h4>
-            <p>Code: 330</p>
-            <p>Duration: 3 Years</p>
-        </div>
-    </div>
+    <!-- Name -->
+    <input type="text" name="name" placeholder="Your Name" required>
 
-    <!-- Civil -->
-    <div class="col-md-4 col-sm-6">
-        <div class="branch-card">
-            <div class="branch-icon">🏗️</div>
-            <h4>Civil Engineering</h4>
-            <p>Code: 322</p>
-            <p>Duration: 3 Years</p>
-        </div>
-    </div>
+    <!-- Email -->
+    <input type="email" name="email" placeholder="Your Email" required>
 
-    <!-- Mechanical -->
-    <div class="col-md-4 col-sm-6">
-        <div class="branch-card">
-            <div class="branch-icon">⚙️</div>
-            <h4>Mechanical</h4>
-            <p>Code: 343</p>
-            <p>Duration: 3 Years</p>
-        </div>
-    </div>
+    <!-- Message -->
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
 
-    <!-- IT -->
-    <div class="col-md-4 col-sm-6">
-        <div class="branch-card">
-            <div class="branch-icon">🌐</div>
-            <h4>Information Technology</h4>
-            <p>Code: 356</p>
-            <p>Duration: 3 Years</p>
-        </div>
-    </div>
-    
-  <!-- AG-->
-    <div class="col-md-4 col-sm-6">
-        <div class="branch-card">
-            <div class="branch-icon">🌱</div>
-            <h4>Agricultural</h4>
-            <p>Code: 316</p>
-            <p>Duration: 3 Years</p>
-        </div>
-    </div>
+    <!-- Button -->
+    <button type="submit">Send Message</button>
+
+</form>
+
+<p class="text-center mt-3">⚡ Response time: 24 hours</p>
 
 </div>
 </div>
-</section>   
-    
-<!-- STUDENT FEEDBACK -->
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<section class="container my-5 text-center">
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-
-body {
-    background: #f5f7fa;
-}
-
-/* Section Full Width */
-.feedback-section {
-    overflow: hidden;
-    padding: 40px 0;
-}
-
-/* Slider Track */
-.slider {
-    display: flex;
-    gap: 20px;
-    width: max-content;
-    animation: scroll 15s linear infinite;
-}
-
-/* Cards */
-.feedback-card {
-    background: #fff;
-    border-radius: 15px;
-    min-width: 300px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: 0.3s;
-}
-
-.feedback-card:hover {
-    transform: translateY(-5px);
-}
-
-/* Stars */
-.stars {
-    color: #ffc107;
-}
-
-/* Animation */
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="container-fluid">
-
-     <h2 style="font-weight:800; margin-bottom:30px;">
-        Students <span style="color:#ff7b00;">Feedback</span>
-    </h2>
-    <div class="feedback-section">
-        <div class="slider">
-
-            <!-- CARD 1 -->
-            <div class="feedback-card">
-                <h5 class="fw-bold">Rahul Kumar</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐⭐
-                </div>
-                <p>Bahut achi website hai 👍 Notes aur updates time par milte hain.</p>
-            </div>
-
-            <!-- CARD 2 -->
-            <div class="feedback-card">
-                <h5 class="fw-bold">Aman Singh</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐
-                </div>
-                <p>Diploma students ke liye best platform hai 💯</p>
-            </div>
-
-            <!-- CARD 3 -->
-            <div class="feedback-card">
-                <h5 class="fw-bold">Priya Sharma</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐☆
-                </div>
-                <p>Design aur content dono bahut accha hai 👌</p>
-            </div>
-
-            <!-- DUPLICATE (Smooth loop ke liye) -->
-            <div class="feedback-card">
-                <h5 class="fw-bold">Rahul Kumar</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐⭐
-                </div>
-                <p>Bahut achi website hai 👍 Notes aur updates time par milte hain.</p>
-            </div>
-
-            <div class="feedback-card">
-                <h5 class="fw-bold">Aman Singh</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐
-                </div>
-                <p>Diploma students ke liye best platform hai 💯</p>
-            </div>
-
-            <div class="feedback-card">
-                <h5 class="fw-bold">Priya Sharma</h5>
-                <div class="stars mb-2">
-                    ⭐⭐⭐⭐☆
-                </div>
-                <p>Design aur content dono bahut accha hai 👌</p>
-            </div>
-
-        </div>
-    </div>
 </div>
-
-</body>
-</html>
-
-    
-<!-- ===== TEAM SLIDER (WORKING FIX) ===== -->
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-.team-section{
-    padding:60px 20px;
-    background:#f5f7fa;
-    text-align:center;
-}
-
-.team-card{
-    background:#fff;
-    border-radius:20px;
-    padding:30px;
-    max-width:300px;
-    margin:auto;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-.team-img{
-    width:85px;
-    height:85px;
-    border-radius:50%;
-    object-fit:cover;
-    border:3px solid #ff7b00;
-    margin-bottom:10px;
-}
-
-.social-icons a{
-    margin:0 6px;
-    color:#555;
-    font-size:18px;
-}
-
-.social-icons a:hover{
-    color:#ff7b00;
-}
-
-/* show arrows (important for testing) */
-.carousel-control-prev,
-.carousel-control-next{
-    filter: invert(1);
-}
-</style>
-
-<section class="team-section">
-
-    <h2 class="fw-bold mb-5">
-        Our <span style="color:#ff7b00;">Team</span>
-    </h2>
-
-    <div id="teamCarousel" class="carousel slide" data-bs-ride="carousel">
-
-        <div class="carousel-inner">
-
-            <!-- ITEM 1 -->
-            <div class="carousel-item active">
-                <div class="team-card">
-
-                    <img src="https://anubhavfinance.wordpress.com/wp-content/uploads/2025/09/1000210734.png" class="team-img">
-
-                    <h5 class="fw-bold">Anubhav Gangwar</h5>
-                    <p class="text-muted">Founder</p>
-
-                    <div class="social-icons">
-                        <a href="tel:+918957972019"><i class="fas fa-phone"></i></a>
-                        <a href="mailto:anubhav4221@gmail.com"><i class="fas fa-envelope"></i></a>
-                        <a href="https://wa.me/918957972019" target="blank"> <i class="fab fa-whatsapp"></i>
-                        <a href="https://instagram.com/anubhav_gangwar7" target="blank"> <i class="fab fa-instagram"></i>
-                   </div>
-                        <a href="https://anubhav4221.github.io/diploma-engineers/anubhav.html" target="_blank" class="join-btn">About</a>  
-                </div>
-            </div>
-
-                          
-            <!-- ITEM 2 -->
-            <div class="carousel-item">
-                <div class="team-card">
-
-                    <img src="https://anubhavcode.wordpress.com/wp-content/uploads/2023/10/dsc_9692.jpg" class="team-img">
-
-                    <h5 class="fw-bold">Mukesh Singh</h5>
-                    <p class="text-muted">Co-Founder</p>
-
-                  <div class="social-icons">
-                        <a href="tel:+918957972019"><i class="fas fa-phone"></i></a>
-                        <a href="mailto:...1@gmail.com"><i class="fas fa-envelope"></i></a>
-                        <a href="https://wa.me/917238930817" target="blank"> <i class="fab fa-whatsapp"></i>
-                        <a href="https://instagram.com/_07mukeshsingh" target="blank"> <i class="fab fa-instagram"></i>
-                   </div>
-                      <a href="https://anubhav4221.github.io/diploma-engineers/mukesh.html" target="_blank" class="join-btn">About</a>  
-                    
-                </div>
-            </div>
-
-        </div>
-
-        <!-- CONTROLS (IMPORTANT) -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#teamCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-
-        <button class="carousel-control-next" type="button" data-bs-target="#teamCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
-
-    </div>
-
 </section>
 
-</section>  
-<!-- FOOTER -->
+
+
+
+  
+
+
 <!-- FOOTER -->
 <footer class="main-footer">
 
