@@ -15,7 +15,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-
 <style>
 
 html{scroll-behavior:smooth;}
@@ -45,27 +44,12 @@ body{
 }
 .nav-link:hover::after{width:100%;}
 
-.back-btn{
-    color:#22c55e;
-    border:1px solid #22c55e;
-    padding:5px 15px;
-    border-radius:20px;
-    text-decoration:none;
-    transition:0.3s;
-}
-.back-btn:hover{
-    background:#22c55e;
-    color:#000;
-}
-
 /* SECTION */
 .section{padding:60px 20px;}
 .title{text-align:center; font-weight:700; margin-bottom:40px;}
 .title span{color:#ff7b00;}
 
-
-
-
+/* CONTACT FORM */
 .contact-form{
     background:#fff;
     padding:30px;
@@ -103,7 +87,7 @@ body{
 .contact-form button:hover{
     background:#e66900;
 }
-  
+
 /* FOOTER */
 footer{
     background:#0b2545;
@@ -116,16 +100,14 @@ footer h4{color:#fff;}
 </head>
 
 <body>
- 
+
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg fixed-top">
 <div class="container">
-  <a href="index.html" class="back-btn">⬅ Back</a>
+
 <a class="navbar-brand" href="#">
-  
-
-
-  <span style="color:white; font-weight:bold;">Diploma</span>   <span style="color:yellow; font-weight:bold;">Engineers</span>
+  <span style="color:white; font-weight:bold;">Diploma</span>
+  <span style="color:yellow; font-weight:bold;">Engineers</span>
 </a>
 
 <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
@@ -135,15 +117,15 @@ footer h4{color:#fff;}
 <div class="collapse navbar-collapse" id="menu">
 <ul class="navbar-nav ms-auto">
 <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-<li class="nav-item"><a class="nav-link" href="notes.html">Sem. Books & Notes </a></li>
+<li class="nav-item"><a class="nav-link" href="notes.html">Sem. Books & Notes</a></li>
 <li class="nav-item"><a class="nav-link" href="syllabus.html">Syllabus</a></li>
 <li class="nav-item"><a class="nav-link" href="result.html">Result</a></li>
-<li class="nav-item"><a class="nav-link" href="jeecup.html">Jeecup Guidance </a></li>
+<li class="nav-item"><a class="nav-link" href="jeecup.html">Jeecup Guidance</a></li>
 <li class="nav-item"><a class="nav-link" href="studentfeedback.html">Feedback</a></li>
 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-    
 </ul>
 </div>
+
 </div>
 </nav>
 
@@ -160,21 +142,14 @@ footer h4{color:#fff;}
 
 <form action="https://formsubmit.co/astar22072006@gmail.com" method="POST" class="contact-form">
 
-    <!-- Hidden settings -->
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
 
-    <!-- Name -->
-    <input type="text" name="name" placeholder="Your Name" required>
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<textarea name="message" rows="5" placeholder="Your Message" required></textarea>
 
-    <!-- Email -->
-    <input type="email" name="email" placeholder="Your Email" required>
-
-    <!-- Message -->
-    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-
-    <!-- Button -->
-    <button type="submit">Send Message</button>
+<button type="submit">Send Message</button>
 
 </form>
 
@@ -185,12 +160,6 @@ footer h4{color:#fff;}
 
 </div>
 </section>
-
-
-
-
-  
-
 
 <!-- FOOTER -->
 <div id="footer"></div>
@@ -203,79 +172,5 @@ fetch("footer.html")
   });
 </script>
 
-<!-- CSS -->
-<style>
-.main-footer {
-    background: #0d1b2a;
-    color: #fff;
-    padding: 50px 0 20px;
-    font-family: 'Poppins', sans-serif;
-}
-
-.footer-box {
-    margin-bottom: 20px;
-}
-
-.footer-box h4 {
-    font-weight: 600;
-    margin-bottom: 15px;
-    position: relative;
-}
-
-.footer-box h4::after {
-    content: '';
-    width: 40px;
-    height: 3px;
-    background: #fca311;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-}
-
-.footer-box p {
-    font-size: 14px;
-    color: #ccc;
-}
-
-.footer-box ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-box ul li {
-    margin-bottom: 8px;
-}
-
-.footer-box ul li a {
-    text-decoration: none;
-    color: #ccc;
-    transition: 0.3s;
-}
-
-.footer-box ul li a:hover {
-    color: #fca311;
-    padding-left: 5px;
-}
-
-.footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.footer-logo img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
-
-.footer-bottom {
-    text-align: center;
-    border-top: 1px solid #444;
-    margin-top: 20px;
-    padding-top: 10px;
-    font-size: 13px;
-    color: #aaa;
-}
-</style>
-
+</body>
+</html>
