@@ -9,14 +9,8 @@
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <style>
-body{
-    margin:0;
-    font-family:sans-serif;
-    background:#0f172a;
-    color:white;
-}
+body{margin:0;font-family:sans-serif;background:#0f172a;color:white;}
 
-/* HEADER */
 .header{
     background:#22c55e;
     padding:15px;
@@ -30,7 +24,6 @@ body{
     border:none;
 }
 
-/* BOOK GRID */
 .container{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -51,9 +44,7 @@ body{
     object-fit:cover;
 }
 
-.price{
-    color:#22c55e;
-}
+.price{color:#22c55e;}
 
 button{
     background:#22c55e;
@@ -68,6 +59,8 @@ button{
 .modal{
     display:none;
     position:fixed;
+    top:0;
+    left:0;
     width:100%;
     height:100%;
     background:rgba(0,0,0,0.8);
@@ -97,56 +90,42 @@ input,textarea{
     border:none;
     border-radius:5px;
 }
-/* FOOTER */
-footer{
-    background:#0b2545;
-    color:#ccc;
-    padding:40px 20px;
-}
-
 </style>
 </head>
 
 <body>
 
-  
-
-<body>
-
 <div class="header">
     <div>📚 Ebook Store</div>
-    <input class="search" id="searchInput" onkeyup="searchBooks()" placeholder="Search...">
+    <input class="search" id="searchInput" placeholder="Search books...">
 </div>
 
-<div class="container">
+<div class="container" id="bookContainer">
 
-<!-- BOOK 1 -->
+<!-- 6 BOOKS -->
+<script>
+const books = [
+"Engineering Maths",
+"Physics Notes",
+"Computer Basics",
+"Engineering Maths-II",
+"Chemistry Notes",
+"Drawing / BOM Notes"
+];
+
+document.write(books.map(b => `
 <div class="card">
 <img src="https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1">
-<h3>Engineering Maths</h3>
+<h3>${b}</h3>
 <p class="price">₹99</p>
-<button onclick="openForm('Engineering Maths')">Buy</button>
+<button onclick="openForm('${b}')">Buy</button>
 </div>
-
-<!-- BOOK 2 -->
-<div class="card">
-<img src="https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1">
-<h3>Physics Notes</h3>
-<p class="price">₹99</p>
-<button onclick="openForm('Physics Notes')">Buy</button>
-</div>
-
-<!-- BOOK 3 -->
-<div class="card">
-<img src="https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1">
-<h3>Computer Basics</h3>
-<p class="price">₹99</p>
-<button onclick="openForm('Computer Basics')">Buy</button>
-</div>
+`).join(""));
+</script>
 
 </div>
 
-<!-- FORM -->
+<!-- MODAL -->
 <div class="modal" id="modal">
 <div class="box">
 
@@ -171,45 +150,53 @@ footer{
 
 <script>
 
-// 👉 INIT (replace key)
+// INIT EMAILJS
 emailjs.init("YOUR_PUBLIC_KEY");
 
 // SEARCH
-function searchBooks(){
-    let input = document.getElementById("searchInput").value.toLowerCase();
+document.getElementById("searchInput").addEventListener("keyup", function(){
+    let input = this.value.toLowerCase();
     document.querySelectorAll(".card").forEach(card=>{
         let title = card.querySelector("h3").innerText.toLowerCase();
         card.style.display = title.includes(input) ? "block" : "none";
     });
-}
+});
 
 // OPEN FORM
 function openForm(book){
     document.getElementById("book").value = book;
-    document.getElementById("modal").style.display="flex";
+    document.getElementById("modal").style.display = "flex";
 }
 
-// CLOSE
+// CLOSE FORM
 function closeForm(){
-    document.getElementById("modal").style.display="none";
+    document.getElementById("modal").style.display = "none";
 }
 
-// SEND EMAIL
+// CLICK OUTSIDE CLOSE
+window.onclick = function(e){
+    let modal = document.getElementById("modal");
+    if(e.target === modal){
+        modal.style.display = "none";
+    }
+}
+
+// SEND ORDER
 function sendOrder(){
 
     let data = {
         to_email: "Astar22072006@gmail.com",
 
-        upi: upi.value,
-        name: name.value,
-        email: email.value,
-        phone: phone.value,
-        book: book.value,
-        address: address.value
+        upi: document.getElementById("upi").value,
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        book: document.getElementById("book").value,
+        address: document.getElementById("address").value
     };
 
     if(!data.upi || !data.name || !data.email){
-        alert("Fill required fields");
+        alert("⚠️ Fill required fields");
         return;
     }
 
@@ -219,25 +206,11 @@ function sendOrder(){
         closeForm();
     })
     .catch((err)=>{
-        alert("❌ Error: check console");
+        alert("❌ Email failed");
         console.log(err);
     });
 }
 
-</script>
-
-</body>
-</html
-
-  <!-- FOOTER -->
-<div id="footer"></div>
-
-<script>
-fetch("footer.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("footer").innerHTML = data;
-  });
 </script>
 
 </body>
