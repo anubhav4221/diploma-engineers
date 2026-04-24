@@ -45,64 +45,26 @@ body{
 }
 .nav-link:hover::after{width:100%;}
 
-/* HERO */
-.hero{
-    background: linear-gradient(135deg,#1d3557,#457b9d);
-    color:white;
-    padding:140px 20px;
-    text-align:center;
+.back-btn{
+    color:#22c55e;
+    border:1px solid #22c55e;
+    padding:5px 15px;
+    border-radius:20px;
+    text-decoration:none;
+    transition:0.3s;
 }
-.hero h1{font-size:48px; font-weight:700;}
-.hero p{opacity:0.9;}
+.back-btn:hover{
+    background:#22c55e;
+    color:#000;
+}
 
 /* SECTION */
 .section{padding:60px 20px;}
 .title{text-align:center; font-weight:700; margin-bottom:40px;}
 .title span{color:#ff7b00;}
 
-/* ACHIEVEMENTS */
-.achievements{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:20px;
-}
-.count-box{
-    background:#fff;
-    padding:30px;
-    border-radius:20px;
-    min-width:180px;
-    text-align:center;
-    box-shadow:0 5px 20px rgba(0,0,0,0.08);
-    transition:0.4s;
-}
-.count-box:hover{transform:translateY(-8px);}
-.counter{font-size:40px; color:#ff7b00; font-weight:700;}
 
-/* JOIN */
-.branch-card{
-    border-radius:20px;
-    padding:25px;
-    background:#fff;
-    text-align:center;
-    box-shadow:0 5px 20px rgba(0,0,0,0.08);
-    transition:0.4s;
-}
-.branch-card:hover{
-    transform:translateY(-10px);
-    background:#ff7b00;
-    color:white;
-}
-.branch-card img{width:40px; margin-bottom:10px;}
 
-.join-btn{
-    background:#0088cc;
-    color:white;
-    padding:8px 20px;
-    border-radius:20px;
-    text-decoration:none;
-}
-.whatsapp-btn{background:#25D366;}
 
 .contact-form{
     background:#fff;
@@ -158,9 +120,12 @@ footer h4{color:#fff;}
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg fixed-top">
 <div class="container">
+  <a href="index.html" class="back-btn">⬅ Back</a>
 <a class="navbar-brand" href="#">
-   <span style="color:white; font-weight:bold;">Diploma</span> 
-  <span style="color:yellow; font-weight:bold;">Engineers</span>
+  
+
+
+  <span style="color:white; font-weight:bold;">Diploma</span>   <span style="color:yellow; font-weight:bold;">Engineers</span>
 </a>
 
 <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
@@ -228,57 +193,15 @@ footer h4{color:#fff;}
 
 
 <!-- FOOTER -->
-<footer class="main-footer">
+<div id="footer"></div>
 
-  <div class="container">
-    <div class="row">
-
-      <!-- LOGO + ABOUT -->
-      <div class="col-md-4 footer-box">
-        <div class="footer-logo">
-          <img src="https://anubhavfinance.wordpress.com/wp-content/uploads/2025/11/whatsapp-image-2025-11-26-at-01.09.43_629f0cdb.jpg" alt="logo">
-          <h4>Diploma Engineers</h4>
-        </div>
-        <p>Your learning partner for exams, notes and results.</p>
-      </div>
-
-      <!-- Study Material -->
-      <div class="col-md-4 footer-box">
-        <h4>Study Material</h4>
-        <ul>
-          <li><a href="notes.html">Notes</a></li>
-          <li><a href="Books.html">Books</a></li>
-          <li><a href="P.Y.Q.html">P.Y.Q</a></li>
-          <li><a href="QuetionBank.html">Quetion Bank</a></li>
-        </ul>
-      </div>
-
-      <!-- QUICK LINKS -->
-      <div class="col-md-4 footer-box">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="vision.html">Vision</a></li>
-          <li><a href="team.html">Team</a></li>
-          <li><a href="studentfeedback.html">Feedback</a></li>
-        </ul>
-      </div>
-
-      <!-- CONTACT -->
-      <div class="col-md-4 footer-box">
-        <h4>Contact</h4>
-        <p>Email: info@diplomaengineers.com</p>
-        <p>📍 Lucknow, India</p>
-      </div>
-
-    </div>
-
-    <!-- COPYRIGHT -->
-    <div class="footer-bottom">
-      <p>© 2026 Diploma Engineers | All Rights Reserved | Developed by ANUBHAV GANGWAR</p>
-    </div>
-  </div>
-
-</footer>
+<script>
+fetch("footer.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("footer").innerHTML = data;
+  });
+</script>
 
 <!-- CSS -->
 <style>
