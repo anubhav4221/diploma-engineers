@@ -180,6 +180,190 @@ input, textarea{
 
 <script>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Premium Ebook Store</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:#0f172a;
+    color:white;
+}
+
+/* HEADER */
+.header{
+    background:linear-gradient(90deg,#0ea5e9,#22c55e);
+    padding:15px;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* GRID */
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:20px;
+}
+
+/* CARD */
+.card{
+    background:#1e293b;
+    border-radius:15px;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.card-body{
+    padding:15px;
+    text-align:center;
+}
+
+.price{
+    color:#22c55e;
+}
+
+/* BUTTON */
+button{
+    background:#22c55e;
+    border:none;
+    padding:10px;
+    border-radius:8px;
+    color:white;
+    width:100%;
+    cursor:pointer;
+}
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-box{
+    background:#1e293b;
+    padding:20px;
+    border-radius:12px;
+    width:350px;
+    max-height:90vh;
+    overflow:auto;
+    position:relative;
+}
+
+/* CLOSE BUTTON */
+.close-btn{
+    position:absolute;
+    top:10px;
+    right:15px;
+    font-size:20px;
+    cursor:pointer;
+}
+.close-btn:hover{
+    color:red;
+}
+
+input, textarea{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border-radius:6px;
+    border:none;
+}
+</style>
+
+</head>
+<body>
+
+<div class="header">📚 Ebook Store</div>
+
+<div class="container">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1">
+<div class="card-body">
+<h3>Engineering Maths</h3>
+<p class="price">₹99</p>
+<button onclick="openForm('Engineering Maths')">Buy Now</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1">
+<div class="card-body">
+<h3>Physics Notes</h3>
+<p class="price">₹99</p>
+<button onclick="openForm('Physics Notes')">Buy Now</button>
+</div>
+</div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+<div class="modal-box">
+
+<span class="close-btn" onclick="closeForm()">✖</span>
+
+<h3>🧾 Order Form</h3>
+
+<!-- QR -->
+<div style="text-align:center;">
+    <p>📲 Scan & Pay ₹99</p>
+    <img src="https://anubhav.finance.blog/wp-content/uploads/2026/03/whatsapp-image-2026-03-09-at-10.49.05.jpeg?w=592" 
+         style="width:200px;border-radius:10px;">
+</div>
+
+<input type="text" id="upi" placeholder="UPI Transaction ID (required)">
+<input type="text" id="name" placeholder="Name (required)">
+<input type="email" id="email" placeholder="Email (required)">
+
+<label>Phone-1 🇮🇳 +91</label>
+<input type="tel" id="phone1">
+
+<label>Phone-2 🇮🇳 +91</label>
+<input type="tel" id="phone2">
+
+<input type="text" id="book" placeholder="Book Name">
+
+<textarea id="message" placeholder="Message"></textarea>
+
+<textarea id="address" placeholder="Address (required)"></textarea>
+
+<input type="text" id="pincode" placeholder="Pincode (required)">
+
+<button onclick="submitOrder()">Place Order</button>
+
+</div>
+</div>
+
+<script>
+
+<script>
+
 let selectedBook="";
 
 function openForm(book){
@@ -199,25 +383,51 @@ window.onclick = function(e){
     }
 }
 
-function submitOrder(){
+async function submitOrder(){
 
-    let upi = document.getElementById("upi").value;
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let phone1 = document.getElementById("phone1").value;
-    let address = document.getElementById("address").value;
-    let pincode = document.getElementById("pincode").value;
+    let data = {
+        upi: document.getElementById("upi").value,
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone1: document.getElementById("phone1").value,
+        phone2: document.getElementById("phone2").value,
+        book: document.getElementById("book").value,
+        message: document.getElementById("message").value,
+        address: document.getElementById("address").value,
+        pincode: document.getElementById("pincode").value
+    };
 
-    if(!upi || !name || !email || !phone1 || !address || !pincode){
+    if(!data.upi || !data.name || !data.email || !data.phone1 || !data.address || !data.pincode){
         alert("⚠️ Please fill all required fields");
         return;
     }
 
-    alert("✅ Order Submitted Successfully!");
+    try{
+        let res = await fetch("http://localhost:5000/order",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body: JSON.stringify(data)
+        });
 
-    // OPEN PDF
-    window.location.href = "https://drive.google.com/file/d/1Rf0MKJ4Z-zbaC5qr8mdVMrOL9TAelDdH/view?usp=drivesdk";
+        let result = await res.json();
+
+        if(result.status === "ok"){
+            alert("✅ Your order is under process. Within 24 hours we will send your book on email.");
+            closeForm();
+        }else{
+            alert("❌ Failed to send order");
+        }
+
+    }catch(err){
+        alert("⚠️ Server not running");
+    }
 }
+
+</script>
+
+
+</body>
+</html>
 
 </script>
 
